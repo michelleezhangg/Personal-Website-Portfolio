@@ -21,7 +21,7 @@ const HeroSection = () => {
             height={200}
             className='rounded-full'
           />
-          <p className='text-black mb-3 mt-8 text-4xl font-black'>{name}</p>
+          <p className='title text-black mb-3 mt-8 text-4xl font-black'>{name}</p>
           <p className='text-black mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap'>{role}</p>
           <div className='grid grid-cols-[75px_1fr]'>
             <p className='text-black text-sm mb-5 font-black'>Phone</p>
@@ -31,7 +31,7 @@ const HeroSection = () => {
           </div>
         </div>
         <div className='p-10 pt-16'>
-          <h1 className='text-black mb-4 text-7xl font-black'>{name}</h1>
+          <h1 className='title text-black mb-4 text-7xl font-black'>{name}</h1>
           <h3 className='text-black text-3xl font-semibold'>{role}</h3>
           <div>
             <button className='px-8 py-1 rounded-full bg-darkblue text-white font-bold border-2 border-darkblue mr-4

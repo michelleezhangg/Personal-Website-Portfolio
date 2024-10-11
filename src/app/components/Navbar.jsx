@@ -10,8 +10,8 @@ const Navbar = () => {
     <nav className='bg-lightblue'>
       <div>
         <Link href={'#'}>
-          <h1 className='text-black mb-4 text-7xl font-black'>{name}</h1>
-          <h3 className='text-black text-3xl font-semibold'>{role}</h3>
+          <h1 className='title text-black mb-4 text-xl font-black'>{name}</h1>
+          <h3 className='text-black text-se font-semibold'>{role}</h3>
         </Link>
       </div>
     </nav>

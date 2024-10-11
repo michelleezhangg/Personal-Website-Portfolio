@@ -20,8 +20,8 @@ body {
   font-family: 'Avenir Light', Arial, Helvetica, sans-serif;
 }
 
-h1 {
-  font-family: 'Poppins', 'Avenir Dark', Arial, Helvetica, sans-serif;
+.title {
+  font-family: 'Poppins Semi Bold', 'Avenir Dark', Arial, Helvetica, sans-serif;
 }
 
 @layer utilities {
