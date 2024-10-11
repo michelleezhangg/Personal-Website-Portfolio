@@ -34,7 +34,6 @@ const HeroSection = () => {
           <h1 className='title mb-4 text-7xl font-black'>{name}</h1>
           <h3 className='text-3xl font-semibold'>{role}</h3>
           <div>
-
             <button className='button blue-button px-8 mr-4'>
               Resume
             </button>

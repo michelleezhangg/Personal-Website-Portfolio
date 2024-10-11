@@ -20,7 +20,8 @@ const Navbar = () => {
           <h1 className='title text-xl font-black pl-5 pb-2'>{name}</h1>
           <h3 className='text-xs font-light pl-5 uppercase'>{role}</h3>
         </Link>
-        <div className='mobile-menu block md:hidden'>
+        {/* Mobile Menu */}
+        <div className='block md:hidden'>
           {!navbarOpen ? (
               <button onClick={() => setNavbarOpen(true)} className='flex items-center px-3 py-1'>
                 <Bars3Icon className='h-8 w-8' />
@@ -31,7 +32,8 @@ const Navbar = () => {
               </button>
           )}
         </div>
-        <div className='menu hidden md:block' id='navbar'>
+        {/* Standard Menu */}
+        <div className='hidden md:block' id='navbar'>
           <ul className='flex p-4 gap-6'>
            {navLinks.map((link, index) => (
               <li key={index}>
