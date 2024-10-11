@@ -2,7 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {}
+:root {
+  --dark-blue: #0050FF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --dark-blue: #0050FF;
+  }
+}
 
 body {
   color: black;
@@ -12,6 +20,43 @@ body {
 
 .title {
   font-family: 'Poppins Semi Bold', 'Avenir Dark', Arial, Helvetica, sans-serif;
+}
+
+.button {
+  border-radius: 9999px;
+  font-weight: 700;
+  border-width: 2px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  transition-property: all;
+  transition-duration: 500ms;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  transition-delay: 150ms;
+}
+
+.blue-button {
+  background-color: var(--dark-blue);
+  color: white;
+  border-color: var(--dark-blue);
+}
+
+.blue-button:hover {
+  background-color: transparent;
+  color: black;
+}
+
+.transparent-button {
+  background-color: transparent;
+  border-color: black;
+}
+
+.transparent-button:hover {
+  background-color: var(--dark-blue);
+  border-color: transparent;
+  color: white;
 }
 
 @layer utilities {
