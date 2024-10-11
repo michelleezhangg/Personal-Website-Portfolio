@@ -13,22 +13,26 @@ const HeroSection = () => {
   return (
     <section className='bg-lightblue mx-18'>
       <div className='flex p-10'>
-        <div className='bg-blue p-10 shadow-xl'>
+        <div className='bg-blue p-10 m-3 shadow-xl flex flex-col items-center'>
           <Image
             src='/images/profile.png'
             alt='hero image'
+            width={200}
+            height={200}
             className='rounded-full'
-            width={175}
-            height={175}
           />
-          <p className='text-black mb-4 text-4xl lg:text-4xl font-extrabold'>{name}</p>
-          <p className='text-black mb-6 text-me lg:text-4xl font-light uppercase'>{role}</p>
-          <p className='text-black text-sm mb-6 lg:text-xl'>Phone Number: {phoneNumber}</p>
-          <p className='text-black text-sm mb-6 lg:text-xl'>Email: {email}</p>
+          <p className='text-black mb-3 mt-8 text-4xl font-black'>{name}</p>
+          <p className='text-black mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap'>{role}</p>
+          <div className='grid grid-cols-[75px_1fr]'>
+            <p className='text-black text-sm mb-5 font-black'>Phone</p>
+            <p className='flex justify-center text-black text-sm mb-5'>{phoneNumber}</p>
+            <p className='text-black text-sm font-black'>Email</p>
+            <p className='flex justify-center text-black text-sm'>{email}</p>
+          </div>
         </div>
         <div className='p-10 pt-16'>
-          <h1 className='text-black mb-4 text-4xl lg:text-7xl font-black'>{name}</h1>
-          <h3 className='text-black text-lg lg:text-3xl font-semibold'>{role}</h3>
+          <h1 className='text-black mb-4 text-7xl font-black'>{name}</h1>
+          <h3 className='text-black text-3xl font-semibold'>{role}</h3>
           <div>
             <button className='px-8 py-1 rounded-full bg-darkblue text-white font-bold border-2 border-darkblue mr-4
             hover:bg-white hover:text-black transition-all duration-500 hover:delay-150 uppercase text-me'>
@@ -39,8 +43,8 @@ const HeroSection = () => {
               Projects
             </button>
           </div>
-          <p className='text-black text-me mb-6 lg:text-xl'>{bioIntro}</p>
-          <p className='text-black text-me mb-6 lg:text-xl'>{bioBackground}</p>
+          <p className='text-black text-xl mb-6'>{bioIntro}</p>
+          <p className='text-black text-xl mb-6'>{bioBackground}</p>
         </div>
       </div>
     </section>
