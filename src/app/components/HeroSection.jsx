@@ -38,7 +38,7 @@ const HeroSection = () => {
             hover:bg-white hover:text-black transition-all duration-500 hover:delay-150 uppercase text-me'>
               Resume
             </button>
-            <button className='px-6 py-1 rounded-full bg-transparent font-bold border-2 border-black my-8 
+            <button className='px-6 py-1 rounded-full bg-transparent font-bold border-2 border-black my-8
             hover:bg-darkblue hover:text-white hover:border-transparent transition-all duration-500 hover:delay-150 uppercase'>
               Projects
             </button>

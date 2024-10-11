@@ -9,8 +9,22 @@ export const BIO_BACKGROUND = 'I have a background in Full-Stack Developing, Web
 export const PHONE_NUMBER = '(949) 466-3855';
 export const EMAIL = 'michelleeeezhangggg@gmail.com';
 
-// Navbar Constants
-export const NAV_HOME = 'Home';
-export const NAV_ABOUT_ME = 'About Me';
-export const NAV_PROJECTS = 'Projects';
-export const NAV_CONTACT_ME = 'Contact Me';
+// NavLinks
+export const navLinks = [
+  {
+    title: 'Home',
+    path: '#'
+  },
+  {
+    title: 'About Me',
+    path: '#about'
+  },
+  {
+    title: 'Projects',
+    path: '#projects'
+  },
+  {
+    title: 'Contact Me',
+    path: '#contact'
+  },
+]
