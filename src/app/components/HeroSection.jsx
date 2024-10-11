@@ -4,14 +4,14 @@ import Image from 'next/image';
 const HeroSection = () => {
   const name = 'Michelle Zhang';
   const role = 'Software Engineer';
-  const bioIntro = `Hey there! My name is Michelle Zhang and I am a software engiener!
+  const bioIntro = `Hey there! My name is Michelle Zhang and I am a software engineer!
     I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`;
   const bioBackground = 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.';
   const phoneNumber = '(949) 466-3855';
   const email = 'michelleeeezhangggg@gmail.com';
 
   return (
-    <section className='bg-lightblue'>
+    <section className='bg-lightblue mx-18'>
       <div className='flex p-10'>
         <div className='bg-blue p-10 shadow-xl'>
           <Image
@@ -26,15 +26,10 @@ const HeroSection = () => {
           <p className='text-black text-sm mb-6 lg:text-xl'>Phone Number: {phoneNumber}</p>
           <p className='text-black text-sm mb-6 lg:text-xl'>Email: {email}</p>
         </div>
-        <div className='p-10'>
-          <h1 className='text-black mb-4 text-4xl lg:text-6xl font-extrabold'>{name}</h1>
-          <h3 className='text-black mb-6 text-lg lg:text-4xl font-semibold'>{role}</h3>
+        <div className='p-10 pt-16'>
+          <h1 className='text-black mb-4 text-4xl lg:text-7xl font-black'>{name}</h1>
+          <h3 className='text-black text-lg lg:text-3xl font-semibold'>{role}</h3>
           <div>
-            {/* 
-            [] hover transition smoother
-            [] make text smaller
-            [] make text bolder
-             */}
             <button className='px-8 py-1 rounded-full bg-darkblue text-white font-bold border-2 border-darkblue mr-4
             hover:bg-white hover:text-black transition-all duration-500 hover:delay-150 uppercase text-me'>
               Resume
