@@ -10,7 +10,7 @@ export const PHONE_NUMBER = '(949) 466-3855';
 export const EMAIL = 'michelleeeezhangggg@gmail.com';
 
 // NavLinks
-export const navLinks = [
+export const NAV_LINKS = [
   {
     title: 'Home',
     path: '#'
