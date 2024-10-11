@@ -2,6 +2,9 @@ import Image from "next/image";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
 import AboutMeSection from "./components/AboutMeSection";
+import Projects from "./components/Projects";
+import ContactMeSection from "./components/ContactMeSection";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -10,7 +13,10 @@ export default function Home() {
       <div className='grid grid-rows-2 gap-20 mx-auto px-12 py-12'>
         <HeroSection />
         <AboutMeSection/>
+        <Projects />
+        <ContactMeSection />
       </div>
+      <Footer />
     </main>
   );
 }

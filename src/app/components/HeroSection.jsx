@@ -7,7 +7,7 @@ import {
   BIO_BACKGROUND as bioBackground,
   PHONE_NUMBER as phoneNumber,
   EMAIL as email,
-} from '../constants';
+} from '../constants/constants';
 
 const HeroSection = () => {
   return (

@@ -9,8 +9,18 @@ const AboutMeSection = () => {
           Resume
         </button>
       </div>
-      <div className='grid grid-rows-5'>
-      </div>
+      <section className='grid grid-rows-5 bg-white'>
+        {/* Education */}
+        <div className=''>
+          Education
+        </div>
+        <div className=''>
+          Professional Experience
+        </div>
+        <div className=''>
+          About Me
+        </div>
+      </section>
     </section>
   );
 }

@@ -8,7 +8,7 @@ import {
   NAME as name,
   ROLE as role,
   NAV_LINKS as navLinks,
-} from '../constants';
+} from '../constants/constants';
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
