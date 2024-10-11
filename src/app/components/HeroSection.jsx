@@ -21,30 +21,30 @@ const HeroSection = () => {
             height={200}
             className='rounded-full'
           />
-          <p className='title text-black mb-3 mt-8 text-4xl font-black'>{name}</p>
-          <p className='text-black mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap'>{role}</p>
+          <p className='titlemb-3 mt-8 text-4xl font-black'>{name}</p>
+          <p className='mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap'>{role}</p>
           <div className='grid grid-cols-[75px_1fr]'>
-            <p className='text-black text-sm mb-5 font-black'>Phone</p>
-            <p className='flex justify-center text-black text-sm mb-5'>{phoneNumber}</p>
-            <p className='text-black text-sm font-black'>Email</p>
-            <p className='flex justify-center text-black text-sm'>{email}</p>
+            <p className='text-sm mb-5 font-black'>Phone</p>
+            <p className='flex justify-center text-sm mb-5'>{phoneNumber}</p>
+            <p className='text-sm font-black'>Email</p>
+            <p className='flex justify-center text-sm'>{email}</p>
           </div>
         </div>
         <div className='p-10 pt-16'>
-          <h1 className='title text-black mb-4 text-7xl font-black'>{name}</h1>
-          <h3 className='text-black text-3xl font-semibold'>{role}</h3>
+          <h1 className='title mb-4 text-7xl font-black'>{name}</h1>
+          <h3 className='text-3xl font-semibold'>{role}</h3>
           <div>
             <button className='px-8 py-1 rounded-full bg-darkblue text-white font-bold border-2 border-darkblue mr-4
             hover:bg-white hover:text-black transition-all duration-500 hover:delay-150 uppercase text-me'>
               Resume
             </button>
-            <button className='px-6 py-1 rounded-full bg-transparent text-black font-bold border-2 border-black my-8 
+            <button className='px-6 py-1 rounded-full bg-transparent font-bold border-2 border-black my-8 
             hover:bg-darkblue hover:text-white hover:border-transparent transition-all duration-500 hover:delay-150 uppercase'>
               Projects
             </button>
           </div>
-          <p className='text-black text-xl mb-6'>{bioIntro}</p>
-          <p className='text-black text-xl mb-6'>{bioBackground}</p>
+          <p className='text-xl mb-6'>{bioIntro}</p>
+          <p className='text-xl mb-6'>{bioBackground}</p>
         </div>
       </div>
     </section>
