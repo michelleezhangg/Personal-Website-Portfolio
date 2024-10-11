@@ -1,15 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
+import {
+  NAME as name,
+  ROLE as role,
+  BIO_INTRO as bioIntro,
+  BIO_BACKGROUND as bioBackground,
+  PHONE_NUMBER as phoneNumber,
+  EMAIL as email,
+} from '../constants';
 
 const HeroSection = () => {
-  const name = 'Michelle Zhang';
-  const role = 'Software Engineer';
-  const bioIntro = `Hey there! My name is Michelle Zhang and I am a software engineer!
-    I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`;
-  const bioBackground = 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.';
-  const phoneNumber = '(949) 466-3855';
-  const email = 'michelleeeezhangggg@gmail.com';
-
   return (
     <section className='bg-lightblue mx-18'>
       <div className='flex p-10'>
