@@ -11,7 +11,7 @@ import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
 
 const ContactMeSection = () => {
   return (
-    <section className='bg-lightblue'>
+    <section id='contact-me' className='bg-lightblue'>
       {/* Section Title */}
       <div className='flex flex-col items-center'>
         <h1 className='title text-6xl pt-20 font-black'>Contact Me</h1>

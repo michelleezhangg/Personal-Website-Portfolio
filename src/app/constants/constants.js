@@ -21,7 +21,7 @@ export const NAV_LINKS = [
   },
   {
     title: 'About Me',
-    path: '#about'
+    path: '#about-me'
   },
   {
     title: 'Projects',
@@ -29,7 +29,7 @@ export const NAV_LINKS = [
   },
   {
     title: 'Contact Me',
-    path: '#contact'
+    path: '#contact-me'
   },
 ];
 

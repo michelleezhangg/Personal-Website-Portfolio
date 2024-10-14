@@ -10,7 +10,7 @@ const Footer = () => {
           <h1 className='title text-xl font-black pl-5 pb-2'>{NAME}</h1>
           <h3 className='text-xs font-light pl-5 uppercase'>{ROLE}</h3>
         </Link>
-        <p className='ml-auto mt-auto'>{COPYRIGHT}</p>
+        <p className='ml-auto mt-auto text-slate-400'>{COPYRIGHT}</p>
       </div>
     </footer>
   );
