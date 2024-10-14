@@ -1,4 +1,5 @@
-import React from 'react';
+"use client";
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
@@ -10,6 +11,39 @@ import InstagramIcon from '../../../public/assets/instagram-icon.svg';
 import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
 
 const ContactMeSection = () => {
+  const [emailSubmitted, setEmailSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // page doesn't reload when form is submitted
+    const data = {
+      email: e.target.email.value,
+      subject: e.target.subject.value,
+      message: e.target.message.value,
+    }
+
+    const JSONdata = JSON.stringify(data);
+    const endpoint = '/api/send';
+
+    // Request for sending data to the server
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSONdata,
+    }
+
+    // Retrieve response
+    const response = await fetch(endpoint, options);
+    const resData = await response.json();
+    console.log(resData);
+
+    if (resData.status === 200) {
+      console.log('Message sent.');
+      setEmailSubmitted(true);
+    }
+  }
+
   return (
     <section id='contact-me' className='bg-lightblue'>
       {/* Section Title */}
@@ -50,7 +84,7 @@ const ContactMeSection = () => {
         </div>
         {/* Right Side: Submission Form */}
         <div>
-            <form className='flex flex-col gap-2'>
+            <form className='flex flex-col gap-2' onSubmit={handleSubmit}>
               <div className='mb-6'>
                 <label
                   htmlFor='email'
@@ -60,6 +94,7 @@ const ContactMeSection = () => {
                   Email
                 </label>
                 <input
+                  name='email'
                   type='email'
                   id='email'
                   required
@@ -75,6 +110,7 @@ const ContactMeSection = () => {
                   Subject
                 </label>
                 <input
+                  name='subject'
                   type='text'
                   id='subject'
                   required
@@ -90,6 +126,7 @@ const ContactMeSection = () => {
                   Message
                 </label>
                 <input
+                  name='message'
                   type='message'
                   id='message'
                   required
@@ -103,6 +140,14 @@ const ContactMeSection = () => {
               >
                 Send Message
               </button>
+              {
+                // If email was submitted successfully, show success message
+                emailSubmitted && (
+                  <p className='text-green-500 text-sm mt-2'>
+                    Email sent successfully!
+                  </p>
+                )
+              }
             </form>
           </div>
       </section>

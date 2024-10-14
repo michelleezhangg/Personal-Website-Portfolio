@@ -372,3 +372,5 @@ export const CONNECT_BIO = 'Feel free to reach out to me through my socials or t
 export const EMAIL_PLACEHOLDER = 'michelle@google.com';
 export const SUBJECT_PLACEHOLDER = 'Just saying hi';
 export const MESSAGE_PLACEHOLDER = "Let's talk about...";
+export const THANK_YOU_MESSAGE = 'Thank you for contacting me!';
+export const SUBMISSION_CONFIRMATION = 'New message submitted!';
