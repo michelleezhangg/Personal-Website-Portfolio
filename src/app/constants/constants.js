@@ -1,6 +1,9 @@
 /* Global Constants */
 export const NAME = 'Michelle Zhang';
 export const ROLE = 'Software Engineer';
+export const LINKEDIN_LINK = 'https://www.linkedin.com/in/michelleezhangg';
+export const INSTAGRAM_LINK = 'https://www.instagram.com/michellee.zhangg/';
+export const GITHUB_LINK = 'https://github.com/michelleezhangg';
 
 /* Hero Section Constants */
 export const BIO_INTRO = `Hey there! My name is Michelle Zhang and I am a software engineer!
@@ -234,7 +237,7 @@ export const INTERESTS = [
   'Data Science (Artificial Intelligence, Machine Learning',
 ];
 
-/* Projects */
+/* Projects Constants */
 // TODO: finish filling in all projects data
 export const PROJECTS = [
   {
@@ -362,3 +365,9 @@ export const PROJECTS = [
     bullet_points: [],
   },
 ];
+
+/* Contact Me Constants */
+export const CONNECT_BIO = 'Feel free to reach out to me through my socials or this contact form!';
+export const EMAIL_PLACEHOLDER = 'michelle@google.com';
+export const SUBJECT_PLACEHOLDER = 'Just saying hi';
+export const MESSAGE_PLACEHOLDER = "Let's talk about...";

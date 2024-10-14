@@ -14,9 +14,11 @@ const AboutMeSection = () => {
         <div className=''>
           Education
         </div>
+        {/* Professional Experience */}
         <div className=''>
           Professional Experience
         </div>
+        {/* About Me */}
         <div className=''>
           About Me
         </div>
