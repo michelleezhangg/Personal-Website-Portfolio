@@ -4,6 +4,7 @@ export const ROLE = 'Software Engineer';
 export const LINKEDIN_LINK = 'https://www.linkedin.com/in/michelleezhangg';
 export const INSTAGRAM_LINK = 'https://www.instagram.com/michellee.zhangg/';
 export const GITHUB_LINK = 'https://github.com/michelleezhangg';
+export const COPYRIGHT = 'All rights reserved.';
 
 /* Hero Section Constants */
 export const BIO_INTRO = `Hey there! My name is Michelle Zhang and I am a software engineer!
