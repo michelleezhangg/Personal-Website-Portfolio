@@ -22,7 +22,7 @@ const HeroSection = () => {
             height={200}
             className='rounded-full'
           />
-          <p className='title mb-3 mt-8 text-4xl font-black'>{NAME}</p>
+          <p className='title mb-3 mt-8 text-4xl'>{NAME}</p>
           <p className='mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap'>{ROLE}</p>
           <div className='grid grid-cols-[75px_1fr]'>
             <p className='text-sm mb-5 font-black'>Phone</p>
@@ -59,7 +59,7 @@ const HeroSection = () => {
         </div>
         {/* Right Side: Introduction Card */}
         <div className='p-10 pt-16'>
-          <h1 className='title mb-4 text-7xl font-black'>{NAME}</h1>
+          <h1 className='title mb-4 text-7xl'>{NAME}</h1>
           <h3 className='text-3xl font-semibold'>{ROLE}</h3>
           <div>
             <button className='button blue-button px-8 mr-4'>

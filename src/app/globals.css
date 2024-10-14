@@ -12,16 +12,53 @@
   }
 }
 
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
 body {
   color: black;
   background: white;
   font-family: 'Avenir Light', Arial, Helvetica, sans-serif;
 }
 
+/* Headings and Titles */
 .title {
   font-family: 'Poppins Semi Bold', 'Avenir Dark', Arial, Helvetica, sans-serif;
+  font-weight: 900;
 }
 
+.section-heading {
+  font-size: 30px;
+  line-height: 36px;
+  padding-bottom: 36px;
+}
+
+.box-heading {
+  color: var(--dark-blue);
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.box-subheading {
+  
+}
+
+/* Section Boxes */
+.section-group {
+  padding-top: 80px;
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+.section-box {
+  background-color: #fff;
+  padding: 40px;
+}
+
+/* Buttons */
 .button {
   border-radius: 9999px;
   font-weight: 700;
@@ -59,12 +96,7 @@ body {
   color: white;
 }
 
+/* Testing */
 .test {
   border: 1px solid red;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
 }

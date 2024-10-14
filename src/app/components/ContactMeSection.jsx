@@ -48,7 +48,7 @@ const ContactMeSection = () => {
     <section id='contact-me' className='bg-lightblue'>
       {/* Section Title */}
       <div className='flex flex-col items-center'>
-        <h1 className='title text-6xl pt-20 font-black'>Contact Me</h1>
+        <h1 className='title text-6xl pt-20'>Contact Me</h1>
       </div>
       <section className='grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4'>
         {/* Left Side: Section Text and Socials */}

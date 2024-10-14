@@ -35,16 +35,14 @@ export const NAV_LINKS = [
 
 /* About Me Constants */
 // Education
-export const UNIVERSITY_NAME = 'Chapman University';
-export const MAJOR = 'B.S. in Computer Science';
-export const MINOR = 'Data Analytics Minor';
-export const SCHOLARSHIP = 'Hesperian Scholarship';
-export const GRADUATION = 'May 2024';
-export const GPA = '3.7';
-
-export const RELEVANT_COURSEWORK = [
-  {
-    discipline: 'Software Engineering',
+export const EDUCATION = {
+  university: 'Chapman University',
+  major: 'B.S. in Computer Science',
+  minor: 'Data Analytics Minor',
+  scholarship: 'Hesperian Scholarship',
+  graduation: 'May 2024',
+  gpa: '3.7',
+  relevant_coursework: {
     courses: [
       'Data Structures and Algorithms',
       'Data Communications and Computer Networks',
@@ -59,21 +57,16 @@ export const RELEVANT_COURSEWORK = [
       'Algorithm Analysis',
       'Computer Graphics',
       'Scientific Computing',
-      'Software Product Management'
-    ],
-  },
-  {
-    discipline: 'Data Analytics',
-    courses: [
+      'Software Product Management',
       'Artificial Intelligence',
       'Intro to Data Science',
       'Statistical Methods in Business Analytics',
       'Econometrics',
       'Machine Learning',
-      'Applied Business Analytics'
-    ],
+      'Applied Business Analytics',
+    ]
   },
-];
+};
 
 export const ORGANIZATIONS = [
   'Alpha Kappa Psi (Professional Business Fraternity)',

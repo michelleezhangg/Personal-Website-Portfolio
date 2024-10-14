@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className='bg-lightblue sticky top-0'>
       <div className='flex flex-wrap items-center justify-between'>
         <Link href={'#'}>
-          <h1 className='title text-xl font-black pl-5 pb-2'>{NAME}</h1>
+          <h1 className='title text-xl pl-5 pb-2'>{NAME}</h1>
           <h3 className='text-xs font-light pl-5 uppercase'>{ROLE}</h3>
         </Link>
         {/* Mobile Menu */}
