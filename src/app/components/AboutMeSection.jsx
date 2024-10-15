@@ -1,7 +1,7 @@
 import React from 'react';
 import ToolListItem from './ToolListItem';
 import ExperienceItem from './ExperienceItem';
-import { EDUCATION, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
+import { EDUCATION, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
 // import ChapmanLogo from '../../../public/assets/chapman-logo.svg';
 
 const AboutMeSection = () => {
@@ -113,7 +113,7 @@ const AboutMeSection = () => {
           </div>
         </div>
         {/* Professional Experience */}
-        <div className='section'>
+        <div className='section -mb-20'>
             <h2 className='title section-heading'>
               Professional Experience
             </h2>
@@ -130,12 +130,21 @@ const AboutMeSection = () => {
             ))}
         </div>
         {/* About Me */}
-        <div className='section'>
-         <h2 className='title section-heading'>
+        <div className='section pb-20'>
+          <h2 className='title section-heading'>
             About Me
           </h2>
           <div className='section-box'>
-            About Me Section
+            <h3 className='title box-heading'>
+              Languages
+            </h3>
+            <ul className='pt-4 grid grid-rows-3 gris-flow-col'>
+              {LANGUAGES.map((language_item, index) => (
+                <li key={index} className='py-2'>
+                  {`${language_item.language} (${language_item.fluency})`}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
