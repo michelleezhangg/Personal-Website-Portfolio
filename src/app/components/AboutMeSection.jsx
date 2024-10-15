@@ -1,6 +1,8 @@
 import React from 'react';
 import ToolListItem from './ToolListItem';
-import { EDUCATION } from '../constants/constants';
+import ExperienceItem from './ExperienceItem';
+import { EDUCATION, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
+// import ChapmanLogo from '../../../public/assets/chapman-logo.svg';
 
 const AboutMeSection = () => {
   return (
@@ -31,6 +33,13 @@ const AboutMeSection = () => {
                 Graduation: <strong>{EDUCATION.graduation}</strong>
               </p>
               <p>GPA: <strong>{EDUCATION.gpa}</strong></p>
+              {/* <Image
+                src={ChapmanLogo}
+                alt='Chapman Logo'
+                className='text-sm font-semibold'
+                width={40}
+                height={40}
+              /> */}
             </div>
             <div>
               <h3 className='title'>
@@ -105,12 +114,20 @@ const AboutMeSection = () => {
         </div>
         {/* Professional Experience */}
         <div className='section'>
-          <h2 className='title section-heading'>
-            Professional Experience
-          </h2>
-          <div className='section-box'>
-            Professional Experience Section
-          </div>
+            <h2 className='title section-heading'>
+              Professional Experience
+            </h2>
+            {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
+              <ExperienceItem
+                key={index}
+                company={experience.company}
+                position={experience.position}
+                location={experience.location}
+                date={experience.date}
+                logo={experience.logo}
+                {...experience.bullet_points}
+              />
+            ))}
         </div>
         {/* About Me */}
         <div className='section'>

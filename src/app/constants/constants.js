@@ -171,12 +171,12 @@ export const LANGUAGES = [
 ];
 
 // Profesional Experience
-const PROFESSIONAL_EXPERIENCE = [
+export const PROFESSIONAL_EXPERIENCE = [
   {
     company: 'Warner Bros. Discovery',
     position: 'Software Engineering Intern',
     location: 'Bellevue, WA',
-    date: 'June 2023 - August 2023',
+    date: 'Jun 2023 - Aug 2023',
     logo: '/',
     bullet_points: [
       'Developed a full-stack dashboard for TNT Sports developers to effectively monitor the health of 11 TNT channels',
@@ -189,7 +189,7 @@ const PROFESSIONAL_EXPERIENCE = [
     company: 'Fu11 Mart Inc.',
     position: 'Full-Stack Software Engineering Intern',
     location: 'Frisco, TX',
-    date: 'July 2022 - November 2022',
+    date: 'Jul 2022 - Nov 2022',
     logo: '/',
     bullet_points: [
       'Developed a full-stack ecommerce and company website to increase company revenue and expand customer target audience to national and international scales',
@@ -201,7 +201,7 @@ const PROFESSIONAL_EXPERIENCE = [
     company: 'TheCoderSchool',
     position: 'Code Coach',
     location: 'La Palma',
-    date: 'February 2022 - July 2022',
+    date: 'Feb 2022 - Jul 2022',
     logo: '/',
     bullet_points: [
       'Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students',
