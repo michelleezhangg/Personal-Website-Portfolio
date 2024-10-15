@@ -1,7 +1,7 @@
 import React from 'react';
 import ToolListItem from './ToolListItem';
 import ExperienceItem from './ExperienceItem';
-import { EDUCATION, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
+import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
 // import ChapmanLogo from '../../../public/assets/chapman-logo.svg';
 
 const AboutMeSection = () => {
@@ -114,27 +114,28 @@ const AboutMeSection = () => {
         </div>
         {/* Professional Experience */}
         <div className='section -mb-20'>
-            <h2 className='title section-heading'>
-              Professional Experience
-            </h2>
-            {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
-              <ExperienceItem
-                key={index}
-                company={experience.company}
-                position={experience.position}
-                location={experience.location}
-                date={experience.date}
-                logo={experience.logo}
-                {...experience.bullet_points}
-              />
-            ))}
+          <h2 className='title section-heading'>
+            Professional Experience
+          </h2>
+          {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
+            <ExperienceItem
+              key={index}
+              company={experience.company}
+              position={experience.position}
+              location={experience.location}
+              date={experience.date}
+              logo={experience.logo}
+              {...experience.bullet_points}
+            />
+          ))}
         </div>
         {/* About Me */}
         <div className='section pb-20'>
           <h2 className='title section-heading'>
             About Me
           </h2>
-          <div className='section-box'>
+          {/* About Me: Languages */}
+          <div className='section-box my-10'>
             <h3 className='title box-heading'>
               Languages
             </h3>
@@ -142,6 +143,19 @@ const AboutMeSection = () => {
               {LANGUAGES.map((language_item, index) => (
                 <li key={index} className='py-2'>
                   {`${language_item.language} (${language_item.fluency})`}
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* About Me: Interests */}
+          <div className='section-box my-10'>
+            <h3 className='title box-heading'>
+              Interests
+            </h3>
+            <ul className='pt-4'>
+              {INTERESTS.map((interest, index) => (
+                <li key={index} className='text-sm py-1'>
+                  {interest}
                 </li>
               ))}
             </ul>

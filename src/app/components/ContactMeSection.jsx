@@ -44,7 +44,7 @@ const ContactMeSection = () => {
   }
 
   return (
-    <section id='contact-me' className='bg-lightblue'>
+    <section id='contact-me' className='section bg-lightblue'>
       {/* Section Title */}
       <div className='flex flex-col items-center'>
         <h1 className='title text-6xl pt-20'>Contact Me</h1>

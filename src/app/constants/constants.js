@@ -15,7 +15,6 @@ export const BIO_BACKGROUND = 'I have a background in Full-Stack Developing, Web
 export const PHONE_NUMBER = '(949) 466-3855';
 export const EMAIL = 'michelleeeezhangggg@gmail.com';
 
-// NavLinks
 export const NAV_LINKS = [
   {
     title: 'Home',
@@ -36,7 +35,6 @@ export const NAV_LINKS = [
 ];
 
 /* About Me Constants */
-// Education
 export const EDUCATION = {
   university: 'Chapman University',
   major: 'B.S. in Computer Science',
@@ -170,7 +168,15 @@ export const LANGUAGES = [
   },
 ];
 
-// Profesional Experience
+export const INTERESTS = [
+  'Music (Piano, Guitar, Singing)',
+  'Film/Television',
+  'Fitness',
+  'Writing',
+  'Traveling',
+  'Artificial Intelligence (AI)',
+];
+
 export const PROFESSIONAL_EXPERIENCE = [
   {
     company: 'Warner Bros. Discovery',
@@ -211,22 +217,12 @@ export const PROFESSIONAL_EXPERIENCE = [
   },
 ];
 
-// About Me
-export const INTERESTS = [
-  'Music (Piano, Guitar, Singing)',
-  'Film/Television',
-  'Fitness',
-  'Writing',
-  'Traveling',
-  'Data Science (Artificial Intelligence, Machine Learning',
-];
-
 /* Projects Constants */
 // TODO: finish filling in all projects data
 export const PROJECTS = [
   {
-    title: 'Personal Portfolio Website',
-    date: 'Sep 2024 - Oct 2024',
+    title: 'Personal Website Portfolio',
+    date: 'Sep 2024 - Present',
     location: 'West Covina, CA',
     links: [
       {

@@ -65,7 +65,7 @@ const HeroSection = () => {
             <button className='button blue-button px-8 mr-4'>
               Resume
             </button>
-            <button className='button transparent-button px-6 my-8'>
+            <button href='#projects' className='button transparent-button px-6 my-8'>
               Projects
             </button>
           </div>
