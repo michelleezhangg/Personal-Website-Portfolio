@@ -135,14 +135,14 @@ const ContactMeSection = () => {
               </div>
               <button
                 type='submit'
-                className='button blue-button'
+                className='button blue-button max-w-fit px-8'
               >
                 Send Message
               </button>
               {
                 // If email was submitted successfully, show success message
                 emailSubmitted && (
-                  <p className='text-green-500 text-sm mt-2'>
+                  <p className='text-green-500 mt-2'>
                     Email sent successfully!
                   </p>
                 )
