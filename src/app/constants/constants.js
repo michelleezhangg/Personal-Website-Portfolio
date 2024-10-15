@@ -1,9 +1,11 @@
 /* Global Constants */
 export const NAME = 'Michelle Zhang';
 export const ROLE = 'Software Engineer';
-export const LINKEDIN_LINK = 'https://www.linkedin.com/in/michelleezhangg';
-export const INSTAGRAM_LINK = 'https://www.instagram.com/michellee.zhangg/';
-export const GITHUB_LINK = 'https://github.com/michelleezhangg';
+export const LINKS = {
+  linkedin: 'https://www.linkedin.com/in/michelleezhangg',
+  instagram: 'https://www.instagram.com/michellee.zhangg/',
+  github: 'https://github.com/michelleezhangg',
+};
 export const COPYRIGHT = 'All rights reserved.';
 
 /* Hero Section Constants */
@@ -42,128 +44,116 @@ export const EDUCATION = {
   scholarship: 'Hesperian Scholarship',
   graduation: 'May 2024',
   gpa: '3.7',
-  relevant_coursework: {
-    courses: [
-      'Data Structures and Algorithms',
-      'Data Communications and Computer Networks',
-      'Object-Oriented Programming',
-      'Intro to Unix/Linux',
-      'Operating Systems',
-      'Web Engineering',
-      'Digital Logic Design',
-      'Blockchain Technology and Smart Contracts',
-      'Programming Languages',
-      'Computer Architecture',
-      'Algorithm Analysis',
-      'Computer Graphics',
-      'Scientific Computing',
-      'Software Product Management',
-      'Artificial Intelligence',
-      'Intro to Data Science',
-      'Statistical Methods in Business Analytics',
-      'Econometrics',
-      'Machine Learning',
-      'Applied Business Analytics',
-    ]
-  },
-};
-
-export const ORGANIZATIONS = [
-  'Alpha Kappa Psi (Professional Business Fraternity)',
-  'SPIRE Mentorship Program',
-  'Gamma Beta Phi Honors Society',
-  'National Soceity of Collegiate Scholars (NSCS)',
-  'Girls Who Code',
-  'Nikkei Student Union (NSU)',
-];
-
-export const PROGRAMMING_LANGUAGES = [
-  {
-    level: 'Proficient',
-    languages: [
+  icon_link: '/', // TODO: Chapman logo
+  relevant_coursework: [
+    'Data Structures and Algorithms',
+    'Data Communications and Computer Networks',
+    'Object-Oriented Programming',
+    'Intro to Unix/Linux',
+    'Operating Systems',
+    'Web Engineering',
+    'Digital Logic Design',
+    'Blockchain Technology and Smart Contracts',
+    'Programming Languages',
+    'Computer Architecture',
+    'Algorithm Analysis',
+    'Computer Graphics',
+    'Scientific Computing',
+    'Software Product Management',
+    'Artificial Intelligence',
+    'Intro to Data Science',
+    'Statistical Methods in Business Analytics',
+    'Econometrics',
+    'Machine Learning',
+    'Applied Business Analytics',
+  ],
+  organizations: [
+    'Alpha Kappa Psi (Professional Business Fraternity)',
+    'SPIRE Mentorship Program',
+    'Gamma Beta Phi Honors Society',
+    'National Soceity of Collegiate Scholars (NSCS)',
+  ],
+  programming_languages: { // TODO: update with icons
+    proficient: [
       {
         name: 'Python',
-        image: '/',
+        icon: '../../public/assets/python-icon.svg',
       },
       {
         name: 'C/C++',
-        image: '/',
+        icon: '../../public/assets/c-cplusplus-icon.svg',
       },
       {
         name: 'Java',
-        image: '/',
+        icon: '../../public/assets/java-icon.svg',
       },
-    ]
-  },
-  {
-    level: 'Familiar',
-    languages: [
+    ],
+    familiar: [
       {
         name: 'HTML5/CSS3',
-        image: '/',
+        icon: '../../public/assets/html-css-icon.svg',
       },
       {
         name: 'Javascript/Typescript',
-        image: '/',
+        icon: '../../public/assets/javascript-typescript-icon.svg',
       },
       {
         name: 'React.js',
-        image: '/'
+        icon: '../../public/assets/react-icon.svg',
       },
       {
         name: 'SQL',
-        image: '/',
+        icon: '../../public/assets/sql-icon.svg',
       },
-    ]
+    ],
   },
-];
-
-export const TECHNICAL_SKILLS = [
-  {
-    name: 'Git',
-    image: '/',
-  },
-  {
-    name: 'GitHub',
-    image: '/',
-  },
-  {
-    name: 'VSCode',
-    image: '/',
-  },
-  {
-    name: 'Jupyter Notebook',
-    image: '/',
-  },
-  {
-    name: 'Unix/Linux',
-    image: '/',
-  },
-  {
-    name: 'Docker',
-    image: '/',
-  },
-  {
-    name: 'Jenkins',
-    image: '/',
-  },
-  {
-    name: 'Microsoft Excel',
-    image: '/',
-  },
-  {
-    name: 'Firebase',
-    image: '/',
-  },
-  {
-    name: 'Arduino',
-    image: '/',
-  },
-  {
-    name: 'AWS',
-    image: '/',
-  },
-];
+  technical_skills: [ // TODO: update with icons
+    {
+      name: 'Git',
+      icon: '../../public/assets/git-icon.svg',
+    },
+    {
+      name: 'GitHub',
+      icon: '../../public/assets/github-icon.svg',
+    },
+    {
+      name: 'VSCode',
+      icon: '../../public/assets/vscode-icon.svg',
+    },
+    {
+      name: 'Jupyter Notebook',
+      icon: '../../public/assets/jupyter-notebook-icon.svg',
+    },
+    {
+      name: 'Unix/Linux',
+      icon: '../../public/assets/unix-linux-icon.svg',
+    },
+    {
+      name: 'Docker',
+      icon: '../../public/assets/docker-icon.svg',
+    },
+    {
+      name: 'Jenkins',
+      icon: '../../public/assets/jenkins-icon.svg',
+    },
+    {
+      name: 'Microsoft Excel',
+      icon: '../../public/assets/excel-icon.svg',
+    },
+    {
+      name: 'Firebase',
+      icon: '../../public/assets/firebase-icon.svg',
+    },
+    {
+      name: 'Arduino',
+      icon: '../../public/assets/arduino-icon.svg',
+    },
+    {
+      name: 'AWS',
+      icon: '../../public/assets/aws-icon.svg',
+    },
+  ],
+};
 
 export const LANGUAGES = [
   {

@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {
-  LINKEDIN_LINK, INSTAGRAM_LINK, GITHUB_LINK,
-  CONNECT_BIO, EMAIL_PLACEHOLDER, SUBJECT_PLACEHOLDER, MESSAGE_PLACEHOLDER,
+  LINKS, CONNECT_BIO, EMAIL_PLACEHOLDER, SUBJECT_PLACEHOLDER, MESSAGE_PLACEHOLDER,
 } from '../constants/constants';
 import GithubIcon from '../../../public/assets/github-icon.svg';
 import InstagramIcon from '../../../public/assets/instagram-icon.svg';
@@ -56,7 +55,7 @@ const ContactMeSection = () => {
           <h5 className='text-xl font-bold my-1'>Let's Connect</h5>
           <p className='mb-4 max-w-sm'>{CONNECT_BIO}</p>
           <div className='flex flex-row gap-5 ml-5'>
-            <Link href={LINKEDIN_LINK}>
+            <Link href={LINKS.linkedin}>
               <Image
                 src={LinkedInIcon}
                 alt="LinkedIn Icon"
@@ -64,7 +63,7 @@ const ContactMeSection = () => {
                 height={30}
               />
             </Link>
-            <Link href={GITHUB_LINK}>
+            <Link href={LINKS.github}>
               <Image
                 src={GithubIcon}
                 alt="GitHub Icon"
@@ -72,7 +71,7 @@ const ContactMeSection = () => {
                 height={30}
               />
             </Link>
-            <Link href={INSTAGRAM_LINK}>
+            <Link href={LINKS.instagram}>
               <Image
                 src={InstagramIcon}
                 alt="Instagram Icon"

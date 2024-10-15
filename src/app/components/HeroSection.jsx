@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   NAME, ROLE, BIO_INTRO, BIO_BACKGROUND, PHONE_NUMBER, EMAIL,
-  LINKEDIN_LINK, INSTAGRAM_LINK, GITHUB_LINK,
+  LINKS,
 } from '../constants/constants';
 import GithubIcon from '../../../public/assets/github-icon.svg';
 import InstagramIcon from '../../../public/assets/instagram-icon.svg';
@@ -11,7 +11,7 @@ import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
 
 const HeroSection = () => {
   return (
-    <section className='bg-lightblue mx-18'>
+    <section className='section bg-lightblue'>
       <div className='flex p-10'>
         {/* Left Side: Profile Card */}
         <div className='bg-blue p-10 pb-0 m-3 shadow-xl flex flex-col items-center'>
@@ -31,7 +31,7 @@ const HeroSection = () => {
             <p className='flex justify-center text-sm'>{EMAIL}</p>
           </div>
           <div className='flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center'>
-            <Link href={LINKEDIN_LINK}>
+            <Link href={LINKS.linkedin}>
               <Image
                 src={LinkedInIcon}
                 alt="LinkedIn Icon"
@@ -39,7 +39,7 @@ const HeroSection = () => {
                 height={30}
               />
             </Link>
-            <Link href={GITHUB_LINK}>
+            <Link href={LINKS.github}>
               <Image
                 src={GithubIcon}
                 alt="GitHub Icon"
@@ -47,7 +47,7 @@ const HeroSection = () => {
                 height={30}
               />
             </Link>
-            <Link href={INSTAGRAM_LINK}>
+            <Link href={LINKS.instagram}>
               <Image
                 src={InstagramIcon}
                 alt="Instagram Icon"

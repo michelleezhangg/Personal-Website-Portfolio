@@ -42,15 +42,11 @@ body {
   line-height: 32px;
 }
 
-.box-subheading {
-  
-}
-
 /* Section Boxes */
-.section-group {
+.section {
+  margin-left: 160px;
+  margin-right: 160px;
   padding-top: 80px;
-  padding-left: 120px;
-  padding-right: 120px;
 }
 
 .section-box {
