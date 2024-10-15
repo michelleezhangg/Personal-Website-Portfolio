@@ -1,8 +1,9 @@
 import React from 'react';
+import Image from 'next/image';
 import ToolListItem from './ToolListItem';
 import ExperienceItem from './ExperienceItem';
 import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
-// import ChapmanLogo from '../../../public/assets/chapman-logo.svg';
+import ChapmanLogo from '../../../public/images/chapman-logo.png';
 
 const AboutMeSection = () => {
   return (
@@ -33,13 +34,13 @@ const AboutMeSection = () => {
                 Graduation: <strong>{EDUCATION.graduation}</strong>
               </p>
               <p>GPA: <strong>{EDUCATION.gpa}</strong></p>
-              {/* <Image
+              <Image
                 src={ChapmanLogo}
                 alt='Chapman Logo'
                 className='text-sm font-semibold'
-                width={40}
-                height={40}
-              /> */}
+                width={200}
+                height={200}
+              />
             </div>
             <div>
               <h3 className='title'>
@@ -78,7 +79,7 @@ const AboutMeSection = () => {
               <ul className='pt-4'>
                 {EDUCATION.programming_languages.proficient.map((tool, index) => (
                   <li key={index} className='py-2'>
-                    <ToolListItem name={tool.name} icon={tool.icon} />
+                    <ToolListItem name={tool.name} path={tool.path} />
                   </li>
                 ))}
               </ul>
@@ -90,7 +91,7 @@ const AboutMeSection = () => {
               <ul className='pt-4'>
                 {EDUCATION.programming_languages.familiar.map((tool, index) => (
                   <li key={index} className='py-2'>
-                    <ToolListItem name={tool.name} icon={tool.icon} />
+                    <ToolListItem name={tool.name} path={tool.path} />
                   </li>
                 ))}
               </ul>
@@ -103,10 +104,10 @@ const AboutMeSection = () => {
             <h3 className='title box-heading'>
               Technical Skills
             </h3>
-            <ul className='pt-4 grid grid-rows-5 grid-flow-col'>
+            <ul className='pt-4 grid grid-rows-4 grid-flow-col'>
               {EDUCATION.technical_skills.map((tool, index) => (
                 <li key={index} className='py-2'>
-                  <ToolListItem name={tool.name} icon={tool.icon} />
+                  <ToolListItem name={tool.name} path={tool.path} />
                 </li>
               ))}
             </ul>

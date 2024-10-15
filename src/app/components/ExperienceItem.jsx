@@ -23,10 +23,10 @@ const ExperienceItem = ({
         </p>
         <Image
           src={logo}
-          alt={`${logo} Logo`}
-          className='text-sm font-semibold'
-          width={40}
-          height={40}
+          alt={`${company} Logo`}
+          className='text-sm font-light'
+          width={100}
+          height={100}
         />
       </div>
       <ul className='text-sm list-disc'>

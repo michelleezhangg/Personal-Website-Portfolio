@@ -75,80 +75,68 @@ export const EDUCATION = {
     proficient: [
       {
         name: 'Python',
-        icon: '../../public/assets/python-icon.svg',
+        path: '/assets/python-icon.svg',
       },
       {
         name: 'C/C++',
-        icon: '../../public/assets/c-cplusplus-icon.svg',
+        path: '/assets/c++-icon.svg',
       },
       {
         name: 'Java',
-        icon: '../../public/assets/java-icon.svg',
+        path: '/assets/java-icon.svg',
+      },
+      {
+        name: 'HTML5/CSS3',
+        path: '/assets/html-icon.svg',
       },
     ],
     familiar: [
       {
-        name: 'HTML5/CSS3',
-        icon: '../../public/assets/html-css-icon.svg',
-      },
-      {
         name: 'Javascript/Typescript',
-        icon: '../../public/assets/javascript-typescript-icon.svg',
+        path: '/assets/javascript-icon.svg',
       },
       {
         name: 'React.js',
-        icon: '../../public/assets/react-icon.svg',
+        path: '/assets/react-icon.svg',
       },
       {
         name: 'SQL',
-        icon: '../../public/assets/sql-icon.svg',
+        path: '/images/sql-icon.png',
       },
+      {
+        name: 'PHP',
+        path: '/assets/php-icon.svg',
+      }
     ],
   },
   technical_skills: [ // TODO: update with icons
     {
       name: 'Git',
-      icon: '../../public/assets/git-icon.svg',
+      path: '/assets/git-icon.svg',
     },
     {
       name: 'GitHub',
-      icon: '../../public/assets/github-icon.svg',
-    },
-    {
-      name: 'VSCode',
-      icon: '../../public/assets/vscode-icon.svg',
+      path: '/assets/github-icon.svg',
     },
     {
       name: 'Jupyter Notebook',
-      icon: '../../public/assets/jupyter-notebook-icon.svg',
+      path: '/assets/jupyter-icon.svg',
     },
     {
       name: 'Unix/Linux',
-      icon: '../../public/assets/unix-linux-icon.svg',
+      path: '/images/linux-icon.png',
     },
     {
       name: 'Docker',
-      icon: '../../public/assets/docker-icon.svg',
-    },
-    {
-      name: 'Jenkins',
-      icon: '../../public/assets/jenkins-icon.svg',
-    },
-    {
-      name: 'Microsoft Excel',
-      icon: '../../public/assets/excel-icon.svg',
+      path: '/assets/docker-icon.svg',
     },
     {
       name: 'Firebase',
-      icon: '../../public/assets/firebase-icon.svg',
-    },
-    {
-      name: 'Arduino',
-      icon: '../../public/assets/arduino-icon.svg',
+      path: '/assets/firebase-icon.svg',
     },
     {
       name: 'AWS',
-      icon: '../../public/assets/aws-icon.svg',
+      path: '/assets/aws-icon.svg',
     },
   ],
 };
@@ -183,7 +171,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Software Engineering Intern',
     location: 'Bellevue, WA',
     date: 'Jun 2023 - Aug 2023',
-    logo: '/',
+    logo: '/images/warner-bros-discovery-logo.png',
     bullet_points: [
       'Developed a full-stack dashboard for TNT Sports developers to effectively monitor the health of 11 TNT channels',
       'Worked cross-functionally with the Live Streaming team and 10+ engineers to constantly improve the dashboard design',
@@ -196,7 +184,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Full-Stack Software Engineering Intern',
     location: 'Frisco, TX',
     date: 'Jul 2022 - Nov 2022',
-    logo: '/',
+    logo: '/images/fu11-mart-logo.png',
     bullet_points: [
       'Developed a full-stack ecommerce and company website to increase company revenue and expand customer target audience to national and international scales',
       'Led and worked alongside a 5-member engineering team to produce, modify, and debug software',
@@ -208,7 +196,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Code Coach',
     location: 'La Palma',
     date: 'Feb 2022 - Jul 2022',
-    logo: '/',
+    logo: '/images/thecoderschool-logo.png',
     bullet_points: [
       'Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students',
       'Guided students through personalized coding projects, coding competition preparation, and offer programming advice',
