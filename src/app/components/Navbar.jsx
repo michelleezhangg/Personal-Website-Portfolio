@@ -37,7 +37,7 @@ const Navbar = () => {
                   to={link.path}
                   spy={true}
                   smooth={true}
-                  offset={0} // Adjust based on navbar height
+                  offset={-200} // Extend spy region up 200px
                   duration={500}
                   className='cursor-pointer text-lg block py-2 pr-4 hover:text-darkblue uppercase'
                   activeClass='text-darkblue'
