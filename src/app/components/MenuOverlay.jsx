@@ -7,7 +7,7 @@ const MenuOverlay = ({ links }) => {
       {links.map((link, index) => (
         <li key={index}>
           <ScrollLink
-            to={link.title.toLowerCase()}
+            to={link.path}
             spy={true}
             smooth={true}
             offset={-70}

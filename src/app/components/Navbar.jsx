@@ -34,7 +34,7 @@ const Navbar = () => {
            {NAV_LINKS.map((link, index) => (
               <li key={index}>
                 <ScrollLink
-                  to={link.title.toLocaleLowerCase()}
+                  to={link.path}
                   spy={true}
                   smooth={true}
                   offset={0} // Adjust based on navbar height
