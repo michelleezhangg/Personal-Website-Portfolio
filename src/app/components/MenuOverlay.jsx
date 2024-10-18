@@ -1,12 +1,23 @@
 import React from 'react';
-import NavLink from './NavLink';
+import { Link as ScrollLink } from 'react-scroll';
 
 const MenuOverlay = ({ links }) => {
   return (
     <ul className='flex flex-col py-4 items-center'>
       {links.map((link, index) => (
         <li key={index}>
-          <NavLink href={link.href} title={link.title} />
+          <ScrollLink
+            to={link.title.toLowerCase()}
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className='block py-2 pr-4 hover:text-darkblue uppercase'
+            activeClass='text-darkblue'
+            onClick={() => setNavbarOpen(false)} // Close the menu when a link is clicked
+          >
+            {link.title}
+          </ScrollLink>
         </li>
       ))}
     </ul>

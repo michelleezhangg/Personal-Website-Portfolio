@@ -11,7 +11,7 @@ import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
 
 const HeroSection = () => {
   return (
-    <section className='section bg-lightblue'>
+    <section id='home' className='section bg-lightblue'>
       <div className='flex p-10'>
         {/* Left Side: Profile Card */}
         <div className='bg-blue p-10 pb-0 m-3 shadow-xl flex flex-col items-center'>
