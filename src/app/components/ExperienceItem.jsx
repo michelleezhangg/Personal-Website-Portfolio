@@ -8,7 +8,7 @@ const ExperienceItem = ({
 
   return (
     <div className='section-box grid grid-cols-2 mb-20'>
-      <div className='flex flex-col justify-between'>
+      <div className='flex flex-col justify-between mr-6'>
         <h3 className='title box-heading col-span-2'>
           {company}
         </h3>
