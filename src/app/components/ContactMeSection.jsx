@@ -122,14 +122,14 @@ const ContactMeSection = () => {
                 >
                   Message
                 </label>
-                <input
+                <textarea
                   name='message'
                   type='message'
                   id='message'
                   required
-                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
+                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5 resize-vertical min-h-[42px]'
                   placeholder={CONTACT.placeholders.message}
-                />
+                ></textarea>
               </div>
               <button
                 type='submit'
