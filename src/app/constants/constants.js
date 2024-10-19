@@ -193,7 +193,7 @@ export const PROFESSIONAL_EXPERIENCE = [
   {
     company: 'TheCoderSchool',
     position: 'Code Coach',
-    location: 'La Palma',
+    location: 'La Palma, CA',
     date: 'Feb 2022 - Jul 2022',
     logo: '/images/thecoderschool-logo.png',
     bullet_points: [
@@ -205,7 +205,6 @@ export const PROFESSIONAL_EXPERIENCE = [
 ];
 
 /* Projects Constants */
-// TODO: finish filling in all projects data
 export const PROJECTS = [
   {
     title: 'Personal Website Portfolio',
@@ -233,7 +232,7 @@ export const PROJECTS = [
     bio: `Implemented a deep Convolutional Neural Network (CNN) model to classify MRI scans of four categories of brain tumors:
       no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors. Utilized two pre-trained models, VGG16 Transfer Learning Model
       and EfficientNetB7 Trasfer Learning Model, to compare with the first model and derive meaningful results from all models`,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [],
   },
   {
     title: 'Rosetta Stone Subscriber Optimizer',
@@ -249,7 +248,7 @@ export const PROJECTS = [
       and understand the data more thoroughly. The goal was to determine the most valuable subscribers and least valuable subscribers.
       These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and finally an executive summary.
       Completed this project with a team of colleagues. Presented our findings in a professional slide deck.`,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [],
   },
   {
     title: 'College Admissions Data Analysis',
@@ -263,7 +262,7 @@ export const PROJECTS = [
     ],
     bio: `Utilized multiple machine learning models and EDA to explore and analyze college admissions data from thousands of colleges with 100+ features.
       Explored using supervised models, clustering, and dimensionality reduction and focused on data visualization to make the data more understandable and applicable.`,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [],
   },
   {
     title: 'Film Data Analysis',
@@ -284,7 +283,7 @@ export const PROJECTS = [
       Data overview examination, feature transformation, data cleaning, and modeling were used in all processes.
       Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications.
       Coded in R/RStudio and a Final Report was written to concisely condense our findings.`,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [],
   },
   {
     title: '3D Printing Research Project',
@@ -297,7 +296,7 @@ export const PROJECTS = [
       },
     ],
     bio: ``,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [],
   },
   {
     title: 'University Student-Faculty Database',
@@ -309,6 +308,7 @@ export const PROJECTS = [
         url: 'https://github.com/michelleezhangg/Student-Faculty-BST-Database',
       },
     ],
+    bio: ``,
     bullet_points: [
       'Simulated a university database by storing, removing, and maintaining all data in a Binary Search Tree data structure',
       `Implemented a Binary Search Tree Abstract Data Structure in C++ and explored Object Serialization and Rollback features using Stacks with
