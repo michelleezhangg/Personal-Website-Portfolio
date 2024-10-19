@@ -17,20 +17,20 @@ export const EMAIL = 'michelleeeezhangggg@gmail.com';
 
 export const NAV_LINKS = [
   {
-    title: 'Home',
-    path: '#'
+    title: 'home',
+    path: 'home',
   },
   {
-    title: 'About Me',
-    path: '#about-me'
+    title: 'about me',
+    path: 'about-me',
   },
   {
-    title: 'Projects',
-    path: '#projects'
+    title: 'projects',
+    path: 'projects',
   },
   {
-    title: 'Contact Me',
-    path: '#contact-me'
+    title: 'contact me',
+    path: 'contact-me',
   },
 ];
 

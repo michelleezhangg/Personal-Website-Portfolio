@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import NavLink from './NavLink';
+import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import MenuOverlay from './MenuOverlay';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import { NAME, ROLE, NAV_LINKS } from '../constants/constants';
@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <nav className='bg-lightblue sticky top-0'>
       <div className='flex flex-wrap items-center justify-between'>
-        <Link href={'#'}>
+        <Link href={'#'} onClick={() => scroll.scrollToTop()}>
           <h1 className='title text-2xl pl-5 pb-2'>{NAME}</h1>
           <h3 className='text-sm font-light pl-5 uppercase'>{ROLE}</h3>
         </Link>
@@ -33,7 +33,17 @@ const Navbar = () => {
           <ul className='flex p-4 gap-6'>
            {NAV_LINKS.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+                <ScrollLink
+                  to={link.path}
+                  spy={true}
+                  smooth={true}
+                  offset={-200} // Extend spy region up 200px
+                  duration={500}
+                  className='cursor-pointer text-lg block py-2 pr-4 hover:text-darkblue uppercase'
+                  activeClass='text-darkblue'
+                >
+                  {link.title}
+                </ScrollLink>
               </li>
             ))}
           </ul>
