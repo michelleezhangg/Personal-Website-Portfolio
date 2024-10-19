@@ -8,10 +8,10 @@ const ExperienceItem = ({
 
   return (
     <div className='section-box grid grid-cols-2 mb-20'>
+      <div className='flex flex-col justify-between'>
         <h3 className='title box-heading col-span-2'>
           {company}
         </h3>
-      <div>
         <p className='title'>
           {position}
         </p>
@@ -24,7 +24,7 @@ const ExperienceItem = ({
         <Image
           src={logo}
           alt={`${company} Logo`}
-          className='text-sm font-light'
+          className='text-sm font-light self-start mt-auto pt-2'
           width={100}
           height={100}
         />
