@@ -4,7 +4,7 @@ import Link from 'next/link';
 import {
   NAME, ROLE, BIO_INTRO, BIO_BACKGROUND, PHONE_NUMBER, EMAIL,
   LINKS,
-} from '../constants/constants';
+} from '../constants';
 import GithubIcon from '../../../public/assets/github-icon.svg';
 import InstagramIcon from '../../../public/assets/instagram-icon.svg';
 import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
