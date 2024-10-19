@@ -219,7 +219,11 @@ export const PROJECTS = [
       },
     ],
     bio: ``,
-    bullet_points: [],
+    bullet_points: [
+      'Developing a single-paged site to showcase my background, skills, professional experience, and projects as a software engineer',
+      'Utilizing React.js, Next.js, and Tailwind CSS for frontend development, JavaScript for backend, and Vercel for deployment',
+      'Implementing a custom navbar and menu overlay for responsive web functionality and mobile-friendly user experience',
+    ],
   },
   {
     title: 'Brain Tumor MRI Scan Classification',
@@ -234,7 +238,12 @@ export const PROJECTS = [
     bio: `Implemented a deep Convolutional Neural Network (CNN) model to classify MRI scans of four categories of brain tumors:
       no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors. Utilized two pre-trained models, VGG16 Transfer Learning Model
       and EfficientNetB7 Trasfer Learning Model, to compare with the first model and derive meaningful results from all models`,
-    bullet_points: [],
+    bullet_points: [
+      'Trained and evaluated multiple CNN models, including VGG16, EfficientNetB7, and ResNet50, to classify MRI scans',
+      'Utilized Keras and TensorFlow libraries for model development and evaluation',
+      'Obtained an accuracy of 98% on the test set, which is the highest achieved by any model in the competition',
+      'Implemented data augmentation techniques, such as rotation, zooming, and horizontal flipping, to improve model performance',
+    ],
   },
   {
     title: 'Rosetta Stone Subscriber Optimizer',
@@ -250,7 +259,12 @@ export const PROJECTS = [
       and understand the data more thoroughly. The goal was to determine the most valuable subscribers and least valuable subscribers.
       These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and finally an executive summary.
       Completed this project with a team of colleagues. Presented our findings in a professional slide deck.`,
-    bullet_points: [],
+    bullet_points: [
+      'Analyzed thousands of lines of subscription data to derive subscriber segments',
+      'Identified the most valuable subscribers and least valuable subscribers based on key metrics',
+      'Provided insights into the barriers of renewal for subscribers, suggestions, and business opportunities',
+      'Presented our findings in a professional slide deck to share with the team, peers, and professor',
+    ],
   },
   {
     title: 'College Admissions Data Analysis',
@@ -331,7 +345,10 @@ export const PROJECTS = [
     bio: `Through careful design and collaboration, four other colleagues and I designed code to explore and display the equilibrium configurations
       of a system of masses through the minimization of the system's potential energies. We conducted research on real-world applications of our project
       and the feasibility of the geometric shapes produced and presented our findings in a 80-minute presentation and discussion with our other colleagues and professor.`,
-    bullet_points: [],
+    bullet_points: [
+      'Designed and implemented a program to simulate the equilibrium configurations of a system of masses',
+      'Conducted extensive research on the feasibility of the geometric shapes produced and presented our findings in a 80-minute presentation',
+    ],
   },
 ];
 
