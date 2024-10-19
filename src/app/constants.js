@@ -1,19 +1,21 @@
-/* Global Constants */
-export const NAME = 'Michelle Zhang';
-export const ROLE = 'Software Engineer';
+/* Hero Section Constants */
+export const PERSONAL = {
+  name: 'Michelle Zhang',
+  role: 'Software Engineer',
+  phone_number: '(949) 466-3855',
+  email: 'michelleeeezhangggg@gmail.com',
+  intro: `Hey there! My name is Michelle Zhang and I am a software engineer!
+  I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`,
+  background: 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.',
+};
+
 export const LINKS = {
   linkedin: 'https://www.linkedin.com/in/michelleezhangg',
   instagram: 'https://www.instagram.com/michellee.zhangg/',
   github: 'https://github.com/michelleezhangg',
 };
-export const COPYRIGHT = 'All rights reserved.';
 
-/* Hero Section Constants */
-export const BIO_INTRO = `Hey there! My name is Michelle Zhang and I am a software engineer!
-I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`;
-export const BIO_BACKGROUND = 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.';
-export const PHONE_NUMBER = '(949) 466-3855';
-export const EMAIL = 'michelleeeezhangggg@gmail.com';
+export const COPYRIGHT = 'All rights reserved.';
 
 export const NAV_LINKS = [
   {
@@ -256,8 +258,8 @@ export const PROJECTS = [
     location: 'Chapman University, Orange, CA',
     links: [
       {
-        link_name: 'GitHub Link',
-        url: 'https://github.com/michelleezhangg/College-Admissions-Data-Analysis',
+        link_name: 'Notebook Link',
+        url: '',
       },
     ],
     bio: `Utilized multiple machine learning models and EDA to explore and analyze college admissions data from thousands of colleges with 100+ features.
@@ -275,7 +277,7 @@ export const PROJECTS = [
       },
       {
         link_name: 'Final Report Paper',
-        url: '/assets/Film-Analysis-Document.pdf',
+        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/598345334/multiple-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y&treasuryMediaId=1635528518386',
       },
     ],
     bio: `Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features.
@@ -292,7 +294,7 @@ export const PROJECTS = [
     links: [
       {
         link_name: 'Research Poster',
-        url: '/assets/3D-Printing-Project-Poster.pdf',
+        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/1635528520237/single-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y',
       },
     ],
     bio: ``,
