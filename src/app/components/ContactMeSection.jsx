@@ -52,7 +52,7 @@ const ContactMeSection = () => {
       <section className='grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4'>
         {/* Left Side: Section Text and Socials */}
         <div>
-          <h5 className='text-xl font-bold my-1'>Let's Connect</h5>
+          <h5 className='title text-xl font-bold my-1'>Let's Connect</h5>
           <p className='mb-4 max-w-sm'>{CONNECT_BIO}</p>
           <div className='flex flex-row gap-5 ml-5'>
             <Link href={LINKS.linkedin}>
@@ -88,7 +88,7 @@ const ContactMeSection = () => {
                 <label
                   htmlFor='email'
                   type='email'
-                  className='block text-sm font-semibold mb-2'
+                  className='title block text-sm mb-2'
                 >
                   Email
                 </label>
@@ -104,7 +104,7 @@ const ContactMeSection = () => {
               <div className='mb-6'>
                 <label
                   htmlFor='subject'
-                  className='block text-sm font-semibold mb-2'
+                  className='title block text-sm mb-2'
                 >
                   Subject
                 </label>
@@ -120,7 +120,7 @@ const ContactMeSection = () => {
               <div className='mb-6'>
                 <label
                   htmlFor='message'
-                  className='block text-sm font-semibold mb-2'
+                  className='title block text-sm mb-2'
                 >
                   Message
                 </label>
