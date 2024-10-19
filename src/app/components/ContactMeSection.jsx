@@ -129,7 +129,7 @@ const ContactMeSection = () => {
                   type='message'
                   id='message'
                   required
-                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5 resize-vertical min-h-[42px]'
+                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5 resize-vertical min-h-[42px] max-h-[400px]'
                   placeholder={MESSAGE_PLACEHOLDER}
                 ></textarea>
               </div>
