@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CONTACT, LINKS } from '../constants/constants';
+import { CONTACT, LINKS } from '../constants';
 import GithubIcon from '../../../public/assets/github-icon.svg';
 import InstagramIcon from '../../../public/assets/instagram-icon.svg';
 import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
