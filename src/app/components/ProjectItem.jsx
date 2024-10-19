@@ -23,7 +23,7 @@ const ProjectItem = ({
           {link.link_name}
         </button>
       ))}
-      <ul className='text-sm list-disc'>
+      <ul className='text-sm list-disc ml-5'>
         {bullet_point_values.map((point, index) => (
           <li key={index} className='mb-2'>
             {point}
