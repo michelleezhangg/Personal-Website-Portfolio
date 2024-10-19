@@ -21,7 +21,7 @@ const AboutMeSection = () => {
             Education
           </h2>
           <div className='section-box grid grid-cols-2'>
-            <div>
+            <div className='flex flex-col justify-between'>
               <h3 className='title box-heading'>
                 {EDUCATION.university}
               </h3>
@@ -37,9 +37,9 @@ const AboutMeSection = () => {
               <Image
                 src={ChapmanLogo}
                 alt='Chapman Logo'
-                className='text-sm font-semibold'
-                width={200}
-                height={200}
+                className='text-sm font-semibold self-start mt-auto'
+                width={250}
+                height={250}
               />
             </div>
             <div>
