@@ -42,7 +42,6 @@ export const EDUCATION = {
   scholarship: 'Hesperian Scholarship',
   graduation: 'May 2024',
   gpa: '3.7',
-  icon_link: '/', // TODO: Chapman logo
   relevant_coursework: [
     'Data Structures and Algorithms',
     'Data Communications and Computer Networks',
@@ -71,7 +70,7 @@ export const EDUCATION = {
     'Gamma Beta Phi Honors Society',
     'National Soceity of Collegiate Scholars (NSCS)',
   ],
-  programming_languages: { // TODO: update with icons
+  programming_languages: {
     proficient: [
       {
         name: 'Python',
@@ -109,7 +108,7 @@ export const EDUCATION = {
       }
     ],
   },
-  technical_skills: [ // TODO: update with icons
+  technical_skills: [
     {
       name: 'Git',
       path: '/assets/git-icon.svg',
@@ -335,9 +334,15 @@ export const PROJECTS = [
 ];
 
 /* Contact Me Constants */
-export const CONNECT_BIO = 'Feel free to reach out to me through my socials or this contact form!';
-export const EMAIL_PLACEHOLDER = 'michelle@google.com';
-export const SUBJECT_PLACEHOLDER = 'Just saying hi';
-export const MESSAGE_PLACEHOLDER = "Let's talk about...";
-export const THANK_YOU_MESSAGE = 'Thank you for contacting me!';
-export const SUBMISSION_CONFIRMATION = 'New message submitted!';
+export const CONTACT = {
+  bio: 'Feel free to reach out to me through my socials or this contact form!',
+  placeholders: {
+    email: 'michelle@google.com',
+    subject: 'Just saying hi',
+    message: "Let's talk about...",
+  },
+  messages: {
+    thank_you: 'Thank you for contacting me!',
+    submission_confirmation: 'New message submitted!',
+  },
+};
