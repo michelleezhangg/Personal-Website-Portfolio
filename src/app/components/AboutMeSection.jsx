@@ -76,9 +76,9 @@ const AboutMeSection = () => {
               <h4 className='title'>
                 Proficient
               </h4>
-              <ul className='pt-4'>
+              <ul className='pt-2'>
                 {EDUCATION.programming_languages.proficient.map((tool, index) => (
-                  <li key={index} className='py-2'>
+                  <li key={index} className='py-1'>
                     <ToolListItem name={tool.name} path={tool.path} />
                   </li>
                 ))}
@@ -88,9 +88,9 @@ const AboutMeSection = () => {
               <h4 className='title'>
                 Familiar
               </h4>
-              <ul className='pt-4'>
+              <ul className='pt-2'>
                 {EDUCATION.programming_languages.familiar.map((tool, index) => (
-                  <li key={index} className='py-2'>
+                  <li key={index} className='py-1'>
                     <ToolListItem name={tool.name} path={tool.path} />
                   </li>
                 ))}
@@ -106,7 +106,7 @@ const AboutMeSection = () => {
             </h3>
             <ul className='pt-4 grid grid-rows-4 grid-flow-col'>
               {EDUCATION.technical_skills.map((tool, index) => (
-                <li key={index} className='py-2'>
+                <li key={index} className='py-1'>
                   <ToolListItem name={tool.name} path={tool.path} />
                 </li>
               ))}
