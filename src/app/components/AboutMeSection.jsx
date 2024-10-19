@@ -21,7 +21,7 @@ const AboutMeSection = () => {
             Education
           </h2>
           <div className='section-box grid grid-cols-2'>
-            <div className='flex flex-col justify-between'>
+            <div className='flex flex-col justify-between mr-6'>
               <h3 className='title box-heading'>
                 {EDUCATION.university}
               </h3>
