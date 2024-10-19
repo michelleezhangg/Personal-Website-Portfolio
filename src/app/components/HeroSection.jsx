@@ -63,10 +63,15 @@ const HeroSection = () => {
           <h3 className='text-3xl font-semibold'>{ROLE}</h3>
           <div>
             <button className='button blue-button px-8 mr-4'>
-              Resume
+              <Link href='/assets/resume.pdf'>
+                Resume
+              </Link>
             </button>
-            <button href='#projects' className='button transparent-button px-6 my-8'>
-              Projects
+            {/* TODO: add smooth scrolling */}
+            <button className='button transparent-button px-6 my-8'> 
+              <Link href='#projects'>
+                Projects
+              </Link>
             </button>
           </div>
           <p className='text-xl mb-6'>{BIO_INTRO}</p>

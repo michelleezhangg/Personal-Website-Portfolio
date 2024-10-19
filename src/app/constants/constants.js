@@ -258,8 +258,8 @@ export const PROJECTS = [
     location: 'Chapman University, Orange, CA',
     links: [
       {
-        link_name: 'Notebook Link',
-        url: '',
+        link_name: 'GitHub Link',
+        url: 'https://github.com/michelleezhangg/College-Admissions-Data-Analysis',
       },
     ],
     bio: `Utilized multiple machine learning models and EDA to explore and analyze college admissions data from thousands of colleges with 100+ features.
@@ -277,7 +277,7 @@ export const PROJECTS = [
       },
       {
         link_name: 'Final Report Paper',
-        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/598345334/multiple-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y&treasuryMediaId=1635528518386',
+        url: '/assets/Film-Analysis-Document.pdf',
       },
     ],
     bio: `Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features.
@@ -294,7 +294,7 @@ export const PROJECTS = [
     links: [
       {
         link_name: 'Research Poster',
-        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/1635528520237/single-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y',
+        url: '/assets/3D-Printing-Project-Poster.pdf',
       },
     ],
     bio: ``,

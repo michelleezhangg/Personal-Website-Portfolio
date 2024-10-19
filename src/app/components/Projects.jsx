@@ -1,6 +1,7 @@
 import React from 'react';
+import Link from 'next/link';
 import ProjectItem from './ProjectItem';
-import { PROJECTS } from '../constants/constants';
+import { PROJECTS, LINKS } from '../constants/constants';
 
 const Projects = () => {
   return (
@@ -8,12 +9,16 @@ const Projects = () => {
       <div className='flex flex-col items-center'>
         <h1 className='title text-6xl pt-20'>Projects</h1>
         <div className='flex p-10'>
-          <button className='button blue-button px-8 mx-4'>
-            GitHub
-          </button>
-          <button className='button transparent-button px-6'>
-            LinkedIn
-          </button>
+          <Link href={LINKS.github}>
+            <button className='button blue-button px-8 mx-4'>
+              GitHub
+            </button>
+          </Link>
+          <Link href={LINKS.linkedin}>
+            <button className='button transparent-button px-6'>
+              LinkedIn
+            </button>
+          </Link>
         </div>
         <div className='section'>
           {PROJECTS.map(( project, index ) => (
