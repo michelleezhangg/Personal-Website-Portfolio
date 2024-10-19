@@ -9,7 +9,7 @@ const AboutMeSection = () => {
   return (
     <section id='about-me' className='section bg-lightblue'>
       <div className='flex flex-col items-center'>
-        <h1 className='title text-6xl p-10 pt-20'>About Me</h1>
+        <h1 className='title text-6xl pb-10 pt-20'>About Me</h1>
         <button className='button blue-button px-8'>
           Resume
         </button>
@@ -115,7 +115,7 @@ const AboutMeSection = () => {
         </div>
         {/* Professional Experience */}
         <div className='section -mb-20'>
-          <h2 className='title section-heading'>
+          <h2 className='title section-heading mt-10'>
             Professional Experience
           </h2>
           {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
@@ -131,25 +131,25 @@ const AboutMeSection = () => {
           ))}
         </div>
         {/* About Me */}
-        <div className='section pb-20'>
-          <h2 className='title section-heading'>
+        <div className='section'>
+          <h2 className='title section-heading mt-10'>
             About Me
           </h2>
           {/* About Me: Languages */}
-          <div className='section-box my-10'>
+          <div className='section-box'>
             <h3 className='title box-heading'>
               Languages
             </h3>
             <ul className='pt-4 grid grid-rows-3 gris-flow-col'>
               {LANGUAGES.map((language_item, index) => (
-                <li key={index} className='py-2'>
+                <li key={index} className='text-sm py-2'>
                   {`${language_item.language} (${language_item.fluency})`}
                 </li>
               ))}
             </ul>
           </div>
           {/* About Me: Interests */}
-          <div className='section-box my-10'>
+          <div className='section-box my-10 mb-20'>
             <h3 className='title box-heading'>
               Interests
             </h3>
