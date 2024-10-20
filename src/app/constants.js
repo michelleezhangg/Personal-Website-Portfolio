@@ -1,36 +1,38 @@
-/* Global Constants */
-export const NAME = 'Michelle Zhang';
-export const ROLE = 'Software Engineer';
+/* Hero Section Constants */
+export const PERSONAL = {
+  name: 'Michelle Zhang',
+  role: 'Software Engineer',
+  phone_number: '(949) 466-3855',
+  email: 'michelleeeezhangggg@gmail.com',
+  intro: `Hey there! My name is Michelle Zhang and I am a software engineer!
+  I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`,
+  background: 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.',
+};
+
 export const LINKS = {
   linkedin: 'https://www.linkedin.com/in/michelleezhangg',
   instagram: 'https://www.instagram.com/michellee.zhangg/',
   github: 'https://github.com/michelleezhangg',
 };
-export const COPYRIGHT = 'All rights reserved.';
 
-/* Hero Section Constants */
-export const BIO_INTRO = `Hey there! My name is Michelle Zhang and I am a software engineer!
-I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`;
-export const BIO_BACKGROUND = 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.';
-export const PHONE_NUMBER = '(949) 466-3855';
-export const EMAIL = 'michelleeeezhangggg@gmail.com';
+export const COPYRIGHT = 'All rights reserved.';
 
 export const NAV_LINKS = [
   {
-    title: 'Home',
-    path: '#'
+    title: 'home',
+    path: 'home',
   },
   {
-    title: 'About Me',
-    path: '#about-me'
+    title: 'about me',
+    path: 'about-me',
   },
   {
-    title: 'Projects',
-    path: '#projects'
+    title: 'projects',
+    path: 'projects',
   },
   {
-    title: 'Contact Me',
-    path: '#contact-me'
+    title: 'contact me',
+    path: 'contact-me',
   },
 ];
 
@@ -42,7 +44,6 @@ export const EDUCATION = {
   scholarship: 'Hesperian Scholarship',
   graduation: 'May 2024',
   gpa: '3.7',
-  icon_link: '/', // TODO: Chapman logo
   relevant_coursework: [
     'Data Structures and Algorithms',
     'Data Communications and Computer Networks',
@@ -71,7 +72,7 @@ export const EDUCATION = {
     'Gamma Beta Phi Honors Society',
     'National Soceity of Collegiate Scholars (NSCS)',
   ],
-  programming_languages: { // TODO: update with icons
+  programming_languages: {
     proficient: [
       {
         name: 'Python',
@@ -109,7 +110,7 @@ export const EDUCATION = {
       }
     ],
   },
-  technical_skills: [ // TODO: update with icons
+  technical_skills: [
     {
       name: 'Git',
       path: '/assets/git-icon.svg',
@@ -194,7 +195,7 @@ export const PROFESSIONAL_EXPERIENCE = [
   {
     company: 'TheCoderSchool',
     position: 'Code Coach',
-    location: 'La Palma',
+    location: 'La Palma, CA',
     date: 'Feb 2022 - Jul 2022',
     logo: '/images/thecoderschool-logo.png',
     bullet_points: [
@@ -206,7 +207,6 @@ export const PROFESSIONAL_EXPERIENCE = [
 ];
 
 /* Projects Constants */
-// TODO: finish filling in all projects data
 export const PROJECTS = [
   {
     title: 'Personal Website Portfolio',
@@ -218,8 +218,13 @@ export const PROJECTS = [
         url: 'https://github.com/michelleezhangg/Personal-Portfolio-Website',
       },
     ],
-    bio: ``,
-    bullet_points: [],
+    bio: `Designed and developed a modern, responsive personal portfolio to showcase my education background, skills, professional experience, and projects as a software engineer.
+      This single-paged application serves as a dynamic interactive resume and portfolio that demonstrates my proficiencies in frontend development and web design.`,
+    bullet_points: [
+      'Developing a single-paged site to showcase my background, skills, professional experience, and projects as a software engineer',
+      'Utilizing React.js, Next.js, and Tailwind CSS for frontend development, JavaScript for backend, and Vercel for deployment',
+      'Implementing a custom navbar and menu overlay for responsive web functionality and mobile-friendly user experience',
+    ],
   },
   {
     title: 'Brain Tumor MRI Scan Classification',
@@ -232,9 +237,14 @@ export const PROJECTS = [
       },
     ],
     bio: `Implemented a deep Convolutional Neural Network (CNN) model to classify MRI scans of four categories of brain tumors:
-      no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors. Utilized two pre-trained models, VGG16 Transfer Learning Model
-      and EfficientNetB7 Trasfer Learning Model, to compare with the first model and derive meaningful results from all models`,
-    bullet_points: [], // TODO: write bullet points
+      no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors and utilized two pre-trained models,
+      VGG16 Transfer Learning Model and EfficientNetB7 Transfer Learning Model to compare with the first and derived meaningful results from all models`,
+    bullet_points: [
+      'Trained and evaluated multiple CNN models, including VGG16, EfficientNetB7, and ResNet50, to classify MRI scans',
+      'Utilized Keras and TensorFlow libraries for model development and evaluation',
+      'Obtained an accuracy of 98% on the test set, which is the highest achieved by any model in the competition',
+      'Implemented data augmentation techniques, such as rotation, zooming, and horizontal flipping, to improve model performance',
+    ],
   },
   {
     title: 'Rosetta Stone Subscriber Optimizer',
@@ -246,11 +256,15 @@ export const PROJECTS = [
         url: 'https://www.canva.com/design/DAF1g78GE40/R0xVlhGvUOICpNBDmb70zA/view?',
       },
     ],
-    bio: `Analyzed thousands of lines of subscription data for Rosetta Stone to derive subscriber segments in order to categorize subscribers
+    bio: `Analyzed thousands of lines of subscription data with a team of colleagues for Rosetta Stone to derive subscriber segments in order to categorize subscribers
       and understand the data more thoroughly. The goal was to determine the most valuable subscribers and least valuable subscribers.
-      These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and finally an executive summary.
-      Completed this project with a team of colleagues. Presented our findings in a professional slide deck.`,
-    bullet_points: [], // TODO: write bullet points
+      These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and an executive summary.`,
+    bullet_points: [
+      'Analyzed thousands of lines of subscription data to derive subscriber segments',
+      'Identified the most valuable subscribers and least valuable subscribers based on key metrics',
+      'Provided insights into the barriers of renewal for subscribers, suggestions, and business opportunities',
+      'Presented our findings in a professional slide deck to share with the team, peers, and professor',
+    ],
   },
   {
     title: 'College Admissions Data Analysis',
@@ -258,13 +272,13 @@ export const PROJECTS = [
     location: 'Chapman University, Orange, CA',
     links: [
       {
-        link_name: 'GitHub Link',
-        url: 'https://github.com/michelleezhangg/College-Admissions-Data-Analysis',
+        link_name: 'Notebook Link',
+        url: '',
       },
     ],
     bio: `Utilized multiple machine learning models and EDA to explore and analyze college admissions data from thousands of colleges with 100+ features.
       Explored using supervised models, clustering, and dimensionality reduction and focused on data visualization to make the data more understandable and applicable.`,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [],
   },
   {
     title: 'Film Data Analysis',
@@ -277,7 +291,7 @@ export const PROJECTS = [
       },
       {
         link_name: 'Final Report Paper',
-        url: '/assets/Film-Analysis-Document.pdf',
+        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/598345334/multiple-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y&treasuryMediaId=1635528518386',
       },
     ],
     bio: `Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features.
@@ -285,7 +299,12 @@ export const PROJECTS = [
       Data overview examination, feature transformation, data cleaning, and modeling were used in all processes.
       Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications.
       Coded in R/RStudio and a Final Report was written to concisely condense our findings.`,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [
+      'Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features',
+      'Used multiple machine learning and analytical models to effectively predict the profit based on the other feature variables',
+      'Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications',
+      'Coded in R/RStudio and a Final Report was written to concisely condense our findings',
+    ],
   },
   {
     title: '3D Printing Research Project',
@@ -294,11 +313,11 @@ export const PROJECTS = [
     links: [
       {
         link_name: 'Research Poster',
-        url: '/assets/3D-Printing-Project-Poster.pdf',
+        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/1635528520237/single-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y',
       },
     ],
     bio: ``,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [],
   },
   {
     title: 'University Student-Faculty Database',
@@ -310,6 +329,7 @@ export const PROJECTS = [
         url: 'https://github.com/michelleezhangg/Student-Faculty-BST-Database',
       },
     ],
+    bio: ``,
     bullet_points: [
       'Simulated a university database by storing, removing, and maintaining all data in a Binary Search Tree data structure',
       `Implemented a Binary Search Tree Abstract Data Structure in C++ and explored Object Serialization and Rollback features using Stacks with
@@ -330,14 +350,23 @@ export const PROJECTS = [
     bio: `Through careful design and collaboration, four other colleagues and I designed code to explore and display the equilibrium configurations
       of a system of masses through the minimization of the system's potential energies. We conducted research on real-world applications of our project
       and the feasibility of the geometric shapes produced and presented our findings in a 80-minute presentation and discussion with our other colleagues and professor.`,
-    bullet_points: [],
+    bullet_points: [
+      'Designed and implemented a program to simulate the equilibrium configurations of a system of masses',
+      'Conducted extensive research on the feasibility of the geometric shapes produced and presented our findings in a 80-minute presentation',
+    ],
   },
 ];
 
 /* Contact Me Constants */
-export const CONNECT_BIO = 'Feel free to reach out to me through my socials or this contact form!';
-export const EMAIL_PLACEHOLDER = 'michelle@google.com';
-export const SUBJECT_PLACEHOLDER = 'Just saying hi';
-export const MESSAGE_PLACEHOLDER = "Let's talk about...";
-export const THANK_YOU_MESSAGE = 'Thank you for contacting me!';
-export const SUBMISSION_CONFIRMATION = 'New message submitted!';
+export const CONTACT = {
+  bio: 'Feel free to reach out to me through my socials or this contact form!',
+  placeholders: {
+    email: 'michelle@google.com',
+    subject: 'Just saying hi',
+    message: "Let's talk about...",
+  },
+  messages: {
+    thank_you: 'Thank you for contacting me!',
+    submission_confirmation: 'New message submitted!',
+  },
+};

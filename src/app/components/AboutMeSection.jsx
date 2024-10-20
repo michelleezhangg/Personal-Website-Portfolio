@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ToolListItem from './ToolListItem';
 import ExperienceItem from './ExperienceItem';
-import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
+import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants';
 import ChapmanLogo from '../../../public/images/chapman-logo.png';
 
 const AboutMeSection = () => {
@@ -24,7 +24,7 @@ const AboutMeSection = () => {
             Education
           </h2>
           <div className='section-box grid grid-cols-2'>
-            <div>
+            <div className='flex flex-col justify-between mr-6'>
               <h3 className='title box-heading'>
                 {EDUCATION.university}
               </h3>
@@ -40,9 +40,9 @@ const AboutMeSection = () => {
               <Image
                 src={ChapmanLogo}
                 alt='Chapman Logo'
-                className='text-sm font-semibold'
-                width={200}
-                height={200}
+                className='text-sm font-semibold self-start mt-auto'
+                width={250}
+                height={250}
               />
             </div>
             <div>

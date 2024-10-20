@@ -6,6 +6,13 @@
   --dark-blue: #0050FF;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --dark-blue: #0050FF;
@@ -26,8 +33,7 @@ body {
 
 /* Headings and Titles */
 .title {
-  font-family: 'Poppins Semi Bold', 'Avenir Dark', Arial, Helvetica, sans-serif;
-  font-weight: 900;
+  font-family: 'Poppins', 'Avenir Dark', Arial, Helvetica, sans-serif;
 }
 
 .section-heading {
