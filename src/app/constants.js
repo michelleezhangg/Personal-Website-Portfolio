@@ -218,7 +218,8 @@ export const PROJECTS = [
         url: 'https://github.com/michelleezhangg/Personal-Portfolio-Website',
       },
     ],
-    bio: ``,
+    bio: `Designed and developed a modern, responsive personal portfolio to showcase my education background, skills, professional experience, and projects as a software engineer.
+      This single-paged application serves as a dynamic interactive resume and portfolio that demonstrates my proficiencies in frontend development and web design.`,
     bullet_points: [
       'Developing a single-paged site to showcase my background, skills, professional experience, and projects as a software engineer',
       'Utilizing React.js, Next.js, and Tailwind CSS for frontend development, JavaScript for backend, and Vercel for deployment',
@@ -236,8 +237,8 @@ export const PROJECTS = [
       },
     ],
     bio: `Implemented a deep Convolutional Neural Network (CNN) model to classify MRI scans of four categories of brain tumors:
-      no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors. Utilized two pre-trained models, VGG16 Transfer Learning Model
-      and EfficientNetB7 Trasfer Learning Model, to compare with the first model and derive meaningful results from all models`,
+      no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors and utilized two pre-trained models,
+      VGG16 Transfer Learning Model and EfficientNetB7 Transfer Learning Model to compare with the first and derived meaningful results from all models`,
     bullet_points: [
       'Trained and evaluated multiple CNN models, including VGG16, EfficientNetB7, and ResNet50, to classify MRI scans',
       'Utilized Keras and TensorFlow libraries for model development and evaluation',
@@ -255,10 +256,9 @@ export const PROJECTS = [
         url: 'https://www.canva.com/design/DAF1g78GE40/R0xVlhGvUOICpNBDmb70zA/view?',
       },
     ],
-    bio: `Analyzed thousands of lines of subscription data for Rosetta Stone to derive subscriber segments in order to categorize subscribers
+    bio: `Analyzed thousands of lines of subscription data with a team of colleagues for Rosetta Stone to derive subscriber segments in order to categorize subscribers
       and understand the data more thoroughly. The goal was to determine the most valuable subscribers and least valuable subscribers.
-      These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and finally an executive summary.
-      Completed this project with a team of colleagues. Presented our findings in a professional slide deck.`,
+      These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and an executive summary.`,
     bullet_points: [
       'Analyzed thousands of lines of subscription data to derive subscriber segments',
       'Identified the most valuable subscribers and least valuable subscribers based on key metrics',
@@ -299,7 +299,12 @@ export const PROJECTS = [
       Data overview examination, feature transformation, data cleaning, and modeling were used in all processes.
       Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications.
       Coded in R/RStudio and a Final Report was written to concisely condense our findings.`,
-    bullet_points: [],
+    bullet_points: [
+      'Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features',
+      'Used multiple machine learning and analytical models to effectively predict the profit based on the other feature variables',
+      'Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications',
+      'Coded in R/RStudio and a Final Report was written to concisely condense our findings',
+    ],
   },
   {
     title: '3D Printing Research Project',
