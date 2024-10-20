@@ -59,7 +59,7 @@ const HeroSection = () => {
         </div>
         {/* Right Side: Introduction Card */}
         <div className='p-10 pt-16'>
-          <h1 className='title mb-4 text-7xl'>{NAME}</h1>
+          <h1 className='title mb-4 text-6xl'>{NAME}</h1>
           <h3 className='text-3xl font-semibold'>{ROLE}</h3>
           <div>
             <button className='button blue-button px-8 mr-4'>
