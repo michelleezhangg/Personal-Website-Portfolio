@@ -4,7 +4,7 @@ import Link from 'next/link';
 import NavLink from './NavLink';
 import MenuOverlay from './MenuOverlay';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import { NAME, ROLE, NAV_LINKS } from '../constants/constants';
+import { NAME, ROLE, NAV_LINKS } from '../constants';
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);

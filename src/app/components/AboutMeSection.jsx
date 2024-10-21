@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import ToolListItem from './ToolListItem';
 import ExperienceItem from './ExperienceItem';
-import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
+import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants';
 import ChapmanLogo from '../../../public/images/chapman-logo.png';
 
 const AboutMeSection = () => {

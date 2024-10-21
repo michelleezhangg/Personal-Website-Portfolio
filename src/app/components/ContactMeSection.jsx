@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import {
   LINKS, CONNECT_BIO, EMAIL_PLACEHOLDER, SUBJECT_PLACEHOLDER, MESSAGE_PLACEHOLDER,
-} from '../constants/constants';
+} from '../constants';
 import GithubIcon from '../../../public/assets/github-icon.svg';
 import InstagramIcon from '../../../public/assets/instagram-icon.svg';
 import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';

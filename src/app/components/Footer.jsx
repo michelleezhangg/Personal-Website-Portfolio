@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { NAME, ROLE, COPYRIGHT } from '../constants/constants';
+import { NAME, ROLE, COPYRIGHT } from '../constants';
 
 const Footer = () => {
   return (
