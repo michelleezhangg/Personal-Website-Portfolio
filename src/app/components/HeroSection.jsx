@@ -6,9 +6,9 @@ import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from '../constants';
 const HeroSection = () => {
   return (
     <section id='home' className='section bg-lightblue'>
-      <div className='flex p-10'>
+      <div className='flex p-6'>
         {/* Left Side: Profile Card */}
-        <div className='bg-blue p-10 pb-0 m-3 shadow-xl flex flex-col items-center'>
+        <div className='bg-blue p-10 pb-0 m-3 mt-0 shadow-xl flex flex-col items-center'>
           <Image
             src='/images/profile.png'
             alt='hero image'
@@ -24,6 +24,7 @@ const HeroSection = () => {
             <p className='text-sm font-black'>Email</p>
             <p className='flex justify-center text-sm'>{PERSONAL.email}</p>
           </div>
+          {/* Social Media Icons */}
           <div className='flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center'>
             <Link href={SOCIAL_LINKS.linkedin}>
               <Image

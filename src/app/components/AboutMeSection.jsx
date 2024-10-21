@@ -23,7 +23,7 @@ const AboutMeSection = () => {
             Education
           </h2>
           <div className='section-box grid grid-cols-2'>
-            <div className='flex flex-col justify-between mr-6'>
+            <div className='flex flex-col justify-between mr-6 gap-1'>
               <h3 className='title box-heading'>
                 {EDUCATION.university}
               </h3>
@@ -78,9 +78,9 @@ const AboutMeSection = () => {
               <h4 className='title'>
                 Proficient
               </h4>
-              <ul className='pt-4'>
+              <ul className='pt-2'>
                 {EDUCATION.programming_languages.proficient.map((tool, index) => (
-                  <li key={index} className='py-2'>
+                  <li key={index} className='py-1'>
                     <ToolListItem name={tool.name} path={tool.path} />
                   </li>
                 ))}
@@ -90,9 +90,9 @@ const AboutMeSection = () => {
               <h4 className='title'>
                 Familiar
               </h4>
-              <ul className='pt-4'>
+              <ul className='pt-2'>
                 {EDUCATION.programming_languages.familiar.map((tool, index) => (
-                  <li key={index} className='py-2'>
+                  <li key={index} className='py-1'>
                     <ToolListItem name={tool.name} path={tool.path} />
                   </li>
                 ))}
@@ -108,7 +108,7 @@ const AboutMeSection = () => {
             </h3>
             <ul className='pt-4 grid grid-rows-4 grid-flow-col'>
               {EDUCATION.technical_skills.map((tool, index) => (
-                <li key={index} className='py-2'>
+                <li key={index} className='py-1'>
                   <ToolListItem name={tool.name} path={tool.path} />
                 </li>
               ))}
@@ -117,7 +117,7 @@ const AboutMeSection = () => {
         </div>
         {/* Professional Experience */}
         <div className='section -mb-20'>
-          <h2 className='title section-heading'>
+          <h2 className='title section-heading mt-10'>
             Professional Experience
           </h2>
           {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
@@ -133,25 +133,25 @@ const AboutMeSection = () => {
           ))}
         </div>
         {/* About Me */}
-        <div className='section pb-20'>
-          <h2 className='title section-heading'>
+        <div className='section'>
+          <h2 className='title section-heading mt-10'>
             About Me
           </h2>
           {/* About Me: Languages */}
-          <div className='section-box my-10'>
+          <div className='section-box'>
             <h3 className='title box-heading'>
               Languages
             </h3>
             <ul className='pt-4 grid grid-rows-3 gris-flow-col'>
               {LANGUAGES.map((language_item, index) => (
-                <li key={index} className='py-2'>
+                <li key={index} className='text-sm py-2'>
                   {`${language_item.language} (${language_item.fluency})`}
                 </li>
               ))}
             </ul>
           </div>
           {/* About Me: Interests */}
-          <div className='section-box my-10'>
+          <div className='section-box my-10 mb-20'>
             <h3 className='title box-heading'>
               Interests
             </h3>
