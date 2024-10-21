@@ -1,6 +1,8 @@
+"use client"
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Link as ScrollLink } from 'react-scroll';
 import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from '../constants';
 
 const HeroSection = () => {
@@ -63,9 +65,15 @@ const HeroSection = () => {
               </Link>
             </button>
             <button className='button transparent-button px-6 my-8'> 
-              <Link href='#projects'>
+              <ScrollLink
+                to='projects'
+                spy={true}
+                smooth={true}
+                offset={-200}
+                duration={500}
+              >
                 Projects
-              </Link>
+              </ScrollLink>
             </button>
           </div>
           <p className='text-xl mb-6'>{PERSONAL.intro}</p>
