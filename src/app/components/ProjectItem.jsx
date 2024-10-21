@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const ProjectItem = ({
   title, date, location, links, ...bullet_points
@@ -19,9 +20,11 @@ const ProjectItem = ({
         </p>
       </div>
       {links.map((link, index) => (
-        <button key={index} className='button transparent-button text-xs px-8 mr-5 my-4'>
-          {link.link_name}
-        </button>
+        <Link href={link.url} key={index}>
+          <button className='button transparent-button text-xs px-8 mr-5 my-4'>
+            {link.link_name}
+          </button>
+        </Link>
       ))}
       <ul className='text-sm list-disc ml-5'>
         {bullet_point_values.map((point, index) => (

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Link as ScrollLink, animateScroll as scroll } from 'react-scroll';
 import MenuOverlay from './MenuOverlay';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import { NAME, ROLE, NAV_LINKS } from '../constants/constants';
+import { PERSONAL, NAV_LINKS } from '../constants';
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -13,8 +13,8 @@ const Navbar = () => {
     <nav className='bg-lightblue sticky top-0'>
       <div className='flex flex-wrap items-center justify-between'>
         <Link href={'#'} onClick={() => scroll.scrollToTop()}>
-          <h1 className='title text-2xl pl-5 pb-1'>{NAME}</h1>
-          <h3 className='text-sm font-light pl-5 uppercase'>{ROLE}</h3>
+          <h1 className='title text-2xl pl-5 pb-2'>{PERSONAL.name}</h1>
+          <h3 className='text-sm font-light pl-5 uppercase'>{PERSONAL.role}</h3>
         </Link>
         {/* Mobile Menu */}
         <div className='block md:hidden'>

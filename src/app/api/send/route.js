@@ -1,5 +1,5 @@
 import { Resend } from 'resend';
-import { THANK_YOU_MESSAGE, SUBMISSION_CONFIRMATION } from '../../constants/constants';
+import { THANK_YOU_MESSAGE, SUBMISSION_CONFIRMATION } from '../../constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
