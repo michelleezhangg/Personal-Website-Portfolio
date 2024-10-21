@@ -52,10 +52,10 @@ This repository contains the source code for my personal portfolio website. This
 - Add better accessibility
 
 ## View the Live Site
-Fully deployed site: [https://www.michelleezhangg.com/](https://www.michelleezhangg.com/)
+Fully deployed site: [https://www.michellezhangdev.com/](https://www.michellezhangdev.com/)
 
 ## Contact
 Feel free to reach out if you have any questions or would like to discuss potential opportunities:
-- Email: <michelleeeezhangggg@gmail.com>
+- Email: <admin@michellezhangdev.com>
 - LinkedIn: [https://www.linkedin.com/in/michelleezhangg/](https://www.linkedin.com/in/michelleezhangg/)
 - GitHub: [https://github.com/michelleezhangg](https://github.com/michelleezhangg)
