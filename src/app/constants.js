@@ -9,7 +9,7 @@ export const PERSONAL = {
   background: 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.',
 };
 
-export const LINKS = {
+export const SOCIAL_LINKS = {
   linkedin: 'https://www.linkedin.com/in/michelleezhangg',
   instagram: 'https://www.instagram.com/michellee.zhangg/',
   github: 'https://github.com/michelleezhangg',

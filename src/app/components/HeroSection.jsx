@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PERSONAL, LINKS, SOCIAL_ICONS } from '../constants';
+import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from '../constants';
 
 const HeroSection = () => {
   return (
@@ -25,7 +25,7 @@ const HeroSection = () => {
             <p className='flex justify-center text-sm'>{PERSONAL.email}</p>
           </div>
           <div className='flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center'>
-            <Link href={LINKS.linkedin}>
+            <Link href={SOCIAL_LINKS.linkedin}>
               <Image
                 src={SOCIAL_ICONS.linkedin}
                 alt="LinkedIn Icon"
@@ -33,7 +33,7 @@ const HeroSection = () => {
                 height={30}
               />
             </Link>
-            <Link href={LINKS.github}>
+            <Link href={SOCIAL_LINKS.github}>
               <Image
                 src={SOCIAL_ICONS.github}
                 alt="GitHub Icon"
@@ -41,7 +41,7 @@ const HeroSection = () => {
                 height={30}
               />
             </Link>
-            <Link href={LINKS.instagram}>
+            <Link href={SOCIAL_LINKS.instagram}>
               <Image
                 src={SOCIAL_ICONS.instagram}
                 alt="Instagram Icon"
@@ -61,7 +61,6 @@ const HeroSection = () => {
                 Resume
               </Link>
             </button>
-            {/* TODO: add smooth scrolling */}
             <button className='button transparent-button px-6 my-8'> 
               <Link href='#projects'>
                 Projects

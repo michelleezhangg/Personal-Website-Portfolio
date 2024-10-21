@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ProjectItem from './ProjectItem';
-import { LINKS, PROJECTS } from '../constants';
+import { SOCIAL_LINKS, PROJECTS } from '../constants';
 
 const Projects = () => {
   return (
@@ -9,12 +9,12 @@ const Projects = () => {
       <div className='flex flex-col items-center'>
         <h1 className='title text-6xl pt-20'>Projects</h1>
         <div className='flex p-10'>
-          <Link href={LINKS.github}>
+          <Link href={SOCIAL_LINKS.github}>
             <button className='button blue-button px-8 mx-4'>
               GitHub
             </button>
           </Link>
-          <Link href={LINKS.linkedin}>
+          <Link href={SOCIAL_LINKS.linkedin}>
             <button className='button transparent-button px-6'>
               LinkedIn
             </button>
