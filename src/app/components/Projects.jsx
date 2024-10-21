@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ProjectItem from './ProjectItem';
-import { PROJECTS, LINKS } from '../constants';
+import { LINKS, PROJECTS } from '../constants';
 
 const Projects = () => {
   return (

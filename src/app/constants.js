@@ -1,36 +1,44 @@
-/* Global Constants */
-export const NAME = 'Michelle Zhang';
-export const ROLE = 'Software Engineer';
+/* Hero Section Constants */
+export const PERSONAL = {
+  name: 'Michelle Zhang',
+  role: 'Software Engineer',
+  phone_number: '(949) 466-3855',
+  email: 'michelleeeezhangggg@gmail.com',
+  intro: `Hey there! My name is Michelle Zhang and I am a software engineer!
+  I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`,
+  background: 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.',
+};
+
 export const LINKS = {
   linkedin: 'https://www.linkedin.com/in/michelleezhangg',
   instagram: 'https://www.instagram.com/michellee.zhangg/',
   github: 'https://github.com/michelleezhangg',
 };
-export const COPYRIGHT = 'All rights reserved.';
 
-/* Hero Section Constants */
-export const BIO_INTRO = `Hey there! My name is Michelle Zhang and I am a software engineer!
-I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`;
-export const BIO_BACKGROUND = 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.';
-export const PHONE_NUMBER = '(949) 466-3855';
-export const EMAIL = 'michelleeeezhangggg@gmail.com';
+export const SOCIAL_ICONS = {
+  linkedin: '/icons/linkedin-icon.svg',
+  instagram: '/icons/instagram-icon.svg',
+  github: '/icons/github-icon.svg',
+}
+
+export const COPYRIGHT = 'All rights reserved.';
 
 export const NAV_LINKS = [
   {
-    title: 'Home',
-    path: '#'
+    title: 'home',
+    path: 'home',
   },
   {
-    title: 'About Me',
-    path: '#about-me'
+    title: 'about me',
+    path: 'about-me',
   },
   {
-    title: 'Projects',
-    path: '#projects'
+    title: 'projects',
+    path: 'projects',
   },
   {
-    title: 'Contact Me',
-    path: '#contact-me'
+    title: 'contact me',
+    path: 'contact-me',
   },
 ];
 
@@ -42,7 +50,7 @@ export const EDUCATION = {
   scholarship: 'Hesperian Scholarship',
   graduation: 'May 2024',
   gpa: '3.7',
-  icon_link: '/', // TODO: Chapman logo
+  logo: '/logos/chapman-logo.png',
   relevant_coursework: [
     'Data Structures and Algorithms',
     'Data Communications and Computer Networks',
@@ -71,72 +79,72 @@ export const EDUCATION = {
     'Gamma Beta Phi Honors Society',
     'National Soceity of Collegiate Scholars (NSCS)',
   ],
-  programming_languages: { // TODO: update with icons
+  programming_languages: {
     proficient: [
       {
         name: 'Python',
-        path: '/assets/python-icon.svg',
+        path: '/icons/python-icon.svg',
       },
       {
         name: 'C/C++',
-        path: '/assets/c++-icon.svg',
+        path: '/icons/c++-icon.svg',
       },
       {
         name: 'Java',
-        path: '/assets/java-icon.svg',
+        path: '/icons/java-icon.svg',
       },
       {
         name: 'HTML5/CSS3',
-        path: '/assets/html-icon.svg',
+        path: '/icons/html-icon.svg',
       },
     ],
     familiar: [
       {
         name: 'Javascript/Typescript',
-        path: '/assets/javascript-icon.svg',
+        path: '/icons/javascript-icon.svg',
       },
       {
         name: 'React.js',
-        path: '/assets/react-icon.svg',
+        path: '/icons/react-icon.svg',
       },
       {
         name: 'SQL',
-        path: '/images/sql-icon.png',
+        path: '/icons/sql-icon.png',
       },
       {
         name: 'PHP',
-        path: '/assets/php-icon.svg',
+        path: '/icons/php-icon.svg',
       }
     ],
   },
-  technical_skills: [ // TODO: update with icons
+  technical_skills: [
     {
       name: 'Git',
-      path: '/assets/git-icon.svg',
+      path: '/icons/git-icon.svg',
     },
     {
       name: 'GitHub',
-      path: '/assets/github-icon.svg',
+      path: '/icons/github-icon.svg',
     },
     {
       name: 'Jupyter Notebook',
-      path: '/assets/jupyter-icon.svg',
+      path: '/icons/jupyter-icon.svg',
     },
     {
       name: 'Unix/Linux',
-      path: '/images/linux-icon.png',
+      path: '/icons/linux-icon.png',
     },
     {
       name: 'Docker',
-      path: '/assets/docker-icon.svg',
+      path: '/icons/docker-icon.svg',
     },
     {
       name: 'Firebase',
-      path: '/assets/firebase-icon.svg',
+      path: '/icons/firebase-icon.svg',
     },
     {
       name: 'AWS',
-      path: '/assets/aws-icon.svg',
+      path: '/icons/aws-icon.svg',
     },
   ],
 };
@@ -171,7 +179,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Software Engineering Intern',
     location: 'Bellevue, WA',
     date: 'Jun 2023 - Aug 2023',
-    logo: '/images/warner-bros-discovery-logo.png',
+    logo: '/logos/warner-bros-discovery-logo.png',
     bullet_points: [
       'Developed a full-stack dashboard for TNT Sports developers to effectively monitor the health of 11 TNT channels',
       'Worked cross-functionally with the Live Streaming team and 10+ engineers to constantly improve the dashboard design',
@@ -184,7 +192,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Full-Stack Software Engineering Intern',
     location: 'Frisco, TX',
     date: 'Jul 2022 - Nov 2022',
-    logo: '/images/fu11-mart-logo.png',
+    logo: '/logos/fu11-mart-logo.png',
     bullet_points: [
       'Developed a full-stack ecommerce and company website to increase company revenue and expand customer target audience to national and international scales',
       'Led and worked alongside a 5-member engineering team to produce, modify, and debug software',
@@ -194,9 +202,9 @@ export const PROFESSIONAL_EXPERIENCE = [
   {
     company: 'TheCoderSchool',
     position: 'Code Coach',
-    location: 'La Palma',
+    location: 'La Palma, CA',
     date: 'Feb 2022 - Jul 2022',
-    logo: '/images/thecoderschool-logo.png',
+    logo: '/logos/thecoderschool-logo.png',
     bullet_points: [
       'Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students',
       'Guided students through personalized coding projects, coding competition preparation, and offer programming advice',
@@ -206,70 +214,98 @@ export const PROFESSIONAL_EXPERIENCE = [
 ];
 
 /* Projects Constants */
-// TODO: finish filling in all projects data
 export const PROJECTS = [
   {
     title: 'Personal Website Portfolio',
     date: 'Sep 2024 - Present',
     location: 'West Covina, CA',
+    logo: '',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/Personal-Portfolio-Website',
       },
     ],
-    bio: ``,
-    bullet_points: [],
+    bio: `Designed and developed a modern, responsive personal portfolio to showcase my education background, skills, professional experience, and projects as a software engineer.
+      This single-paged application serves as a dynamic interactive resume and portfolio that demonstrates my proficiencies in frontend development and web design.`,
+    bullet_points: [
+      'Developing a single-paged site to showcase my background, skills, professional experience, and projects as a software engineer',
+      'Utilizing React.js, Next.js, and Tailwind CSS for frontend development, JavaScript for backend, and Vercel for deployment',
+      'Implementing a custom navbar and menu overlay for responsive web functionality and mobile-friendly user experience',
+      'Created custom submission form enabling recruiters, clients, and peers to easily reach me',
+    ],
   },
   {
     title: 'Brain Tumor MRI Scan Classification',
     date: 'Nov 2023 - Dec 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/CPSC393Final',
       },
+      {
+        link_name: 'Slide Deck',
+        url: 'https://www.canva.com/design/DAF2JXwDYDI/fe_uXG5Yz6O0jrhUjmiTRQ/edit?utm_content=DAF2JXwDYDI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
+      },
     ],
     bio: `Implemented a deep Convolutional Neural Network (CNN) model to classify MRI scans of four categories of brain tumors:
-      no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors. Utilized two pre-trained models, VGG16 Transfer Learning Model
-      and EfficientNetB7 Trasfer Learning Model, to compare with the first model and derive meaningful results from all models`,
-    bullet_points: [], // TODO: write bullet points
+      no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors and utilized two pre-trained models,
+      VGG16 Transfer Learning Model and EfficientNetB7 Transfer Learning Model to compare with the first and derived meaningful results from all models`,
+    bullet_points: [
+      'Trained and evaluated multiple CNN models, including VGG16, EfficientNetB7, and ResNet50, to classify brain MRI scans',
+      'Utilized Keras and TensorFlow libraries in Python for model development and evaluation',
+      'Implemented data augmentation techniques, such as rotation, zooming, and horizontal flipping, to improve model performance',
+      'Evaluated model performance using accuracy, precision, recall, and F1-score metrics, abd provided insights into the classification results through real-world applications and practical usage',
+    ],
   },
   {
     title: 'Rosetta Stone Subscriber Optimizer',
     date: 'Nov 2023 - Dec 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'Slide Deck',
         url: 'https://www.canva.com/design/DAF1g78GE40/R0xVlhGvUOICpNBDmb70zA/view?',
       },
     ],
-    bio: `Analyzed thousands of lines of subscription data for Rosetta Stone to derive subscriber segments in order to categorize subscribers
+    bio: `Analyzed thousands of lines of subscription data with a team of colleagues for Rosetta Stone to derive subscriber segments in order to categorize subscribers
       and understand the data more thoroughly. The goal was to determine the most valuable subscribers and least valuable subscribers.
-      These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and finally an executive summary.
-      Completed this project with a team of colleagues. Presented our findings in a professional slide deck.`,
-    bullet_points: [], // TODO: write bullet points
+      These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and an executive summary.`,
+    bullet_points: [
+      'Analyzed thousands of lines of data to derive subscriber segments to identify the most and least valuable subscribers, factors preventing renewals, suggestions and business opportunities, and an executive summary',
+      'Performed extensive data cleaning, feature engineering, Random Forest modeling and EM Clustering with data visualizations to explain key findings and insights',
+      'Derived business growth goals and further engagement incentives from the subscriber segments and models',
+      'Presented our findings in a professional slide deck to share with our colleagues and professor',
+    ],
   },
   {
     title: 'College Admissions Data Analysis',
     date: 'May 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/College-Admissions-Data-Analysis',
       },
     ],
-    bio: `Utilized multiple machine learning models and EDA to explore and analyze college admissions data from thousands of colleges with 100+ features.
+    bio: `Utilized multiple machine learning models and exploratory data analysis (EDA) to explore and analyze college admissions data from thousands of colleges with 100+ features.
       Explored using supervised models, clustering, and dimensionality reduction and focused on data visualization to make the data more understandable and applicable.`,
-    bullet_points: [], // TODO: write bullet points
+    bullet_points: [
+      'Analyzed thousands of colleges with 100+ features to explore, analyze, and compare machine learning model performance on college admissions data',
+      'Utilized supervised machine learning models, clustering, and dimensionality reduction techniques to identify patterns and insights in the data',
+      'Produced data visualizations and key metrics to compare the effectiveness of the models and identify key differences between their performances and usages',
+      'Performed exploratory data analysis (EDA) to understand and contextualize the data before performing analysis and running machine learning models',
+    ],
   },
   {
     title: 'Film Data Analysis',
     date: 'May 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
@@ -279,65 +315,92 @@ export const PROJECTS = [
         link_name: 'Final Report Paper',
         url: '/assets/Film-Analysis-Document.pdf',
       },
+      {
+        link_name: 'Slide Deck',
+        url: 'https://www.canva.com/design/DAFh_iQUcJA/_sO7FPWGq6mVhwd5ALUPGQ/edit?utm_content=DAFh_iQUcJA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
+      },
     ],
-    bio: `Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features.
-      Used multiple machine learning and analytical models to effectively predict the profit based on the other feature variables.
-      Data overview examination, feature transformation, data cleaning, and modeling were used in all processes.
-      Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications.
-      Coded in R/RStudio and a Final Report was written to concisely condense our findings.`,
-    bullet_points: [], // TODO: write bullet points
+    bio: `Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features using multiple machine learning and analytical models coded in R/RStudio to effectively predict the profit based on the other feature variables.
+      Utilized data overview examination, feature transformation, data cleaning, and included data visualizations to display model results and apply our findings to business use cases and real-world applications.`,
+    bullet_points: [
+      `Analyzed data from TMDB from Kaggle on 3,000+ movies and 8 features by building two statistical models to predict a film's revenue and profit`,
+      'Included data visualization graphs and charts to display the model results and communicate effectively and support our findings',
+      'Derived real-world applications by applying the model results to assist producers and production companies to identify key predictors that generate the most profit for a film',
+      'Collaborated with three peers, coding the project in R/RStudio and composing a final report and slide deck to concisely condense our findings and explanations',
+    ],
   },
   {
     title: '3D Printing Research Project',
     date: 'Feb 2020 - May 2022',
-    location: 'Chapman University, Orange CA',
+    location: 'Orange CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'Research Poster',
         url: '/assets/3D-Printing-Project-Poster.pdf',
       },
     ],
-    bio: ``,
-    bullet_points: [], // TODO: write bullet points
+    bio: `Conducted research with three colleagues over 4 semesters to find environmentally-friendly 3D printing filament alternatives to counteract
+      the harmful byproducts of current popular 3D printing filaments by incorporating spent coffee grounds (SCG) into resin. My team created 3D printing
+      prototypes in various forms and shapes and met with industry professionals to conduct tensile strenght and durability material tests.`,
+    bullet_points: [
+      'Conducted research to find environmentally-friendly 3D printing filament alternatives by incorporating spent coffee grounds (SCG) into resin',
+      'Created various 3D printing prototypes in various forms and shapes with different filament ratios and conducted tensile strength and durability material tests',
+      'Worked closely with a team of 4 colleagues over an 8-month period and learned from industry professionals and professors',
+      'Presented our scientific findings and discoveries at the Chapman Grand Challenges Initiative Spring 2022 End-of-Semester Showcase',
+    ],
   },
   {
     title: 'University Student-Faculty Database',
-    date: 'April 2022',
-    location: 'Chapman University, Orange, CA',
+    date: 'Apr 2022',
+    location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/Student-Faculty-BST-Database',
       },
     ],
+    bio: `Simulated a university database by storing, removing, and maintaining student and faculty data in a Binary Search Tree data structure
+      implemented in C++ including Object Serialization and Rollback features with capabilities of storing 10,000+ data entries.`,
     bullet_points: [
       'Simulated a university database by storing, removing, and maintaining all data in a Binary Search Tree data structure',
-      `Implemented a Binary Search Tree Abstract Data Structure in C++ and explored Object Serialization and Rollback features using Stacks with
-      capabilities of storing 10,000+ student and faculty data entries`,
+      'Implemented a Binary Search Tree Abstract Data Structure in C++ and explored Object Serialization and Rollback features using Stacks with capabilities of storing 10,000+ student and faculty data entries',
       'Worked extensively with a fellow classmate on code design and implementation and used Git/GitHub for source control',
     ],
   },
   {
     title: 'Scientific Computing Project',
     date: 'Sep 2020 - Dec 2020',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/Scientific-Computing-Project',
       },
     ],
-    bio: `Through careful design and collaboration, four other colleagues and I designed code to explore and display the equilibrium configurations
-      of a system of masses through the minimization of the system's potential energies. We conducted research on real-world applications of our project
-      and the feasibility of the geometric shapes produced and presented our findings in a 80-minute presentation and discussion with our other colleagues and professor.`,
-    bullet_points: [],
+    bio: `Through careful design and collaboration, four colleagues and I designed code to explore and display the equilibrium configurations of systems of masses through the minimization of the system's potential energies.
+      We conducted research on real-world applications of our project and the feasibility of the geometric shapes produced. We presented our findings in an 80-minute presentation and discussion with other colleagues and professor.`,
+    bullet_points: [
+      `Explored the effects of altering certain physical values on a controlled system of masses through the minimization of the system's potential energies`,
+      'Designed code to simulate real-world scenarios and diplayed equilibrium configurations of a system',
+      'Conducted extensive research and experimentation of the results and applied our findings to the fields of material science, physics, and engineering',
+      'Led an 80-minute scientific presentation and discussion on the different scenarios, results, and project applications with other colleagues and professor',
+    ],
   },
 ];
 
 /* Contact Me Constants */
-export const CONNECT_BIO = 'Feel free to reach out to me through my socials or this contact form!';
-export const EMAIL_PLACEHOLDER = 'michelle@google.com';
-export const SUBJECT_PLACEHOLDER = 'Just saying hi';
-export const MESSAGE_PLACEHOLDER = "Let's talk about...";
-export const THANK_YOU_MESSAGE = 'Thank you for contacting me!';
-export const SUBMISSION_CONFIRMATION = 'New message submitted!';
+export const CONTACT = {
+  bio: 'Feel free to reach out to me through my socials or this contact form!',
+  placeholders: {
+    email: 'michelle@google.com',
+    subject: 'Just saying hi',
+    message: "Let's talk about...",
+  },
+  messages: {
+    thank_you: 'Thank you for contacting me!',
+    submission_confirmation: 'New message submitted!',
+  },
+};
