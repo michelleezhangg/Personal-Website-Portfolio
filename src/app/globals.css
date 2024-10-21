@@ -39,7 +39,7 @@ body {
 .section-heading {
   font-size: 30px;
   line-height: 36px;
-  padding-bottom: 36px;
+  padding-bottom: 26px;
 }
 
 .box-heading {
@@ -52,7 +52,7 @@ body {
 .section {
   margin-left: 160px;
   margin-right: 160px;
-  padding-top: 80px;
+  padding-top: 40px;
 }
 
 .section-box {
