@@ -2,12 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {
-  LINKS, CONNECT_BIO, EMAIL_PLACEHOLDER, SUBJECT_PLACEHOLDER, MESSAGE_PLACEHOLDER,
-} from '../constants/constants';
-import GithubIcon from '../../../public/assets/github-icon.svg';
-import InstagramIcon from '../../../public/assets/instagram-icon.svg';
-import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
+import { CONTACT, SOCIAL_LINKS, SOCIAL_ICONS } from '../constants';
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -52,28 +47,28 @@ const ContactMeSection = () => {
       <section className='grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4'>
         {/* Left Side: Section Text and Socials */}
         <div>
-          <h5 className='title text-xl font-bold my-1'>Let's Connect</h5>
-          <p className='mb-4 max-w-sm'>{CONNECT_BIO}</p>
+          <h5 className='title title text-xl font-bold my-1'>Let's Connect</h5>
+          <p className='mb-4 max-w-sm'>{CONTACT.bio}</p>
           <div className='flex flex-row gap-5 ml-5'>
-            <Link href={LINKS.linkedin}>
+            <Link href={SOCIAL_LINKS.linkedin}>
               <Image
-                src={LinkedInIcon}
+                src={SOCIAL_ICONS.linkedin}
                 alt="LinkedIn Icon"
                 width={30}
                 height={30}
               />
             </Link>
-            <Link href={LINKS.github}>
+            <Link href={SOCIAL_LINKS.github}>
               <Image
-                src={GithubIcon}
+                src={SOCIAL_ICONS.github}
                 alt="GitHub Icon"
                 width={30}
                 height={30}
               />
             </Link>
-            <Link href={LINKS.instagram}>
+            <Link href={SOCIAL_LINKS.instagram}>
               <Image
-                src={InstagramIcon}
+                src={SOCIAL_ICONS.instagram}
                 alt="Instagram Icon"
                 width={30}
                 height={30}
@@ -98,7 +93,7 @@ const ContactMeSection = () => {
                   id='email'
                   required
                   className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
-                  placeholder={EMAIL_PLACEHOLDER}
+                  placeholder={CONTACT.placeholders.email}
                 />
               </div>
               <div className='mb-6'>
@@ -114,7 +109,7 @@ const ContactMeSection = () => {
                   id='subject'
                   required
                   className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
-                  placeholder={SUBJECT_PLACEHOLDER}
+                  placeholder={CONTACT.placeholders.subject}
                 />
               </div>
               <div className='mb-6'>
@@ -129,8 +124,8 @@ const ContactMeSection = () => {
                   type='message'
                   id='message'
                   required
-                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5 resize-vertical min-h-[42px] max-h-[300px]'
-                  placeholder={MESSAGE_PLACEHOLDER}
+                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5 min-h-[42px] max-h-[300px]'
+                  placeholder={CONTACT.placeholders.message}
                 ></textarea>
               </div>
               <button
