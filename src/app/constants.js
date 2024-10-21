@@ -224,32 +224,37 @@ export const PROJECTS = [
       'Developing a single-paged site to showcase my background, skills, professional experience, and projects as a software engineer',
       'Utilizing React.js, Next.js, and Tailwind CSS for frontend development, JavaScript for backend, and Vercel for deployment',
       'Implementing a custom navbar and menu overlay for responsive web functionality and mobile-friendly user experience',
+      'Created custom submission form enabling recruiters, clients, and peers to easily reach me',
     ],
   },
   {
     title: 'Brain Tumor MRI Scan Classification',
     date: 'Nov 2023 - Dec 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/CPSC393Final',
+      },
+      {
+        link_name: 'Slide Deck',
+        url: 'https://www.canva.com/design/DAF2JXwDYDI/fe_uXG5Yz6O0jrhUjmiTRQ/edit?utm_content=DAF2JXwDYDI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
       },
     ],
     bio: `Implemented a deep Convolutional Neural Network (CNN) model to classify MRI scans of four categories of brain tumors:
       no tumor, Glioma tumors, Meningioma tumors, and Pituitary tumors and utilized two pre-trained models,
       VGG16 Transfer Learning Model and EfficientNetB7 Transfer Learning Model to compare with the first and derived meaningful results from all models`,
     bullet_points: [
-      'Trained and evaluated multiple CNN models, including VGG16, EfficientNetB7, and ResNet50, to classify MRI scans',
-      'Utilized Keras and TensorFlow libraries for model development and evaluation',
-      'Obtained an accuracy of 98% on the test set, which is the highest achieved by any model in the competition',
+      'Trained and evaluated multiple CNN models, including VGG16, EfficientNetB7, and ResNet50, to classify brain MRI scans',
+      'Utilized Keras and TensorFlow libraries in Python for model development and evaluation',
       'Implemented data augmentation techniques, such as rotation, zooming, and horizontal flipping, to improve model performance',
+      'Evaluated model performance using accuracy, precision, recall, and F1-score metrics, abd provided insights into the classification results through real-world applications and practical usage',
     ],
   },
   {
     title: 'Rosetta Stone Subscriber Optimizer',
     date: 'Nov 2023 - Dec 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
     links: [
       {
         link_name: 'Slide Deck',
@@ -260,30 +265,35 @@ export const PROJECTS = [
       and understand the data more thoroughly. The goal was to determine the most valuable subscribers and least valuable subscribers.
       These observations were used to determine the barriers of renewal for subscribers, suggestions, and business opportunities, and an executive summary.`,
     bullet_points: [
-      'Analyzed thousands of lines of subscription data to derive subscriber segments',
-      'Identified the most valuable subscribers and least valuable subscribers based on key metrics',
-      'Provided insights into the barriers of renewal for subscribers, suggestions, and business opportunities',
-      'Presented our findings in a professional slide deck to share with the team, peers, and professor',
+      'Analyzed thousands of lines of data to derive subscriber segments to identify the most and least valuable subscribers, factors preventing renewals, suggestions and business opportunities, and an executive summary',
+      'Performed extensive data cleaning, feature engineering, Random Forest modeling and EM Clustering with data visualizations to explain key findings and insights',
+      'Derived business growth goals and further engagement incentives from the subscriber segments and models',
+      'Presented our findings in a professional slide deck to share with our colleagues and professor',
     ],
   },
   {
     title: 'College Admissions Data Analysis',
     date: 'May 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
     links: [
       {
-        link_name: 'Notebook Link',
-        url: '',
+        link_name: 'GitHub Link',
+        url: 'https://github.com/michelleezhangg/College-Admissions-Data-Analysis',
       },
     ],
-    bio: `Utilized multiple machine learning models and EDA to explore and analyze college admissions data from thousands of colleges with 100+ features.
+    bio: `Utilized multiple machine learning models and exploratory data analysis (EDA) to explore and analyze college admissions data from thousands of colleges with 100+ features.
       Explored using supervised models, clustering, and dimensionality reduction and focused on data visualization to make the data more understandable and applicable.`,
-    bullet_points: [],
+    bullet_points: [
+      'Analyzed thousands of colleges with 100+ features to explore, analyze, and compare machine learning model performance on college admissions data',
+      'Utilized supervised machine learning models, clustering, and dimensionality reduction techniques to identify patterns and insights in the data',
+      'Produced data visualizations and key metrics to compare the effectiveness of the models and identify key differences between their performances and usages',
+      'Performed exploratory data analysis (EDA) to understand and contextualize the data before performing analysis and running machine learning models',
+    ],
   },
   {
     title: 'Film Data Analysis',
     date: 'May 2023',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
     links: [
       {
         link_name: 'GitHub Link',
@@ -291,68 +301,77 @@ export const PROJECTS = [
       },
       {
         link_name: 'Final Report Paper',
-        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/598345334/multiple-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y&treasuryMediaId=1635528518386',
+        url: '/assets/Film-Analysis-Document.pdf',
+      },
+      {
+        link_name: 'Slide Deck',
+        url: 'https://www.canva.com/design/DAFh_iQUcJA/_sO7FPWGq6mVhwd5ALUPGQ/edit?utm_content=DAFh_iQUcJA&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton',
       },
     ],
-    bio: `Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features.
-      Used multiple machine learning and analytical models to effectively predict the profit based on the other feature variables.
-      Data overview examination, feature transformation, data cleaning, and modeling were used in all processes.
-      Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications.
-      Coded in R/RStudio and a Final Report was written to concisely condense our findings.`,
+    bio: `Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features using multiple machine learning and analytical models coded in R/RStudio to effectively predict the profit based on the other feature variables.
+      Utilized data overview examination, feature transformation, data cleaning, and included data visualizations to display model results and apply our findings to business use cases and real-world applications.`,
     bullet_points: [
-      'Analyzed data from TMDB from Kaggle on over 3,000 movies and 8 features',
-      'Used multiple machine learning and analytical models to effectively predict the profit based on the other feature variables',
-      'Included data visualization graphs and charts to display the model results and applied our findings to business use cases and real-world applications',
-      'Coded in R/RStudio and a Final Report was written to concisely condense our findings',
+      `Analyzed data from TMDB from Kaggle on 3,000+ movies and 8 features by building two statistical models to predict a film's revenue and profit`,
+      'Included data visualization graphs and charts to display the model results and communicate effectively and support our findings',
+      'Derived real-world applications by applying the model results to assist producers and production companies to identify key predictors that generate the most profit for a film',
+      'Collaborated with three peers, coding the project in R/RStudio and composing a final report and slide deck to concisely condense our findings and explanations',
     ],
   },
   {
     title: '3D Printing Research Project',
     date: 'Feb 2020 - May 2022',
-    location: 'Chapman University, Orange CA',
+    location: 'Orange CA',
     links: [
       {
         link_name: 'Research Poster',
-        url: 'https://www.linkedin.com/in/michelleezhangg/details/projects/1635528520237/single-media-viewer/?profileId=ACoAADb2FekBRaQk5wier9UvTIYEnf1Xbs83p7Y',
+        url: '/assets/3D-Printing-Project-Poster.pdf',
       },
     ],
-    bio: ``,
-    bullet_points: [],
+    bio: `Conducted research with three colleagues over 4 semesters to find environmentally-friendly 3D printing filament alternatives to counteract
+      the harmful byproducts of current popular 3D printing filaments by incorporating spent coffee grounds (SCG) into resin. My team created 3D printing
+      prototypes in various forms and shapes and met with industry professionals to conduct tensile strenght and durability material tests.`,
+    bullet_points: [
+      'Conducted research to find environmentally-friendly 3D printing filament alternatives by incorporating spent coffee grounds (SCG) into resin',
+      'Created various 3D printing prototypes in various forms and shapes with different filament ratios and conducted tensile strength and durability material tests',
+      'Worked closely with a team of 4 colleagues over an 8-month period and learned from industry professionals and professors',
+      'Presented our scientific findings and discoveries at the Chapman Grand Challenges Initiative Spring 2022 End-of-Semester Showcase',
+    ],
   },
   {
     title: 'University Student-Faculty Database',
-    date: 'April 2022',
-    location: 'Chapman University, Orange, CA',
+    date: 'Apr 2022',
+    location: 'Orange, CA',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/Student-Faculty-BST-Database',
       },
     ],
-    bio: ``,
+    bio: `Simulated a university database by storing, removing, and maintaining student and faculty data in a Binary Search Tree data structure
+      implemented in C++ including Object Serialization and Rollback features with capabilities of storing 10,000+ data entries.`,
     bullet_points: [
       'Simulated a university database by storing, removing, and maintaining all data in a Binary Search Tree data structure',
-      `Implemented a Binary Search Tree Abstract Data Structure in C++ and explored Object Serialization and Rollback features using Stacks with
-      capabilities of storing 10,000+ student and faculty data entries`,
+      'Implemented a Binary Search Tree Abstract Data Structure in C++ and explored Object Serialization and Rollback features using Stacks with capabilities of storing 10,000+ student and faculty data entries',
       'Worked extensively with a fellow classmate on code design and implementation and used Git/GitHub for source control',
     ],
   },
   {
     title: 'Scientific Computing Project',
     date: 'Sep 2020 - Dec 2020',
-    location: 'Chapman University, Orange, CA',
+    location: 'Orange, CA',
     links: [
       {
         link_name: 'GitHub Link',
         url: 'https://github.com/michelleezhangg/Scientific-Computing-Project',
       },
     ],
-    bio: `Through careful design and collaboration, four other colleagues and I designed code to explore and display the equilibrium configurations
-      of a system of masses through the minimization of the system's potential energies. We conducted research on real-world applications of our project
-      and the feasibility of the geometric shapes produced and presented our findings in a 80-minute presentation and discussion with our other colleagues and professor.`,
+    bio: `Through careful design and collaboration, four colleagues and I designed code to explore and display the equilibrium configurations of systems of masses through the minimization of the system's potential energies.
+      We conducted research on real-world applications of our project and the feasibility of the geometric shapes produced. We presented our findings in an 80-minute presentation and discussion with other colleagues and professor.`,
     bullet_points: [
-      'Designed and implemented a program to simulate the equilibrium configurations of a system of masses',
-      'Conducted extensive research on the feasibility of the geometric shapes produced and presented our findings in a 80-minute presentation',
+      `Explored the effects of altering certain physical values on a controlled system of masses through the minimization of the system's potential energies`,
+      'Designed code to simulate real-world scenarios and diplayed equilibrium configurations of a system',
+      'Conducted extensive research and experimentation of the results and applied our findings to the fields of material science, physics, and engineering',
+      'Led an 80-minute scientific presentation and discussion on the different scenarios, results, and project applications with other colleagues and professor',
     ],
   },
 ];
