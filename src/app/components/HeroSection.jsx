@@ -1,10 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { PERSONAL, LINKS } from '../constants';
-import GithubIcon from '../../../public/assets/github-icon.svg';
-import InstagramIcon from '../../../public/assets/instagram-icon.svg';
-import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
+import { PERSONAL, LINKS, SOCIAL_ICONS } from '../constants';
 
 const HeroSection = () => {
   return (
@@ -30,7 +27,7 @@ const HeroSection = () => {
           <div className='flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center'>
             <Link href={LINKS.linkedin}>
               <Image
-                src={LinkedInIcon}
+                src={SOCIAL_ICONS.linkedin}
                 alt="LinkedIn Icon"
                 width={30}
                 height={30}
@@ -38,7 +35,7 @@ const HeroSection = () => {
             </Link>
             <Link href={LINKS.github}>
               <Image
-                src={GithubIcon}
+                src={SOCIAL_ICONS.github}
                 alt="GitHub Icon"
                 width={30}
                 height={30}
@@ -46,7 +43,7 @@ const HeroSection = () => {
             </Link>
             <Link href={LINKS.instagram}>
               <Image
-                src={InstagramIcon}
+                src={SOCIAL_ICONS.instagram}
                 alt="Instagram Icon"
                 width={30}
                 height={30}

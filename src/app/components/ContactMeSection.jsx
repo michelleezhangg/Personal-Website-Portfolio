@@ -2,10 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { CONTACT, LINKS } from '../constants';
-import GithubIcon from '../../../public/assets/github-icon.svg';
-import InstagramIcon from '../../../public/assets/instagram-icon.svg';
-import LinkedInIcon from '../../../public/assets/linkedin-icon.svg';
+import { CONTACT, LINKS, SOCIAL_ICONS } from '../constants';
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -55,7 +52,7 @@ const ContactMeSection = () => {
           <div className='flex flex-row gap-5 ml-5'>
             <Link href={LINKS.linkedin}>
               <Image
-                src={LinkedInIcon}
+                src={SOCIAL_ICONS.linkedin}
                 alt="LinkedIn Icon"
                 width={30}
                 height={30}
@@ -63,7 +60,7 @@ const ContactMeSection = () => {
             </Link>
             <Link href={LINKS.github}>
               <Image
-                src={GithubIcon}
+                src={SOCIAL_ICONS.github}
                 alt="GitHub Icon"
                 width={30}
                 height={30}
@@ -71,7 +68,7 @@ const ContactMeSection = () => {
             </Link>
             <Link href={LINKS.instagram}>
               <Image
-                src={InstagramIcon}
+                src={SOCIAL_ICONS.instagram}
                 alt="Instagram Icon"
                 width={30}
                 height={30}

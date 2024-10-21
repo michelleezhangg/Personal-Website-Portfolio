@@ -15,6 +15,12 @@ export const LINKS = {
   github: 'https://github.com/michelleezhangg',
 };
 
+export const SOCIAL_ICONS = {
+  linkedin: '/icons/linkedin-icon.svg',
+  instagram: '/icons/instagram-icon.svg',
+  github: '/icons/github-icon.svg',
+}
+
 export const COPYRIGHT = 'All rights reserved.';
 
 export const NAV_LINKS = [
@@ -44,6 +50,7 @@ export const EDUCATION = {
   scholarship: 'Hesperian Scholarship',
   graduation: 'May 2024',
   gpa: '3.7',
+  logo: '/logos/chapman-logo.png',
   relevant_coursework: [
     'Data Structures and Algorithms',
     'Data Communications and Computer Networks',
@@ -76,68 +83,68 @@ export const EDUCATION = {
     proficient: [
       {
         name: 'Python',
-        path: '/assets/python-icon.svg',
+        path: '/icons/python-icon.svg',
       },
       {
         name: 'C/C++',
-        path: '/assets/c++-icon.svg',
+        path: '/icons/c++-icon.svg',
       },
       {
         name: 'Java',
-        path: '/assets/java-icon.svg',
+        path: '/icons/java-icon.svg',
       },
       {
         name: 'HTML5/CSS3',
-        path: '/assets/html-icon.svg',
+        path: '/icons/html-icon.svg',
       },
     ],
     familiar: [
       {
         name: 'Javascript/Typescript',
-        path: '/assets/javascript-icon.svg',
+        path: '/icons/javascript-icon.svg',
       },
       {
         name: 'React.js',
-        path: '/assets/react-icon.svg',
+        path: '/icons/react-icon.svg',
       },
       {
         name: 'SQL',
-        path: '/images/sql-icon.png',
+        path: '/icons/sql-icon.png',
       },
       {
         name: 'PHP',
-        path: '/assets/php-icon.svg',
+        path: '/icons/php-icon.svg',
       }
     ],
   },
   technical_skills: [
     {
       name: 'Git',
-      path: '/assets/git-icon.svg',
+      path: '/icons/git-icon.svg',
     },
     {
       name: 'GitHub',
-      path: '/assets/github-icon.svg',
+      path: '/icons/github-icon.svg',
     },
     {
       name: 'Jupyter Notebook',
-      path: '/assets/jupyter-icon.svg',
+      path: '/icons/jupyter-icon.svg',
     },
     {
       name: 'Unix/Linux',
-      path: '/images/linux-icon.png',
+      path: '/icons/linux-icon.png',
     },
     {
       name: 'Docker',
-      path: '/assets/docker-icon.svg',
+      path: '/icons/docker-icon.svg',
     },
     {
       name: 'Firebase',
-      path: '/assets/firebase-icon.svg',
+      path: '/icons/firebase-icon.svg',
     },
     {
       name: 'AWS',
-      path: '/assets/aws-icon.svg',
+      path: '/icons/aws-icon.svg',
     },
   ],
 };
@@ -172,7 +179,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Software Engineering Intern',
     location: 'Bellevue, WA',
     date: 'Jun 2023 - Aug 2023',
-    logo: '/images/warner-bros-discovery-logo.png',
+    logo: '/logos/warner-bros-discovery-logo.png',
     bullet_points: [
       'Developed a full-stack dashboard for TNT Sports developers to effectively monitor the health of 11 TNT channels',
       'Worked cross-functionally with the Live Streaming team and 10+ engineers to constantly improve the dashboard design',
@@ -185,7 +192,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Full-Stack Software Engineering Intern',
     location: 'Frisco, TX',
     date: 'Jul 2022 - Nov 2022',
-    logo: '/images/fu11-mart-logo.png',
+    logo: '/logos/fu11-mart-logo.png',
     bullet_points: [
       'Developed a full-stack ecommerce and company website to increase company revenue and expand customer target audience to national and international scales',
       'Led and worked alongside a 5-member engineering team to produce, modify, and debug software',
@@ -197,7 +204,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: 'Code Coach',
     location: 'La Palma, CA',
     date: 'Feb 2022 - Jul 2022',
-    logo: '/images/thecoderschool-logo.png',
+    logo: '/logos/thecoderschool-logo.png',
     bullet_points: [
       'Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students',
       'Guided students through personalized coding projects, coding competition preparation, and offer programming advice',
@@ -212,6 +219,7 @@ export const PROJECTS = [
     title: 'Personal Website Portfolio',
     date: 'Sep 2024 - Present',
     location: 'West Covina, CA',
+    logo: '',
     links: [
       {
         link_name: 'GitHub Link',
@@ -231,6 +239,7 @@ export const PROJECTS = [
     title: 'Brain Tumor MRI Scan Classification',
     date: 'Nov 2023 - Dec 2023',
     location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
@@ -255,6 +264,7 @@ export const PROJECTS = [
     title: 'Rosetta Stone Subscriber Optimizer',
     date: 'Nov 2023 - Dec 2023',
     location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'Slide Deck',
@@ -275,6 +285,7 @@ export const PROJECTS = [
     title: 'College Admissions Data Analysis',
     date: 'May 2023',
     location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
@@ -294,6 +305,7 @@ export const PROJECTS = [
     title: 'Film Data Analysis',
     date: 'May 2023',
     location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
@@ -321,6 +333,7 @@ export const PROJECTS = [
     title: '3D Printing Research Project',
     date: 'Feb 2020 - May 2022',
     location: 'Orange CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'Research Poster',
@@ -341,6 +354,7 @@ export const PROJECTS = [
     title: 'University Student-Faculty Database',
     date: 'Apr 2022',
     location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
@@ -359,6 +373,7 @@ export const PROJECTS = [
     title: 'Scientific Computing Project',
     date: 'Sep 2020 - Dec 2020',
     location: 'Orange, CA',
+    logo: '/logos/chapman-logo.png',
     links: [
       {
         link_name: 'GitHub Link',
