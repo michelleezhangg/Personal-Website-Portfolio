@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
-import { THANK_YOU_MESSAGE, SUBMISSION_CONFIRMATION, EMAIL } from '../../constants';
+import { THANK_YOU_MESSAGE, SUBMISSION_CONFIRMATION, EMAIL } from '../../constants/constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;

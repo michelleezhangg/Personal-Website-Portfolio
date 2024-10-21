@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
 // Mock the constants
-jest.mock('../app/constants', () => ({
+jest.mock('../app/constants/constants', () => ({
   THANK_YOU_MESSAGE: 'Thank you for contacting me!',
   SUBMISSION_CONFIRMATION: 'New message submitted!',
   EMAIL: 'michelleeeezhangggg@gmail.com',
@@ -18,7 +18,6 @@ process.env.FROM_EMAIL = 'test@example.com';
 
 // Mock NextRequest and NextResponse
 jest.mock('next/server', () => ({
-  ...jest.requireActual('next/server'),
   NextRequest: jest.fn(),
   NextResponse: {
     json: jest.fn(),
@@ -45,6 +44,7 @@ describe('POST /api/send', () => {
     }));
   });
 
+  /* Email sent successfully */
   it('should send email successfully', async () => {
     const mockBody = {
       email: 'test@example.com',
@@ -70,6 +70,7 @@ describe('POST /api/send', () => {
     expect(mockSend).toHaveBeenCalledTimes(2); // Once for admin, once for user
   });
 
+  /* Missing fields */
   it('should return 400 for missing fields', async () => {
     // Mock a request with missing fields
     const mockBody = {
@@ -94,6 +95,7 @@ describe('POST /api/send', () => {
     expect(mockSend).not.toHaveBeenCalled();
   });
 
+  /* Resent throws an error */
   it('should return 500 if Resend throws an error', async () => {
     // Mock Resend to throw an error
     mockSend.mockRejectedValue(new Error('Resend error'));
@@ -117,9 +119,10 @@ describe('POST /api/send', () => {
     const data = await res.json();
 
     expect(res.status).toBe(500);
-    expect(data.error).toBe('An unexpected error occured');
+    expect(data.error).toBe('An unexpected error occurred');
   });
 
+  /* Invalid email format */
   it('should handle invalid email format', async () => {
     const mockBody = {
       email: 'invalid-email', // Invalid email format
@@ -144,6 +147,7 @@ describe('POST /api/send', () => {
     expect(mockSend).not.toHaveBeenCalled();
   });
 
+  /* Handling empty message */
   it('should handle empty message', async() => {
     const mockBody = {
       email: 'test@example.com',
@@ -164,7 +168,7 @@ describe('POST /api/send', () => {
     const data = await res.json();
 
     expect(res.status).toBe(400);
-    expect(data.error).toBe('Message cannot be empty');
+    expect(data.error).toBe('Missing required fields');
     expect(mockSend).not.toHaveBeenCalled();
   });
 });
