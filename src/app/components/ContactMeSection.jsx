@@ -47,7 +47,7 @@ const ContactMeSection = () => {
       <section className='grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4'>
         {/* Left Side: Section Text and Socials */}
         <div>
-          <h5 className='title text-xl font-bold my-1'>Let's Connect</h5>
+          <h5 className='title title text-xl font-bold my-1'>Let's Connect</h5>
           <p className='mb-4 max-w-sm'>{CONTACT.bio}</p>
           <div className='flex flex-row gap-5 ml-5'>
             <Link href={LINKS.linkedin}>
@@ -124,9 +124,9 @@ const ContactMeSection = () => {
                   type='message'
                   id='message'
                   required
-                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5 resize-vertical min-h-[42px] max-h-[300px]'
-                  placeholder={CONTACT.placeholders.message}
-                ></textarea>
+                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
+                  placeholder={MESSAGE_PLACEHOLDER}
+                />
               </div>
               <button
                 type='submit'
