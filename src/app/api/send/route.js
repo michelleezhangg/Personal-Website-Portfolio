@@ -1,26 +1,15 @@
+import { EmailTemplate } from '../../../components/EmailTemplate';
 import { Resend } from 'resend';
-import { THANK_YOU_MESSAGE, SUBMISSION_CONFIRMATION } from '../../constants/constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
 
-export async function POST(req, res) {
-  const { body } = req.json();
-  const { email, subject, message } = body;
-
+export async function POST() {
   try {
     const { data, error } = await resend.emails.send({
-      from: fromEmail,
-      to: ["michelleeeezhangggg@gmail.com", email],
-      subject: subject,
-      react: (
-        <>
-          <h1>{subject}</h1>
-          <p>{THANK_YOU_MESSAGE}</p>
-          <p>{SUBMISSION_CONFIRMATION}</p>
-          <p>{message}</p>
-        </>
-      ),
+      from: 'Acme <onboarding@resend.dev>',
+      to: ['delivered@resend.dev'],
+      subject: 'Hello world',
+      react: EmailTemplate({ firstName: 'John' }),
     });
 
     if (error) {
