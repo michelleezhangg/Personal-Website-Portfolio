@@ -1,18 +1,20 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import ToolListItem from './ToolListItem';
 import ExperienceItem from './ExperienceItem';
-import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants/constants';
-import ChapmanLogo from '../../../public/images/chapman-logo.png';
+import { EDUCATION, INTERESTS, LANGUAGES, PROFESSIONAL_EXPERIENCE } from '../constants';
 
 const AboutMeSection = () => {
   return (
     <section id='about-me' className='section bg-lightblue'>
       <div className='flex flex-col items-center'>
         <h1 className='title text-6xl p-10 pt-20'>About Me</h1>
-        <button className='button blue-button px-8'>
-          Resume
-        </button>
+        <Link href='/assets/resume.pdf'>
+          <button className='button blue-button px-8'>
+            Resume
+          </button>
+        </Link>
       </div>
       <section>
         {/* Education: Chapman University */}
@@ -35,7 +37,7 @@ const AboutMeSection = () => {
               </p>
               <p>GPA: <strong>{EDUCATION.gpa}</strong></p>
               <Image
-                src={ChapmanLogo}
+                src={EDUCATION.logo}
                 alt='Chapman Logo'
                 className='text-sm font-semibold self-start mt-auto'
                 width={250}
