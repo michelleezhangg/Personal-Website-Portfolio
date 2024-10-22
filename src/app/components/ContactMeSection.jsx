@@ -6,35 +6,49 @@ import { CONTACT, SOCIAL_LINKS, SOCIAL_ICONS } from '../constants';
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // page doesn't reload when form is submitted
+    e.preventDefault(); // Page doesn't reload when form is submitted
+    // setIsLoading(true);
+    // setError('');
+
     const data = {
       email: e.target.email.value,
       subject: e.target.subject.value,
       message: e.target.message.value,
     }
 
-    const JSONdata = JSON.stringify(data);
-    const endpoint = '/api/send';
+    try {
+      const JSONdata = JSON.stringify(data);
+      const endpoint = '/api/send';
 
-    // Request for sending data to the server
-    const options = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSONdata,
-    }
+      // Request for sending data to the server
+      const options = {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSONdata,
+      }
 
-    // Retrieve response
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-    console.log(resData);
+      // Retrieve response
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
 
-    if (resData.status === 200) {
-      console.log('Message sent.');
-      setEmailSubmitted(true);
+      if (resData.status === 200) {
+        console.log('Message sent.'); // testing
+        setEmailSubmitted(true);
+        e.target.reset(); // Clear the form
+      } else {
+        throw new Error(resData.message || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // setError('Failed to send message. Please try again.');
+    // } finally {
+    //   setIsLoading(false);
     }
   }
 
@@ -131,11 +145,14 @@ const ContactMeSection = () => {
               <button
                 type='submit'
                 className='button blue-button max-w-fit px-8'
+                // disabled={isLoading} // Disable button while loading
               >
                 Send Message
+                {/* {isLoading ? 'Sending...' : 'Send Message'} */}
               </button>
               {
                 // If email was submitted successfully, show success message
+                // {error && <p className='text-red-500 mt-2'>{error}</p>}
                 emailSubmitted && (
                   <p className='text-green-500 mt-2'>
                     Email sent successfully!

@@ -4,15 +4,13 @@ import { CONTACT } from '@/app/constants';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
 
-export async function POST(req, res) {
+export async function POST(req) {
   try {
-    const { body } = await req.json();
-    const { email, subject, message } = body;
+    const { email, subject, message } = await req.json();
 
     const { data, error } = await resend.emails.send({
-      from: 'Acme <onboarding@resend.dev>',
-      // from: fromEmail,
-      to: ['delivered@resend.dev', email],
+      from: fromEmail,
+      to: [email],
       subject: subject,
       react: (
         <div>
