@@ -6,12 +6,12 @@ import { CONTACT, SOCIAL_LINKS, SOCIAL_ICONS } from '../constants';
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
-  // const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Page doesn't reload when form is submitted
-    // setIsLoading(true);
+    setIsLoading(true);
     // setError('');
 
     const data = {
@@ -47,8 +47,8 @@ const ContactMeSection = () => {
     } catch (error) {
       console.error('Error:', error);
       // setError('Failed to send message. Please try again.');
-    // } finally {
-    //   setIsLoading(false);
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -145,10 +145,10 @@ const ContactMeSection = () => {
               <button
                 type='submit'
                 className='button blue-button max-w-fit px-8'
-                // disabled={isLoading} // Disable button while loading
+                disabled={isLoading} // Disable button while loading
               >
                 Send Message
-                {/* {isLoading ? 'Sending...' : 'Send Message'} */}
+                {isLoading ? 'Sending...' : 'Send Message'}
               </button>
               {
                 // If email was submitted successfully, show success message
