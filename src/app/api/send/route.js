@@ -6,13 +6,24 @@ import { CONTACT, PERSONAL } from '@/app/constants';
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.ADMIN_EMAIL;
 
+// Regular expression pattern for email verification
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
 export async function POST(req) {
   try {
     // Parse the request body
     const { email, subject, message } = await req.json();
 
-    // Validate input
-    if (!email || !subject || !message) {
+    // Validate email format
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({
+        error: 'Invalid email format',
+        status: 400,
+      });
+    }
+
+    // Validate other required fields
+    if (!subject || !message) {
       return NextResponse.json({
         error: 'Missing required fields',
         status: 400,
