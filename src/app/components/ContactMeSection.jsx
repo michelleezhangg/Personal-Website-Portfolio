@@ -7,12 +7,13 @@ import { CONTACT, SOCIAL_LINKS, SOCIAL_ICONS } from '../constants';
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Page doesn't reload when form is submitted
+    setEmailSubmitted(false);
     setIsLoading(true);
-    // setError('');
+    setError('');
 
     const data = {
       email: e.target.email.value,
@@ -35,18 +36,19 @@ const ContactMeSection = () => {
 
       // Retrieve response
       const response = await fetch(endpoint, options);
-      const resData = await response.json();
+      const result = await response.json();
+      console.log('Result:', result);
 
-      if (resData.status === 200) {
-        console.log('Message sent.'); // testing
+      if (result.status === 200) {
+        console.log('Message sent.');
         setEmailSubmitted(true);
         e.target.reset(); // Clear the form
       } else {
-        throw new Error(resData.message || 'Failed to send message');
+        throw new Error(result.error || 'Failed to send message');
       }
     } catch (error) {
       console.error('Error:', error);
-      // setError('Failed to send message. Please try again.');
+      setError(error.message || 'Failed to send message. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -147,18 +149,17 @@ const ContactMeSection = () => {
                 className='button blue-button max-w-fit px-8'
                 disabled={isLoading} // Disable button while loading
               >
-                Send Message
                 {isLoading ? 'Sending...' : 'Send Message'}
               </button>
-              {
-                // If email was submitted successfully, show success message
-                // {error && <p className='text-red-500 mt-2'>{error}</p>}
+                {// Display error or success message based on submission status
+                  error && <p className='text-red-500 font-black mt-2'>{error}</p>
+                }
+                {// If email was submitted successfully, show success message
                 emailSubmitted && (
-                  <p className='text-green-500 mt-2'>
+                  <p className='text-green-600 font-black mt-2'>
                     {CONTACT.submission_responses.success}
                   </p>
-                )
-              }
+                )}
             </form>
           </div>
       </section>
