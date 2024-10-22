@@ -1,5 +1,6 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { CONTACT, PERSONAL } from '@/app/constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
@@ -17,17 +18,20 @@ export async function POST(req) {
       });
     }
 
-    // Send email
+    // Send confirmation email to user
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: [email],
-      subject: subject,
+      subject: CONTACT.confirmation_email.subject,
       react: (
         <div>
-          <h2>{subject}</h2>
-          <p>Thank you for contacting me!</p>
-          <p>I will try to get back to you as soon as I can.</p>
-          <p>Submitted message: {message}</p>
+          <p>Hello {email},</p>
+          <p>{CONTACT.confirmation_email.thank_you}</p>
+          <p><strong>Subject</strong>: {subject}</p>
+          <p><strong>Message</strong>: {message}</p>
+          <p>{CONTACT.confirmation_email.patience}</p>
+          <p>{CONTACT.confirmation_email.closing}</p>
+          <p>{PERSONAL.name}</p>
         </div>
       ),
     });
