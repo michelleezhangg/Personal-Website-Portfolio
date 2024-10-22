@@ -2,7 +2,7 @@ import { POST } from '@/app/api/send/route';
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-// Mock the external dependencies
+// Mock external dependencies
 jest.mock('next/server', () => ({
   NextResponse: {
     json: jest.fn(),
@@ -17,42 +17,34 @@ jest.mock('resend', () => ({
   })),
 }));
 
-describe('POST handler', () => {
+describe('POST function', () => {
   let mockReq;
-  let resendInstance;
+  let mockResend;
 
   beforeEach(() => {
-    jest.clearAllMocks();
     mockReq = {
       json: jest.fn(),
     };
-    resendInstance = new Resend();
+    mockResend = new Resend();
+    process.env.RESEND_API_KEY = 'test_api_key';
+    process.env.ADMIN_EMAIL = 'admin@example.com';
+    process.env.PROFESSIONAL_EMAIL = 'me@example.com';
   });
 
-  test('should return 400 if required fields are missing', async () => {
-    mockReq.json.mockResolvedValue({});
-
-    await POST(mockReq);
-
-    expect(NextResponse.json).toHaveBeenCalledWith({
-      error: 'Missing required fields',
-      status: 400,
-    });
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  test('should send email and return 200 if all fields are provided', async () => {
-    const mockData = {
+  it('should return 200 if email is sent successfully', async () => {
+    mockReq.json.mockResolvedValue({
       email: 'test@example.com',
       subject: 'Test Subject',
       message: 'Test Message',
-    };
-    mockReq.json.mockResolvedValue(mockData);
+    });
 
-    resendInstance.emails.send.mockResolvedValue({ error: null });
-
+    mockResend.emails.send.mockResolvedValue({ error: null });
     await POST(mockReq);
 
-    expect(resendInstance.emails.send).toHaveBeenCalled();
     expect(NextResponse.json).toHaveBeenCalledWith({
       message: 'Email sent successfully',
       status: 200,

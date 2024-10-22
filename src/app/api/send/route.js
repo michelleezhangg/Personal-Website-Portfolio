@@ -1,3 +1,4 @@
+import React from 'react';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { CONTACT, PERSONAL } from '@/app/constants';
@@ -21,7 +22,7 @@ export async function POST(req) {
     // Send confirmation email to user
     const { error } = await resend.emails.send({
       from: fromEmail,
-      to: [email, process.env.PROFESSIONAL_EMAIL],
+      to: [email],
       subject: CONTACT.user_confirmation_email.subject,
       react: (
         <div>
