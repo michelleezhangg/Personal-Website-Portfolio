@@ -399,13 +399,12 @@ export const CONTACT = {
     subject: 'Just saying hi',
     message: "Let's talk about...",
   },
-  confirmation_email: {
+  user_confirmation_email: {
     subject: 'Thank you for Contacting Michelle Zhang',
-    thank_you: `\nThank you for reaching out to us!
+    body: `\nThank you for reaching out to us!
       We've received your message and will get back to your shortly.
       Below are the details of your submission:\n`,
-    patience: 'We appreciate your patience and will respond as soon as possible.\n',
-    closing: 'Best Regards,',
+    closing: 'We appreciate your patience and will respond as soon as possible.\nBest Regards,',
   },
   submission_responses: {
     success: 'Email sent successfully!',

@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import { CONTACT, PERSONAL } from '@/app/constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
+const fromEmail = process.env.ADMIN_EMAIL;
 
 export async function POST(req) {
   try {
@@ -21,16 +21,15 @@ export async function POST(req) {
     // Send confirmation email to user
     const { error } = await resend.emails.send({
       from: fromEmail,
-      to: [email],
-      subject: CONTACT.confirmation_email.subject,
+      to: [email, process.env.PROFESSIONAL_EMAIL],
+      subject: CONTACT.user_confirmation_email.subject,
       react: (
         <div>
           <p>Hello {email},</p>
-          <p>{CONTACT.confirmation_email.thank_you}</p>
+          <p>{CONTACT.user_confirmation_email.body}</p>
           <p><strong>Subject</strong>: {subject}</p>
           <p><strong>Message</strong>: {message}</p>
-          <p>{CONTACT.confirmation_email.patience}</p>
-          <p>{CONTACT.confirmation_email.closing}</p>
+          <p>{CONTACT.user_confirmation_email.closing}</p>
           <p>{PERSONAL.name}</p>
         </div>
       ),
