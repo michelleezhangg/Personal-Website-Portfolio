@@ -155,7 +155,7 @@ const ContactMeSection = () => {
                 // {error && <p className='text-red-500 mt-2'>{error}</p>}
                 emailSubmitted && (
                   <p className='text-green-500 mt-2'>
-                    Email sent successfully!
+                    {CONTACT.submission_responses.success}
                   </p>
                 )
               }

@@ -395,12 +395,12 @@ export const PROJECTS = [
 export const CONTACT = {
   bio: 'Feel free to reach out to me through my socials or this contact form!',
   placeholders: {
-    email: 'michelle@google.com',
+    email: 'name@gmail.com',
     subject: 'Just saying hi',
     message: "Let's talk about...",
   },
-  messages: {
-    thank_you: 'Thank you for contacting me!',
+  submission_responses: {
+    success: 'Email sent successfully!',
     submission_confirmation: 'New message submitted!',
   },
 };

@@ -1,33 +1,51 @@
 import { Resend } from 'resend';
-import { CONTACT } from '@/app/constants';
+import { NextResponse } from 'next/server';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.FROM_EMAIL;
 
 export async function POST(req) {
   try {
+    // Parse the request body
     const { email, subject, message } = await req.json();
 
+    // Validate input
+    if (!email || !subject || !message) {
+      return NextResponse.json(
+        { error: 'Missing required fields' },
+        { status: 400 }
+      );
+    }
+
+    // Send email
     const { data, error } = await resend.emails.send({
       from: fromEmail,
       to: [email],
       subject: subject,
       react: (
         <div>
-          <h1>{subject}</h1>
-          <p>{CONTACT.messages.thank_you}</p>
+          <h2>{subject}</h2>
+          <p>Thank you for contacting me!</p>
           <p>I will try to get back to you as soon as I can.</p>
-          <p>New message submitted: {message}</p>
+          <p>Submitted message: {message}</p>
         </div>
       ),
     });
 
     if (error) {
-      return Response.json({ error }, { status: 500 });
+      console.error('Error sending email:', error);
+      return NextResponse.json(
+        { error: 'Failed to send email' },
+        { status: 500 }
+      );
     }
 
-    return Response.json(data);
+    return NextResponse.json({ success: true });
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    console.error('Server error:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
   }
 }
