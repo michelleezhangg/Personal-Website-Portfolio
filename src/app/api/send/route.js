@@ -1,34 +1,72 @@
+import React from 'react';
 import { Resend } from 'resend';
-import { THANK_YOU_MESSAGE, SUBMISSION_CONFIRMATION } from '../../constants';
+import { NextResponse } from 'next/server';
+import { CONTACT, PERSONAL } from '@/app/constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL;
+const fromEmail = process.env.ADMIN_EMAIL;
 
-export async function POST(req, res) {
-  const { body } = req.json();
-  const { email, subject, message } = body;
+// Regular expression pattern for email verification
+const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
+export async function POST(req) {
   try {
-    const { data, error } = await resend.emails.send({
+    console.log('Received request:', req);
+    // Parse the request body
+    const { email, subject, message } = await req.json();
+    console.log('Parsed request body:', { email, subject, message });
+
+    // Validate email format
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({
+        error: 'Invalid email format',
+        status: 400,
+      });
+    }
+
+    // Validate other required fields
+    if (!subject || !message) {
+      return NextResponse.json({
+        error: 'Missing required fields',
+        status: 400,
+      });
+    }
+
+    // Send confirmation email to user
+    const { error } = await resend.emails.send({
       from: fromEmail,
-      to: ["michelleeeezhangggg@gmail.com", email],
-      subject: subject,
+      to: [email],
+      subject: CONTACT.user_confirmation_email.subject,
       react: (
-        <>
-          <h1>{subject}</h1>
-          <p>{THANK_YOU_MESSAGE}</p>
-          <p>{SUBMISSION_CONFIRMATION}</p>
-          <p>{message}</p>
-        </>
+        <div>
+          <p>Hello {email},</p>
+          <p>{CONTACT.user_confirmation_email.body}</p>
+          <p><strong>Subject</strong>: {subject}</p>
+          <p><strong>Message</strong>: {message}</p>
+          <p>{CONTACT.user_confirmation_email.closing}</p>
+          <p>{PERSONAL.name}</p>
+        </div>
       ),
     });
 
     if (error) {
-      return Response.json({ error }, { status: 500 });
+      console.error('Error sending email:', error);
+      return NextResponse.json({
+        error: 'Failed to send email',
+        status: 500,
+      });
     }
 
-    return Response.json(data);
+    console.log('Email sent successfully');
+    return NextResponse.json({
+      message: 'Email sent successfully',
+      status: 200,
+    });
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    console.error('Caught error in POST function:', error);
+    return NextResponse.json({
+      error: 'Internal server error',
+      status: 500,
+    });
   }
 }
