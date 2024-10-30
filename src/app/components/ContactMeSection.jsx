@@ -95,7 +95,43 @@ const ContactMeSection = () => {
         {/* Right Side: Submission Form */}
         <div>
             <form className='flex flex-col gap-2' onSubmit={handleSubmit}>
-              <div className='mb-6'>
+              <div className='flex gap-2 mb-4'> {/* First and Last Name Inputs */}
+                <div className='flex-1 mr-2'>
+                  <label
+                    htmlFor='first-name'
+                    type='text'
+                    className='title block text-sm mb-2'
+                  >
+                    First Name
+                  </label>
+                  <input
+                    name='first-name'
+                    type='text'
+                    id='first-name'
+                    required
+                    className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
+                    placeholder={CONTACT.placeholders.first_name}
+                  />
+                </div>
+                <div className='flex-1'>
+                  <label
+                    htmlFor='last-name'
+                    type='text'
+                    className='title block text-sm mb-2'
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    name='first-name'
+                    type='text'
+                    id='first-name'
+                    required
+                    className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
+                    placeholder={CONTACT.placeholders.last_name}
+                  />
+                </div>
+              </div>
+              <div className='mb-4'>
                 <label
                   htmlFor='email'
                   type='email'
@@ -112,7 +148,7 @@ const ContactMeSection = () => {
                   placeholder={CONTACT.placeholders.email}
                 />
               </div>
-              <div className='mb-6'>
+              <div className='mb-4'>
                 <label
                   htmlFor='subject'
                   className='title block text-sm mb-2'
@@ -128,7 +164,7 @@ const ContactMeSection = () => {
                   placeholder={CONTACT.placeholders.subject}
                 />
               </div>
-              <div className='mb-6'>
+              <div className='mb-4'>
                 <label
                   htmlFor='message'
                   className='title block text-sm mb-2'
