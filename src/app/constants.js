@@ -395,12 +395,19 @@ export const PROJECTS = [
 export const CONTACT = {
   bio: 'Feel free to reach out to me through my socials or this contact form!',
   placeholders: {
-    email: 'michelle@google.com',
+    email: 'name@gmail.com',
     subject: 'Just saying hi',
     message: "Let's talk about...",
   },
-  messages: {
-    thank_you: 'Thank you for contacting me!',
+  user_confirmation_email: {
+    subject: 'Thank you for Contacting Michelle Zhang',
+    body: `\nThank you for reaching out to us!
+      We've received your message and will get back to your shortly.
+      Below are the details of your submission:\n`,
+    closing: 'We appreciate your patience and will respond as soon as possible.\nBest Regards,',
+  },
+  submission_responses: {
+    success: 'Email sent successfully!',
     submission_confirmation: 'New message submitted!',
   },
 };
