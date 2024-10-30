@@ -395,8 +395,10 @@ export const PROJECTS = [
 export const CONTACT = {
   bio: 'Feel free to reach out to me through my socials or this contact form!',
   placeholders: {
+    first_name: 'First Name',
+    last_name: 'Last Name',
     email: 'name@gmail.com',
-    subject: 'Just saying hi',
+    subject: 'Just saying hi...',
     message: "Let's talk about...",
   },
   user_confirmation_email: {
