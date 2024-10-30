@@ -16,6 +16,8 @@ const ContactMeSection = () => {
     setError('');
 
     const data = {
+      firstName: e.target.firstName.value,
+      lastName: e.target.lastName.value,
       email: e.target.email.value,
       subject: e.target.subject.value,
       message: e.target.message.value,
@@ -98,16 +100,16 @@ const ContactMeSection = () => {
               <div className='flex gap-2 mb-4'> {/* First and Last Name Inputs */}
                 <div className='flex-1 mr-2'>
                   <label
-                    htmlFor='first-name'
+                    htmlFor='firstName'
                     type='text'
                     className='title block text-sm mb-2'
                   >
                     First Name
                   </label>
                   <input
-                    name='first-name'
+                    name='firstName'
                     type='text'
-                    id='first-name'
+                    id='firstName'
                     required
                     className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
                     placeholder={CONTACT.placeholders.first_name}
@@ -115,16 +117,16 @@ const ContactMeSection = () => {
                 </div>
                 <div className='flex-1'>
                   <label
-                    htmlFor='last-name'
+                    htmlFor='lastName'
                     type='text'
                     className='title block text-sm mb-2'
                   >
                     Last Name
                   </label>
                   <input
-                    name='first-name'
+                    name='lastName'
                     type='text'
-                    id='first-name'
+                    id='lastName'
                     required
                     className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
                     placeholder={CONTACT.placeholders.last_name}
