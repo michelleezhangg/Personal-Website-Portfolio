@@ -11,8 +11,10 @@ const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 export async function POST(req) {
   try {
+    console.log('Received request:', req);
     // Parse the request body
     const { email, subject, message } = await req.json();
+    console.log('Parsed request body:', { email, subject, message });
 
     // Validate email format
     if (!emailRegex.test(email)) {
@@ -55,12 +57,13 @@ export async function POST(req) {
       });
     }
 
+    console.log('Email sent successfully');
     return NextResponse.json({
       message: 'Email sent successfully',
       status: 200,
     });
   } catch (error) {
-    console.error('Server error:', error);
+    console.error('Caught error in POST function:', error);
     return NextResponse.json({
       error: 'Internal server error',
       status: 500,
