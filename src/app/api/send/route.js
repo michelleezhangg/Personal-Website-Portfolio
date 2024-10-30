@@ -13,8 +13,8 @@ export async function POST(req) {
   try {
     console.log('Received request:', req);
     // Parse the request body
-    const { email, subject, message } = await req.json();
-    console.log('Parsed request body:', { email, subject, message });
+    const { firstName, lastName, email, subject, message } = await req.json();
+    console.log('Parsed request body:', { firstName, lastName, email, subject, message });
 
     // Validate email format
     if (!emailRegex.test(email)) {
@@ -25,7 +25,8 @@ export async function POST(req) {
     }
 
     // Validate other required fields
-    if (!subject || !message) {
+    if (!firstName || !lastName || !subject || !message) {
+      console.log('Fields:', { firstName, lastName, email, subject, message });
       return NextResponse.json({
         error: 'Missing required fields',
         status: 400,
@@ -39,7 +40,7 @@ export async function POST(req) {
       subject: CONTACT.user_confirmation_email.subject,
       react: (
         <div>
-          <p>Hello {email},</p>
+          <p>Hello {firstName} {lastName},</p>
           <p>{CONTACT.user_confirmation_email.body}</p>
           <p><strong>Subject</strong>: {subject}</p>
           <p><strong>Message</strong>: {message}</p>
