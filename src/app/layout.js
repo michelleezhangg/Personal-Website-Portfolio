@@ -31,11 +31,8 @@ export default function RootLayout({ children }) {
         <link rel='icon' href='/favicon/favicon-32x32.png' sizes='32x32' type='image/png' />
         <link rel="manifest" href="/favicon/site.webmanifest" />
         <link rel='apple-touch-icon' href='/favicon/apple-touch-icon.png' sizes='180x180' type='image/png' />
-        <link rel='mask-icon' href='/favicon/safari-pinned-tab.svg' color='#5bbad5' />
         <link rel='shortcut icon' href='/favicon/favicon.ico' />
-        <meta name='msapplication-TileColor' content='#da532c' />
-        <meta name='msapplication-config' content='/favicon/browserconfig.xml' />
-        <meta name='theme-color' content='#ffffff' />
+        <meta name='theme-color' content='#ebf1ff' />
       </head>
       <body className={`antialiased`}>
         {children}
