@@ -19,7 +19,7 @@ const mockExperienceItem = {
   bullet3: 'Bullet Point 3',
 };
 
-describe('ExperienceItem component', () => {
+describe('ExperienceItem Component', () => {
   it('renders company name, position, location, and date', () => {
     render(<ExperienceItem {...mockExperienceItem} />);
     expect(screen.getByText(mockExperienceItem.company)).toBeInTheDocument();
