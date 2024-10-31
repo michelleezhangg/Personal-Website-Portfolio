@@ -1,7 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import ToolListItem from '@/app/components/ToolListItem';
-import Image from 'next/image';
 
 // Mock Image component
 jest.mock('next/image', () => {
