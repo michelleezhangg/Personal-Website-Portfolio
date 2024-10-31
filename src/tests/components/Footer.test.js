@@ -4,7 +4,6 @@ import Footer from '@/app/components/Footer';
 import { COPYRIGHT, PERSONAL } from '@/app/constants';
 
 describe('Footer', () => {
-  // Test rendering
   it('renders Footer component with name, role, and copyright text', () => {
     render(<Footer />);
     
@@ -18,7 +17,6 @@ describe('Footer', () => {
     expect(copyrightElement).toBeInTheDocument();
   });
 
-  // Test link functionality
   it('renders link component around name and role', () => {
     render(<Footer />);
 
@@ -28,7 +26,6 @@ describe('Footer', () => {
     expect(link).toHaveAttribute('href', '#');
   });
 
-  // Test layout and style
   it('positions name, role, and copyright text correctly', () => {
     render(<Footer />);
 
