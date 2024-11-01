@@ -14,24 +14,22 @@ const mockLinks = [
 ];
 
 describe('MenuOverlay Component', () => {
-  it('renders MenuOverlay component with correct links', () => {
+  beforeEach(() => {
     render(<MenuOverlay links={mockLinks} />);
+  });
 
+  it('renders MenuOverlay component with correct links', () => {
     mockLinks.forEach(link => {
       expect(screen.getByText(link.title)).toBeInTheDocument();
     });
   });
 
   it('renders the correct number of links', () => {
-    render(<MenuOverlay links={mockLinks} />);
-    
     const listItems = screen.getAllByRole('listitem');
     expect(listItems).toHaveLength(mockLinks.length);
   });
 
   it('link elements have correct attributes', () => {
-    render(<MenuOverlay links={mockLinks} />);
-
     const scrollLinks = screen.getAllByTestId('scroll-link');
     scrollLinks.forEach((link, index) => {
       expect(link).toHaveTextContent(mockLinks[index].title);

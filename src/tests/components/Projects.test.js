@@ -14,16 +14,16 @@ jest.mock('@/app/components/Projectitem', () => {
 });
 
 describe('Projects Component', () => {
-  it('renders Projects component with the correct title', () => {
+  beforeEach(() => {
     render(<Projects />);
+  });
 
+  it('renders Projects component with the correct title', () => {
     const titleElement = screen.getByText('Projects');
     expect(titleElement).toBeInTheDocument();
   });
 
   it('renders the GitHub and LinkedIn buttons', () => {
-    render(<Projects />);
-
     const gitHubButton = screen.getByRole('button', { name: /github/i });
     const linkedInButton = screen.getByRole('button', { name: /linkedin/i });
 
@@ -32,15 +32,11 @@ describe('Projects Component', () => {
   });
 
   it('renders the correct number of ProjectItem Components', () => {
-    render(<Projects />);
-
     const projectItems = screen.getAllByRole('heading', { level: 2 });
     expect(projectItems).toHaveLength(PROJECTS.length);
   });
 
   it('renders each project with correct details', () => {
-    render(<Projects />);
-
     PROJECTS.forEach((project) => {
       const titles = screen.getAllByText(project.title);
       expect(titles.length).toBeGreaterThan(0);

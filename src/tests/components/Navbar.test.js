@@ -23,9 +23,11 @@ jest.mock('@/app/components/MenuOverlay', () => {
 });
 
 describe('Navbar Component', () => {
-  it('renders Navbar component with the title and role', () => {
+  beforeEach(() => {
     render(<Navbar />);
+  });
 
+  it('renders Navbar component with the title and role', () => {
     const nameElement = screen.getByText(PERSONAL.name);
     const roleElement = screen.getByText(PERSONAL.role);
 
@@ -34,15 +36,11 @@ describe('Navbar Component', () => {
   });
 
   it('renders the mobile menu button', () => {
-    render(<Navbar />);
-
     const mobileMenuButton = screen.getByLabelText('Open mobile menu');
     expect(mobileMenuButton).toBeInTheDocument();
   });
 
   it('opens the mobile menu when button is clicked', () => {
-    render(<Navbar />);
-
     const mobileMenuButton = screen.getByLabelText('Open mobile menu');
 
     // Click to open the mobile menu
@@ -58,15 +56,11 @@ describe('Navbar Component', () => {
   });
 
   it('renders the correct number of links in the navbar in desktop view', () => {
-    render(<Navbar />);
-
     const listItems = screen.getAllByRole('listitem');
     expect(listItems).toHaveLength(NAV_LINKS.length);
   });
 
   it('link elements have correct attributes', () => {
-    render(<Navbar />);
-
     const scrollLinks = screen.getAllByTestId('scroll-link');
     scrollLinks.forEach((link, index) => {
       expect(link).toHaveTextContent(NAV_LINKS[index].title);
@@ -75,8 +69,6 @@ describe('Navbar Component', () => {
   });
 
   it('closes mobile menu when close button is clicked', () => {
-    render(<Navbar />);
-
     // Open the mobile menu
     const mobileMenuButton = screen.getByLabelText('Open mobile menu');
     fireEvent.click(mobileMenuButton);

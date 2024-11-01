@@ -13,9 +13,11 @@ const mockToolItem = {
 };
 
 describe('ToolListItem component', () => {
-  it('renders tool icon with correct src and alt text', () => {
+  beforeEach(() => {
     render(<ToolListItem {...mockToolItem} />);
+  });
 
+  it('renders tool icon with correct src and alt text', () => {
     const iconImage = screen.getByAltText(`${mockToolItem.name} Icon`);
     expect(iconImage).toBeInTheDocument();
     expect(iconImage).toHaveAttribute('src', mockToolItem.path);
@@ -24,7 +26,6 @@ describe('ToolListItem component', () => {
   });
 
   it('renders tool name correctly', () => {
-    render(<ToolListItem {...mockToolItem} />);
     expect(screen.getByText(mockToolItem.name)).toBeInTheDocument();
   });
 });
