@@ -32,13 +32,13 @@ describe('AboutMeSection Component', () => {
       expect(screen.getByText(EDUCATION.gpa)).toBeInTheDocument();
     });
 
-    // it('renders Chapman logo image with correct src and alt attributes', () => {
-    //   const chapmanLogo = screen.getByAltText('Chapman Logo');
-    //   expect(chapmanLogo).toBeInTheDocument();
-    //   expect(chapmanLogo).toHaveAttribute('src', EDUCATION.logo);
-    //   expect(chapmanLogo).toHaveAttribute('width', '250');
-    //   expect(chapmanLogo).toHaveAttribute('height', '250');
-    // });
+    it('renders Chapman logo image with correct src and alt attributes', () => {
+      const chapmanLogo = screen.getByAltText('Chapman Logo');
+      expect(chapmanLogo).toBeInTheDocument();
+      expect(chapmanLogo).toHaveAttribute('src', expect.stringContaining('chapman-logo.png'));
+      expect(chapmanLogo).toHaveAttribute('width', '250');
+      expect(chapmanLogo).toHaveAttribute('height', '250');
+    });
   
     it('renders Relevant Coursework', () => {
       expect(screen.getByText('Relevant Coursework')).toBeInTheDocument();
@@ -105,25 +105,21 @@ describe('AboutMeSection Component', () => {
 
     it('renders all experience items', () => {
       PROFESSIONAL_EXPERIENCE.forEach(experience => {
+        // Just ensure company name is present, details are tested in ExperienceItem test file
         expect(screen.getByText(experience.company)).toBeInTheDocument();
-        expect(screen.getByText(experience.position)).toBeInTheDocument();
-        expect(screen.getByText(experience.location)).toBeInTheDocument();
-        expect(screen.getByText(experience.date)).toBeInTheDocument();
-        // expect(screen.getByText(experience.logo)).toBeInTheDocument();
-        // expect(screen.getByText(experience.bullet_points)).toBeInTheDocument();
       });
     });
   });
 
   describe('About Me section', () => {
-    // it('renders Languages heading and all language items', () => {
-    //   const languagesSectionElement = screen.getByText('Languages').closest('.section-box');
-    //   expect(languagesSectionElement).toBeInTheDocument();
+    it('renders Languages heading and all language items', () => {
+      const languagesSectionElement = screen.getByText('Languages').closest('.section-box');
+      expect(languagesSectionElement).toBeInTheDocument();
 
-    //   LANGUAGES.forEach(language => {
-    //     expect(screen.getByText(`${language.name} (${language.fluency})`)).toBeInTheDocument();
-    //   });
-    // });
+      LANGUAGES.forEach(language => {
+        expect(screen.getByText(`${language.language} (${language.fluency})`)).toBeInTheDocument();
+      });
+    });
 
     it('renders Interest heading and all interest items', () => {
       const interestSectionElement = screen.getByText('Interests').closest('.section-box');
