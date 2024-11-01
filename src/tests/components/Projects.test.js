@@ -42,6 +42,7 @@ describe('Projects Component', () => {
 
   it('renders each project with correct details', () => {
     PROJECTS.forEach((project) => {
+      // Ensure at least one match, duplicates are fine
       const titles = screen.getAllByText(project.title);
       expect(titles.length).toBeGreaterThan(0);
 
