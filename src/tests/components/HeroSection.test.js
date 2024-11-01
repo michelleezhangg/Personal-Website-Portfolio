@@ -13,7 +13,7 @@ describe('HeroSection Component', () => {
   });
 
   it('renders the profile image with correct src and alt', () => {
-    const profileImage = screen.getByAltText('hero image');
+    const profileImage = screen.getByAltText('Profile Image');
     expect(profileImage).toBeInTheDocument();
     expect(profileImage).toHaveAttribute('src', expect.stringContaining('profile.png'));
     expect(profileImage).toHaveAttribute('width', '200');
