@@ -27,6 +27,10 @@ describe('Navbar Component', () => {
     render(<Navbar />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders Navbar component with the title and role', () => {
     const nameElement = screen.getByText(PERSONAL.name);
     const roleElement = screen.getByText(PERSONAL.role);

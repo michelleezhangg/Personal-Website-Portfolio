@@ -17,6 +17,10 @@ describe('ToolListItem component', () => {
     render(<ToolListItem {...mockToolItem} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders tool icon with correct src and alt text', () => {
     const iconImage = screen.getByAltText(`${mockToolItem.name} Icon`);
     expect(iconImage).toBeInTheDocument();

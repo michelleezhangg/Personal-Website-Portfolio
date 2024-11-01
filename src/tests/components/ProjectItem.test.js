@@ -16,6 +16,10 @@ const mockProjectItem = {
 };
 
 describe('ProjectItem Component', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+  
   it('renders title, date, and location', () => {
     render(<ProjectItem {...mockProjectItem} />);
 

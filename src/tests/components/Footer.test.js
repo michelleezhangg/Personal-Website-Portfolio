@@ -8,6 +8,10 @@ describe('Footer Component', () => {
     render(<Footer />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders Footer component with name, role, and copyright text', () => {
     const nameElement = screen.getByText(PERSONAL.name);
     const roleElement = screen.getByText(PERSONAL.role);

@@ -19,6 +19,10 @@ const mockExperienceItem = {
 };
 
 describe('ExperienceItem Component', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders company name, position, location, and date', () => {
     render(<ExperienceItem {...mockExperienceItem} />);
     expect(screen.getByText(mockExperienceItem.company)).toBeInTheDocument();

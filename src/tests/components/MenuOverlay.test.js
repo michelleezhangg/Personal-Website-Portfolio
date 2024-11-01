@@ -18,6 +18,10 @@ describe('MenuOverlay Component', () => {
     render(<MenuOverlay links={mockLinks} />);
   });
 
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders MenuOverlay component with correct links', () => {
     mockLinks.forEach(link => {
       expect(screen.getByText(link.title)).toBeInTheDocument();
