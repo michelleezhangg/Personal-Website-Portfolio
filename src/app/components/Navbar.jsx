@@ -19,17 +19,25 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <div className='block md:hidden'>
           {!navbarOpen ? (
-              <button onClick={() => setNavbarOpen(true)} className='flex items-center px-3 py-1'>
+              <button
+                onClick={() => setNavbarOpen(true)}
+                className='flex items-center px-3 py-1'
+                aria-label='Open mobile menu'
+              >
                 <Bars3Icon className='h-8 w-8' />
               </button>
             ) : (
-              <button onClick={() => setNavbarOpen(false)} className='flex items-center px-3 py-1'>
+              <button
+                onClick={() => setNavbarOpen(false)}
+                className='flex items-center px-3 py-1'
+                aria-label='Close mobile menu'
+              >
                 <XMarkIcon className='h-8 w-8' />
               </button>
           )}
         </div>
         {/* Standard Menu */}
-        <div className='hidden md:block' id='navbar'>
+        <div className={`hidden md:block ${navbarOpen ? 'hidden' : ''}`} id='navbar'>
           <ul className='flex p-4 gap-6'>
            {NAV_LINKS.map((link, index) => (
               <li key={index}>
