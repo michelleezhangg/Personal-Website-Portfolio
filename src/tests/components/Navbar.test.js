@@ -5,7 +5,11 @@ import { NAV_LINKS, PERSONAL } from '@/app/constants';
 
 // Mocking react-scroll library to isolate Navbar tests
 jest.mock('react-scroll', () => ({
-  Link: (props) => <a {...props} data-testid='scroll-link'>{props.children}</a>,
+  Link: ({ activeClass, ...props}) => (
+    <a {...props} data-testid='scroll-link' className={activeClass}>
+      {props.children}
+    </a>
+  ),
   animateScroll: { scrollToTop: jest.fn() },
 }));
 

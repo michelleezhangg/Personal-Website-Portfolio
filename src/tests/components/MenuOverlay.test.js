@@ -2,8 +2,13 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import MenuOverlay from '@/app/components/MenuOverlay';
 
+// Mocking react-scroll library to isolate Navbar tests
 jest.mock('react-scroll', () => ({
-  Link: (props) => <a {...props} data-testid='scroll-link'>{props.children}</a>,
+  Link: ({ activeClass, ...props }) => (
+    <a {...props} data-testid='scroll-link' className={activeClass}>
+      {props.children}
+    </a>
+  ),
 }));
 
 const mockLinks = [

@@ -37,14 +37,14 @@ const Navbar = () => {
           )}
         </div>
         {/* Standard Menu */}
-        <div className={`hidden md:block ${navbarOpen ? 'hidden' : ''}`} id='navbar'>
+        <div className='hidden md:block' id='navbar'>
           <ul className='flex p-4 gap-6'>
            {NAV_LINKS.map((link, index) => (
               <li key={index}>
                 <ScrollLink
                   to={link.path}
-                  spy={true}
-                  smooth={true}
+                  spy='true'
+                  smooth='true'
                   offset={-200} // Extend spy region up 200px
                   duration={500}
                   className='cursor-pointer text-lg block py-2 pr-4 hover:text-darkblue uppercase'
