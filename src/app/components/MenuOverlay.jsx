@@ -8,8 +8,8 @@ const MenuOverlay = ({ links }) => {
         <li key={index}>
           <ScrollLink
             to={link.path}
-            spy={true}
-            smooth={true}
+            spy='true'
+            smooth='true'
             offset={-200} // Extend spy region up 200px
             duration={500}
             className='block py-2 pr-4 hover:text-darkblue uppercase'
