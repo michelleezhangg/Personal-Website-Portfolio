@@ -16,11 +16,11 @@ const ContactMeSection = () => {
     setError('');
 
     const data = {
-      firstName: e.target.firstName.value,
-      lastName: e.target.lastName.value,
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
+      firstName: e.target.elements.firstName.value,
+      lastName: e.target.elements.lastName.value,
+      email: e.target.elements.email.value,
+      subject: e.target.elements.subject.value,
+      message: e.target.elements.message.value,
     }
 
     try {
