@@ -13,7 +13,7 @@ const HeroSection = () => {
         <div className='bg-blue p-10 pb-0 m-3 mt-0 shadow-xl flex flex-col items-center'>
           <Image
             src='/images/profile.png'
-            alt='hero image'
+            alt='Profile Image'
             width={200}
             height={200}
             className='rounded-full'

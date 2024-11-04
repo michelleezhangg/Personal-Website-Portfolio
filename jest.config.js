@@ -1,5 +1,5 @@
 module.exports = {
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   rootDir: 'src',
   moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {

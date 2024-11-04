@@ -21,12 +21,20 @@ const Navbar = () => {
         </Link>
         {/* Mobile Menu */}
         <div className='block md:hidden'>
-          {!isMenuOpen ? (
-              <button onClick={toggleMenu} className='flex items-center px-3 py-1'>
+          {!navbarOpen ? (
+              <button
+                onClick={() => setNavbarOpen(true)}
+                className='flex items-center px-3 py-1'
+                aria-label='Open mobile menu'
+              >
                 <Bars3Icon className='h-8 w-8' />
               </button>
             ) : (
-              <button onClick={toggleMenu} className='flex items-center px-3 py-1'>
+              <button
+                onClick={() => setNavbarOpen(false)}
+                className='flex items-center px-3 py-1'
+                aria-label='Close mobile menu'
+              >
                 <XMarkIcon className='h-8 w-8' />
               </button>
           )}
@@ -38,8 +46,8 @@ const Navbar = () => {
               <li key={index}>
                 <ScrollLink
                   to={link.path}
-                  spy={true}
-                  smooth={true}
+                  spy='true'
+                  smooth='true'
                   offset={-200} // Extend spy region up 200px
                   duration={500}
                   className='cursor-pointer text-lg block py-2 pr-4 hover:text-darkblue uppercase'
