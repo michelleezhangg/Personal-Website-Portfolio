@@ -66,7 +66,7 @@ describe('POST function', () => {
   });
 
   it('should return 500 if email sending fails', async () => {
-    mockRequest.json.mockRejectedValue({
+    mockRequest.json.mockResolvedValue({
       firstName: 'John',
       lastName: 'Doe',
       email: 'john.doe@example.com',

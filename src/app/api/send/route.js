@@ -1,6 +1,7 @@
 import React from 'react';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { EmailTemplate } from '../../components/EmailTemplate';
 import { CONTACT, PERSONAL } from '@/app/constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -35,21 +36,12 @@ export async function POST(req) {
       from: fromEmail,
       to: [email],
       subject: CONTACT.user_confirmation_email.subject,
-      react: (
-        <div>
-          <p>Hello {firstName} {lastName},</p>
-          <p>{CONTACT.user_confirmation_email.body}</p>
-          <p><strong>Subject</strong>: {subject}</p>
-          <p><strong>Message</strong>: {message}</p>
-          <p>{CONTACT.user_confirmation_email.closing}</p>
-          <p>{PERSONAL.name}</p>
-        </div>
-      ),
+      react: EmailTemplate({ firstName, lastName, subject, message }),
     });
 
     if (error) {
       console.error('Error sending email:', error);
-      // throw new Error('Email sending failed');
+      throw new Error('Email sending failed');
     }
 
     return NextResponse.json({
