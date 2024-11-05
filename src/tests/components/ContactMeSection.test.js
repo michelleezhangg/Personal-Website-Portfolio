@@ -68,12 +68,30 @@ describe('ContactMeSection Component', () => {
     });
   });
 
-  it('shows an error message if submission fails', async () => {
-    // Mock failed fetch call
-    global.fetch.mockImplementationOnce(() =>
+  it('shows an error message if submission fails with an unexpected error', async () => {
+    global.fetch.mockImplementationOnce(() => Promise.reject({}));
+
+    // Fill in form fields
+    fireEvent.change(screen.getByLabelText(/first name/i), { target: { value: 'John' }});
+    fireEvent.change(screen.getByLabelText(/last name/i), { target: { value: 'Doe' }});
+    fireEvent.change(screen.getByLabelText(/email/i), { target: { value: 'john.doe@example.com' }});
+    fireEvent.change(screen.getByLabelText(/subject/i), { target: { value: 'Hello' }});
+    fireEvent.change(screen.getByLabelText(/message/i), { target: { value: 'This is a test message.' }});
+
+    // Submit the form
+    fireEvent.click(screen.getByRole('button', { name: /send message/i }));
+
+    // Wait for the error message to appear
+    await waitFor(() => {
+      expect(screen.getByText(/failed to send message\. please try again\./i)).toBeInTheDocument();
+    });
+  });
+
+  it('shows default error message if submission fails without specific error', async () => {
+    global.fetch.mockImplementationOnce(() => 
       Promise.resolve({
-        json: () => Promise.resolve({ status: 500, error: 'Submission failed' }),
-      })
+        json: () => Promise.resolve({ status: 500 }),
+      }),
     );
 
     // Fill in form fields
@@ -88,7 +106,7 @@ describe('ContactMeSection Component', () => {
 
     // Wait for the error message to appear
     await waitFor(() => {
-      expect(screen.getByText(new RegExp(/submission failed/i))).toBeInTheDocument();
+      expect(screen.getByText(/failed to send message/i)).toBeInTheDocument();
     });
   });
 
