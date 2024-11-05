@@ -3,11 +3,8 @@ import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import ContactMeSection from '@/app/components/ContactMeSection';
 import { CONTACT } from '@/app/constants';
 
-global.fetch = jest.fn(() =>
-  Promise.resolve({
-    json: () => Promise.resolve({ status: 200 }),
-  })
-);
+// Mock fetch globally
+global.fetch = jest.fn();
 
 describe('ContactMeSection Component', () => {
   beforeEach(() => {
@@ -32,6 +29,13 @@ describe('ContactMeSection Component', () => {
   });
 
   it('submits the form and shows a success message', async () => {
+    // Mock a successful API response
+    global.fetch.mockImplementationOnce(() =>
+      Promise.resolve({
+        json: () => Promise.resolve({ status: 200 }),
+      })
+    );
+    
     // Fill in form fields
     fireEvent.change(screen.getByLabelText(/first name/i), { target: { value: 'John' }});
     fireEvent.change(screen.getByLabelText(/last name/i), { target: { value: 'Doe' }});
@@ -66,7 +70,7 @@ describe('ContactMeSection Component', () => {
 
   it('shows an error message if submission fails', async () => {
     // Mock failed fetch call
-    fetch.mockImplementationOnce(() =>
+    global.fetch.mockImplementationOnce(() =>
       Promise.resolve({
         json: () => Promise.resolve({ status: 500, error: 'Submission failed' }),
       })
