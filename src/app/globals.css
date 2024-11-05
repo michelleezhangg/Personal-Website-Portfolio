@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --dark-blue: #0050FF;
+  --dark-blue: #0050ff;
 }
 
 @font-face {
@@ -15,7 +15,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --dark-blue: #0050FF;
+    --dark-blue: #0050ff;
   }
 }
 

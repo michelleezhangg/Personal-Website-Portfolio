@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -21,7 +21,7 @@ const ContactMeSection = () => {
       email: e.target.elements.email.value,
       subject: e.target.elements.subject.value,
       message: e.target.elements.message.value,
-    }
+    };
 
     try {
       const JSONdata = JSON.stringify(data);
@@ -34,7 +34,7 @@ const ContactMeSection = () => {
           'Content-Type': 'application/json',
         },
         body: JSONdata,
-      }
+      };
 
       // Retrieve response
       const response = await fetch(endpoint, options);
@@ -54,20 +54,20 @@ const ContactMeSection = () => {
     } finally {
       setIsLoading(false);
     }
-  }
+  };
 
   return (
-    <section id='contact-me' className='section bg-lightblue'>
+    <section id="contact-me" className="section bg-lightblue">
       {/* Section Title */}
-      <div className='flex flex-col items-center'>
-        <h1 className='title text-6xl pt-20'>Contact Me</h1>
+      <div className="flex flex-col items-center">
+        <h1 className="title text-6xl pt-20">Contact Me</h1>
       </div>
-      <section className='grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4'>
+      <section className="grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4">
         {/* Left Side: Section Text and Socials */}
         <div>
-          <h5 className='title title text-xl font-bold my-1'>Let's Connect</h5>
-          <p className='mb-4 max-w-sm'>{CONTACT.bio}</p>
-          <div className='flex flex-row gap-5 ml-5'>
+          <h5 className="title title text-xl font-bold my-1">Let's Connect</h5>
+          <p className="mb-4 max-w-sm">{CONTACT.bio}</p>
+          <div className="flex flex-row gap-5 ml-5">
             <Link href={SOCIAL_LINKS.linkedin}>
               <Image
                 src={SOCIAL_ICONS.linkedin}
@@ -96,113 +96,112 @@ const ContactMeSection = () => {
         </div>
         {/* Right Side: Submission Form */}
         <div>
-            <form className='flex flex-col gap-2' onSubmit={handleSubmit}>
-              <div className='flex gap-2 mb-4'> {/* First and Last Name Inputs */}
-                <div className='flex-1 mr-2'>
-                  <label
-                    htmlFor='firstName'
-                    type='text'
-                    className='title block text-sm mb-2'
-                  >
-                    First Name
-                  </label>
-                  <input
-                    name='firstName'
-                    type='text'
-                    id='firstName'
-                    required
-                    className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
-                    placeholder={CONTACT.placeholders.first_name}
-                  />
-                </div>
-                <div className='flex-1'>
-                  <label
-                    htmlFor='lastName'
-                    type='text'
-                    className='title block text-sm mb-2'
-                  >
-                    Last Name
-                  </label>
-                  <input
-                    name='lastName'
-                    type='text'
-                    id='lastName'
-                    required
-                    className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
-                    placeholder={CONTACT.placeholders.last_name}
-                  />
-                </div>
-              </div>
-              <div className='mb-4'>
+          <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+            <div className="flex gap-2 mb-4">
+              {' '}
+              {/* First and Last Name Inputs */}
+              <div className="flex-1 mr-2">
                 <label
-                  htmlFor='email'
-                  type='email'
-                  className='title block text-sm mb-2'
+                  htmlFor="firstName"
+                  type="text"
+                  className="title block text-sm mb-2"
                 >
-                  Email
+                  First Name
                 </label>
                 <input
-                  name='email'
-                  type='email'
-                  id='email'
+                  name="firstName"
+                  type="text"
+                  id="firstName"
                   required
-                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
-                  placeholder={CONTACT.placeholders.email}
+                  className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                  placeholder={CONTACT.placeholders.first_name}
                 />
               </div>
-              <div className='mb-4'>
+              <div className="flex-1">
                 <label
-                  htmlFor='subject'
-                  className='title block text-sm mb-2'
+                  htmlFor="lastName"
+                  type="text"
+                  className="title block text-sm mb-2"
                 >
-                  Subject
+                  Last Name
                 </label>
                 <input
-                  name='subject'
-                  type='text'
-                  id='subject'
+                  name="lastName"
+                  type="text"
+                  id="lastName"
                   required
-                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5'
-                  placeholder={CONTACT.placeholders.subject}
+                  className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                  placeholder={CONTACT.placeholders.last_name}
                 />
               </div>
-              <div className='mb-4'>
-                <label
-                  htmlFor='message'
-                  className='title block text-sm mb-2'
-                >
-                  Message
-                </label>
-                <textarea
-                  name='message'
-                  type='message'
-                  id='message'
-                  required
-                  className='bg-white border border-black text-sm rounded-lg block w-full p-2.5 min-h-[42px] max-h-[300px]'
-                  placeholder={CONTACT.placeholders.message}
-                ></textarea>
-              </div>
-              <button
-                type='submit'
-                className='button blue-button max-w-fit px-8'
-                disabled={isLoading} // Disable button while loading
+            </div>
+            <div className="mb-4">
+              <label
+                htmlFor="email"
+                type="email"
+                className="title block text-sm mb-2"
               >
-                {isLoading ? 'Sending...' : 'Send Message'}
-              </button>
-                {// Display error or success message based on submission status
-                  error && <p className='text-red-500 font-black mt-2'>{error}</p>
-                }
-                {// If email was submitted successfully, show success message
-                emailSubmitted && (
-                  <p className='text-green-600 font-black mt-2'>
-                    {CONTACT.submission_responses.success}
-                  </p>
-                )}
-            </form>
-          </div>
+                Email
+              </label>
+              <input
+                name="email"
+                type="email"
+                id="email"
+                required
+                className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                placeholder={CONTACT.placeholders.email}
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="subject" className="title block text-sm mb-2">
+                Subject
+              </label>
+              <input
+                name="subject"
+                type="text"
+                id="subject"
+                required
+                className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                placeholder={CONTACT.placeholders.subject}
+              />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="message" className="title block text-sm mb-2">
+                Message
+              </label>
+              <textarea
+                name="message"
+                type="message"
+                id="message"
+                required
+                className="bg-white border border-black text-sm rounded-lg block w-full p-2.5 min-h-[42px] max-h-[300px]"
+                placeholder={CONTACT.placeholders.message}
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="button blue-button max-w-fit px-8"
+              disabled={isLoading} // Disable button while loading
+            >
+              {isLoading ? 'Sending...' : 'Send Message'}
+            </button>
+            {
+              // Display error or success message based on submission status
+              error && <p className="text-red-500 font-black mt-2">{error}</p>
+            }
+            {
+              // If email was submitted successfully, show success message
+              emailSubmitted && (
+                <p className="text-green-600 font-black mt-2">
+                  {CONTACT.submission_responses.success}
+                </p>
+              )
+            }
+          </form>
+        </div>
       </section>
     </section>
   );
-}
+};
 
 export default ContactMeSection;

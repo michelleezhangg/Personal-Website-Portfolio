@@ -1,4 +1,4 @@
-import { POST } from "@/app/api/send/route";
+import { POST } from '@/app/api/send/route';
 import { NextResponse } from 'next/server';
 
 // Mock NextResponse
@@ -26,7 +26,7 @@ describe('POST function', () => {
       json: jest.fn(),
     };
     NextResponse.json.mockClear();
-    
+
     // Reset mockResendSend for each test
     mockResendSend = require('resend').Resend.mock.results[0].value.emails.send;
     mockResendSend.mockClear();
@@ -65,11 +65,11 @@ describe('POST function', () => {
 
   it('should return 500 if email sending fails', async () => {
     mockRequest.json.mockResolvedValue({
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'john.doe@example.com',
-        subject: 'Test Subject',
-        message: 'Test Message',
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john.doe@example.com',
+      subject: 'Test Subject',
+      message: 'Test Message',
     });
 
     // Mock send method to simulate an error
@@ -77,10 +77,10 @@ describe('POST function', () => {
 
     await POST(mockRequest);
     expect(NextResponse.json).toHaveBeenCalledWith({
-        error: 'Internal server error',
-        status: 500,
+      error: 'Internal server error',
+      status: 500,
     });
-});
+  });
 
   it('should return 200 if email is sent successfully', async () => {
     mockRequest.json.mockResolvedValue({

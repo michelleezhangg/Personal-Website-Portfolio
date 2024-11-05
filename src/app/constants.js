@@ -6,7 +6,8 @@ export const PERSONAL = {
   email: 'michelleeeezhangggg@gmail.com',
   intro: `Hey there! My name is Michelle Zhang and I am a software engineer!
   I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`,
-  background: 'I have a background in Full-Stack Developing, Web Development, and Data Analytics.',
+  background:
+    'I have a background in Full-Stack Developing, Web Development, and Data Analytics.',
 };
 
 export const SOCIAL_LINKS = {
@@ -19,7 +20,7 @@ export const SOCIAL_ICONS = {
   linkedin: '/icons/linkedin-icon.svg',
   instagram: '/icons/instagram-icon.svg',
   github: '/icons/github-icon.svg',
-}
+};
 
 export const COPYRIGHT = 'All rights reserved.';
 
@@ -114,7 +115,7 @@ export const EDUCATION = {
       {
         name: 'PHP',
         path: '/icons/php-icon.svg',
-      }
+      },
     ],
   },
   technical_skills: [
@@ -406,8 +407,9 @@ export const CONTACT = {
     body: `\nThank you for reaching out to us!
       We've received your message and will get back to your shortly.
       Below are the details of your submission:\n`,
-    closing: 'We appreciate your patience and will respond as soon as possible.',
-    signoff: 'Best regards,'
+    closing:
+      'We appreciate your patience and will respond as soon as possible.',
+    signoff: 'Best regards,',
   },
   submission_responses: {
     success: 'Email sent successfully!',

@@ -32,29 +32,41 @@ describe('EmailTemplate Component', () => {
     jest.clearAllMocks();
   });
 
-  it('renders the greeting with the user\'s name', () => {
-    expect(screen.getByText(`Hello ${mockProps.firstName} ${mockProps.lastName},`)).toBeInTheDocument();
+  it("renders the greeting with the user's name", () => {
+    expect(
+      screen.getByText(`Hello ${mockProps.firstName} ${mockProps.lastName},`)
+    ).toBeInTheDocument();
   });
 
   it('renders the confirmation email body from constants', () => {
-    expect(screen.getByText(CONTACT.user_confirmation_email.body)).toBeInTheDocument();
+    expect(
+      screen.getByText(CONTACT.user_confirmation_email.body)
+    ).toBeInTheDocument();
   });
 
   it('display the subject', () => {
-    expect(screen.getByText(`Subject: ${mockProps.subject}`)).toBeInTheDocument();
+    expect(
+      screen.getByText(`Subject: ${mockProps.subject}`)
+    ).toBeInTheDocument();
   });
 
   it('display the message', () => {
-    expect(screen.getByText(`Message: ${mockProps.message}`)).toBeInTheDocument();
+    expect(
+      screen.getByText(`Message: ${mockProps.message}`)
+    ).toBeInTheDocument();
   });
 
   it('renders the closing from constants', () => {
-    expect(screen.getByText(CONTACT.user_confirmation_email.closing)).toBeInTheDocument();
+    expect(
+      screen.getByText(CONTACT.user_confirmation_email.closing)
+    ).toBeInTheDocument();
   });
 
   it('renders the sign off', () => {
-    expect(screen.getByText(CONTACT.user_confirmation_email.signoff)).toBeInTheDocument();
-  })
+    expect(
+      screen.getByText(CONTACT.user_confirmation_email.signoff)
+    ).toBeInTheDocument();
+  });
 
   it('renders the personal name from constants', () => {
     expect(screen.getByText(PERSONAL.name)).toBeInTheDocument();

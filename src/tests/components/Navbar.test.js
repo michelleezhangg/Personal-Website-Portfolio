@@ -5,8 +5,8 @@ import { NAV_LINKS, PERSONAL } from '@/app/constants';
 
 // Mocking react-scroll library to isolate Navbar tests
 jest.mock('react-scroll', () => ({
-  Link: ({ activeClass, ...props}) => (
-    <a {...props} data-testid='scroll-link' className={activeClass}>
+  Link: ({ activeClass, ...props }) => (
+    <a {...props} data-testid="scroll-link" className={activeClass}>
       {props.children}
     </a>
   ),
@@ -16,11 +16,9 @@ jest.mock('react-scroll', () => ({
 // Mock MenuOverlay component
 jest.mock('@/app/components/MenuOverlay', () => {
   return ({ links }) => (
-    <ul data-testid='menu-overlay'>
+    <ul data-testid="menu-overlay">
       {links.map((link, index) => (
-        <li key={index}>
-          {link.title}
-        </li>
+        <li key={index}>{link.title}</li>
       ))}
     </ul>
   );
@@ -89,7 +87,9 @@ describe('Navbar Component', () => {
     fireEvent.click(closeButton);
 
     // Check if close button is no longer in the document
-    expect(screen.queryByLabelText('Close mobile menu')).not.toBeInTheDocument();
+    expect(
+      screen.queryByLabelText('Close mobile menu')
+    ).not.toBeInTheDocument();
     expect(screen.queryByTestId('menu-overlay')).not.toBeInTheDocument();
   });
 

@@ -5,7 +5,7 @@ import MenuOverlay from '@/app/components/MenuOverlay';
 // Mocking react-scroll library to isolate Navbar tests
 jest.mock('react-scroll', () => ({
   Link: ({ activeClass, ...props }) => (
-    <a {...props} data-testid='scroll-link' className={activeClass}>
+    <a {...props} data-testid="scroll-link" className={activeClass}>
       {props.children}
     </a>
   ),
@@ -29,7 +29,7 @@ describe('MenuOverlay Component', () => {
   });
 
   it('renders MenuOverlay component with correct links', () => {
-    mockLinks.forEach(link => {
+    mockLinks.forEach((link) => {
       expect(screen.getByText(link.title)).toBeInTheDocument();
     });
   });
@@ -50,7 +50,7 @@ describe('MenuOverlay Component', () => {
   it('sets setNavbarOpen to false when a link is clicked', () => {
     const scrollLinks = screen.getAllByTestId('scroll-link');
     expect(scrollLinks.length).toBe(mockLinks.length);
-  
+
     fireEvent.click(scrollLinks[0]);
     expect(mockSetNavbarOpen).toHaveBeenCalledWith(false);
   });

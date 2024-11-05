@@ -21,7 +21,7 @@ describe('Projects Component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  
+
   it('renders Projects component with the correct title', () => {
     const titleElement = screen.getByText('Projects');
     expect(titleElement).toBeInTheDocument();

@@ -19,7 +19,7 @@ describe('ProjectItem Component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  
+
   it('renders title, date, and location', () => {
     render(<ProjectItem {...mockProjectItem} />);
 
@@ -31,7 +31,7 @@ describe('ProjectItem Component', () => {
   it('renders links with correct href attributes', () => {
     render(<ProjectItem {...mockProjectItem} />);
 
-    mockProjectItem.links.forEach(link => {
+    mockProjectItem.links.forEach((link) => {
       const linkButton = screen.getByText(link.link_name);
       expect(linkButton.closest('a')).toHaveAttribute('href', link.url);
     });
@@ -40,14 +40,20 @@ describe('ProjectItem Component', () => {
   it('renders bullet points as a list', () => {
     render(<ProjectItem {...mockProjectItem} />);
 
-    const bulletPoints = [mockProjectItem.bullet1, mockProjectItem.bullet2, mockProjectItem.bullet3];
-    bulletPoints.forEach(point => {
+    const bulletPoints = [
+      mockProjectItem.bullet1,
+      mockProjectItem.bullet2,
+      mockProjectItem.bullet3,
+    ];
+    bulletPoints.forEach((point) => {
       expect(screen.getByText(point)).toBeInTheDocument();
     });
   });
 
   it('renders no links if links array is empty', () => {
-    const { container } = render(<ProjectItem {...mockProjectItem} links={[]} />);
+    const { container } = render(
+      <ProjectItem {...mockProjectItem} links={[]} />
+    );
     expect(container.querySelectorAll('a')).toHaveLength(0);
   });
 
@@ -58,7 +64,7 @@ describe('ProjectItem Component', () => {
       location: 'Remote',
       links: [],
     };
-    render(<ProjectItem {...mockNoBulletPoints}  />);
+    render(<ProjectItem {...mockNoBulletPoints} />);
     expect(screen.queryByRole('listitem')).not.toBeInTheDocument();
   });
 });

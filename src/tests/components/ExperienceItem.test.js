@@ -43,9 +43,13 @@ describe('ExperienceItem Component', () => {
 
   it('renders bullet points as a list', () => {
     render(<ExperienceItem {...mockExperienceItem} />);
-    
-    const bulletPoints = [mockExperienceItem.bullet1, mockExperienceItem.bullet2, mockExperienceItem.bullet3];
-    bulletPoints.forEach(point => {
+
+    const bulletPoints = [
+      mockExperienceItem.bullet1,
+      mockExperienceItem.bullet2,
+      mockExperienceItem.bullet3,
+    ];
+    bulletPoints.forEach((point) => {
       expect(screen.getByText(point)).toBeInTheDocument();
     });
   });

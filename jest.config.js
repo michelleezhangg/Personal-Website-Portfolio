@@ -3,7 +3,7 @@ module.exports = {
   rootDir: 'src',
   moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1'
+    '^@/(.*)$': '<rootDir>/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/tests/setupTests.js'],
   transform: {
