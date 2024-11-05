@@ -12,7 +12,7 @@ jest.mock('next/server', () => ({
 jest.mock('resend', () => ({
   Resend: jest.fn().mockImplementation(() => ({
     emails: {
-      send: jest.fn().mockResolvedValue({ id: 'some-id' }),
+      send: jest.fn(),
     },
   })),
 }));
@@ -26,12 +26,10 @@ describe('POST function', () => {
       json: jest.fn(),
     };
     NextResponse.json.mockClear();
-    mockResendSend = jest.fn();
-    jest.spyOn(require('resend'), 'Resend').mockImplementation(() => ({
-      emails: {
-        send: mockResendSend,
-      },
-    }));
+    
+    // Reset mockResendSend for each test
+    mockResendSend = require('resend').Resend.mock.results[0].value.emails.send;
+    mockResendSend.mockClear();
   });
 
   it('should return 400 if email format is invalid', async () => {
@@ -67,21 +65,22 @@ describe('POST function', () => {
 
   it('should return 500 if email sending fails', async () => {
     mockRequest.json.mockResolvedValue({
-      firstName: 'John',
-      lastName: 'Doe',
-      email: 'john.doe@example.com',
-      subject: 'Test Subject',
-      message: 'Test Message',
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'john.doe@example.com',
+        subject: 'Test Subject',
+        message: 'Test Message',
     });
 
+    // Mock send method to simulate an error
     mockResendSend.mockRejectedValue(new Error('Email sending failed'));
 
     await POST(mockRequest);
     expect(NextResponse.json).toHaveBeenCalledWith({
-      error: 'Internal server error',
-      status: 500,
+        error: 'Internal server error',
+        status: 500,
     });
-  });
+});
 
   it('should return 200 if email is sent successfully', async () => {
     mockRequest.json.mockResolvedValue({
@@ -92,7 +91,8 @@ describe('POST function', () => {
       message: 'Test Message',
     });
 
-    mockResendSend.mockResolvedValue({ id: 'some-id' });
+    // Mock send method to simulate a successful email submission
+    mockResendSend.mockResolvedValue({ data: { id: 'mock-id' } });
 
     await POST(mockRequest);
     expect(NextResponse.json).toHaveBeenCalledWith({

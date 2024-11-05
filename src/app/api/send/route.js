@@ -2,7 +2,7 @@ import React from 'react';
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { EmailTemplate } from '../../components/EmailTemplate';
-import { CONTACT, PERSONAL } from '@/app/constants';
+import { CONTACT } from '@/app/constants';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.ADMIN_EMAIL;
@@ -32,24 +32,19 @@ export async function POST(req) {
     }
 
     // Send confirmation email to user
-    const { error } = await resend.emails.send({
+    const response = await resend.emails.send({
       from: fromEmail,
       to: [email],
       subject: CONTACT.user_confirmation_email.subject,
       react: EmailTemplate({ firstName, lastName, subject, message }),
     });
 
-    if (error) {
-      console.error('Error sending email:', error);
-      throw new Error('Email sending failed');
-    }
-
     return NextResponse.json({
       message: 'Email sent successfully',
       status: 200,
     });
   } catch (error) {
-    console.error('Error:', error);
+    console.error(error);
     return NextResponse.json({
       error: 'Internal server error',
       status: 500,
