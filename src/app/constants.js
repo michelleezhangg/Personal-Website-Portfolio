@@ -406,7 +406,8 @@ export const CONTACT = {
     body: `\nThank you for reaching out to us!
       We've received your message and will get back to your shortly.
       Below are the details of your submission:\n`,
-    closing: 'We appreciate your patience and will respond as soon as possible.\nBest Regards,',
+    closing: 'We appreciate your patience and will respond as soon as possible.',
+    signoff: 'Best regards,'
   },
   submission_responses: {
     success: 'Email sent successfully!',
