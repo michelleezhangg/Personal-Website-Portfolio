@@ -1,80 +1,103 @@
-import { POST } from '@/app/api/send/route';
+import { POST } from "@/app/api/send/route";
 import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
 
-// Mock external dependencies
+// Mock NextResponse
 jest.mock('next/server', () => ({
   NextResponse: {
-    json: jest.fn().mockImplementation((body, options) => ({ body, options })),
+    json: jest.fn(),
   },
 }));
 
+// Mock Resend
 jest.mock('resend', () => ({
   Resend: jest.fn().mockImplementation(() => ({
     emails: {
-      send: jest.fn().mockResolvedValue({ error: null }),
+      send: jest.fn(),
     },
   })),
 }));
 
 describe('POST function', () => {
-  let mockReq;
+  let mockRequest;
+  let mockResendSend;
 
   beforeEach(() => {
-    mockReq = {
-      json: jest.fn().mockResolvedValue({
-        email: 'test@example.com',
-        subject: 'Test Subject',
-        message: 'Test Message',
-      }),
+    mockRequest = {
+      json: jest.fn(),
     };
-    process.env.RESEND_API_KEY = 'test_api_key';
-    process.env.ADMIN_EMAIL = 'admin@example.com';
-    process.env.PROFESSIONAL_EMAIL = 'me@example.com';
+    NextResponse.json.mockClear();
+    
+    // Reset mockResendSend for each test
+    mockResendSend = require('resend').Resend.mock.results[0].value.emails.send;
+    mockResendSend.mockClear();
   });
 
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
-  /* Test for successfuly email sent */
-  it('should return 200 if email is sent successfully', async () => {
-    mockReq.json.mockResolvedValue({
-      email: 'test@example.com',
+  it('should return 400 if email format is invalid', async () => {
+    mockRequest.json.mockResolvedValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'invalid-email', // Invalid email format
       subject: 'Test Subject',
       message: 'Test Message',
     });
-    await POST(mockReq);
+
+    await POST(mockRequest);
     expect(NextResponse.json).toHaveBeenCalledWith({
-      message: 'Email sent successfully',
-      status: 200,
+      error: 'Invalid email format',
+      status: 400,
     });
   });
 
-  /* Test for missing required fields */
   it('should return 400 if required fields are missing', async () => {
-    mockReq.json.mockResolvedValue({
-      email: 'test@example.com',
+    mockRequest.json.mockResolvedValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john.doe@example.com',
       // Missing subject and message
     });
-    await POST(mockReq);
+
+    await POST(mockRequest);
     expect(NextResponse.json).toHaveBeenCalledWith({
       error: 'Missing required fields',
       status: 400,
     });
   });
 
-  /* Test for invalid email format */
-  it('should return 400 if email format is invalid', async () => {
-    mockReq.json.mockResolvedValue({
-      email: 'invalid-email', // Invalid email format
+  it('should return 500 if email sending fails', async () => {
+    mockRequest.json.mockResolvedValue({
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'john.doe@example.com',
+        subject: 'Test Subject',
+        message: 'Test Message',
+    });
+
+    // Mock send method to simulate an error
+    mockResendSend.mockRejectedValue(new Error('Email sending failed'));
+
+    await POST(mockRequest);
+    expect(NextResponse.json).toHaveBeenCalledWith({
+        error: 'Internal server error',
+        status: 500,
+    });
+});
+
+  it('should return 200 if email is sent successfully', async () => {
+    mockRequest.json.mockResolvedValue({
+      firstName: 'John',
+      lastName: 'Doe',
+      email: 'john.doe@example.com',
       subject: 'Test Subject',
       message: 'Test Message',
     });
-    await POST(mockReq);
+
+    // Mock send method to simulate a successful email submission
+    mockResendSend.mockResolvedValue({ data: { id: 'mock-id' } });
+
+    await POST(mockRequest);
     expect(NextResponse.json).toHaveBeenCalledWith({
-      error: 'Invalid email format',
-      status: 400,
+      message: 'Email sent successfully',
+      status: 200,
     });
   });
 });
