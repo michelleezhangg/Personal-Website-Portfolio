@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import Projects from '@/app/components/Projects';
 import { PROJECTS } from '@/app/constants';
 
-jest.mock('@/app/components/Projectitem', () => {
+jest.mock('@/app/components/ProjectItem', () => {
   return ({ title, date, location }) => (
     <div>
       <h2>{title}</h2>
