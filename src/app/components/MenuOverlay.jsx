@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 
-const MenuOverlay = ({ links }) => {
+const MenuOverlay = ({ links, setNavbarOpen }) => {
   return (
     <ul className='flex flex-col py-4 items-center'>
       {links.map((link, index) => (
