@@ -25,7 +25,7 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOD_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
           files: ./src/coverage/lcov.info
           flags: unittests
           name: Personal Website Portfolio
