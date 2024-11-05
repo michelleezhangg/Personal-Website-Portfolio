@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --dark-blue: #0050FF;
+  --dark-blue: #0050ff;
 }
 
 @font-face {
-  font-family: 'Poppins';
-  src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-family: "Poppins";
+  src: url("fonts/Poppins-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --dark-blue: #0050FF;
+    --dark-blue: #0050ff;
   }
 }
 
@@ -28,12 +28,12 @@
 body {
   color: black;
   background: white;
-  font-family: 'Avenir Light', Arial, Helvetica, sans-serif;
+  font-family: "Avenir Light", Arial, Helvetica, sans-serif;
 }
 
 /* Headings and Titles */
 .title {
-  font-family: 'Poppins', 'Avenir Dark', Arial, Helvetica, sans-serif;
+  font-family: "Poppins", "Avenir Dark", Arial, Helvetica, sans-serif;
 }
 
 .section-heading {

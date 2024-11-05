@@ -1,27 +1,23 @@
-import React from 'react';
-import Link from 'next/link';
-import ProjectItem from './ProjectItem';
-import { SOCIAL_LINKS, PROJECTS } from '../constants';
+import React from "react";
+import Link from "next/link";
+import ProjectItem from "./ProjectItem";
+import { SOCIAL_LINKS, PROJECTS } from "../constants";
 
 const Projects = () => {
   return (
-    <section id='projects' className='section bg-lightblue'>
-      <div className='flex flex-col items-center'>
-        <h1 className='title text-6xl pt-20'>Projects</h1>
-        <div className='flex p-10'>
+    <section id="projects" className="section bg-lightblue">
+      <div className="flex flex-col items-center">
+        <h1 className="title text-6xl pt-20">Projects</h1>
+        <div className="flex p-10">
           <Link href={SOCIAL_LINKS.github}>
-            <button className='button blue-button px-8 mx-4'>
-              GitHub
-            </button>
+            <button className="button blue-button px-8 mx-4">GitHub</button>
           </Link>
           <Link href={SOCIAL_LINKS.linkedin}>
-            <button className='button transparent-button px-6'>
-              LinkedIn
-            </button>
+            <button className="button transparent-button px-6">LinkedIn</button>
           </Link>
         </div>
-        <div className='section'>
-          {PROJECTS.map(( project, index ) => (
+        <div className="section">
+          {PROJECTS.map((project, index) => (
             <ProjectItem
               key={index}
               title={project.title}
