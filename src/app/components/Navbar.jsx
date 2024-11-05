@@ -60,29 +60,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/* Mobile Menu Overlay */}
-      {isMenuOpen && (
-        <div className='md:hidden'>
-          <ul className='flex flex-col py-4 items-center'>
-            {NAV_LINKS.map((link, index) => (
-              <li key={index}>
-                <ScrollLink
-                  to={link.path}
-                  spy={true}
-                  smooth={true}
-                  offset={-300} // Extend spy region up 300px
-                  duration={500}
-                  className='block py-2 pr-4 hover:text-darkblue hover:cursor-pointer uppercase'
-                  activeClass='text-darkblue'
-                  onClick={toggleMenu}
-                >
-                  {link.title}
-                </ScrollLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {navbarOpen ? <MenuOverlay links={NAV_LINKS} setNavbarOpen={setNavbarOpen} /> : null}
     </nav>
   );
 }

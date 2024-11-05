@@ -92,4 +92,13 @@ describe('Navbar Component', () => {
     expect(screen.queryByLabelText('Close mobile menu')).not.toBeInTheDocument();
     expect(screen.queryByTestId('menu-overlay')).not.toBeInTheDocument();
   });
+
+  it('scrolls to the top when logo is clicked', () => {
+    const logoLink = screen.getByText(PERSONAL.name);
+    fireEvent.click(logoLink);
+
+    // Check if scrollToTop function is called
+    const { animateScroll } = require('react-scroll');
+    expect(animateScroll.scrollToTop).toHaveBeenCalled();
+  });
 });
