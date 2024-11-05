@@ -8,6 +8,7 @@ export const EmailTemplate = ({ firstName, lastName, subject, message }) => (
       <p>Subject: {subject}</p>
       <p>Message: {message}</p>
       <p>{CONTACT.user_confirmation_email.closing}</p>
+      <p>{CONTACT.user_confirmation_email.signoff}</p>
       <p>{PERSONAL.name}</p>
     </div>
 );

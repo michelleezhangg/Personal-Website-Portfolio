@@ -7,7 +7,8 @@ jest.mock('@/app/constants', () => ({
   CONTACT: {
     user_confirmation_email: {
       body: 'Thank you for reaching out to us.',
-      closing: 'Best regards,',
+      closing: 'Thank you for your patience.',
+      signoff: 'Best regards,',
     },
   },
   PERSONAL: {
@@ -50,6 +51,10 @@ describe('EmailTemplate Component', () => {
   it('renders the closing from constants', () => {
     expect(screen.getByText(CONTACT.user_confirmation_email.closing)).toBeInTheDocument();
   });
+
+  it('renders the sign off', () => {
+    expect(screen.getByText(CONTACT.user_confirmation_email.signoff)).toBeInTheDocument();
+  })
 
   it('renders the personal name from constants', () => {
     expect(screen.getByText(PERSONAL.name)).toBeInTheDocument();
