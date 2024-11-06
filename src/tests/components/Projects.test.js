@@ -1,19 +1,29 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import Projects from '@/app/components/Projects';
-import { PROJECTS } from '@/app/constants';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import Projects from "@/app/components/Projects";
+import { PROJECTS } from "@/app/constants";
 
-jest.mock('@/app/components/ProjectItem', () => {
-  return ({ title, date, location }) => (
+jest.mock("@/app/components/ProjectItem", () => {
+  const MockProjectItem = ({ title, date, location }) => (
     <div>
       <h2>{title}</h2>
       <p>{date}</p>
       <p>{location}</p>
     </div>
   );
+
+  MockProjectItem.propTypes = {
+    title: require("prop-types").string,
+    date: require("prop-types").string,
+    location: require("prop-types").string,
+  };
+
+  MockProjectItem.displayName = "MockProjectItem";
+
+  return MockProjectItem;
 });
 
-describe('Projects Component', () => {
+describe("Projects Component", () => {
   beforeEach(() => {
     render(<Projects />);
   });
@@ -21,26 +31,26 @@ describe('Projects Component', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
-  
-  it('renders Projects component with the correct title', () => {
-    const titleElement = screen.getByText('Projects');
+
+  it("renders Projects component with the correct title", () => {
+    const titleElement = screen.getByText("Projects");
     expect(titleElement).toBeInTheDocument();
   });
 
-  it('renders the GitHub and LinkedIn buttons', () => {
-    const gitHubButton = screen.getByRole('button', { name: /github/i });
-    const linkedInButton = screen.getByRole('button', { name: /linkedin/i });
+  it("renders the GitHub and LinkedIn buttons", () => {
+    const gitHubButton = screen.getByRole("button", { name: /github/i });
+    const linkedInButton = screen.getByRole("button", { name: /linkedin/i });
 
     expect(gitHubButton).toBeInTheDocument();
     expect(linkedInButton).toBeInTheDocument();
   });
 
-  it('renders the correct number of ProjectItem Components', () => {
-    const projectItems = screen.getAllByRole('heading', { level: 2 });
+  it("renders the correct number of ProjectItem Components", () => {
+    const projectItems = screen.getAllByRole("heading", { level: 2 });
     expect(projectItems).toHaveLength(PROJECTS.length);
   });
 
-  it('renders each project with correct details', () => {
+  it("renders each project with correct details", () => {
     PROJECTS.forEach((project) => {
       // Ensure at least one match, duplicates are fine
       const titles = screen.getAllByText(project.title);
