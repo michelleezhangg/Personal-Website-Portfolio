@@ -65,7 +65,9 @@ const ContactMeSection = () => {
       <section className="grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4">
         {/* Left Side: Section Text and Socials */}
         <div>
-          <h5 className="title title text-xl font-bold my-1">Let&apos;s Connect</h5>
+          <h5 className="title title text-xl font-bold my-1">
+            Let&apos;s Connect
+          </h5>
           <p className="mb-4 max-w-sm">{CONTACT.bio}</p>
           <div className="flex flex-row gap-5 ml-5">
             <Link href={SOCIAL_LINKS.linkedin}>

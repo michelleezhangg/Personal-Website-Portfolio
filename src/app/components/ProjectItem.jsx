@@ -38,7 +38,7 @@ ProjectItem.propTypes = {
     PropTypes.shape({
       link_name: PropTypes.string.isRequired,
       url: PropTypes.string.isRequired,
-    })
+    }),
   ).isRequired,
 };
 
