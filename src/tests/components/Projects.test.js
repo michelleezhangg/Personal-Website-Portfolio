@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import Projects from "@/app/components/Projects";
 import { PROJECTS } from "@/app/constants";
-import { PropTypes } from "prop-types";
 
 jest.mock("@/app/components/ProjectItem", () => {
   const MockProjectItem = ({ title, date, location }) => (
@@ -14,9 +13,9 @@ jest.mock("@/app/components/ProjectItem", () => {
   );
 
   MockProjectItem.propTypes = {
-    title: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
+    title: require("prop-types").string,
+    date: require("prop-types").string,
+    location: require("prop-types").string,
   };
 
   MockProjectItem.displayName = "MockProjectItem";

@@ -2,7 +2,6 @@ import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Navbar from "@/app/components/Navbar";
 import { NAV_LINKS, PERSONAL } from "@/app/constants";
-import { PropTypes } from "prop-types";
 
 // Mocking react-scroll library to isolate Navbar tests
 jest.mock("react-scroll", () => {
@@ -13,8 +12,8 @@ jest.mock("react-scroll", () => {
   );
 
   MockLink.propTypes = {
-    activeClass: PropTypes.string,
-    children: PropTypes.node,
+    activeClass: require("prop-types").string,
+    children: require("prop-types").node,
   };
 
   MockLink.displayName = "MockLink";
@@ -36,7 +35,12 @@ jest.mock("@/app/components/MenuOverlay", () => {
   );
 
   MockMenuOverlay.propTypes = {
-    links: PropTypes.array.isRequired,
+    links: require("prop-types").arrayOf(
+      require("prop-types").shape({
+        title: require("prop-types").string.isRequired,
+        path: require("prop-types").string.isRequired,
+      }),
+    ).isRequired,
   };
 
   MockMenuOverlay.displayName = "MenuOverlay";

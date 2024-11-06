@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "props-types";
 import { render, screen, fireEvent } from "@testing-library/react";
 import MenuOverlay from "@/app/components/MenuOverlay";
 
@@ -12,8 +11,8 @@ jest.mock("react-scroll", () => {
   );
 
   MockLink.propTypes = {
-    activeClass: PropTypes.string,
-    children: PropTypes.node.isRequired,
+    activeClass: require("prop-types").string,
+    children: require("prop-types").node,
   };
 
   return { Link: MockLink };
