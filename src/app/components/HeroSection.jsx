@@ -1,6 +1,8 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Link as ScrollLink } from "react-scroll";
 import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
 
 const HeroSection = () => {
@@ -8,7 +10,7 @@ const HeroSection = () => {
     <section id="home" className="section bg-lightblue">
       <div className="flex p-6">
         {/* Left Side: Profile Card */}
-        <div className="bg-blue p-10 pb-0 m-3 mt-0 shadow-xl flex flex-col items-center">
+        <div className="bg-blue p-10 pb-0 m-3 mt-0 shadow-xl flex flex-col items-center max-h-[500px]">
           <Image
             src="/images/profile.png"
             alt="Profile Image"
@@ -60,13 +62,25 @@ const HeroSection = () => {
         <div className="p-10 pt-16">
           <h1 className="title mb-4 text-6xl">{PERSONAL.name}</h1>
           <h3 className="text-3xl font-semibold">{PERSONAL.role}</h3>
-          <div>
-            <button className="button blue-button px-8 mr-4">
-              <Link href="/assets/resume.pdf">Resume</Link>
-            </button>
-            <button className="button transparent-button px-6 my-8">
-              <Link href="#projects">Projects</Link>
-            </button>
+          <div className="my-8">
+            <Link
+              href="/assets/resume.pdf"
+              className="button blue-button px-8 mr-4"
+            >
+              Resume
+            </Link>
+            <ScrollLink
+              to="projects"
+              spy="true"
+              smooth="true"
+              offset={-200}
+              duration={500}
+              className="button transparent-button px-6"
+              role="button"
+              tabIndex={0}
+            >
+              Projects
+            </ScrollLink>
           </div>
           <p className="text-xl mb-6">{PERSONAL.intro}</p>
           <p className="text-xl mb-6">{PERSONAL.background}</p>

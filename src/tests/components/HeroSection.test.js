@@ -3,6 +3,24 @@ import { render, screen } from "@testing-library/react";
 import HeroSection from "@/app/components/HeroSection";
 import { PERSONAL, SOCIAL_LINKS } from "@/app/constants";
 
+jest.mock("react-scroll", () => {
+  const MockLink = ({ ...props }) => (
+    <a {...props} data-testid="scroll-link">
+      {props.children}
+    </a>
+  );
+
+  MockLink.propTypes = {
+    children: require("prop-types").node,
+  };
+
+  MockLink.display = "MockLink";
+
+  return {
+    Link: MockLink,
+  };
+});
+
 describe("HeroSection Component", () => {
   beforeEach(() => {
     render(<HeroSection />);
@@ -77,16 +95,12 @@ describe("HeroSection Component", () => {
   });
 
   it("renders Resume and Projects buttons with correct links", () => {
-    const resumeButton = screen.getByRole("button", { name: /resume/i });
-    expect(resumeButton).toBeInTheDocument();
-
     const resumeLink = screen.getByRole("link", { name: /resume/i });
+    expect(resumeLink).toBeInTheDocument();
     expect(resumeLink).toHaveAttribute("href", "/assets/resume.pdf");
 
-    const projectsButton = screen.getByRole("button", { name: /projects/i });
-    expect(projectsButton).toBeInTheDocument();
-
-    const projectsLink = screen.getByRole("link", { name: /projects/i });
-    expect(projectsLink).toHaveAttribute("href", "#projects");
+    const projectsLink = screen.getByTestId("scroll-link");
+    expect(projectsLink).toBeInTheDocument();
+    expect(projectsLink).toHaveAttribute("to", "projects");
   });
 });

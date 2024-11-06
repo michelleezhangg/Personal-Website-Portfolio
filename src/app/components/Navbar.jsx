@@ -23,7 +23,7 @@ const Navbar = () => {
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 pt-2"
+              className="flex items-center px-3 py-2"
               aria-label="Open mobile menu"
             >
               <Bars3Icon className="h-8 w-8" />
@@ -31,7 +31,7 @@ const Navbar = () => {
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 pb-2"
+              className="flex items-center px-3 py-2"
               aria-label="Close mobile menu"
             >
               <XMarkIcon className="h-8 w-8" />
