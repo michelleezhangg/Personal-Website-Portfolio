@@ -7,7 +7,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section bg-lightblue">
       <div className="flex flex-col items-center">
-        <h1 className="title text-6xl pt-20">Projects</h1>
+        <h1 className="title section-major-heading pt-20">Projects</h1>
         <div className="flex p-10">
           <Link href={SOCIAL_LINKS.github}>
             <button className="button blue-button px-8 mx-4">GitHub</button>

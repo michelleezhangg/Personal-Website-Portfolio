@@ -36,6 +36,11 @@ body {
   font-family: "Poppins", "Avenir Dark", Arial, Helvetica, sans-serif;
 }
 
+.section-major-heading {
+  font-size: 60px;
+  padding-top: 80px;
+}
+
 .section-heading {
   font-size: 30px;
   line-height: 36px;
@@ -101,4 +106,28 @@ body {
 /* Testing */
 .test {
   border: 1px solid red;
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-left: 40px;
+    margin-right: 40px;
+    padding-top: 20px;
+  }
+
+  .section-major-heading {
+    font-size: 48px;
+  }
+
+  .section-heading {
+    font-size: 24px;
+  }
+
+  .box-heading {
+    font-size: 20px;
+  }
+
+  .section-box {
+    padding: 20px;
+  }
 }

@@ -3,11 +3,11 @@ export const PERSONAL = {
   name: "Michelle Zhang",
   role: "Software Engineer",
   phone_number: "(949) 466-3855",
-  email: "michelleeeezhangggg@gmail.com",
+  email: "me@michellezhangdev.com",
   intro: `Hey there! My name is Michelle Zhang and I am a software engineer!
   I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`,
   background:
-    "I have a background in Full-Stack Developing, Web Development, and Data Analytics.",
+    "I have a background in Full-Stack Development, Web Development, and Data Analytics.",
 };
 
 export const SOCIAL_LINKS = {
@@ -18,8 +18,15 @@ export const SOCIAL_LINKS = {
 
 export const SOCIAL_ICONS = {
   linkedin: "/icons/linkedin-icon.svg",
-  instagram: "/icons/instagram-icon.svg",
+  linkedinLight: "/icons/linkedin-icon-dark.svg",
   github: "/icons/github-icon.svg",
+  githubLight: "/icons/github-icon-light.svg",
+  instagram: "/icons/instagram-icon.svg",
+  instagramLight: "/icons/instagram-icon-light.svg",
+  phone: "/icons/phone-icon.svg",
+  phoneLight: "/icons/phone-icon-light.svg",
+  email: "/icons/email-icon.png",
+  emailLight: "/icons/email-icon-light.png",
 };
 
 export const COPYRIGHT = "All rights reserved.";
@@ -394,7 +401,7 @@ export const PROJECTS = [
 
 /* Contact Me Constants */
 export const CONTACT = {
-  bio: "Feel free to reach out to me through my socials or this contact form!",
+  bio: "Feel free to reach out to me through my socials, email or this contact form!",
   placeholders: {
     first_name: "First Name",
     last_name: "Last Name",

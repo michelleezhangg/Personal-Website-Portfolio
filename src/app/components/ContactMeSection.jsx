@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { CONTACT, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
+import { CONTACT, PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -60,14 +60,12 @@ const ContactMeSection = () => {
     <section id="contact-me" className="section bg-lightblue">
       {/* Section Title */}
       <div className="flex flex-col items-center">
-        <h1 className="title text-6xl pt-20">Contact Me</h1>
+        <h1 className="title section-major-heading">Contact Me</h1>
       </div>
       <section className="grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4">
         {/* Left Side: Section Text and Socials */}
-        <div>
-          <h5 className="title title text-xl font-bold my-1">
-            Let&apos;s Connect
-          </h5>
+        <div className="flex flex-col pr-2">
+          <h5 className="title text-xl font-bold my-1">Let&apos;s Connect</h5>
           <p className="mb-4 max-w-sm">{CONTACT.bio}</p>
           <div className="flex flex-row gap-5 ml-5">
             <Link href={SOCIAL_LINKS.linkedin}>
@@ -88,20 +86,39 @@ const ContactMeSection = () => {
             </Link>
             <Link href={SOCIAL_LINKS.instagram}>
               <Image
-                src={SOCIAL_ICONS.instagram}
+                src={SOCIAL_ICONS.instagramLight}
                 alt="Instagram Icon"
                 width={30}
                 height={30}
               />
             </Link>
           </div>
+          <div className="grid grid-cols-[60px_1fr] mt-12">
+            <Image
+              src={SOCIAL_ICONS.phoneLight}
+              alt="Phone Icon"
+              width={30}
+              height={30}
+            />
+            <p className="flex mb-5 whitespace-nowrap text-sm mt-1">
+              {PERSONAL.phone_number}
+            </p>
+            <Image
+              src={SOCIAL_ICONS.emailLight}
+              alt="Email Icon"
+              width={25}
+              height={25}
+              className="ml-1"
+            />
+            <p className="flex whitespace-nowrap text-sm mt-1">
+              {PERSONAL.email}
+            </p>
+          </div>
         </div>
         {/* Right Side: Submission Form */}
         <div>
           <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
             <div className="flex gap-2 mb-4">
-              {" "}
-              {/* First and Last Name Inputs */}
               <div className="flex-1 mr-2">
                 <label
                   htmlFor="firstName"

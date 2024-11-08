@@ -14,7 +14,7 @@ const AboutMeSection = () => {
   return (
     <section id="about-me" className="section bg-lightblue">
       <div className="flex flex-col items-center">
-        <h1 className="title text-6xl p-10 pt-20">About Me</h1>
+        <h1 className="title section-major-heading p-10 pt-20">About Me</h1>
         <Link href="/assets/resume.pdf">
           <button className="button blue-button px-8">Resume</button>
         </Link>

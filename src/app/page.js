@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="flex flex-col bg-white">
       <Navbar />
-      <div className="grid gap-20 mx-auto p-12">
+      <div className="grid gap-20 mx-auto p-12 w-full max-w-screen overflow-hidden place-items-center">
         <HeroSection />
         <AboutMeSection />
         <Projects />
