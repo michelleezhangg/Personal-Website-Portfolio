@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
@@ -6,20 +7,22 @@ const ProjectItem = ({ title, date, location, links, ...bullet_points }) => {
   const bullet_point_values = Object.values(bullet_points);
 
   return (
-    <div className="section-box mb-20">
+    <div className="section-box lg:mb-20 mb-10">
       <h3 className="title box-heading">{title}</h3>
       <div>
-        <p>{date}</p>
-        <p className="text-sm">{location}</p>
+        <p className="lg:text-md text-sm">{date}</p>
+        <p className="lg:text-md text-sm">{location}</p>
       </div>
-      {links.map((link, index) => (
-        <Link href={link.url} key={index}>
-          <button className="button transparent-button text-xs px-8 mr-5 my-4">
-            {link.link_name}
-          </button>
-        </Link>
-      ))}
-      <ul className="text-sm list-disc ml-5">
+      <div className="lg:my-0 my-1">
+        {links.map((link, index) => (
+          <Link href={link.url} key={index}>
+            <button className="button transparent-button lg:text-xs text-[10px] px-8 mr-5 lg:my-4 my-1">
+              {link.link_name}
+            </button>
+          </Link>
+        ))}
+      </div>
+      <ul className="lg:text-sm text-xs list-disc ml-5">
         {bullet_point_values.map((point, index) => (
           <li key={index} className="mb-2">
             {point}

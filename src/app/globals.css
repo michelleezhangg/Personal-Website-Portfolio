@@ -103,11 +103,7 @@ body {
   color: white;
 }
 
-/* Testing */
-.test {
-  border: 1px solid red;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .section {
     margin-left: 40px;
@@ -116,18 +112,31 @@ body {
   }
 
   .section-major-heading {
-    font-size: 48px;
+    font-size: 36px;
+    padding-top: 50px;
   }
 
   .section-heading {
     font-size: 24px;
+    padding-bottom: 12px;
   }
 
   .box-heading {
-    font-size: 20px;
+    font-size: 18px;
+    line-height: 20px;
+    padding-bottom: 6px;
   }
 
   .section-box {
     padding: 20px;
   }
+
+  .button {
+    border-width: 1.5px;
+  }
+}
+
+/* Testing */
+.test {
+  border: 1px solid red;
 }

@@ -1,14 +1,17 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { CONTACT, PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [mounted, setMounted] = useState(false); // Responsive design
 
+  /* Submission */
   const handleSubmit = async (e) => {
     e.preventDefault(); // Page doesn't reload when form is submitted
     setEmailSubmitted(false);
@@ -56,63 +59,72 @@ const ContactMeSection = () => {
     }
   };
 
+  /* Responsive Design */
+  const isMd = useMediaQuery("(min-width: 768px)");
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <section id="contact-me" className="section bg-lightblue">
       {/* Section Title */}
       <div className="flex flex-col items-center">
         <h1 className="title section-major-heading">Contact Me</h1>
       </div>
-      <section className="grid grid-cols-2 mt-12 pt-10 pb-24 mx-20 gap-4">
+      <section className="lg:grid lg:grid-cols-2 lg:mt-12 lg:pt-10 pt-5 pb-24 lg:mx-20 mx-12 gap-4">
         {/* Left Side: Section Text and Socials */}
         <div className="flex flex-col pr-2">
-          <h5 className="title text-xl font-bold my-1">Let&apos;s Connect</h5>
-          <p className="mb-4 max-w-sm">{CONTACT.bio}</p>
-          <div className="flex flex-row gap-5 ml-5">
+          <h5 className="title lg:text-xl text-md font-bold my-1">
+            Let&apos;s Connect
+          </h5>
+          <p className="mb-4 lg:text-lg text-sm max-w-sm">{CONTACT.bio}</p>
+          <div className="flex flex-row gap-5">
             <Link href={SOCIAL_LINKS.linkedin}>
               <Image
                 src={SOCIAL_ICONS.linkedin}
                 alt="LinkedIn Icon"
-                width={30}
-                height={30}
+                width={isMd ? 30 : 25}
+                height={isMd ? 30 : 25}
               />
             </Link>
             <Link href={SOCIAL_LINKS.github}>
               <Image
                 src={SOCIAL_ICONS.github}
                 alt="GitHub Icon"
-                width={30}
-                height={30}
+                width={isMd ? 30 : 25}
+                height={isMd ? 30 : 25}
               />
             </Link>
             <Link href={SOCIAL_LINKS.instagram}>
               <Image
                 src={SOCIAL_ICONS.instagramLight}
                 alt="Instagram Icon"
-                width={30}
-                height={30}
+                width={isMd ? 30 : 25}
+                height={isMd ? 30 : 25}
               />
             </Link>
           </div>
-          <div className="grid grid-cols-[60px_1fr] mt-12">
+          <div className="grid lg:grid-cols-[60px_1fr] grid-cols-[45px_1fr] lg:mt-12 mt-5">
             <Image
               src={SOCIAL_ICONS.phoneLight}
               alt="Phone Icon"
-              width={30}
-              height={30}
+              width={isMd ? 30 : 25}
+              height={isMd ? 30 : 25}
             />
-            <p className="flex mb-5 whitespace-nowrap text-sm mt-1">
+            <p className="flex lg:mb-5 mb-3 text-sm lg:mt-1">
               {PERSONAL.phone_number}
             </p>
             <Image
               src={SOCIAL_ICONS.emailLight}
               alt="Email Icon"
-              width={25}
-              height={25}
+              width={isMd ? 25 : 20}
+              height={isMd ? 25 : 20}
               className="ml-1"
             />
-            <p className="flex whitespace-nowrap text-sm mt-1">
-              {PERSONAL.email}
-            </p>
+            <p className="flex text-sm lg:mt-1 mb-20">{PERSONAL.email}</p>
           </div>
         </div>
         {/* Right Side: Submission Form */}
@@ -123,7 +135,7 @@ const ContactMeSection = () => {
                 <label
                   htmlFor="firstName"
                   type="text"
-                  className="title block text-sm mb-2"
+                  className="title block lg:text-sm text-xs mb-2"
                 >
                   First Name
                 </label>
@@ -140,7 +152,7 @@ const ContactMeSection = () => {
                 <label
                   htmlFor="lastName"
                   type="text"
-                  className="title block text-sm mb-2"
+                  className="title block lg:text-sm text-xs mb-2"
                 >
                   Last Name
                 </label>
@@ -149,7 +161,7 @@ const ContactMeSection = () => {
                   type="text"
                   id="lastName"
                   required
-                  className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                  className="bg-white border border-black lg:text-sm text-xs rounded-lg block w-full p-2.5"
                   placeholder={CONTACT.placeholders.last_name}
                 />
               </div>
@@ -158,7 +170,7 @@ const ContactMeSection = () => {
               <label
                 htmlFor="email"
                 type="email"
-                className="title block text-sm mb-2"
+                className="title block lg:text-sm text-xs mb-2"
               >
                 Email
               </label>
@@ -167,12 +179,15 @@ const ContactMeSection = () => {
                 type="email"
                 id="email"
                 required
-                className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                className="bg-white border border-black lg:text-sm text-xs rounded-lg block w-full p-2.5"
                 placeholder={CONTACT.placeholders.email}
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="subject" className="title block text-sm mb-2">
+              <label
+                htmlFor="subject"
+                className="title block lg:text-sm text-xs mb-2"
+              >
                 Subject
               </label>
               <input
@@ -180,12 +195,15 @@ const ContactMeSection = () => {
                 type="text"
                 id="subject"
                 required
-                className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                className="bg-white border border-black lg:text-sm text-xs rounded-lg block w-full p-2.5"
                 placeholder={CONTACT.placeholders.subject}
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="message" className="title block text-sm mb-2">
+              <label
+                htmlFor="message"
+                className="title block lg:text-sm text-xs mb-2"
+              >
                 Message
               </label>
               <textarea
@@ -193,29 +211,26 @@ const ContactMeSection = () => {
                 type="message"
                 id="message"
                 required
-                className="bg-white border border-black text-sm rounded-lg block w-full p-2.5 min-h-[42px] max-h-[300px]"
+                className="bg-white border border-black lg:text-sm text-xs rounded-lg block w-full p-2.5 min-h-[42px] max-h-[300px]"
                 placeholder={CONTACT.placeholders.message}
               ></textarea>
             </div>
             <button
               type="submit"
-              className="button blue-button max-w-fit px-8"
+              className="button blue-button lg:text-md text-sm max-w-fit px-8"
               disabled={isLoading} // Disable button while loading
             >
               {isLoading ? "Sending..." : "Send Message"}
             </button>
             {
-              // Display error or success message based on submission status
+              //  Display error or success message based on submission status
               error && <p className="text-red-500 font-black mt-2">{error}</p>
             }
-            {
-              // If email was submitted successfully, show success message
-              emailSubmitted && (
-                <p className="text-green-600 font-black mt-2">
-                  {CONTACT.submission_responses.success}
-                </p>
-              )
-            }
+            {emailSubmitted && (
+              <p className="text-green-600 font-black mt-2">
+                {CONTACT.submission_responses.success}
+              </p>
+            )}
           </form>
         </div>
       </section>

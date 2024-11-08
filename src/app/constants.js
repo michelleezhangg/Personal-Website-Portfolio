@@ -178,7 +178,6 @@ export const INTERESTS = [
   "Fitness",
   "Writing",
   "Traveling",
-  "Artificial Intelligence (AI)",
 ];
 
 export const PROFESSIONAL_EXPERIENCE = [

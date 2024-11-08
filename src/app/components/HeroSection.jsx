@@ -7,8 +7,9 @@ import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
 import useMediaQuery from "@/hooks/useMediaQuery";
 
 const HeroSection = () => {
-  const isMd = useMediaQuery("(min-width: 768px)");
   const [mounted, setMounted] = useState(false);
+
+  const isMd = useMediaQuery("(min-width: 768px)");
 
   useEffect(() => {
     setMounted(true);
@@ -24,7 +25,7 @@ const HeroSectionDesktop = () => {
     <section id="home" className="section bg-lightblue">
       <div className="flex p-6">
         {/* Left Side: Profile Card */}
-        <ProfileCard />
+        <ProfileCard isMd={false} />
         {/* Right Side: Introduction Card */}
         <div className="p-10 pt-16">
           <h1 className="title mb-4 text-6xl">{PERSONAL.name}</h1>
@@ -56,11 +57,11 @@ const ProfileCard = ({ isMd }) => {
         {PERSONAL.role}
       </p>
       <div className="grid grid-cols-[75px_1fr]">
-        <p className="text-sm mb-5 font-black">Phone</p>
+        <p className="title text-sm mb-5 font-black">Phone</p>
         <p className="flex justify-center text-sm mb-5 whitespace-nowrap">
           {PERSONAL.phone_number}
         </p>
-        <p className="text-sm font-black">Email</p>
+        <p className="title text-sm font-black">Email</p>
         <p className="flex justify-center text-sm whitespace-nowrap">
           {PERSONAL.email}
         </p>
@@ -71,24 +72,24 @@ const ProfileCard = ({ isMd }) => {
           <Image
             src={SOCIAL_ICONS.linkedin}
             alt="LinkedIn Icon"
-            width={30}
-            height={30}
+            width={isMd ? 30 : 25}
+            height={isMd ? 30 : 25}
           />
         </Link>
         <Link href={SOCIAL_LINKS.github}>
           <Image
             src={SOCIAL_ICONS.github}
             alt="GitHub Icon"
-            width={30}
-            height={30}
+            width={isMd ? 30 : 25}
+            height={isMd ? 30 : 25}
           />
         </Link>
         <Link href={SOCIAL_LINKS.instagram}>
           <Image
             src={SOCIAL_ICONS.instagramLight}
             alt="Instagram Icon"
-            width={30}
-            height={30}
+            width={isMd ? 30 : 25}
+            height={isMd ? 30 : 25}
           />
         </Link>
       </div>

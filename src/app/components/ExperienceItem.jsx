@@ -8,26 +8,27 @@ const ExperienceItem = ({
   location,
   date,
   logo,
+  isMd,
   ...bullet_points
 }) => {
   const bullet_point_values = Object.values(bullet_points);
 
   return (
-    <div className="section-box grid grid-cols-2 mb-20">
+    <div className="section-box grid grid-cols-2 lg:mb-20 mb-5">
       <div className="flex flex-col justify-between mr-6">
-        <h3 className="title box-heading col-span-2">{company}</h3>
-        <p className="title">{position}</p>
-        <p className="pt-2 text-sm">{location}</p>
-        <p className="text-sm">{date}</p>
+        <h3 className="title box-heading col-span-2 text-lg">{company}</h3>
+        <p className="title lg:text-lg text-sm">{position}</p>
+        <p className="pt-2 lg:text-sm text-xs">{location}</p>
+        <p className="lg:text-sm text-xs">{date}</p>
         <Image
           src={logo}
           alt={`${company} Logo`}
-          className="text-sm font-light self-start mt-auto pt-2"
-          width={100}
-          height={100}
+          className="lg:text-sm text-xs font-light self-start mt-auto pt-2"
+          width={isMd ? 100 : 80}
+          height={isMd ? 100 : 80}
         />
       </div>
-      <ul className="text-sm list-disc mt-5">
+      <ul className="lg:text-sm text-xs list-disc mt-5">
         {bullet_point_values.map((point, index) => (
           <li key={index} className="mb-2">
             {point}
@@ -44,6 +45,8 @@ ExperienceItem.propTypes = {
   location: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   logo: PropTypes.string.isRequired,
+  isMd: PropTypes.bool.isRequired,
+  bullet_points: PropTypes.object,
 };
 
 export default ExperienceItem;

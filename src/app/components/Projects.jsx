@@ -7,15 +7,21 @@ const Projects = () => {
   return (
     <section id="projects" className="section bg-lightblue">
       <div className="flex flex-col items-center">
+        {/* Section Title and Buttons */}
         <h1 className="title section-major-heading pt-20">Projects</h1>
-        <div className="flex p-10">
+        <div className="flex p-4 lg:p-10">
           <Link href={SOCIAL_LINKS.github}>
-            <button className="button blue-button px-8 mx-4">GitHub</button>
+            <button className="button blue-button lg:text-md text-sm px-8 mx-4">
+              GitHub
+            </button>
           </Link>
           <Link href={SOCIAL_LINKS.linkedin}>
-            <button className="button transparent-button px-6">LinkedIn</button>
+            <button className="button transparent-button lg:text-md text-sm px-6">
+              LinkedIn
+            </button>
           </Link>
         </div>
+        {/* Project Items */}
         <div className="section">
           {PROJECTS.map((project, index) => (
             <ProjectItem

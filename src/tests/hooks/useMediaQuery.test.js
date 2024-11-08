@@ -29,10 +29,13 @@ describe("useMediaQuery Hook", () => {
   });
 
   it("should update matches on resize event when query matches", () => {
-    const { result, rerender } = renderHook(({ query }) => useMediaQuery(query), {
-      initialProps: { query: "(min-width: 768px)" },
-    });
-    
+    const { result, rerender } = renderHook(
+      ({ query }) => useMediaQuery(query),
+      {
+        initialProps: { query: "(min-width: 768px)" },
+      },
+    );
+
     // Initially matches as defined in our mock
     expect(result.current).toBe(true);
 
