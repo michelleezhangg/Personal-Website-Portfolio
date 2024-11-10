@@ -14,6 +14,9 @@ module.exports = {
         lightblue: "#ebf1ff",
         blue: "#d1e0ff",
       },
+      screens: {
+        "hero-md": "1390px",
+      }
     },
   },
   plugins: [],

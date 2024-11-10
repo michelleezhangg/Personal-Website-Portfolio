@@ -69,7 +69,7 @@ const ContactMeSection = () => {
   if (!mounted) return null;
 
   return (
-    <section id="contact-me" className="section bg-lightblue">
+    <section id="contact-me" className="hero section bg-lightblue">
       {/* Section Title */}
       <div className="flex flex-col items-center">
         <h1 className="title section-major-heading">Contact Me</h1>

@@ -1,15 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
-import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
 
 const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
 
-  const isMd = useMediaQuery("(min-width: 768px)");
+  const isMd = useMediaQuery("(min-width: 1076px)");
 
   useEffect(() => {
     setMounted(true);
@@ -28,7 +29,7 @@ const HeroSectionDesktop = () => {
         <ProfileCard isMd={false} />
         {/* Right Side: Introduction Card */}
         <div className="p-10 pt-16">
-          <h1 className="title mb-4 text-6xl">{PERSONAL.name}</h1>
+          <h1 className="title mb-4 text-5xl hero-md:text-6xl">{PERSONAL.name}</h1>
           <h3 className="text-3xl font-semibold">{PERSONAL.role}</h3>
           <HeroSectionBio />
         </div>
@@ -41,7 +42,7 @@ const ProfileCard = ({ isMd }) => {
   return (
     <div
       id="home"
-      className="bg-blue p-10 pb-0 mx-10 lg:m-3 lg:mt-0 flex flex-col items-center max-h-[500px] max-w-[400px] shadow-xl md:section"
+      className="bg-blue p-10 pb-0 mx-10 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] max-w-[400px] shadow-xl md:section"
     >
       <Image
         src="/images/profile.png"
@@ -65,7 +66,8 @@ const ProfileCard = ({ isMd }) => {
         <p className="flex justify-center text-sm whitespace-nowrap">
           {PERSONAL.email}
         </p>
-      </div>
+    </div>
+      {isMd && <HeroSectionBio />}
       {/* Social Media Icons */}
       <div className="flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center">
         <Link href={SOCIAL_LINKS.linkedin}>
@@ -97,13 +99,32 @@ const ProfileCard = ({ isMd }) => {
   );
 };
 
+ProfileCard.propTypes = {
+  isMd: PropTypes.bool.isRequired,
+};
+
+const PhoneAndEmail = () => {
+  return (
+    <div className="grid grid-cols-[75px_1fr]">
+      <p className="title text-sm mb-5 font-black">Phone</p>
+      <p className="flex justify-center text-sm mb-5 whitespace-nowrap">
+        {PERSONAL.phone_number}
+      </p>
+      <p className="title text-sm font-black">Email</p>
+      <p className="flex justify-center text-sm whitespace-nowrap">
+        {PERSONAL.email}
+      </p>
+    </div>
+  );
+}
+
 const HeroSectionBio = () => {
   return (
     <>
-      <div className="my-8">
+      <div className="lg:my-8 my-4">
         <Link
           href="/assets/resume.pdf"
-          className="button blue-button px-8 mr-4"
+          className="button blue-button lg:text-md text-sm px-8 mr-4"
         >
           Resume
         </Link>
@@ -113,15 +134,15 @@ const HeroSectionBio = () => {
           smooth="true"
           offset={-200}
           duration={500}
-          className="button transparent-button px-6"
+          className="button transparent-button lg:text-md text-sm px-6"
           role="button"
           tabIndex={0}
         >
           Projects
         </ScrollLink>
       </div>
-      <p className="text-xl mb-6">{PERSONAL.intro}</p>
-      <p className="text-xl mb-6">{PERSONAL.background}</p>
+      <p className="lg:text-xl text-sm mb-6">{PERSONAL.intro}</p>
+      <p className="lg:text-xl text-sm mb-6">{PERSONAL.background}</p>
     </>
   );
 };
