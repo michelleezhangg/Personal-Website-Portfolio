@@ -114,8 +114,8 @@ body {
 
 @media (min-width: 1076px) and (max-width: 1136px) {
   .section {
-    margin-left: 55px;
-    margin-right: 55px;
+    margin-left: 48px;
+    margin-right: 48px;
   }
 }
 
@@ -150,8 +150,6 @@ body {
     border-width: 1.5px;
   }
 }
-
-
 
 /* Testing */
 .test {

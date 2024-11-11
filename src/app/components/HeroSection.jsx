@@ -29,7 +29,9 @@ const HeroSectionDesktop = () => {
         <ProfileCard isMd={false} />
         {/* Right Side: Introduction Card */}
         <div className="p-10 pt-16">
-          <h1 className="title mb-4 text-5xl hero-md:text-6xl">{PERSONAL.name}</h1>
+          <h1 className="title mb-4 text-5xl hero-md:text-6xl">
+            {PERSONAL.name}
+          </h1>
           <h3 className="text-3xl font-semibold">{PERSONAL.role}</h3>
           <HeroSectionBio />
         </div>
@@ -57,16 +59,7 @@ const ProfileCard = ({ isMd }) => {
       <p className="mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap">
         {PERSONAL.role}
       </p>
-      <div className="grid grid-cols-[75px_1fr]">
-        <p className="title text-sm mb-5 font-black">Phone</p>
-        <p className="flex justify-center text-sm mb-5 whitespace-nowrap">
-          {PERSONAL.phone_number}
-        </p>
-        <p className="title text-sm font-black">Email</p>
-        <p className="flex justify-center text-sm whitespace-nowrap">
-          {PERSONAL.email}
-        </p>
-    </div>
+      {!isMd && <PhoneAndEmail />}
       {isMd && <HeroSectionBio />}
       {/* Social Media Icons */}
       <div className="flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center">
@@ -116,7 +109,7 @@ const PhoneAndEmail = () => {
       </p>
     </div>
   );
-}
+};
 
 const HeroSectionBio = () => {
   return (

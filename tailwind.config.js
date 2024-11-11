@@ -16,7 +16,7 @@ module.exports = {
       },
       screens: {
         "hero-md": "1390px",
-      }
+      },
     },
   },
   plugins: [],
