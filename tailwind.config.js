@@ -15,7 +15,7 @@ module.exports = {
         blue: "#d1e0ff",
       },
       screens: {
-        "hero-md": "1390px",
+        "hero-sm": "1200px",
       },
     },
   },

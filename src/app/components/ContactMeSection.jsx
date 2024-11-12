@@ -3,7 +3,13 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { CONTACT, PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
+import {
+  CONTACT,
+  PERSONAL,
+  SOCIAL_LINKS,
+  SOCIAL_ICONS,
+  MD_QUERY,
+} from "../constants";
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
@@ -60,7 +66,7 @@ const ContactMeSection = () => {
   };
 
   /* Responsive Design */
-  const isMd = useMediaQuery("(min-width: 768px)");
+  const isMd = useMediaQuery(MD_QUERY);
 
   useEffect(() => {
     setMounted(true);
@@ -88,6 +94,7 @@ const ContactMeSection = () => {
                 alt="LinkedIn Icon"
                 width={isMd ? 30 : 25}
                 height={isMd ? 30 : 25}
+                data-testid="linkedin-icon"
               />
             </Link>
             <Link href={SOCIAL_LINKS.github}>
@@ -96,6 +103,7 @@ const ContactMeSection = () => {
                 alt="GitHub Icon"
                 width={isMd ? 30 : 25}
                 height={isMd ? 30 : 25}
+                data-testid="github-icon"
               />
             </Link>
             <Link href={SOCIAL_LINKS.instagram}>
@@ -104,6 +112,7 @@ const ContactMeSection = () => {
                 alt="Instagram Icon"
                 width={isMd ? 30 : 25}
                 height={isMd ? 30 : 25}
+                data-testid="instragram-icon"
               />
             </Link>
           </div>
@@ -113,6 +122,7 @@ const ContactMeSection = () => {
               alt="Phone Icon"
               width={isMd ? 30 : 25}
               height={isMd ? 30 : 25}
+              data-testid="phone-icon"
             />
             <p className="flex lg:mb-5 mb-3 text-sm lg:mt-1">
               {PERSONAL.phone_number}
@@ -123,6 +133,7 @@ const ContactMeSection = () => {
               width={isMd ? 25 : 20}
               height={isMd ? 25 : 20}
               className="ml-1"
+              data-testid="email-icon"
             />
             <p className="flex text-sm lg:mt-1 mb-20">{PERSONAL.email}</p>
           </div>
@@ -144,7 +155,7 @@ const ContactMeSection = () => {
                   type="text"
                   id="firstName"
                   required
-                  className="bg-white border border-black text-sm rounded-lg block w-full p-2.5"
+                  className="bg-white border border-black lg:text-sm text-xs rounded-lg block w-full p-2.5"
                   placeholder={CONTACT.placeholders.first_name}
                 />
               </div>

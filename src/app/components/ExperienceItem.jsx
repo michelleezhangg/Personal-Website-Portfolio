@@ -24,8 +24,8 @@ const ExperienceItem = ({
           src={logo}
           alt={`${company} Logo`}
           className="lg:text-sm text-xs font-light self-start mt-auto pt-2"
-          width={isMd ? 100 : 80}
-          height={isMd ? 100 : 80}
+          width={isMd ? 100 : 70}
+          height={isMd ? 100 : 70}
         />
       </div>
       <ul className="lg:text-sm text-xs list-disc mt-5">

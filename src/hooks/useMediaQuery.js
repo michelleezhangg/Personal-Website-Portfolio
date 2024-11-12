@@ -9,11 +9,14 @@ const useMediaQuery = (query) => {
       setMatches(media.matches);
     }
 
-    const listener = () => setMatches(media.matches);
+    const listener = () => {
+      const media = window.matchMedia(query); // Fresh media query
+      setMatches(media.matches);
+    };
     window.addEventListener("resize", listener);
 
     return () => window.removeEventListener("resize", listener);
-  }, [matches, query]);
+  }, [query]);
 
   return matches;
 };

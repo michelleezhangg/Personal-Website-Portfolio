@@ -3,7 +3,7 @@ export const PERSONAL = {
   name: "Michelle Zhang",
   role: "Software Engineer",
   phone_number: "(949) 466-3855",
-  email: "me@michellezhangdev.com",
+  email: "mz@michellezhangdev.com",
   intro: `Hey there! My name is Michelle Zhang and I am a software engineer!
   I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`,
   background:
@@ -168,7 +168,7 @@ export const LANGUAGES = [
   },
   {
     language: "Spanish",
-    fluency: "Intermediate",
+    fluency: "Beginner",
   },
 ];
 
@@ -422,3 +422,6 @@ export const CONTACT = {
     submission_confirmation: "New message submitted!",
   },
 };
+
+/* Responsive Design */
+export const MD_QUERY = "(min-width: 1076px)";

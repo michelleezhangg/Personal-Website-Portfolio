@@ -10,12 +10,13 @@ import {
   INTERESTS,
   LANGUAGES,
   PROFESSIONAL_EXPERIENCE,
+  MD_QUERY,
 } from "../constants";
 
 const AboutMeSection = () => {
   const [mounted, setMounted] = useState(false);
 
-  const isMd = useMediaQuery("(min-width: 768px)");
+  const isMd = useMediaQuery(MD_QUERY);
 
   useEffect(() => {
     setMounted(true);
@@ -42,8 +43,10 @@ const AboutMeSection = () => {
           <h2 className="title section-heading">Education</h2>
           <div className="section-box grid grid-cols-2">
             <div className="flex flex-col justify-between mr-6 gap-1">
-              <h3 className="title box-heading">{EDUCATION.university}</h3>
-              <p className="title lg:text-xl text-sm leading-5">
+              <h3 className="title box-heading lg:text-xl text-md">
+                {EDUCATION.university}
+              </h3>
+              <p className="title lg:text-lg text-sm leading-5">
                 {EDUCATION.major}
               </p>
               <p className="lg:text-lg text-xs">{EDUCATION.minor}</p>

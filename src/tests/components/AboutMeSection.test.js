@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import AboutMeSection from "@/app/components/AboutMeSection";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import {
   EDUCATION,
   PROFESSIONAL_EXPERIENCE,
@@ -8,9 +9,11 @@ import {
   INTERESTS,
 } from "@/app/constants";
 
+jest.mock("@/hooks/useMediaQuery");
+
 describe("AboutMeSection Component", () => {
   beforeEach(() => {
-    render(<AboutMeSection />);
+    useMediaQuery.mockReturnValue(true);
   });
 
   afterEach(() => {
@@ -18,6 +21,7 @@ describe("AboutMeSection Component", () => {
   });
 
   it("renders the About Me title", () => {
+    render(<AboutMeSection />);
     const titleElement = screen.getByRole("heading", {
       name: /about me/i,
       level: 1,
@@ -26,12 +30,15 @@ describe("AboutMeSection Component", () => {
   });
 
   it("renders the Resume button", () => {
+    render(<AboutMeSection />);
     const resumeButton = screen.getByRole("button", { name: /resume/i });
     expect(resumeButton).toBeInTheDocument();
   });
 
   describe("Education section", () => {
     it("renders university name, major, minor, scholarship, graduation date, and GPA", () => {
+      render(<AboutMeSection />);
+
       expect(screen.getByText(EDUCATION.university)).toBeInTheDocument();
       expect(screen.getByText(EDUCATION.major)).toBeInTheDocument();
       expect(screen.getByText(EDUCATION.minor)).toBeInTheDocument();
@@ -41,6 +48,8 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders Chapman logo image with correct src and alt attributes", () => {
+      render(<AboutMeSection />);
+
       const chapmanLogo = screen.getByAltText("Chapman Logo");
       expect(chapmanLogo).toBeInTheDocument();
       expect(chapmanLogo).toHaveAttribute(
@@ -51,7 +60,26 @@ describe("AboutMeSection Component", () => {
       expect(chapmanLogo).toHaveAttribute("height", "250");
     });
 
+    it("renders Chapman logo with the correct size for larger screens", () => {
+      useMediaQuery.mockReturnValue(true);
+      render(<AboutMeSection />);
+
+      const chapmanLogo = screen.getByAltText("Chapman Logo");
+      expect(chapmanLogo).toHaveAttribute("width", "250");
+      expect(chapmanLogo).toHaveAttribute("height", "250");
+    });
+
+    it("renders Chapman logo with the correct size for smaller screens", () => {
+      useMediaQuery.mockReturnValue(false);
+      render(<AboutMeSection />);
+
+      const chapmanLogo = screen.getByAltText("Chapman Logo");
+      expect(chapmanLogo).toHaveAttribute("width", "150");
+      expect(chapmanLogo).toHaveAttribute("height", "150");
+    });
+
     it("renders Relevant Coursework", () => {
+      render(<AboutMeSection />);
       expect(screen.getByText("Relevant Coursework")).toBeInTheDocument();
 
       EDUCATION.relevant_coursework.forEach((course) => {

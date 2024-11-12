@@ -1,14 +1,16 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import ContactMeSection from "@/app/components/ContactMeSection";
+import useMediaQuery from "@/hooks/useMediaQuery";
 import { CONTACT } from "@/app/constants";
 
 // Mock fetch globally
 global.fetch = jest.fn();
+jest.mock("@/hooks/useMediaQuery");
 
 describe("ContactMeSection Component", () => {
   beforeEach(() => {
-    render(<ContactMeSection />);
+    useMediaQuery.mockReturnValue(true); // Default to large screen size
   });
 
   afterEach(() => {
@@ -16,11 +18,13 @@ describe("ContactMeSection Component", () => {
   });
 
   it("renders the Contact Me section with the correct title", () => {
+    render(<ContactMeSection />);
     const titleElement = screen.getByRole("heading", { name: /contact me/i });
     expect(titleElement).toBeInTheDocument();
   });
 
   it("renders the form with the correct placeholders", () => {
+    render(<ContactMeSection />);
     expect(
       screen.getByPlaceholderText(CONTACT.placeholders.first_name),
     ).toBeInTheDocument();
@@ -39,6 +43,8 @@ describe("ContactMeSection Component", () => {
   });
 
   it("submits the form and shows a success message", async () => {
+    render(<ContactMeSection />);
+
     // Mock a successful API response
     global.fetch.mockImplementationOnce(() =>
       Promise.resolve({
@@ -91,6 +97,7 @@ describe("ContactMeSection Component", () => {
   });
 
   it("shows an error message if submission fails with an unexpected error", async () => {
+    render(<ContactMeSection />);
     global.fetch.mockImplementationOnce(() => Promise.reject({}));
 
     // Fill in form fields
@@ -122,6 +129,7 @@ describe("ContactMeSection Component", () => {
   });
 
   it("shows default error message if submission fails without specific error", async () => {
+    render(<ContactMeSection />);
     global.fetch.mockImplementationOnce(() =>
       Promise.resolve({
         json: () => Promise.resolve({ status: 500 }),
@@ -155,6 +163,8 @@ describe("ContactMeSection Component", () => {
   });
 
   it("disables the submit button while loading", async () => {
+    render(<ContactMeSection />);
+
     // Fill in form fields
     fireEvent.change(screen.getByLabelText(/first name/i), {
       target: { value: "John" },
@@ -180,6 +190,24 @@ describe("ContactMeSection Component", () => {
       const button = screen.getByRole("button", { name: /sending.../i });
       expect(button).toBeDisabled();
       expect(button).toHaveTextContent("Sending...");
+    });
+  });
+
+  it("renders icons with correct sizes based on isMd", async () => {
+    useMediaQuery.mockReturnValue(false); // large screen size
+    render(<ContactMeSection />);
+
+    const linkedinIcon = screen.getByTestId("linkedin-icon");
+    expect(linkedinIcon).toHaveAttribute("width", "30");
+    expect(linkedinIcon).toHaveAttribute("height", "30");
+
+    useMediaQuery.mockReturnValue(true); // smaller screens
+    render(<ContactMeSection />);
+
+    await waitFor(() => {
+      const updatedLinkedinIcon = screen.getByTestId("linkedin-icon");
+      expect(updatedLinkedinIcon).toHaveAttribute("width", "25");
+      expect(updatedLinkedinIcon).toHaveAttribute("height", "25");
     });
   });
 });

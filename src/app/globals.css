@@ -105,17 +105,17 @@ body {
 }
 
 /* Responsive Design */
-@media (min-width: 1137px) and (max-width: 1297px) {
+@media (min-width: 1200px) and (max-width: 1310px) {
   .section {
     margin-left: 80px;
     margin-right: 80px;
   }
 }
 
-@media (min-width: 1076px) and (max-width: 1136px) {
+@media (min-width: 1076px) and (max-width: 1200px) {
   .section {
-    margin-left: 48px;
-    margin-right: 48px;
+    margin-left: 45px;
+    margin-right: 45px;
   }
 }
 
