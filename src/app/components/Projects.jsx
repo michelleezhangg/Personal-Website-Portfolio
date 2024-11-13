@@ -8,8 +8,10 @@ const Projects = () => {
     <section id="projects" className="section bg-lightblue">
       <div className="flex flex-col items-center">
         {/* Section Title and Buttons */}
-        <h1 className="title section-major-heading pt-20">Projects</h1>
-        <div className="flex p-4 lg:p-10">
+        <h1 className="title section-major-heading lg:p-10 p-4 pt-20">
+          Projects
+        </h1>
+        <div className="flex pb-10">
           <Link href={SOCIAL_LINKS.github}>
             <button className="button blue-button lg:text-md text-sm px-8 mx-4">
               GitHub

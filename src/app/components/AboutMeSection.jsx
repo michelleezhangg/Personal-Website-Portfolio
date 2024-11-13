@@ -28,7 +28,7 @@ const AboutMeSection = () => {
     <section id="about-me" className="section bg-lightblue">
       {/* Section Title and Buttons */}
       <div className="flex flex-col items-center">
-        <h1 className="title section-major-heading p-4 lg:p-10 pt-20">
+        <h1 className="title section-major-heading lg:p-10 p-4 pt-20">
           About Me
         </h1>
         <Link href="/assets/resume.pdf">
@@ -43,7 +43,7 @@ const AboutMeSection = () => {
           <h2 className="title section-heading">Education</h2>
           <div className="section-box grid grid-cols-2">
             <div className="flex flex-col justify-between mr-6 gap-1">
-              <h3 className="title box-heading lg:text-xl text-md">
+              <h3 className="title box-heading text-xl">
                 {EDUCATION.university}
               </h3>
               <p className="title lg:text-lg text-sm leading-5">

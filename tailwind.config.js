@@ -16,6 +16,7 @@ module.exports = {
       },
       screens: {
         "hero-sm": "1200px",
+        lg: "1076px",
       },
     },
   },

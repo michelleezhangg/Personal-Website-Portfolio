@@ -424,4 +424,5 @@ export const CONTACT = {
 };
 
 /* Responsive Design */
-export const MD_QUERY = "(min-width: 1076px)";
+const CUSTOM_MD = "1076px";
+export const MD_QUERY = `(min-width: ${CUSTOM_MD})`;

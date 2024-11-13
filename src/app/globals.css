@@ -104,7 +104,9 @@ body {
   color: white;
 }
 
-/* Responsive Design */
+/* 
+Responsive Design
+*/
 @media (min-width: 1200px) and (max-width: 1310px) {
   .section {
     margin-left: 80px;
@@ -112,7 +114,7 @@ body {
   }
 }
 
-@media (min-width: 1076px) and (max-width: 1200px) {
+@media (min-width: 1076px) and (max-width: 1199px) {
   .section {
     margin-left: 45px;
     margin-right: 45px;
