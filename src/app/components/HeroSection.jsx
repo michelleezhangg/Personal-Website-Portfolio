@@ -75,24 +75,24 @@ const ProfileCard = ({ isMd }) => {
           <Image
             src={SOCIAL_ICONS.linkedin}
             alt="LinkedIn Icon"
-            width={isMd ? 30 : 25}
-            height={isMd ? 30 : 25}
+            width={30}
+            height={30}
           />
         </Link>
         <Link href={SOCIAL_LINKS.github}>
           <Image
             src={SOCIAL_ICONS.github}
             alt="GitHub Icon"
-            width={isMd ? 30 : 25}
-            height={isMd ? 30 : 25}
+            width={30}
+            height={30}
           />
         </Link>
         <Link href={SOCIAL_LINKS.instagram}>
           <Image
             src={SOCIAL_ICONS.instagramLight}
             alt="Instagram Icon"
-            width={isMd ? 30 : 25}
-            height={isMd ? 30 : 25}
+            width={30}
+            height={30}
           />
         </Link>
       </div>

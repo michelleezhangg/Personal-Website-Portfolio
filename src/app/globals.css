@@ -105,14 +105,14 @@ body {
 }
 
 /* Responsive Design */
-@media (min-width: 1200px) and (max-width: 1310px) {
+@media (max-width: 1310px) {
   .section {
     margin-left: 80px;
     margin-right: 80px;
   }
 }
 
-@media (min-width: 1076px) and (max-width: 1199px) {
+@media (max-width: 1199px) {
   .section {
     margin-left: 60px;
     margin-right: 60px;
@@ -148,6 +148,24 @@ body {
 
   .button {
     border-width: 1.5px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 445px) {
+  .section {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .section-box {
+    padding: 10px;
   }
 }
 
