@@ -18,48 +18,57 @@ const HeroSection = () => {
 
   if (!mounted) return null;
 
-  return isMd ? <HeroSectionDesktop /> : <ProfileCard isMd={isMd} />;
+  return isMd ? (
+    <HeroSectionDesktop isMd={isMd} />
+  ) : (
+    <ProfileCard isMd={isMd} />
+  );
 };
 
-const HeroSectionDesktop = () => {
+const HeroSectionDesktop = ({ isMd }) => {
   return (
     <section id="home" className="section bg-lightblue lg:max-w-[65rem]">
       <div className="flex p-6">
         {/* Left Side: Profile Card */}
-        <ProfileCard isMd={false} />
+        <ProfileCard isMd={isMd} />
         {/* Right Side: Introduction Card */}
         <div className="p-10 pt-14">
           <h1 className="title mb-4 text-5xl hero-sm:text-6xl whitespace-nowrap">
             {PERSONAL.name}
           </h1>
           <h3 className="text-3xl font-semibold">{PERSONAL.role}</h3>
-          <HeroSectionBio />
+          <HeroSectionBio isMd={isMd} />
         </div>
       </div>
     </section>
   );
 };
 
+HeroSectionDesktop.propTypes = {
+  isMd: PropTypes.bool.isRequired,
+};
+
 const ProfileCard = ({ isMd }) => {
   return (
     <div
       id="home"
-      className="bg-blue p-10 pb-0 mx-10 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] max-w-[400px] shadow-xl md:section"
+      className="bg-blue p-10 pb-0 mx-10 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] lg:max-w-[400px] max-w-[500px] shadow-xl"
     >
       <Image
         src="/images/profile.png"
         alt="Profile Image"
-        width={200}
-        height={200}
+        width={isMd ? 200 : 175}
+        height={isMd ? 200 : 175}
         className="rounded-full"
       />
-      <p className="title mb-3 mt-8 text-4xl whitespace-nowrap">
+      <p className="title my-3 lg:mt-8 text-4xl whitespace-nowrap">
         {PERSONAL.name}
       </p>
-      <p className="mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap">
+      <p className="lg:mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap">
         {PERSONAL.role}
       </p>
-      {!isMd && <PhoneAndEmail />}
+      {isMd && <PhoneAndEmail />}
+      {!isMd && <HeroSectionBio isMd={isMd} />}
       {/* Social Media Icons */}
       <div className="flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center">
         <Link href={SOCIAL_LINKS.linkedin}>
@@ -110,7 +119,7 @@ const PhoneAndEmail = () => {
   );
 };
 
-const HeroSectionBio = () => {
+const HeroSectionBio = ({ isMd }) => {
   return (
     <>
       <div className="lg:my-8 my-4">
@@ -133,14 +142,16 @@ const HeroSectionBio = () => {
           Projects
         </ScrollLink>
       </div>
-      <p className="hero-sm:text-xl lg:text-lg text-sm mb-6">
-        {PERSONAL.intro}
-      </p>
-      <p className="hero-sm:text-xl lg:text-lg text-sm mb-6">
-        {PERSONAL.background}
-      </p>
+      <p className="hero-sm:text-xl text-md lg:my-6 mt-3">{PERSONAL.intro}</p>
+      {isMd && (
+        <p className="hero-sm:text-xl text-md lg:mb-6">{PERSONAL.background}</p>
+      )}
     </>
   );
+};
+
+HeroSectionBio.propTypes = {
+  isMd: PropTypes.bool.isRequired,
 };
 
 export default HeroSection;
