@@ -123,7 +123,7 @@ const AboutMeSection = () => {
             <h3 className="title box-heading">Technical Skills</h3>
             <ul className="pt-4 grid grid-rows-4 grid-flow-col">
               {EDUCATION.technical_skills.map((tool, index) => (
-                <li key={index} className="py-1">
+                <li key={index} className="py-2">
                   <ToolListItem name={tool.name} path={tool.path} isMd={isMd} />
                 </li>
               ))}
@@ -154,7 +154,7 @@ const AboutMeSection = () => {
           {/* About Me: Languages */}
           <div className="section-box">
             <h3 className="title box-heading">Languages</h3>
-            <ul className="pt-4 grid grid-rows-3 gris-flow-col">
+            <ul className="pt-4">
               {LANGUAGES.map((language_item, index) => (
                 <li key={index} className="lg:text-sm text-xs py-2">
                   {`${language_item.language} (${language_item.fluency})`}

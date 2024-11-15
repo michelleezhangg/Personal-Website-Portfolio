@@ -52,7 +52,7 @@ const ProfileCard = ({ isMd }) => {
   return (
     <div
       id="home"
-      className="bg-blue p-10 pb-0 mx-10 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] lg:max-w-[400px] max-w-[500px] shadow-xl"
+      className="bg-blue p-10 pb-0 lg:mx-10 mx-2 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] lg:max-w-[400px] max-w-[500px] shadow-xl"
     >
       <Image
         src="/images/profile.png"
@@ -124,8 +124,11 @@ const HeroSectionBio = ({ isMd }) => {
     <>
       <div className="lg:my-8 my-4">
         <Link
-          href="/assets/resume.pdf"
+          href="/assets/Michelle_Zhang_Resume.pdf"
           className="button blue-button lg:text-md text-sm px-8 mr-4"
+          target="_blank"
+          rel="noopener noreferrer"
+          downdload
         >
           Resume
         </Link>

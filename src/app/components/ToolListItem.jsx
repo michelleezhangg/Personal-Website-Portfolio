@@ -12,7 +12,7 @@ const ToolListItem = ({ name, path, isMd }) => {
         width={isMd ? 40 : 30}
         height={isMd ? 40 : 30}
       />
-      <p className="lg:text-sm text-xs font-semibold">{name}</p>
+      <p className="text-xs font-semibold">{name}</p>
     </div>
   );
 };

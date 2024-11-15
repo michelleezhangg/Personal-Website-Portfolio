@@ -85,7 +85,7 @@ export const EDUCATION = {
     "Alpha Kappa Psi (Professional Business Fraternity)",
     "SPIRE Mentorship Program",
     "Gamma Beta Phi Honors Society",
-    "National Soceity of Collegiate Scholars (NSCS)",
+    "National Society of Collegiate Scholars (NSCS)",
   ],
   programming_languages: {
     proficient: [
@@ -102,13 +102,13 @@ export const EDUCATION = {
         path: "/icons/java-icon.svg",
       },
       {
-        name: "HTML5/CSS3",
+        name: "HTML, CSS",
         path: "/icons/html-icon.svg",
       },
     ],
     familiar: [
       {
-        name: "Javascript/Typescript",
+        name: "Javascript, Typescript",
         path: "/icons/javascript-icon.svg",
       },
       {
@@ -118,6 +118,10 @@ export const EDUCATION = {
       {
         name: "SQL",
         path: "/icons/sql-icon.png",
+      },
+      {
+        name: "R, RStudio",
+        path: "/icons/r-icon.svg",
       },
       {
         name: "PHP",
@@ -135,10 +139,6 @@ export const EDUCATION = {
       path: "/icons/github-icon.svg",
     },
     {
-      name: "Jupyter Notebook",
-      path: "/icons/jupyter-icon.svg",
-    },
-    {
       name: "Unix/Linux",
       path: "/icons/linux-icon.png",
     },
@@ -147,12 +147,21 @@ export const EDUCATION = {
       path: "/icons/docker-icon.svg",
     },
     {
-      name: "Firebase",
-      path: "/icons/firebase-icon.svg",
-    },
-    {
       name: "AWS",
       path: "/icons/aws-icon.svg",
+    },
+    {
+      name: "Postman",
+      path: "/icons/postman-icon.svg",
+    },
+    
+    {
+      name: "Figma",
+      path: "/icons/figma-icon.svg",
+    },
+    {
+      name: "Jira",
+      path: "/icons/jira-icon.svg",
     },
   ],
 };
@@ -166,10 +175,8 @@ export const LANGUAGES = [
     language: "Mandarin Chinese",
     fluency: "Native, fluent",
   },
-  {
-    language: "Spanish",
-    fluency: "Beginner",
-  },
+  // TODO: minimize size of Language box
+  // TODO: pointer on MenuOverlay links
 ];
 
 export const INTERESTS = [
@@ -181,6 +188,16 @@ export const INTERESTS = [
 ];
 
 export const PROFESSIONAL_EXPERIENCE = [
+  {
+    company: "Warner Bros. Discovery",
+    position: "Software Engineer",
+    location: "Burbank, CA",
+    date: "Jul 2024 - Present",
+    logo: "/logos/warner-bros-discovery-logo.png",
+    bullet_points: [
+      "Software Engineer working in the Trust and Safety (TAZ) team." // TODO: Add bullet points here
+    ],
+  },
   {
     company: "Warner Bros. Discovery",
     position: "Software Engineering Intern",
