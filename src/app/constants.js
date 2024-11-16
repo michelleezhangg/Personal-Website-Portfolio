@@ -29,8 +29,6 @@ export const SOCIAL_ICONS = {
   emailLight: "/icons/email-icon-light.png",
 };
 
-export const COPYRIGHT = "All rights reserved.";
-
 export const NAV_LINKS = [
   {
     title: "home",
@@ -129,6 +127,34 @@ export const EDUCATION = {
       },
     ],
   },
+  frameworks: {
+    frontend: [
+      {
+        name: "React.js",
+        path: "/icons/react-icon.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        path: "/icons/tailwind-icon.svg",
+      },
+    ],
+    backend: [
+      {
+        name: "Node.js",
+        path: "/icons/node-icon.svg",
+      },
+      {
+        name: "Spring Boot",
+        path: "/icons/spring-boot-icon.svg",
+      },
+    ],
+    fullStack: [
+      {
+        name: "Next.js",
+        path: "/icons/next-icon.svg",
+      },
+    ],
+  },
   technical_skills: [
     {
       name: "Git",
@@ -154,7 +180,7 @@ export const EDUCATION = {
       name: "Postman",
       path: "/icons/postman-icon.svg",
     },
-    
+
     {
       name: "Figma",
       path: "/icons/figma-icon.svg",
@@ -175,8 +201,6 @@ export const LANGUAGES = [
     language: "Mandarin Chinese",
     fluency: "Native, fluent",
   },
-  // TODO: minimize size of Language box
-  // TODO: pointer on MenuOverlay links
 ];
 
 export const INTERESTS = [
@@ -195,7 +219,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     date: "Jul 2024 - Present",
     logo: "/logos/warner-bros-discovery-logo.png",
     bullet_points: [
-      "Software Engineer working in the Trust and Safety (TAZ) team." // TODO: Add bullet points here
+      "Software Engineer working in the Trust and Safety (TAZ) team.", // TODO: Add bullet points here
     ],
   },
   {

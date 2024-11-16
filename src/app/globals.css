@@ -76,6 +76,7 @@ body {
   transition-property: all;
   transition-duration: 500ms;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .button:hover {

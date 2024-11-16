@@ -49,7 +49,7 @@ const Navbar = () => {
                   smooth="true"
                   offset={-200} // Extend spy region up 200px
                   duration={500}
-                  className="cursor-pointer text-lg block py-2 pr-4 hover:text-darkblue uppercase"
+                  className="text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer"
                   activeClass="text-darkblue"
                 >
                   {link.title}

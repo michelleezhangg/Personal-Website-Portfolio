@@ -15,7 +15,7 @@ const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const [mounted, setMounted] = useState(false); // Responsive design
+  const [mounted, setMounted] = useState(false);
 
   /* Submission */
   const handleSubmit = async (e) => {
