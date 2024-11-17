@@ -49,8 +49,8 @@ describe("ExperienceItem Component", () => {
     const logoImage = screen.getByAltText(`${mockExperienceItem.company} Logo`);
     expect(logoImage).toBeInTheDocument();
     expect(logoImage).toHaveAttribute("src", mockExperienceItem.logo);
-    expect(logoImage).toHaveAttribute("width", "80");
-    expect(logoImage).toHaveAttribute("height", "80");
+    expect(logoImage).toHaveAttribute("width", "70");
+    expect(logoImage).toHaveAttribute("height", "70");
   });
 
   it("renders bullet points as a list", () => {

@@ -1,7 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Footer from "@/app/components/Footer";
-import { COPYRIGHT, PERSONAL } from "@/app/constants";
+import { PERSONAL } from "@/app/constants";
+
+jest.mock("next/link", () => ({ children, href }) => <a href={href}>{children}</a>);
 
 describe("Footer Component", () => {
   beforeEach(() => {
@@ -15,7 +17,7 @@ describe("Footer Component", () => {
   it("renders Footer component with name, role, and copyright text", () => {
     const nameElement = screen.getByText(PERSONAL.name);
     const roleElement = screen.getByText(PERSONAL.role);
-    const copyrightElement = screen.getByText(COPYRIGHT);
+    const copyrightElement = screen.getByText(/© 2024 Michelle Zhang. All rights reserved./i);
 
     expect(nameElement).toBeInTheDocument();
     expect(roleElement).toBeInTheDocument();

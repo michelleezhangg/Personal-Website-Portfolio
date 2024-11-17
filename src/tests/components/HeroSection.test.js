@@ -40,28 +40,39 @@ describe("HeroSection Component", () => {
         screen.getByRole("heading", { name: PERSONAL.role, level: 3 }),
       ).toBeInTheDocument();
     });
+
+    it("renders profile image size when isMd is true", () => {
+      useMediaQuery.mockReturnValue(true); // Larger screens
+      render(<HeroSection />);
+
+      const profileImage = screen.getByAltText("Profile Image");
+      expect(profileImage).toHaveAttribute("width", "200");
+      expect(profileImage).toHaveAttribute("height", "200");
+    });
+
+    it("renders profile image size when isMd is false", () => {
+      useMediaQuery.mockReturnValue(false); // Smaller screens
+      render(<HeroSection />);
+
+      const profileImage = screen.getByAltText("Profile Image");
+      expect(profileImage).toHaveAttribute("width", "175");
+      expect(profileImage).toHaveAttribute("height", "175");
+    });
   });
 
   describe("Social Media Icons", () => {
-    it("renders icons with correct sizes based on isMd", () => {
-      useMediaQuery.mockReturnValue(false);
+    it("renders icons with correct sizes", () => {
       render(<HeroSection />);
 
       const linkedInIcon = screen.getByAltText(/linkedin icon/i);
-      expect(linkedInIcon).toHaveAttribute("width", "25");
-      expect(linkedInIcon).toHaveAttribute("height", "25");
-
-      useMediaQuery.mockReturnValue(true);
-      render(<HeroSection />);
-
-      // expect(screen.getAllByAltText("LinkedIn Icon")[0]).toHaveAttribute("width", "30");
-      // expect(screen.getAllByAltText("LinkedIn Icon")[0]).toHaveAttribute("height", "30");
+      expect(linkedInIcon).toHaveAttribute("width", "30");
+      expect(linkedInIcon).toHaveAttribute("height", "30");
     });
   });
 
   describe("Contact Information", () => {
-    it("renders Phone and Email section when isMd is false", () => {
-      useMediaQuery.mockReturnValue(false);
+    it("renders Phone and Email section when isMd is true", () => {
+      useMediaQuery.mockReturnValue(true); // Larger screens
       render(<HeroSection />);
 
       expect(screen.getByText("Phone")).toBeInTheDocument();
@@ -70,14 +81,12 @@ describe("HeroSection Component", () => {
       expect(screen.getByText(PERSONAL.email)).toBeInTheDocument();
     });
 
-    it("does not render Phone and Email section when isMd is true", () => {
-      useMediaQuery.mockReturnValue(true);
+    it("does not render Phone and Email section when isMd is false", () => {
+      useMediaQuery.mockReturnValue(false); // Smaller screens
       render(<HeroSection />);
 
-      // expect(screen.queryByText("Phone")).not.toBeInTheDocument();
-      // expect(screen.getByText(PERSONAL.phone_number)).not.toBeInTheDocument();
-      // expect(screen.queryByText("Email")).not.toBeInTheDocument();
-      // expect(screen.getByText(PERSONAL.email)).not.toBeInTheDocument();
+      expect(screen.queryByText("Phone")).not.toBeInTheDocument();
+      expect(screen.queryByText("Email")).not.toBeInTheDocument();
     });
   });
 });

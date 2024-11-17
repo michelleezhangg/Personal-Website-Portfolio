@@ -193,15 +193,17 @@ describe("ContactMeSection Component", () => {
     });
   });
 
-  it("renders icons with correct sizes based on isMd", async () => {
-    useMediaQuery.mockReturnValue(false); // large screen size
+  it("renders icons with correct sizes when isMd is true", async () => {
+    useMediaQuery.mockReturnValue(true); // large screen size
     render(<ContactMeSection />);
 
     const linkedinIcon = screen.getByTestId("linkedin-icon");
     expect(linkedinIcon).toHaveAttribute("width", "30");
     expect(linkedinIcon).toHaveAttribute("height", "30");
+  });
 
-    useMediaQuery.mockReturnValue(true); // smaller screens
+  it("renders icons with correct sizes when isMd is false", async () => {
+    useMediaQuery.mockReturnValue(false); // smaller screens
     render(<ContactMeSection />);
 
     await waitFor(() => {
