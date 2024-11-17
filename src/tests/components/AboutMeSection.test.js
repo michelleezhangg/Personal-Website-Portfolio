@@ -32,7 +32,7 @@ describe("AboutMeSection Component", () => {
 
     it("renders the Resume button", () => {
       render(<AboutMeSection />);
-      const resumeButton = screen.getByRole("button", { name: /resume/i });
+      const resumeButton = screen.getByRole("link", { name: /resume/i });
       expect(resumeButton).toBeInTheDocument();
     });
   });
