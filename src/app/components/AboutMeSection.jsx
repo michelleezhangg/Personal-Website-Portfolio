@@ -38,9 +38,7 @@ const AboutMeSection = () => {
           rel="noopener noreferrer"
           downdload
         >
-          <button className="button blue-button px-8 lg:text-md text-sm">
-            Resume
-          </button>
+          Resume
         </Link>
       </div>
       <section>
