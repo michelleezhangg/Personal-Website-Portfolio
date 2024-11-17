@@ -31,7 +31,13 @@ const AboutMeSection = () => {
         <h1 className="title section-major-heading lg:p-10 p-4 pt-20">
           About Me
         </h1>
-        <Link href="/assets/resume.pdf">
+        <Link
+          href="/assets/Michelle_Zhang_Resume.pdf"
+          className="button blue-button lg:text-md text-sm px-8 mr-4"
+          target="_blank"
+          rel="noopener noreferrer"
+          downdload
+        >
           <button className="button blue-button px-8 lg:text-md text-sm">
             Resume
           </button>
