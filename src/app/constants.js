@@ -3,11 +3,11 @@ export const PERSONAL = {
   name: "Michelle Zhang",
   role: "Software Engineer",
   phone_number: "(949) 466-3855",
-  email: "michelleeeezhangggg@gmail.com",
+  email: "mz@michellezhangdev.com",
   intro: `Hey there! My name is Michelle Zhang and I am a software engineer!
   I graduated from Chapman University in May 2024 with a B.S. in Computer Science and a minor in Data Analytics.`,
   background:
-    "I have a background in Full-Stack Developing, Web Development, and Data Analytics.",
+    "I have a background in Full-Stack Development, Web Development, and Data Analytics.",
 };
 
 export const SOCIAL_LINKS = {
@@ -18,11 +18,16 @@ export const SOCIAL_LINKS = {
 
 export const SOCIAL_ICONS = {
   linkedin: "/icons/linkedin-icon.svg",
-  instagram: "/icons/instagram-icon.svg",
+  linkedinLight: "/icons/linkedin-icon-dark.svg",
   github: "/icons/github-icon.svg",
+  githubLight: "/icons/github-icon-light.svg",
+  instagram: "/icons/instagram-icon.svg",
+  instagramLight: "/icons/instagram-icon-light.svg",
+  phone: "/icons/phone-icon.svg",
+  phoneLight: "/icons/phone-icon-light.svg",
+  email: "/icons/email-icon.png",
+  emailLight: "/icons/email-icon-light.png",
 };
-
-export const COPYRIGHT = "All rights reserved.";
 
 export const NAV_LINKS = [
   {
@@ -78,7 +83,7 @@ export const EDUCATION = {
     "Alpha Kappa Psi (Professional Business Fraternity)",
     "SPIRE Mentorship Program",
     "Gamma Beta Phi Honors Society",
-    "National Soceity of Collegiate Scholars (NSCS)",
+    "National Society of Collegiate Scholars (NSCS)",
   ],
   programming_languages: {
     proficient: [
@@ -95,13 +100,13 @@ export const EDUCATION = {
         path: "/icons/java-icon.svg",
       },
       {
-        name: "HTML5/CSS3",
+        name: "HTML, CSS",
         path: "/icons/html-icon.svg",
       },
     ],
     familiar: [
       {
-        name: "Javascript/Typescript",
+        name: "Javascript, Typescript",
         path: "/icons/javascript-icon.svg",
       },
       {
@@ -113,8 +118,40 @@ export const EDUCATION = {
         path: "/icons/sql-icon.png",
       },
       {
+        name: "R, RStudio",
+        path: "/icons/r-icon.svg",
+      },
+      {
         name: "PHP",
         path: "/icons/php-icon.svg",
+      },
+    ],
+  },
+  frameworks: {
+    frontend: [
+      {
+        name: "React.js",
+        path: "/icons/react-icon.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        path: "/icons/tailwind-icon.svg",
+      },
+    ],
+    backend: [
+      {
+        name: "Node.js",
+        path: "/icons/node-icon.svg",
+      },
+      {
+        name: "Spring Boot",
+        path: "/icons/spring-boot-icon.svg",
+      },
+    ],
+    fullStack: [
+      {
+        name: "Next.js",
+        path: "/icons/next-icon.svg",
       },
     ],
   },
@@ -128,10 +165,6 @@ export const EDUCATION = {
       path: "/icons/github-icon.svg",
     },
     {
-      name: "Jupyter Notebook",
-      path: "/icons/jupyter-icon.svg",
-    },
-    {
       name: "Unix/Linux",
       path: "/icons/linux-icon.png",
     },
@@ -140,12 +173,21 @@ export const EDUCATION = {
       path: "/icons/docker-icon.svg",
     },
     {
-      name: "Firebase",
-      path: "/icons/firebase-icon.svg",
-    },
-    {
       name: "AWS",
       path: "/icons/aws-icon.svg",
+    },
+    {
+      name: "Postman",
+      path: "/icons/postman-icon.svg",
+    },
+
+    {
+      name: "Figma",
+      path: "/icons/figma-icon.svg",
+    },
+    {
+      name: "Jira",
+      path: "/icons/jira-icon.svg",
     },
   ],
 };
@@ -159,10 +201,6 @@ export const LANGUAGES = [
     language: "Mandarin Chinese",
     fluency: "Native, fluent",
   },
-  {
-    language: "Spanish",
-    fluency: "Intermediate",
-  },
 ];
 
 export const INTERESTS = [
@@ -171,10 +209,19 @@ export const INTERESTS = [
   "Fitness",
   "Writing",
   "Traveling",
-  "Artificial Intelligence (AI)",
 ];
 
 export const PROFESSIONAL_EXPERIENCE = [
+  {
+    company: "Warner Bros. Discovery",
+    position: "Software Engineer",
+    location: "Burbank, CA",
+    date: "Jul 2024 - Present",
+    logo: "/logos/warner-bros-discovery-logo.png",
+    bullet_points: [
+      "Software Engineer working in the Trust and Safety (TAZ) team.", // TODO: Add bullet points here
+    ],
+  },
   {
     company: "Warner Bros. Discovery",
     position: "Software Engineering Intern",
@@ -394,7 +441,7 @@ export const PROJECTS = [
 
 /* Contact Me Constants */
 export const CONTACT = {
-  bio: "Feel free to reach out to me through my socials or this contact form!",
+  bio: "Feel free to reach out to me through my socials, email or this contact form!",
   placeholders: {
     first_name: "First Name",
     last_name: "Last Name",
@@ -416,3 +463,7 @@ export const CONTACT = {
     submission_confirmation: "New message submitted!",
   },
 };
+
+/* Responsive Design */
+const CUSTOM_MD = "1076px";
+export const MD_QUERY = `(min-width: ${CUSTOM_MD})`;

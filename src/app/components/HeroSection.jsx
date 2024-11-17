@@ -1,79 +1,160 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
-import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS } from "../constants";
+import { Link as ScrollLink } from "react-scroll";
+import useMediaQuery from "@/hooks/useMediaQuery";
+import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS, MD_QUERY } from "../constants";
 
 const HeroSection = () => {
+  const [mounted, setMounted] = useState(false);
+
+  const isMd = useMediaQuery(MD_QUERY);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return isMd ? (
+    <HeroSectionDesktop isMd={isMd} />
+  ) : (
+    <ProfileCard isMd={isMd} />
+  );
+};
+
+const HeroSectionDesktop = ({ isMd }) => {
   return (
-    <section id="home" className="section bg-lightblue">
+    <section id="home" className="section bg-lightblue lg:max-w-[65rem]">
       <div className="flex p-6">
         {/* Left Side: Profile Card */}
-        <div className="bg-blue p-10 pb-0 m-3 mt-0 shadow-xl flex flex-col items-center">
-          <Image
-            src="/images/profile.png"
-            alt="Profile Image"
-            width={200}
-            height={200}
-            className="rounded-full"
-          />
-          <p className="title mb-3 mt-8 text-4xl">{PERSONAL.name}</p>
-          <p className="mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap">
-            {PERSONAL.role}
-          </p>
-          <div className="grid grid-cols-[75px_1fr]">
-            <p className="text-sm mb-5 font-black">Phone</p>
-            <p className="flex justify-center text-sm mb-5">
-              {PERSONAL.phone_number}
-            </p>
-            <p className="text-sm font-black">Email</p>
-            <p className="flex justify-center text-sm">{PERSONAL.email}</p>
-          </div>
-          {/* Social Media Icons */}
-          <div className="flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center">
-            <Link href={SOCIAL_LINKS.linkedin}>
-              <Image
-                src={SOCIAL_ICONS.linkedin}
-                alt="LinkedIn Icon"
-                width={30}
-                height={30}
-              />
-            </Link>
-            <Link href={SOCIAL_LINKS.github}>
-              <Image
-                src={SOCIAL_ICONS.github}
-                alt="GitHub Icon"
-                width={30}
-                height={30}
-              />
-            </Link>
-            <Link href={SOCIAL_LINKS.instagram}>
-              <Image
-                src={SOCIAL_ICONS.instagram}
-                alt="Instagram Icon"
-                width={30}
-                height={30}
-              />
-            </Link>
-          </div>
-        </div>
+        <ProfileCard isMd={isMd} />
         {/* Right Side: Introduction Card */}
-        <div className="p-10 pt-16">
-          <h1 className="title mb-4 text-6xl">{PERSONAL.name}</h1>
+        <div className="p-10 pt-14">
+          <h1 className="title mb-4 text-5xl hero-sm:text-6xl whitespace-nowrap">
+            {PERSONAL.name}
+          </h1>
           <h3 className="text-3xl font-semibold">{PERSONAL.role}</h3>
-          <div>
-            <button className="button blue-button px-8 mr-4">
-              <Link href="/assets/resume.pdf">Resume</Link>
-            </button>
-            <button className="button transparent-button px-6 my-8">
-              <Link href="#projects">Projects</Link>
-            </button>
-          </div>
-          <p className="text-xl mb-6">{PERSONAL.intro}</p>
-          <p className="text-xl mb-6">{PERSONAL.background}</p>
+          <HeroSectionBio isMd={isMd} />
         </div>
       </div>
     </section>
   );
+};
+
+HeroSectionDesktop.propTypes = {
+  isMd: PropTypes.bool.isRequired,
+};
+
+const ProfileCard = ({ isMd }) => {
+  return (
+    <div
+      id="home"
+      className="bg-blue p-10 pb-0 lg:mx-10 mx-2 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] lg:max-w-[400px] min-w-[320px] max-w-[500px] shadow-xl"
+    >
+      <Image
+        src="/images/profile.png"
+        alt="Profile Image"
+        width={isMd ? 200 : 175}
+        height={isMd ? 200 : 175}
+        className="rounded-full"
+      />
+      <p className="title my-3 lg:mt-8 text-4xl whitespace-nowrap">
+        {PERSONAL.name}
+      </p>
+      <p className="lg:mb-6 mx-2 text-me font-light uppercase tracking-[.25em] whitespace-nowrap">
+        {PERSONAL.role}
+      </p>
+      {isMd && <PhoneAndEmail />}
+      {!isMd && <HeroSectionBio isMd={isMd} />}
+      {/* Social Media Icons */}
+      <div className="flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center">
+        <Link href={SOCIAL_LINKS.linkedin}>
+          <Image
+            src={SOCIAL_ICONS.linkedin}
+            alt="LinkedIn Icon"
+            width={30}
+            height={30}
+          />
+        </Link>
+        <Link href={SOCIAL_LINKS.github}>
+          <Image
+            src={SOCIAL_ICONS.github}
+            alt="GitHub Icon"
+            width={30}
+            height={30}
+          />
+        </Link>
+        <Link href={SOCIAL_LINKS.instagram}>
+          <Image
+            src={SOCIAL_ICONS.instagramLight}
+            alt="Instagram Icon"
+            width={30}
+            height={30}
+          />
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+ProfileCard.propTypes = {
+  isMd: PropTypes.bool.isRequired,
+};
+
+const PhoneAndEmail = () => {
+  return (
+    <div className="grid grid-cols-[75px_1fr]">
+      <p className="title text-sm mb-5 font-black">Phone</p>
+      <p className="flex justify-center text-sm mb-5 whitespace-nowrap">
+        {PERSONAL.phone_number}
+      </p>
+      <p className="title text-sm font-black">Email</p>
+      <p className="flex justify-center text-sm whitespace-nowrap">
+        {PERSONAL.email}
+      </p>
+    </div>
+  );
+};
+
+const HeroSectionBio = ({ isMd }) => {
+  return (
+    <>
+      <div className="lg:my-8 my-4">
+        <Link
+          href="/assets/Michelle_Zhang_Resume.pdf"
+          className="button blue-button lg:text-md text-sm px-8 mr-4"
+          target="_blank"
+          rel="noopener noreferrer"
+          downdload
+        >
+          Resume
+        </Link>
+        <ScrollLink
+          to="projects"
+          spy="true"
+          smooth="true"
+          offset={-200}
+          duration={500}
+          className="button transparent-button lg:text-md text-sm px-6"
+          role="button"
+          tabIndex={0}
+        >
+          Projects
+        </ScrollLink>
+      </div>
+      <p className="hero-sm:text-xl text-md lg:my-6 mt-3">{PERSONAL.intro}</p>
+      {isMd && (
+        <p className="hero-sm:text-xl text-md lg:mb-6">{PERSONAL.background}</p>
+      )}
+    </>
+  );
+};
+
+HeroSectionBio.propTypes = {
+  isMd: PropTypes.bool.isRequired,
 };
 
 export default HeroSection;

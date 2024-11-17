@@ -58,12 +58,15 @@ export default function RootLayout({ children }) {
           type="image/png"
         />
         <link rel="shortcut icon" href="/favicon/favicon.ico" />
-        <meta name="theme-color" content="#ebf1ff" />
+        <meta
+          name="viewport"
+          content="width=device-width initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+        />
       </head>
       <body className={"antialiased"}>{children}</body>
     </html>
   );
-};
+}
 
 RootLayout.propTypes = {
   children: PropTypes.node.isRequired,

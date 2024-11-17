@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Footer from "@/app/components/Footer";
-import { COPYRIGHT, PERSONAL } from "@/app/constants";
+import { PERSONAL } from "@/app/constants";
 
 describe("Footer Component", () => {
   beforeEach(() => {
@@ -12,20 +12,26 @@ describe("Footer Component", () => {
     jest.clearAllMocks();
   });
 
-  it("renders Footer component with name, role, and copyright text", () => {
-    const nameElement = screen.getByText(PERSONAL.name);
-    const roleElement = screen.getByText(PERSONAL.role);
-    const copyrightElement = screen.getByText(COPYRIGHT);
-
-    expect(nameElement).toBeInTheDocument();
-    expect(roleElement).toBeInTheDocument();
-    expect(copyrightElement).toBeInTheDocument();
+  it("renders the name and role", () => {
+    expect(
+      screen.getByRole("heading", { name: PERSONAL.name, level: 1 }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: PERSONAL.role, level: 3 }),
+    ).toBeInTheDocument();
   });
 
-  it("renders link component around name and role", () => {
-    const link = screen.getByRole("link");
+  it("renders the copyright text with correct content", () => {
+    expect(
+      screen.getByText(/© 2024 Michelle Zhang. All rights reserved./i),
+    ).toBeInTheDocument();
+  });
 
-    expect(link).toBeInTheDocument();
-    expect(link).toHaveAttribute("href", "#");
+  it("containers Link wrapping the name and role", () => {
+    const linkElement = screen.getByRole("link");
+    expect(linkElement).toBeInTheDocument();
+    expect(linkElement).toHaveAttribute("href", "#");
+    expect(linkElement).toContainElement(screen.getByText(PERSONAL.name));
+    expect(linkElement).toContainElement(screen.getByText(PERSONAL.role));
   });
 });

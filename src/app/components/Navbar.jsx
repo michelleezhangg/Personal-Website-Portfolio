@@ -13,15 +13,17 @@ const Navbar = () => {
     <nav className="bg-lightblue sticky top-0">
       <div className="flex flex-wrap items-center justify-between">
         <Link href={"#"} onClick={() => scroll.scrollToTop()}>
-          <h1 className="title text-2xl pl-5 pb-2">{PERSONAL.name}</h1>
-          <h3 className="text-sm font-light pl-5 uppercase">{PERSONAL.role}</h3>
+          <h1 className="title text-2xl pl-5 py-2">{PERSONAL.name}</h1>
+          <h3 className="text-sm font-light pl-5 uppercase pb-2">
+            {PERSONAL.role}
+          </h3>
         </Link>
         {/* Mobile Menu */}
         <div className="block md:hidden">
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-1"
+              className="flex items-center px-3 py-2"
               aria-label="Open mobile menu"
             >
               <Bars3Icon className="h-8 w-8" />
@@ -29,7 +31,7 @@ const Navbar = () => {
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-1"
+              className="flex items-center px-3 py-2"
               aria-label="Close mobile menu"
             >
               <XMarkIcon className="h-8 w-8" />
@@ -47,7 +49,7 @@ const Navbar = () => {
                   smooth="true"
                   offset={-200} // Extend spy region up 200px
                   duration={500}
-                  className="cursor-pointer text-lg block py-2 pr-4 hover:text-darkblue uppercase"
+                  className="text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer"
                   activeClass="text-darkblue"
                 >
                   {link.title}

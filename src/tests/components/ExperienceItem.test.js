@@ -26,15 +26,15 @@ describe("ExperienceItem Component", () => {
   });
 
   it("renders company name, position, location, and date", () => {
-    render(<ExperienceItem {...mockExperienceItem} />);
+    render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
     expect(screen.getByText(mockExperienceItem.company)).toBeInTheDocument();
     expect(screen.getByText(mockExperienceItem.position)).toBeInTheDocument();
     expect(screen.getByText(mockExperienceItem.location)).toBeInTheDocument();
     expect(screen.getByText(mockExperienceItem.date)).toBeInTheDocument();
   });
 
-  it("renders logo image with correct src and alt text", () => {
-    render(<ExperienceItem {...mockExperienceItem} />);
+  it("renders logo image with correct src, alt text, and size when isMd is true", () => {
+    render(<ExperienceItem {...mockExperienceItem} isMd={true} />);
 
     const logoImage = screen.getByAltText(`${mockExperienceItem.company} Logo`);
     expect(logoImage).toBeInTheDocument();
@@ -43,8 +43,18 @@ describe("ExperienceItem Component", () => {
     expect(logoImage).toHaveAttribute("height", "100");
   });
 
+  it("renders logo image with correct src, alt text, and size when isMd is false", () => {
+    render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
+
+    const logoImage = screen.getByAltText(`${mockExperienceItem.company} Logo`);
+    expect(logoImage).toBeInTheDocument();
+    expect(logoImage).toHaveAttribute("src", mockExperienceItem.logo);
+    expect(logoImage).toHaveAttribute("width", "70");
+    expect(logoImage).toHaveAttribute("height", "70");
+  });
+
   it("renders bullet points as a list", () => {
-    render(<ExperienceItem {...mockExperienceItem} />);
+    render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
 
     const bulletPoints = [
       mockExperienceItem.bullet1,
@@ -64,7 +74,7 @@ describe("ExperienceItem Component", () => {
       date: "Jan 2024 - Jun 2024",
       logo: "/test-logo.png",
     };
-    render(<ExperienceItem {...mockNoBulletPoints} />);
+    render(<ExperienceItem {...mockNoBulletPoints} isMd={false} />);
     expect(screen.queryByRole("listitem")).not.toBeInTheDocument();
   });
 });

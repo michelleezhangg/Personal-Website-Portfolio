@@ -28,7 +28,8 @@ describe("POST function", () => {
     NextResponse.json.mockClear();
 
     // Reset mockResendSend for each test
-    mockResendSend = jest.requireMock("resend").Resend.mock.results[0].value.emails.send;
+    mockResendSend =
+      jest.requireMock("resend").Resend.mock.results[0].value.emails.send;
     mockResendSend.mockClear();
   });
 
