@@ -22,19 +22,19 @@ describe("AboutMeSection Component", () => {
 
   describe("Section Heading", () => {
     it("renders the About Me title", () => {
-        render(<AboutMeSection />);
-        const titleElement = screen.getByRole("heading", {
-          name: /about me/i,
-          level: 1,
-        });
-        expect(titleElement).toBeInTheDocument();
+      render(<AboutMeSection />);
+      const titleElement = screen.getByRole("heading", {
+        name: /about me/i,
+        level: 1,
       });
+      expect(titleElement).toBeInTheDocument();
+    });
 
-      it("renders the Resume button", () => {
-        render(<AboutMeSection />);
-        const resumeButton = screen.getByRole("button", { name: /resume/i });
-        expect(resumeButton).toBeInTheDocument();
-      });
+    it("renders the Resume button", () => {
+      render(<AboutMeSection />);
+      const resumeButton = screen.getByRole("button", { name: /resume/i });
+      expect(resumeButton).toBeInTheDocument();
+    });
   });
 
   describe("Education section", () => {
@@ -45,8 +45,12 @@ describe("AboutMeSection Component", () => {
       expect(screen.getByText(EDUCATION.major)).toBeInTheDocument();
       expect(screen.getByText(EDUCATION.minor)).toBeInTheDocument();
       expect(screen.getByText(EDUCATION.scholarship)).toBeInTheDocument();
-      expect(screen.getByText((content) => content.includes(EDUCATION.graduation))).toBeInTheDocument();
-      expect(screen.getByText((content) => content.includes(EDUCATION.gpa))).toBeInTheDocument();
+      expect(
+        screen.getByText((content) => content.includes(EDUCATION.graduation)),
+      ).toBeInTheDocument();
+      expect(
+        screen.getByText((content) => content.includes(EDUCATION.gpa)),
+      ).toBeInTheDocument();
     });
 
     it("renders Chapman logo image with correct src and alt attributes", () => {
@@ -178,7 +182,7 @@ describe("AboutMeSection Component", () => {
   describe("About Me section", () => {
     it("renders Languages heading and all language items", () => {
       render(<AboutMeSection />);
-      
+
       const languagesSectionElement = screen
         .getByText("Languages")
         .closest(".section-box");
