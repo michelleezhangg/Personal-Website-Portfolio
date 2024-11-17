@@ -52,7 +52,7 @@ const ProfileCard = ({ isMd }) => {
   return (
     <div
       id="home"
-      className="bg-blue p-10 pb-0 lg:mx-10 mx-2 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] lg:max-w-[400px] max-w-[500px] shadow-xl"
+      className="bg-blue p-10 pb-0 lg:mx-10 mx-2 lg:m-3 lg:mt-0 flex flex-col items-center lg:max-h-[500px] lg:max-w-[400px] min-w-[320px] max-w-[500px] shadow-xl"
     >
       <Image
         src="/images/profile.png"
