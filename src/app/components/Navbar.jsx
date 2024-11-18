@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import MenuOverlay from "./MenuOverlay";
@@ -52,7 +52,7 @@ const Navbar = () => {
                   to={link.path}
                   spy={true}
                   smooth={true}
-                  offset={-200} // Extend spy region up 200px
+                  offset={-100} // Extend spy region up 100px
                   duration={500}
                   className="text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer"
                   activeClass="text-darkblue"
