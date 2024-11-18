@@ -36,7 +36,7 @@ const AboutMeSection = () => {
           className="button blue-button lg:text-md text-sm px-8 mr-4"
           target="_blank"
           rel="noopener noreferrer"
-          downdload
+          download
         >
           Resume
         </Link>

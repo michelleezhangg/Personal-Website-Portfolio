@@ -59,6 +59,8 @@ const ProfileCard = ({ isMd }) => {
         alt="Profile Image"
         width={isMd ? 200 : 175}
         height={isMd ? 200 : 175}
+        priority={true}
+        loading="eager"
         className="rounded-full"
       />
       <p className="title my-3 lg:mt-8 text-4xl whitespace-nowrap">
@@ -77,6 +79,8 @@ const ProfileCard = ({ isMd }) => {
             alt="LinkedIn Icon"
             width={30}
             height={30}
+            priority={true}
+            loading="eager"
           />
         </Link>
         <Link href={SOCIAL_LINKS.github}>
@@ -85,6 +89,8 @@ const ProfileCard = ({ isMd }) => {
             alt="GitHub Icon"
             width={30}
             height={30}
+            priority={true}
+            loading="eager"
           />
         </Link>
         <Link href={SOCIAL_LINKS.instagram}>
@@ -93,6 +99,8 @@ const ProfileCard = ({ isMd }) => {
             alt="Instagram Icon"
             width={30}
             height={30}
+            priority={true}
+            loading="eager"
           />
         </Link>
       </div>
@@ -128,7 +136,7 @@ const HeroSectionBio = ({ isMd }) => {
           className="button blue-button lg:text-md text-sm px-8 mr-4"
           target="_blank"
           rel="noopener noreferrer"
-          downdload
+          download
         >
           Resume
         </Link>
