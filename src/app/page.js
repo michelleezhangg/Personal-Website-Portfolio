@@ -21,7 +21,9 @@ export default function Home() {
         <SkeletonLoader />
       ) : (
         <main className="flex flex-col bg-white p-0">
-          <Navbar />
+          <Suspense fallback={<LoadingSpinner />}>
+            <Navbar />
+          </Suspense>
           <div className="centered grid gap-20 mobile-lg:p-12 mobile-md:p-6 py-3 w-full max-w-screen overflow-hidden place-items-center">
             <Suspense fallback={<LoadingSpinner />}>
               <HeroSection />

@@ -58,7 +58,7 @@ const Navbar = () => {
                   to={link.path}
                   spy={true}
                   smooth={true}
-                  offset={link.path === "home" ? -125 : -100} // home section has larger offset
+                  offset={link.path === "home" ? -150 : -100}
                   duration={500}
                   className={`text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer ${
                     activeLink === link.path ? "text-darkblue" : ""
