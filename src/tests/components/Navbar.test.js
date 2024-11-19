@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import Navbar from "@/app/components/Navbar";
 import { NAV_LINKS, PERSONAL } from "@/app/constants";
 
-// Mocking react-scroll library to isolate Navbar tests
+// Mock react-scroll library to isolate Navbar tests
 jest.mock("react-scroll", () => {
   const MockLink = ({ activeClass, onSetActive, to, ...props }) => (
     <a

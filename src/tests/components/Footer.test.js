@@ -45,6 +45,8 @@ describe("Footer Component", () => {
   it("calls scrollToTop when link is clicked", () => {
     const link = screen.getByText(PERSONAL.name).closest("a");
     fireEvent.click(link);
-    expect(require("react-scroll").animateScroll.scrollToTop).toHaveBeenCalled();
+    expect(
+      require("react-scroll").animateScroll.scrollToTop,
+    ).toHaveBeenCalled();
   });
 });
