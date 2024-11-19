@@ -8,7 +8,7 @@ import { PERSONAL, NAV_LINKS } from "../constants";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("home");
+  const [activeLink, setActiveLink] = useState(null);
 
   useEffect(() => {
     setActiveLink("home");

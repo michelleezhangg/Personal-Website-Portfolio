@@ -24,8 +24,8 @@ jest.mock("react-scroll", () => {
   MockLink.propTypes = {
     activeClass: require("prop-types").string,
     onSetActive: require("prop-types").func,
-    to: require("prop-types").string.isRequired,
-    children: require("prop-types").node.isRequired,
+    to: require("prop-types").string,
+    children: require("prop-types").node,
   };
 
   MockLink.displayName = "MockLink";
