@@ -219,7 +219,7 @@ export const PROFESSIONAL_EXPERIENCE = [
     date: "Jul 2024 - Present",
     logo: "/logos/warner-bros-discovery-logo.png",
     bullet_points: [
-      "Software Engineer working in the Trust and Safety (TAZ) team.", // TODO: Add bullet points here
+      "Software Engineer working in the Trust and Safety (TAZ) team.",
     ],
   },
   {

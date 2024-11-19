@@ -64,7 +64,7 @@ const AboutMeSection = () => {
                 alt="Chapman Logo"
                 className="text-sm font-semibold self-start mt-auto"
                 width={isMd ? 250 : 150}
-                height={isMd ? 250 : 150}
+                height={isMd ? 47 : 29}
               />
             </div>
             <div>

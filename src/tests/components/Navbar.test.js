@@ -5,15 +5,27 @@ import { NAV_LINKS, PERSONAL } from "@/app/constants";
 
 // Mocking react-scroll library to isolate Navbar tests
 jest.mock("react-scroll", () => {
-  const MockLink = ({ activeClass, ...props }) => (
-    <a {...props} data-testid="scroll-link" className={activeClass}>
+  const MockLink = ({ activeClass, onSetActive, to, ...props }) => (
+    <a
+      {...props}
+      data-testid="scroll-link"
+      className={activeClass}
+      to={to}
+      onClick={() => {
+        if (onSetActive) {
+          onSetActive(to); // simulate onSetActive callback
+        }
+      }}
+    >
       {props.children}
     </a>
   );
 
   MockLink.propTypes = {
     activeClass: require("prop-types").string,
-    children: require("prop-types").node,
+    onSetActive: require("prop-types").func,
+    to: require("prop-types").string.isRequired,
+    children: require("prop-types").node.isRequired,
   };
 
   MockLink.displayName = "MockLink";
@@ -124,5 +136,14 @@ describe("Navbar Component", () => {
     // Check if scrollToTop function is called
     const { animateScroll } = require("react-scroll");
     expect(animateScroll.scrollToTop).toHaveBeenCalled();
+  });
+
+  it("sets the active link when onSetActive is triggered", () => {
+    const scrollLinks = screen.getAllByTestId("scroll-link");
+    const secondLink = scrollLinks[1];
+    fireEvent.click(secondLink);
+
+    // Check if second link has active highlighting
+    expect(secondLink).toHaveClass("text-darkblue");
   });
 });

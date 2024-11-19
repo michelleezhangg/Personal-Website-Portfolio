@@ -8,14 +8,20 @@ import { PERSONAL, NAV_LINKS } from "../constants";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("home");
+
+  useEffect(() => {
+    setActiveLink("home");
+  }, []);
 
   return (
-    <nav className="bg-lightblue sticky top-0 z-50">
+    <nav className="navbar bg-lightblue sticky top-0 z-50">
       <div className="flex flex-wrap items-center justify-between">
         <Link
           href={"#"}
           onClick={() => {
             scroll.scrollToTop();
+            setActiveLink("home");
           }}
         >
           <h1 className="title text-2xl pl-5 py-2">{PERSONAL.name}</h1>
@@ -52,10 +58,15 @@ const Navbar = () => {
                   to={link.path}
                   spy={true}
                   smooth={true}
-                  offset={-100} // Extend spy region up 100px
+                  offset={link.path === "home" ? -125 : -100} // home section has larger offset
                   duration={500}
-                  className="text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer"
+                  className={`text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer ${
+                    activeLink === link.path ? "text-darkblue" : ""
+                  }`}
                   activeClass="text-darkblue"
+                  onSetActive={(to) => {
+                    setActiveLink(to);
+                  }}
                 >
                   {link.title}
                 </ScrollLink>
