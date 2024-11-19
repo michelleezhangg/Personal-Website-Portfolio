@@ -63,7 +63,7 @@ describe("AboutMeSection Component", () => {
         expect.stringContaining("chapman-logo.png"),
       );
       expect(chapmanLogo).toHaveAttribute("width", "250");
-      expect(chapmanLogo).toHaveAttribute("height", "250");
+      expect(chapmanLogo).toHaveAttribute("height", "47");
     });
 
     it("renders Chapman logo with the correct size when isMd is true", () => {
@@ -72,7 +72,7 @@ describe("AboutMeSection Component", () => {
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
       expect(chapmanLogo).toHaveAttribute("width", "250");
-      expect(chapmanLogo).toHaveAttribute("height", "250");
+      expect(chapmanLogo).toHaveAttribute("height", "47");
     });
 
     it("renders Chapman logo with the correct size when isMd is false", () => {
@@ -81,7 +81,7 @@ describe("AboutMeSection Component", () => {
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
       expect(chapmanLogo).toHaveAttribute("width", "150");
-      expect(chapmanLogo).toHaveAttribute("height", "150");
+      expect(chapmanLogo).toHaveAttribute("height", "29");
     });
 
     it("renders Relevant Coursework and Organizations", () => {

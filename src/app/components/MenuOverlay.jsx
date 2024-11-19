@@ -9,8 +9,8 @@ const MenuOverlay = ({ links, setNavbarOpen }) => {
         <li key={index}>
           <ScrollLink
             to={link.path}
-            spy="true"
-            smooth="true"
+            spy={true}
+            smooth={true}
             offset={-350} // Extend spy region up 350px for mobile view
             duration={500}
             className="block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer"

@@ -36,7 +36,7 @@ const AboutMeSection = () => {
           className="button blue-button lg:text-md text-sm px-8 mr-4"
           target="_blank"
           rel="noopener noreferrer"
-          downdload
+          download
         >
           Resume
         </Link>
@@ -64,7 +64,7 @@ const AboutMeSection = () => {
                 alt="Chapman Logo"
                 className="text-sm font-semibold self-start mt-auto"
                 width={isMd ? 250 : 150}
-                height={isMd ? 250 : 150}
+                height={isMd ? 47 : 29}
               />
             </div>
             <div>

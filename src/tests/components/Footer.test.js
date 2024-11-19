@@ -1,7 +1,14 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Footer from "@/app/components/Footer";
 import { PERSONAL } from "@/app/constants";
+
+// Mock react-scroll
+jest.mock("react-scroll", () => ({
+  animateScroll: {
+    scrollToTop: jest.fn(),
+  },
+}));
 
 describe("Footer Component", () => {
   beforeEach(() => {
@@ -33,5 +40,13 @@ describe("Footer Component", () => {
     expect(linkElement).toHaveAttribute("href", "#");
     expect(linkElement).toContainElement(screen.getByText(PERSONAL.name));
     expect(linkElement).toContainElement(screen.getByText(PERSONAL.role));
+  });
+
+  it("calls scrollToTop when link is clicked", () => {
+    const link = screen.getByText(PERSONAL.name).closest("a");
+    fireEvent.click(link);
+    expect(
+      require("react-scroll").animateScroll.scrollToTop,
+    ).toHaveBeenCalled();
   });
 });
