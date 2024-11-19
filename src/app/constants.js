@@ -216,17 +216,20 @@ export const PROFESSIONAL_EXPERIENCE = [
     company: "Warner Bros. Discovery",
     position: "Software Engineer",
     location: "Burbank, CA",
-    date: "Jul 2024 - Present",
+    type: "Hybrid",
+    startDate: "Jul 2024",
+    endDate: "Present",
+    team: "Trust and Safety (TAZ)",
     logo: "/logos/warner-bros-discovery-logo.png",
-    bullet_points: [
-      "Software Engineer working in the Trust and Safety (TAZ) team.",
-    ],
   },
   {
     company: "Warner Bros. Discovery",
     position: "Software Engineering Intern",
     location: "Bellevue, WA",
-    date: "Jun 2023 - Aug 2023",
+    type: "Hybrid",
+    startDate: "Jun 2023",
+    endDate: "Aug 2023",
+    team: "Global Live Orchestration (GLO)",
     logo: "/logos/warner-bros-discovery-logo.png",
     bullet_points: [
       "Developed a full-stack dashboard for TNT Sports developers to effectively monitor the health of 11 TNT channels",
@@ -236,10 +239,13 @@ export const PROFESSIONAL_EXPERIENCE = [
     ],
   },
   {
-    company: "Fu11 Mart Inc.",
+    company: "Fu11 Mart",
     position: "Full-Stack Software Engineering Intern",
     location: "Frisco, TX",
-    date: "Jul 2022 - Nov 2022",
+    type: "Remote",
+    startDate: "Jul 2022",
+    endDate: "Nov 2022",
+    team: "",
     logo: "/logos/fu11-mart-logo.png",
     bullet_points: [
       "Developed a full-stack ecommerce and company website to increase company revenue and expand customer target audience to national and international scales",
@@ -251,7 +257,10 @@ export const PROFESSIONAL_EXPERIENCE = [
     company: "TheCoderSchool",
     position: "Code Coach",
     location: "La Palma, CA",
-    date: "Feb 2022 - Jul 2022",
+    type: "In Person",
+    startDate: "Feb 2022",
+    endDate: "Jul 2022",
+    team: "",
     logo: "/logos/thecoderschool-logo.png",
     bullet_points: [
       "Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students",
@@ -267,7 +276,7 @@ export const PROJECTS = [
     title: "Personal Website Portfolio",
     date: "Sep 2024 - Present",
     location: "West Covina, CA",
-    logo: "",
+    logo: "/images/profile.png",
     links: [
       {
         link_name: "GitHub Link",

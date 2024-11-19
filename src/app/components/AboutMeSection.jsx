@@ -145,7 +145,10 @@ const AboutMeSection = () => {
               company={experience.company}
               position={experience.position}
               location={experience.location}
-              date={experience.date}
+              type={experience.type}
+              startDate={experience.startDate}
+              endDate={experience.endDate}
+              team={experience.team}
               logo={experience.logo}
               isMd={isMd}
               {...experience.bullet_points}
