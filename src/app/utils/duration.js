@@ -14,8 +14,8 @@ export const calculateDuration = (startMonth, stateYear, endMonth, endYear) => {
   // Edge case: end date starts before start date
   if (yearsDiff < 0 || monthsDiff < 0) return { years: 0, months: 0 };
 
-  const totalMonths = yearsDiff * 12 + (monthsDiff + 1); // months are inclusive
-
+  // Months are invlusive
+  const totalMonths = yearsDiff * 12 + (monthsDiff + 1);
   if (totalMonths < 12) return { years: 0, months: totalMonths };
 
   const years = Math.floor(totalMonths / 12);
@@ -39,14 +39,14 @@ export const displayDuration = (startMonth, stateYear, endMonth, endYear) => {
     endYear,
   );
 
-  const duration =
+  const durationFormat =
     (years > 0 ? `${years} year` : "") +
     (years > 1 ? "s" : "") +
     (years > 0 && months > 0 ? ", " : "") +
     (months > 0 ? `${months} month` : "") +
     (months > 1 ? "s" : "");
 
-  return duration;
+  return durationFormat;
 };
 
 displayDuration.propTypes = {

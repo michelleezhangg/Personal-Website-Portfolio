@@ -10,14 +10,14 @@ describe("calculateDuration", () => {
     jest.clearAllMocks();
   });
 
-  it("calculates duration when endMonth and endYear are provided correctly", () => {
+  it("calculates duration when endMonth and endYear are provided", () => {
     expect(calculateDuration("Jan", "2022", "Jun", "2024")).toEqual({
       years: 2,
       months: 6,
     });
   });
 
-  it("calculates duration when endMonth and endYear are not provided correctly (Present)", () => {
+  it("calculates duration when endMonth and endYear are not provided (Present)", () => {
     expect(calculateDuration("Jan", "2022")).toEqual({ years: 2, months: 11 });
   });
 

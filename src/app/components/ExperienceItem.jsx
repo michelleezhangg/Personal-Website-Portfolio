@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
 import { displayDuration } from "../utils/duration";
+import { displayDate } from "../utils/displayDate";
 
 const ExperienceItem = ({
   company,
@@ -16,12 +17,9 @@ const ExperienceItem = ({
 }) => {
   const bullet_point_values = Object.values(bullet_points);
   let { startMonth, startYear, endMonth, endYear } = date;
-  if (!endMonth | !endYear) {
-    endMonth = "Present";
-    endYear = "";
-  }
 
   const duration = displayDuration(startMonth, startYear, endMonth, endYear);
+  const dateDisplay = displayDate(startMonth, startYear, endMonth, endYear);
 
   return (
     <div className="section-box grid grid-cols-2 lg:mb-20 mb-5">
@@ -32,7 +30,7 @@ const ExperienceItem = ({
           <p className="lg:text-sm text-xs mt-2 mb-3">{`${team} Team`}</p>
         )}
         <p className="pt-2 lg:text-sm text-xs">{`${location} (${type})`}</p>
-        <p className="lg:text-sm text-xs">{`${startMonth} ${startYear} - ${endMonth} ${endYear} (${duration})`}</p>
+        <p className="lg:text-sm text-xs">{`${dateDisplay} (${duration})`}</p>
         <Image
           src={logo}
           alt={`${company} Logo`}
