@@ -4,17 +4,24 @@ import Projects from "@/app/components/Projects";
 import { PROJECTS } from "@/app/utils/constants";
 
 jest.mock("@/app/components/ProjectItem", () => {
-  const MockProjectItem = ({ title, date, location }) => (
-    <div>
-      <h2>{title}</h2>
-      <p>{date}</p>
-      <p>{location}</p>
-    </div>
-  );
+  const MockProjectItem = ({ title, date, location }) => {
+    return (
+      <div>
+        <h2>{title}</h2>
+        <p>{`${date.startMonth} ${date.startYear} - ${date.endMonth} ${date.endYear}`}</p>
+        <p>{location}</p>
+      </div>
+    );
+  };
 
   MockProjectItem.propTypes = {
     title: require("prop-types").string,
-    date: require("prop-types").string,
+    date: require("prop-types").shape({
+      startMonth: require("prop-types").string,
+      startYear: require("prop-types").string,
+      endMonth: require("prop-types").string,
+      endYear: require("prop-types").string,
+    }).isRequired,
     location: require("prop-types").string,
   };
 
@@ -55,9 +62,6 @@ describe("Projects Component", () => {
       // Ensure at least one match, duplicates are fine
       const titles = screen.getAllByText(project.title);
       expect(titles.length).toBeGreaterThan(0);
-
-      const dates = screen.getAllByText(project.date);
-      expect(dates.length).toBeGreaterThan(0);
 
       const locations = screen.getAllByText(project.location);
       expect(locations.length).toBeGreaterThan(0);

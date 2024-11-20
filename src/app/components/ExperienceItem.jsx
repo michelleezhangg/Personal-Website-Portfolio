@@ -16,8 +16,7 @@ const ExperienceItem = ({
   ...bullet_points
 }) => {
   const bullet_point_values = Object.values(bullet_points);
-  let { startMonth, startYear, endMonth, endYear } = date;
-
+  const { startMonth, startYear, endMonth, endYear } = date;
   const duration = displayDuration(startMonth, startYear, endMonth, endYear);
   const dateDisplay = displayDate(startMonth, startYear, endMonth, endYear);
 

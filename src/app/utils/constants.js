@@ -286,7 +286,10 @@ export const PROFESSIONAL_EXPERIENCE = [
 export const PROJECTS = [
   {
     title: "Personal Website Portfolio",
-    date: "Sep 2024 - Present",
+    date: {
+      startMonth: "Sep",
+      startYear: "2024",
+    },
     location: "West Covina, CA",
     logo: "/images/profile.png",
     links: [
@@ -306,7 +309,12 @@ export const PROJECTS = [
   },
   {
     title: "Brain Tumor MRI Scan Classification",
-    date: "Nov 2023 - Dec 2023",
+    date: {
+      startMonth: "Nov",
+      startYear: "2023",
+      endMonth: "Dec",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -331,7 +339,12 @@ export const PROJECTS = [
   },
   {
     title: "Rosetta Stone Subscriber Optimizer",
-    date: "Nov 2023 - Dec 2023",
+    date: {
+      startMonth: "Nov",
+      startYear: "2023",
+      endMonth: "Dec",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -352,7 +365,12 @@ export const PROJECTS = [
   },
   {
     title: "College Admissions Data Analysis",
-    date: "May 2023",
+    date: {
+      startMonth: "May",
+      startYear: "2023",
+      endMonth: "May",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -372,7 +390,12 @@ export const PROJECTS = [
   },
   {
     title: "Film Data Analysis",
-    date: "May 2023",
+    date: {
+      startMonth: "May",
+      startYear: "2023",
+      endMonth: "May",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -400,7 +423,12 @@ export const PROJECTS = [
   },
   {
     title: "3D Printing Research Project",
-    date: "Feb 2020 - May 2022",
+    date: {
+      startMonth: "Feb",
+      startYear: "2020",
+      endMonth: "May",
+      endYear: "2022",
+    },
     location: "Orange CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -421,7 +449,12 @@ export const PROJECTS = [
   },
   {
     title: "University Student-Faculty Database",
-    date: "Apr 2022",
+    date: {
+      startMonth: "Apr",
+      startYear: "2022",
+      endMonth: "Apr",
+      endYear: "2022",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -440,7 +473,12 @@ export const PROJECTS = [
   },
   {
     title: "Scientific Computing Project",
-    date: "Sep 2020 - Dec 2020",
+    date: {
+      startMonth: "Sep",
+      startYear: "2020",
+      endMonth: "Dec",
+      endYear: "2020",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [

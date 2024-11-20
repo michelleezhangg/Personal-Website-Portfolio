@@ -2,6 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import ExperienceItem from "@/app/components/ExperienceItem";
 import { displayDuration } from "@/app/utils/duration";
+import { displayDate } from "@/app/utils/displayDate";
 
 // Mock Image component
 jest.mock("next/image", () => {
@@ -12,6 +13,10 @@ jest.mock("next/image", () => {
 
 jest.mock("@/app/utils/duration", () => ({
   displayDuration: jest.fn(),
+}));
+
+jest.mock("@/app/utils/displayDate", () => ({
+  displayDate: jest.fn(),
 }));
 
 const mockExperienceItem = {
@@ -74,6 +79,7 @@ describe("ExperienceItem Component", () => {
   });
 
   it("renders company name, position, location, and date with endMonth and endYear", () => {
+    displayDate.mockReturnValue("Jan 2023 - Jun 2024");
     displayDuration.mockReturnValue("1 year, 6 months");
     render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
 
@@ -85,20 +91,17 @@ describe("ExperienceItem Component", () => {
       ),
     ).toBeInTheDocument();
     expect(
-      screen.getByText(
-        `${mockExperienceItem.date.startMonth} ${mockExperienceItem.date.startYear} - ${mockExperienceItem.date.endMonth} ${mockExperienceItem.date.endYear} (1 year, 6 months)`,
-      ),
+      screen.getByText("Jan 2023 - Jun 2024 (1 year, 6 months)"),
     ).toBeInTheDocument();
   });
 
   it("renders date with no endMonth and endYear (Present)", () => {
+    displayDate.mockReturnValue("Jan 2023 - Present");
     displayDuration.mockReturnValue("1 year, 11 months");
     render(<ExperienceItem {...mockExperienceItemPresent} isMd={false} />);
 
     expect(
-      screen.getByText(
-        `${mockExperienceItemPresent.date.startMonth} ${mockExperienceItemPresent.date.startYear} - Present (1 year, 11 months)`,
-      ),
+      screen.getByText("Jan 2023 - Present (1 year, 11 months)"),
     ).toBeInTheDocument();
   });
 
