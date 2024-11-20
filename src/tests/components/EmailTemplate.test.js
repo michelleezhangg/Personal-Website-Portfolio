@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import EmailTemplate from "@/app/components/EmailTemplate";
-import { CONTACT, PERSONAL } from "@/app/constants";
+import { CONTACT, PERSONAL } from "@/app/utils/constants";
 
 jest.mock("@/app/constants", () => ({
   CONTACT: {

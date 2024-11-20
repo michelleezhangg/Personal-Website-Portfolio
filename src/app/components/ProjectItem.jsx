@@ -2,6 +2,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
+import { calculateDuration } from "../utils/calculateDuration";
 
 const ProjectItem = ({ title, date, location, links, ...bullet_points }) => {
   const bullet_point_values = Object.values(bullet_points);

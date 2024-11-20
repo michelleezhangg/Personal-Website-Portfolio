@@ -1,20 +1,30 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Image from "next/image";
+import { calculateDuration } from "../utils/calculateDuration";
 
 const ExperienceItem = ({
   company,
   position,
   location,
   type,
-  startDate,
-  endDate,
+  startMonth,
+  startYear,
+  endMonth,
+  endYear,
   team,
   logo,
   isMd,
   ...bullet_points
 }) => {
   const bullet_point_values = Object.values(bullet_points);
+  if (!endMonth | !endYear) {
+    endMonth = "Present";
+    endYear = "";
+  }
+
+  const { years, months } = calculateDuration(startMonth, startYear, endMonth, endYear);
+  const duration = (years > 0 ? `${years} years` : "") + (years > 0 && months > 0 ? ", " : "") + (months > 0 ? `${months} months` : "");
 
   return (
     <div className="section-box grid grid-cols-2 lg:mb-20 mb-5">
@@ -25,7 +35,9 @@ const ExperienceItem = ({
           <p className="lg:text-sm text-xs mt-2 mb-3">{`${team} Team`}</p>
         )}
         <p className="pt-2 lg:text-sm text-xs">{`${location} (${type})`}</p>
-        <p className="lg:text-sm text-xs">{`${startDate} - ${endDate}`}</p>
+        <p className="lg:text-sm text-xs">{
+          `${startMonth} ${startYear} - ${endMonth} ${endYear} (${duration})`
+        }</p>
         <Image
           src={logo}
           alt={`${company} Logo`}
@@ -50,9 +62,11 @@ ExperienceItem.propTypes = {
   position: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
-  startDate: PropTypes.string.isRequired,
-  endDate: PropTypes.string.isRequired,
-  team: PropTypes.string.isRequired,
+  startMonth: PropTypes.string.isRequired,
+  startYear: PropTypes.string.isRequired,
+  endMonth: PropTypes.string, // Not required
+  endYear: PropTypes.string, // Not required
+  team: PropTypes.string, // Not required
   logo: PropTypes.string.isRequired,
   isMd: PropTypes.bool.isRequired,
   bullet_points: PropTypes.object, // Not required

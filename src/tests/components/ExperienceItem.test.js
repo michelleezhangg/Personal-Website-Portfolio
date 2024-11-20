@@ -1,6 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import ExperienceItem from "@/app/components/ExperienceItem";
+import { calculateDuration } from "@/app/utils/calculateDuration";
 
 // Mock Image component
 jest.mock("next/image", () => {
@@ -9,13 +10,19 @@ jest.mock("next/image", () => {
   return MockImage;
 });
 
+jest.mock("@/app/utils/calculateDuration", () => ({
+  calculateDuration: jest.fn(),
+}));
+
 const mockExperienceItem = {
   company: "Test Company",
   position: "Test Position",
   location: "City, CA",
   type: "In Person",
-  startDate: "Jan 2024",
-  endDate: "Jun 2024",
+  startMonth: "Jan",
+  startYear: "2024",
+  endMonth: "Jun",
+  endYear: "2024",
   team: "Test Team",
   logo: "/test-logo.png",
   bullet1: "Bullet Point 1",
@@ -23,25 +30,17 @@ const mockExperienceItem = {
   bullet3: "Bullet Point 3",
 };
 
-const mockExperienceItemWithoutTeam = {
-  company: "Test Company",
-  position: "Test Position",
-  location: "City, CA",
-  type: "In Person",
-  startDate: "Jan 2024",
-  endDate: "Jun 2024",
-  logo: "/test-logo.png",
-  bullet1: "Bullet Point 1",
-  bullet2: "Bullet Point 2",
-  bullet3: "Bullet Point 3",
-};
-
 describe("ExperienceItem Component", () => {
+  beforeEach(() => {
+    calculateDuration.mockClear();
+  });
+  
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it("renders company name, position, location, and date", () => {
+  it("renders company name, position, location, and date with endMonth and endYear", () => {
+    const duration = calculateDuration.mockReturnValue({ years: 0, months: 6 });
     render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
 
     expect(screen.getByText(mockExperienceItem.company)).toBeInTheDocument();
@@ -53,7 +52,15 @@ describe("ExperienceItem Component", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        `${mockExperienceItem.startDate} - ${mockExperienceItem.endDate}`,
+        `${mockExperienceItem.startMonth} ${mockExperienceItem.startYear} - ${mockExperienceItem.endMonth} ${mockExperienceItem.endYear} (${duration})`,
+      ),
+    ).toBeInTheDocument();
+  });
+
+  it("renders current experience", () => {
+    expect(
+      screen.getByText(
+        `${mockExperienceItem.startMonth} ${mockExperienceItem.startYear} - Present`,
       ),
     ).toBeInTheDocument();
   });

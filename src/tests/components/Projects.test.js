@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import Projects from "@/app/components/Projects";
-import { PROJECTS } from "@/app/constants";
+import { PROJECTS } from "@/app/utils/constants";
 
 jest.mock("@/app/components/ProjectItem", () => {
   const MockProjectItem = ({ title, date, location }) => (

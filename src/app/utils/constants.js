@@ -217,8 +217,8 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: "Software Engineer",
     location: "Burbank, CA",
     type: "Hybrid",
-    startDate: "Jul 2024",
-    endDate: "Present",
+    startMonth: "Jul",
+    startYear: "2024",
     team: "Trust and Safety (TAZ)",
     logo: "/logos/warner-bros-discovery-logo.png",
   },
@@ -227,8 +227,10 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: "Software Engineering Intern",
     location: "Bellevue, WA",
     type: "Hybrid",
-    startDate: "Jun 2023",
-    endDate: "Aug 2023",
+    startMonth: "Jun",
+    startYear: "2023",
+    endMonth: "Aug",
+    endYear: "2023",
     team: "Global Live Orchestration (GLO)",
     logo: "/logos/warner-bros-discovery-logo.png",
     bullet_points: [
@@ -243,9 +245,10 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: "Full-Stack Software Engineering Intern",
     location: "Frisco, TX",
     type: "Remote",
-    startDate: "Jul 2022",
-    endDate: "Nov 2022",
-    team: "",
+    startMonth: "Jul",
+    startYear: "2022",
+    endMonth: "Nov",
+    endYear: "2022",
     logo: "/logos/fu11-mart-logo.png",
     bullet_points: [
       "Developed a full-stack ecommerce and company website to increase company revenue and expand customer target audience to national and international scales",
@@ -258,9 +261,10 @@ export const PROFESSIONAL_EXPERIENCE = [
     position: "Code Coach",
     location: "La Palma, CA",
     type: "In Person",
-    startDate: "Feb 2022",
-    endDate: "Jul 2022",
-    team: "",
+    startMonth: "Feb",
+    startYear: "2022",
+    endMonth: "Jul",
+    endYear: "2022",
     logo: "/logos/thecoderschool-logo.png",
     bullet_points: [
       "Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students",
@@ -471,6 +475,23 @@ export const CONTACT = {
     success: "Email sent successfully!",
     submission_confirmation: "New message submitted!",
   },
+};
+
+/* Helper Constants */
+export const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+export const monthToNumber = {
+  Jan: 0,
+  Feb: 1,
+  Mar: 2,
+  Apr: 3,
+  May: 4,
+  Jun: 5,
+  Jul: 6,
+  Aug: 7,
+  Sep: 8,
+  Oct: 9,
+  Nov: 10,
+  Dec: 11,
 };
 
 /* Responsive Design */

@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Footer from "@/app/components/Footer";
-import { PERSONAL } from "@/app/constants";
+import { PERSONAL } from "@/app/utils/constants";
 
 // Mock react-scroll
 jest.mock("react-scroll", () => ({

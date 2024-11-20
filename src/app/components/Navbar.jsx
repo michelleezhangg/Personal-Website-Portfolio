@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import MenuOverlay from "./MenuOverlay";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import { PERSONAL, NAV_LINKS } from "../constants";
+import { PERSONAL, NAV_LINKS } from "../utils/constants";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
