@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import ExperienceItem from "@/app/components/ExperienceItem";
-import { calculateDuration } from "@/app/utils/calculateDuration";
+import { displayDuration } from "@/app/utils/duration";
 
 // Mock Image component
 jest.mock("next/image", () => {
@@ -10,8 +10,8 @@ jest.mock("next/image", () => {
   return MockImage;
 });
 
-jest.mock("@/app/utils/calculateDuration", () => ({
-  calculateDuration: jest.fn(),
+jest.mock("@/app/utils/duration", () => ({
+  displayDuration: jest.fn(),
 }));
 
 const mockExperienceItem = {
@@ -19,11 +19,44 @@ const mockExperienceItem = {
   position: "Test Position",
   location: "City, CA",
   type: "In Person",
-  startMonth: "Jan",
-  startYear: "2024",
-  endMonth: "Jun",
-  endYear: "2024",
-  team: "Test Team",
+  date: {
+    startMonth: "Jan",
+    startYear: "2023",
+    endMonth: "Jun",
+    endYear: "2024",
+  },
+  team: "Team Name",
+  logo: "/test-logo.png",
+  bullet1: "Bullet Point 1",
+  bullet2: "Bullet Point 2",
+  bullet3: "Bullet Point 3",
+};
+
+const mockExperienceItemPresent = {
+  company: "Test Company",
+  position: "Test Position",
+  location: "City, CA",
+  type: "In Person",
+  date: {
+    startMonth: "Jan",
+    startYear: "2023",
+  },
+  team: "Team Name",
+  logo: "/test-logo.png",
+  bullet1: "Bullet Point 1",
+  bullet2: "Bullet Point 2",
+  bullet3: "Bullet Point 3",
+};
+
+const mockExperienceItemWithoutTeam = {
+  company: "Test Company",
+  position: "Test Position",
+  location: "City, CA",
+  type: "In Person",
+  date: {
+    startMonth: "Jan",
+    startYear: "2023",
+  },
   logo: "/test-logo.png",
   bullet1: "Bullet Point 1",
   bullet2: "Bullet Point 2",
@@ -32,15 +65,16 @@ const mockExperienceItem = {
 
 describe("ExperienceItem Component", () => {
   beforeEach(() => {
-    calculateDuration.mockClear();
+    jest.useFakeTimers().setSystemTime(new Date("2024-11-19"));
   });
-  
+
   afterEach(() => {
+    displayDuration.mockClear();
     jest.clearAllMocks();
   });
 
   it("renders company name, position, location, and date with endMonth and endYear", () => {
-    const duration = calculateDuration.mockReturnValue({ years: 0, months: 6 });
+    displayDuration.mockReturnValue("1 year, 6 months");
     render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
 
     expect(screen.getByText(mockExperienceItem.company)).toBeInTheDocument();
@@ -52,15 +86,18 @@ describe("ExperienceItem Component", () => {
     ).toBeInTheDocument();
     expect(
       screen.getByText(
-        `${mockExperienceItem.startMonth} ${mockExperienceItem.startYear} - ${mockExperienceItem.endMonth} ${mockExperienceItem.endYear} (${duration})`,
+        `${mockExperienceItem.date.startMonth} ${mockExperienceItem.date.startYear} - ${mockExperienceItem.date.endMonth} ${mockExperienceItem.date.endYear} (1 year, 6 months)`,
       ),
     ).toBeInTheDocument();
   });
 
-  it("renders current experience", () => {
+  it("renders date with no endMonth and endYear (Present)", () => {
+    displayDuration.mockReturnValue("1 year, 11 months");
+    render(<ExperienceItem {...mockExperienceItemPresent} isMd={false} />);
+
     expect(
       screen.getByText(
-        `${mockExperienceItem.startMonth} ${mockExperienceItem.startYear} - Present`,
+        `${mockExperienceItemPresent.date.startMonth} ${mockExperienceItemPresent.date.startYear} - Present (1 year, 11 months)`,
       ),
     ).toBeInTheDocument();
   });
@@ -93,10 +130,8 @@ describe("ExperienceItem Component", () => {
   });
 
   it("does not render team when team was not provided", () => {
-    render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
-    expect(
-      screen.queryByText(`${mockExperienceItemWithoutTeam.team} Team`),
-    ).not.toBeInTheDocument();
+    render(<ExperienceItem {...mockExperienceItemWithoutTeam} isMd={false} />);
+    expect(screen.queryByText("Team Name Team")).not.toBeInTheDocument();
   });
 
   it("renders bullet points as a list", () => {

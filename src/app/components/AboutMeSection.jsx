@@ -146,10 +146,7 @@ const AboutMeSection = () => {
               position={experience.position}
               location={experience.location}
               type={experience.type}
-              startMonth={experience.startMonth}
-              startYear={experience.startYear}
-              endMonth={experience.endMonth}
-              endYear={experience.endYear}
+              date={experience.date}
               team={experience.team}
               logo={experience.logo}
               isMd={isMd}
