@@ -3,17 +3,10 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ToolListItem from "./ToolListItem";
-import ExperienceItem from "./ExperienceItem";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import {
-  EDUCATION,
-  INTERESTS,
-  LANGUAGES,
-  PROFESSIONAL_EXPERIENCE,
-  MD_QUERY,
-} from "../utils/constants";
+import { EDUCATION, INTERESTS, LANGUAGES, MD_QUERY } from "../utils/constants";
 
-const AboutMeSection = () => {
+const BackgroundSection = () => {
   const [mounted, setMounted] = useState(false);
 
   const isMd = useMediaQuery(MD_QUERY);
@@ -25,11 +18,11 @@ const AboutMeSection = () => {
   if (!mounted) return null;
 
   return (
-    <section id="about-me" className="section bg-lightblue">
+    <section id="background" className="section bg-lightblue">
       {/* Section Title and Buttons */}
       <div className="flex flex-col items-center">
         <h1 className="title section-major-heading lg:p-10 p-4 pt-20">
-          About Me
+          Background
         </h1>
         <Link
           href="/assets/Michelle_Zhang_Resume.pdf"
@@ -42,9 +35,10 @@ const AboutMeSection = () => {
         </Link>
       </div>
       <section>
-        {/* Education: Chapman University */}
+        {/* Education Section */}
         <div className="section">
           <h2 className="title section-heading">Education</h2>
+          {/* Education: Chapman University */}
           <div className="section-box grid grid-cols-2">
             <div className="flex flex-col justify-between mr-6 gap-1">
               <h3 className="title box-heading text-xl">
@@ -83,8 +77,10 @@ const AboutMeSection = () => {
             </div>
           </div>
         </div>
-        {/* Education: Programming Languages */}
+        {/* Skills Section */}
         <div className="section">
+          <h2 className="title section-heading">Skills</h2>
+          {/* Skills: Programming Languages */}
           <div className="section-box grid grid-cols-2 gap-4">
             <h3 className="title box-heading col-span-2">
               Programming Languages
@@ -120,10 +116,8 @@ const AboutMeSection = () => {
               </ul>
             </div>
           </div>
-        </div>
-        {/* Education: Technical Skills */}
-        <div className="section">
-          <div className="section-box">
+          {/* Skills: Technical Skills */}
+          <div className="section-box mt-10">
             <h3 className="title box-heading">Technical Skills</h3>
             <ul className="pt-4 grid grid-rows-4 grid-flow-col">
               {EDUCATION.technical_skills.map((tool, index) => (
@@ -133,26 +127,6 @@ const AboutMeSection = () => {
               ))}
             </ul>
           </div>
-        </div>
-        {/* Professional Experience */}
-        <div className="section">
-          <h2 className="title section-heading mt-10">
-            Professional Experience
-          </h2>
-          {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
-            <ExperienceItem
-              key={index}
-              company={experience.company}
-              position={experience.position}
-              location={experience.location}
-              type={experience.type}
-              date={experience.date}
-              team={experience.team}
-              logo={experience.logo}
-              isMd={isMd}
-              {...experience.bullet_points}
-            />
-          ))}
         </div>
         {/* About Me */}
         <div className="section">
@@ -185,4 +159,4 @@ const AboutMeSection = () => {
   );
 };
 
-export default AboutMeSection;
+export default BackgroundSection;

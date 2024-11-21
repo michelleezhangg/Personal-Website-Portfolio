@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import AboutMeSection from "@/app/components/AboutMeSection";
+import BackgroundSection from "@/app/components/BackgroundSection";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import {
   EDUCATION,
@@ -11,7 +11,7 @@ import {
 
 jest.mock("@/hooks/useMediaQuery");
 
-describe("AboutMeSection Component", () => {
+describe("BackgroundSection Component", () => {
   beforeEach(() => {
     useMediaQuery.mockReturnValue(true);
   });
@@ -21,17 +21,17 @@ describe("AboutMeSection Component", () => {
   });
 
   describe("Section Heading", () => {
-    it("renders the About Me title", () => {
-      render(<AboutMeSection />);
+    it("renders the Background title", () => {
+      render(<BackgroundSection />);
       const titleElement = screen.getByRole("heading", {
-        name: /about me/i,
+        name: /background/i,
         level: 1,
       });
       expect(titleElement).toBeInTheDocument();
     });
 
     it("renders the Resume button", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
       const resumeButton = screen.getByRole("link", { name: /resume/i });
       expect(resumeButton).toBeInTheDocument();
     });
@@ -39,7 +39,7 @@ describe("AboutMeSection Component", () => {
 
   describe("Education section", () => {
     it("renders university name, major, minor, scholarship, graduation date, and GPA", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       expect(screen.getByText(EDUCATION.university)).toBeInTheDocument();
       expect(screen.getByText(EDUCATION.major)).toBeInTheDocument();
@@ -54,7 +54,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders Chapman logo image with correct src and alt attributes", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
       expect(chapmanLogo).toBeInTheDocument();
@@ -68,7 +68,7 @@ describe("AboutMeSection Component", () => {
 
     it("renders Chapman logo with the correct size when isMd is true", () => {
       useMediaQuery.mockReturnValue(true); // Larger screens
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
       expect(chapmanLogo).toHaveAttribute("width", "250");
@@ -77,7 +77,7 @@ describe("AboutMeSection Component", () => {
 
     it("renders Chapman logo with the correct size when isMd is false", () => {
       useMediaQuery.mockReturnValue(false); // Smaller screens
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
       expect(chapmanLogo).toHaveAttribute("width", "150");
@@ -85,7 +85,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders Relevant Coursework and Organizations", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
       expect(screen.getByText("Relevant Coursework")).toBeInTheDocument();
 
       EDUCATION.relevant_coursework.forEach((course) => {
@@ -96,7 +96,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders Organizations", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
       expect(screen.getByText("Organizations")).toBeInTheDocument();
 
       EDUCATION.organizations.forEach((organization) => {
@@ -109,7 +109,7 @@ describe("AboutMeSection Component", () => {
 
   describe("Programming Language section", () => {
     it("renders Programming Languages heading", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const programmingLanguagesElement = screen.getByRole("heading", {
         name: /programming languages/i,
@@ -119,7 +119,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders all proficient languages", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       expect(screen.getByText("Proficient")).toBeInTheDocument();
       EDUCATION.programming_languages.proficient.forEach((language) => {
@@ -128,7 +128,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders all familiar languages", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       expect(screen.getByText("Familiar")).toBeInTheDocument();
       EDUCATION.programming_languages.familiar.forEach((language) => {
@@ -139,7 +139,7 @@ describe("AboutMeSection Component", () => {
 
   describe("Technical Skills section", () => {
     it("renders Technical Skills heading", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const technicalSkillsElement = screen.getByRole("heading", {
         name: /technical skills/i,
@@ -149,7 +149,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders all technical skills", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       EDUCATION.technical_skills.forEach((skill) => {
         expect(screen.getByText(skill.name)).toBeInTheDocument();
@@ -159,7 +159,7 @@ describe("AboutMeSection Component", () => {
 
   describe("Professional Experience section", () => {
     it("renders Professional Experience heading", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const professionalExperienceElement = screen.getByRole("heading", {
         name: /professional experience/i,
@@ -169,7 +169,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders all experience items", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       PROFESSIONAL_EXPERIENCE.forEach((experience) => {
         // Just ensure company name is present, details are tested in ExperienceItem test file
@@ -181,7 +181,7 @@ describe("AboutMeSection Component", () => {
 
   describe("About Me section", () => {
     it("renders Languages heading and all language items", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const languagesSectionElement = screen
         .getByText("Languages")
@@ -196,7 +196,7 @@ describe("AboutMeSection Component", () => {
     });
 
     it("renders Interest heading and all interest items", () => {
-      render(<AboutMeSection />);
+      render(<BackgroundSection />);
 
       const interestSectionElement = screen
         .getByText("Interests")

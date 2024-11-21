@@ -35,8 +35,12 @@ export const NAV_LINKS = [
     path: "home",
   },
   {
-    title: "about me",
-    path: "about-me",
+    title: "background",
+    path: "background",
+  },
+  {
+    title: "experience",
+    path: "experience",
   },
   {
     title: "projects",
