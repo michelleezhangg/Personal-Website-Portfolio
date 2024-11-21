@@ -30,7 +30,7 @@ const Navbar = () => {
           </h3>
         </Link>
         {/* Mobile Menu */}
-        <div className="block md:hidden">
+        <div className="block navbar-md:hidden">
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
@@ -50,7 +50,7 @@ const Navbar = () => {
           )}
         </div>
         {/* Standard Menu */}
-        <div className="hidden md:block" id="navbar">
+        <div className="hidden navbar-md:block" id="navbar">
           <ul className="flex p-4 gap-6">
             {NAV_LINKS.map((link, index) => (
               <li key={index}>

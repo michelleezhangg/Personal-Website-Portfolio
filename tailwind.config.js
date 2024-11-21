@@ -15,6 +15,7 @@ module.exports = {
       screens: {
         "hero-sm": "1200px",
         lg: "1076px",
+        "navbar-md": "930px",
         "mobile-lg": "645px",
         "mobile-md": "595px",
         "mobile-sm": "445px",

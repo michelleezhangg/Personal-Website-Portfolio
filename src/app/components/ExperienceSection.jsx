@@ -35,7 +35,7 @@ const ExperienceSection = () => {
       </div>
       {/* Professional Experience */}
       <div className="section">
-        <h2 className="title section-heading mt-10">Professional Experience</h2>
+        <h2 className="title section-heading">Professional Experience</h2>
         {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
           <ExperienceItem
             key={index}
