@@ -11,7 +11,7 @@ import {
   LANGUAGES,
   PROFESSIONAL_EXPERIENCE,
   MD_QUERY,
-} from "../constants";
+} from "../utils/constants";
 
 const AboutMeSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -145,7 +145,9 @@ const AboutMeSection = () => {
               company={experience.company}
               position={experience.position}
               location={experience.location}
+              type={experience.type}
               date={experience.date}
+              team={experience.team}
               logo={experience.logo}
               isMd={isMd}
               {...experience.bullet_points}

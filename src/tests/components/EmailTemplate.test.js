@@ -1,9 +1,9 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import EmailTemplate from "@/app/components/EmailTemplate";
-import { CONTACT, PERSONAL } from "@/app/constants";
+import { CONTACT, PERSONAL } from "@/app/utils/constants";
 
-jest.mock("@/app/constants", () => ({
+jest.mock("@/app/utils/constants", () => ({
   CONTACT: {
     user_confirmation_email: {
       body: "Thank you for reaching out to us.",

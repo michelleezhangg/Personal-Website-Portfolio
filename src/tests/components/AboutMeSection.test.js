@@ -7,7 +7,7 @@ import {
   PROFESSIONAL_EXPERIENCE,
   LANGUAGES,
   INTERESTS,
-} from "@/app/constants";
+} from "@/app/utils/constants";
 
 jest.mock("@/hooks/useMediaQuery");
 

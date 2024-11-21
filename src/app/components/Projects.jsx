@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import ProjectItem from "./ProjectItem";
-import { SOCIAL_LINKS, PROJECTS } from "../constants";
+import { SOCIAL_LINKS, PROJECTS } from "../utils/constants";
 
 const Projects = () => {
   return (

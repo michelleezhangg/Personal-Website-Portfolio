@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import ContactMeSection from "@/app/components/ContactMeSection";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { CONTACT } from "@/app/constants";
+import { CONTACT } from "@/app/utils/constants";
 
 // Mock fetch globally
 global.fetch = jest.fn();

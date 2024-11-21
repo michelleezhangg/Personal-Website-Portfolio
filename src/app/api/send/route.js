@@ -1,13 +1,10 @@
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 import { EmailTemplate } from "../../components/EmailTemplate";
-import { CONTACT } from "@/app/constants";
+import { CONTACT, EMAIL_REGEX } from "@/app/utils/constants";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const fromEmail = process.env.ADMIN_EMAIL;
-
-// Regular expression pattern for email verification
-const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 export async function POST(req) {
   try {
@@ -15,7 +12,7 @@ export async function POST(req) {
     const { firstName, lastName, email, subject, message } = await req.json();
 
     // Validate email format
-    if (!emailRegex.test(email)) {
+    if (!EMAIL_REGEX.test(email)) {
       return NextResponse.json({
         error: "Invalid email format",
         status: 400,

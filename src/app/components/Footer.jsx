@@ -1,7 +1,7 @@
 import React from "react";
 import { animateScroll as scroll } from "react-scroll";
 import Link from "next/link";
-import { PERSONAL } from "../constants";
+import { PERSONAL } from "../utils/constants";
 
 const Footer = () => {
   return (

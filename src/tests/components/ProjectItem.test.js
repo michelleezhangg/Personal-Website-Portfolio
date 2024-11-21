@@ -1,11 +1,26 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import ProjectItem from "@/app/components/ProjectItem";
+import { displayDate } from "@/app/utils/displayDate";
+import { displayDuration } from "@/app/utils/duration";
+
+jest.mock("@/app/utils/duration", () => ({
+  displayDuration: jest.fn(),
+}));
+
+jest.mock("@/app/utils/displayDate", () => ({
+  displayDate: jest.fn(),
+}));
 
 const mockProjectItem = {
   title: "Project Title",
-  date: "Jan 2024 - Jun 2024",
-  location: "Remote",
+  date: {
+    startMonth: "Jan",
+    startYear: "2024",
+    endMonth: "Jun",
+    endYear: "2024",
+  },
+  location: "Orange, CA",
   links: [
     { url: "https://example.com", link_name: "Example Link 1" },
     { url: "https://example2.com", link_name: "Example Link 2" },
@@ -17,15 +32,25 @@ const mockProjectItem = {
 
 describe("ProjectItem Component", () => {
   afterEach(() => {
+    displayDate.mockClear();
     jest.clearAllMocks();
   });
 
-  it("renders title, date, and location", () => {
+  it("renders title and location", () => {
     render(<ProjectItem {...mockProjectItem} />);
 
     expect(screen.getByText(mockProjectItem.title)).toBeInTheDocument();
-    expect(screen.getByText(mockProjectItem.date)).toBeInTheDocument();
     expect(screen.getByText(mockProjectItem.location)).toBeInTheDocument();
+  });
+
+  it("renders date and duration", () => {
+    displayDate.mockReturnValue("Jan 2024 - Jun 2024");
+    displayDuration.mockReturnValue("6 months");
+    render(<ProjectItem {...mockProjectItem} />);
+
+    expect(
+      screen.getByText("Jan 2024 - Jun 2024 (6 months)"),
+    ).toBeInTheDocument();
   });
 
   it("renders links with correct href attributes", () => {

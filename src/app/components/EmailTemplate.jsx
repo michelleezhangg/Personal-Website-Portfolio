@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { CONTACT, PERSONAL } from "../constants";
+import { CONTACT, PERSONAL } from "../utils/constants";
 
 export const EmailTemplate = ({ firstName, lastName, subject, message }) => (
   <div>

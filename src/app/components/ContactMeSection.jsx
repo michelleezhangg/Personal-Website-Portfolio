@@ -9,7 +9,7 @@ import {
   SOCIAL_LINKS,
   SOCIAL_ICONS,
   MD_QUERY,
-} from "../constants";
+} from "../utils/constants";
 
 const ContactMeSection = () => {
   const [emailSubmitted, setEmailSubmitted] = useState(false);

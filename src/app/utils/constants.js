@@ -216,17 +216,26 @@ export const PROFESSIONAL_EXPERIENCE = [
     company: "Warner Bros. Discovery",
     position: "Software Engineer",
     location: "Burbank, CA",
-    date: "Jul 2024 - Present",
+    type: "Hybrid",
+    date: {
+      startMonth: "Jul",
+      startYear: "2024",
+    },
+    team: "Trust and Safety (TAZ)",
     logo: "/logos/warner-bros-discovery-logo.png",
-    bullet_points: [
-      "Software Engineer working in the Trust and Safety (TAZ) team.",
-    ],
   },
   {
     company: "Warner Bros. Discovery",
     position: "Software Engineering Intern",
     location: "Bellevue, WA",
-    date: "Jun 2023 - Aug 2023",
+    type: "Hybrid",
+    date: {
+      startMonth: "Jun",
+      startYear: "2023",
+      endMonth: "Aug",
+      endYear: "2023",
+    },
+    team: "Global Live Orchestration (GLO)",
     logo: "/logos/warner-bros-discovery-logo.png",
     bullet_points: [
       "Developed a full-stack dashboard for TNT Sports developers to effectively monitor the health of 11 TNT channels",
@@ -236,10 +245,16 @@ export const PROFESSIONAL_EXPERIENCE = [
     ],
   },
   {
-    company: "Fu11 Mart Inc.",
+    company: "Fu11 Mart",
     position: "Full-Stack Software Engineering Intern",
     location: "Frisco, TX",
-    date: "Jul 2022 - Nov 2022",
+    type: "Remote",
+    date: {
+      startMonth: "Jul",
+      startYear: "2022",
+      endMonth: "Nov",
+      endYear: "2022",
+    },
     logo: "/logos/fu11-mart-logo.png",
     bullet_points: [
       "Developed a full-stack ecommerce and company website to increase company revenue and expand customer target audience to national and international scales",
@@ -251,7 +266,13 @@ export const PROFESSIONAL_EXPERIENCE = [
     company: "TheCoderSchool",
     position: "Code Coach",
     location: "La Palma, CA",
-    date: "Feb 2022 - Jul 2022",
+    type: "In Person",
+    date: {
+      startMonth: "Feb",
+      startYear: "2022",
+      endMonth: "Jul",
+      endYear: "2022",
+    },
     logo: "/logos/thecoderschool-logo.png",
     bullet_points: [
       "Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students",
@@ -265,9 +286,12 @@ export const PROFESSIONAL_EXPERIENCE = [
 export const PROJECTS = [
   {
     title: "Personal Website Portfolio",
-    date: "Sep 2024 - Present",
+    date: {
+      startMonth: "Sep",
+      startYear: "2024",
+    },
     location: "West Covina, CA",
-    logo: "",
+    logo: "/images/profile.png",
     links: [
       {
         link_name: "GitHub Link",
@@ -285,7 +309,12 @@ export const PROJECTS = [
   },
   {
     title: "Brain Tumor MRI Scan Classification",
-    date: "Nov 2023 - Dec 2023",
+    date: {
+      startMonth: "Nov",
+      startYear: "2023",
+      endMonth: "Dec",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -310,7 +339,12 @@ export const PROJECTS = [
   },
   {
     title: "Rosetta Stone Subscriber Optimizer",
-    date: "Nov 2023 - Dec 2023",
+    date: {
+      startMonth: "Nov",
+      startYear: "2023",
+      endMonth: "Dec",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -331,7 +365,12 @@ export const PROJECTS = [
   },
   {
     title: "College Admissions Data Analysis",
-    date: "May 2023",
+    date: {
+      startMonth: "May",
+      startYear: "2023",
+      endMonth: "May",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -351,7 +390,12 @@ export const PROJECTS = [
   },
   {
     title: "Film Data Analysis",
-    date: "May 2023",
+    date: {
+      startMonth: "May",
+      startYear: "2023",
+      endMonth: "May",
+      endYear: "2023",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -379,7 +423,12 @@ export const PROJECTS = [
   },
   {
     title: "3D Printing Research Project",
-    date: "Feb 2020 - May 2022",
+    date: {
+      startMonth: "Feb",
+      startYear: "2020",
+      endMonth: "May",
+      endYear: "2022",
+    },
     location: "Orange CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -400,7 +449,12 @@ export const PROJECTS = [
   },
   {
     title: "University Student-Faculty Database",
-    date: "Apr 2022",
+    date: {
+      startMonth: "Apr",
+      startYear: "2022",
+      endMonth: "Apr",
+      endYear: "2022",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -419,7 +473,12 @@ export const PROJECTS = [
   },
   {
     title: "Scientific Computing Project",
-    date: "Sep 2020 - Dec 2020",
+    date: {
+      startMonth: "Sep",
+      startYear: "2020",
+      endMonth: "Dec",
+      endYear: "2020",
+    },
     location: "Orange, CA",
     logo: "/logos/chapman-logo.png",
     links: [
@@ -462,6 +521,23 @@ export const CONTACT = {
     success: "Email sent successfully!",
     submission_confirmation: "New message submitted!",
   },
+};
+
+/* Helper Constants */
+export const EMAIL_REGEX = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
+export const monthToNumber = {
+  Jan: 0,
+  Feb: 1,
+  Mar: 2,
+  Apr: 3,
+  May: 4,
+  Jun: 5,
+  Jul: 6,
+  Aug: 7,
+  Sep: 8,
+  Oct: 9,
+  Nov: 10,
+  Dec: 11,
 };
 
 /* Responsive Design */

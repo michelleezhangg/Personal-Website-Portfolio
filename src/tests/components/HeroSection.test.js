@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import HeroSection from "@/app/components/HeroSection";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { PERSONAL } from "@/app/constants";
+import { PERSONAL } from "@/app/utils/constants";
 
 jest.mock("react-scroll", () => {
   const MockLink = ({ ...props }) => (

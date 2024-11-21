@@ -5,7 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { PERSONAL, SOCIAL_LINKS, SOCIAL_ICONS, MD_QUERY } from "../constants";
+import {
+  PERSONAL,
+  SOCIAL_LINKS,
+  SOCIAL_ICONS,
+  MD_QUERY,
+} from "../utils/constants";
 
 const HeroSection = () => {
   const [mounted, setMounted] = useState(false);
