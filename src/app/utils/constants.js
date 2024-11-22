@@ -304,7 +304,7 @@ export const VOLUNTEER_AND_MENTORSHIP_EXPERIENCE = [
     bio: {
       short:
         "Sustaining and Promoting Internships and Research Experience (SPIRE)",
-      long: "A program granted by the Air Force Office of Scientific Research through Chapman University that helps first- and second-year students in underrepresented groups land STEM internships or research experiences in science and engineering.",
+      long: "SPIRE is a program granted by the Air Force Office of Scientific Research through Chapman University that helps first- and second-year students in underrepresented groups land STEM internships or research experiences in science and engineering.",
     },
     bullet_points: [
       "Guided 6 underclassmen through professional development workshops - resume, CV, cover letter, LinkedIn, networking, elevator pitch, networking, etc.",

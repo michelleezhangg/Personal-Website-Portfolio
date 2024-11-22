@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Image from "next/image";
 import { displayDuration } from "../utils/duration";
 import { displayDate } from "../utils/displayDate";
+import LearnMore from "./LearnMore";
 
 const ExperienceItem = ({
   experienceType,
@@ -50,7 +51,12 @@ const ExperienceItem = ({
         )}
         <p className="pt-2 lg:text-sm text-xs">{`${location} (${type})`}</p>
         <p className="lg:text-sm text-xs">{`${dateDisplay} (${duration})`}</p>
-        {bio && <p className="title text-xs mt-4">{bio.short}</p>}
+        {bio && (
+          <>
+            <p className="title text-xs mt-4">{bio.short}</p>
+            <LearnMore description={bio.long} />
+          </>
+        )}
         <Image
           src={logo}
           alt={`${company} Logo`}
