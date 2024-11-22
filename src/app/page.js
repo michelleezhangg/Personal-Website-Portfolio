@@ -2,7 +2,8 @@
 import React, { Suspense, useState, useEffect } from "react";
 import HeroSection from "./components/HeroSection";
 import Navbar from "./components/Navbar";
-import AboutMeSection from "./components/AboutMeSection";
+import BackgroundSection from "./components/BackgroundSection";
+import ExperienceSection from "./components/ExperienceSection";
 import Projects from "./components/Projects";
 import ContactMeSection from "./components/ContactMeSection";
 import Footer from "./components/Footer";
@@ -29,7 +30,10 @@ export default function Home() {
               <HeroSection />
             </Suspense>
             <Suspense fallback={<LoadingSpinner />}>
-              <AboutMeSection />
+              <BackgroundSection />
+            </Suspense>
+            <Suspense fallback={<LoadingSpinner />}>
+              <ExperienceSection />
             </Suspense>
             <Suspense fallback={<LoadingSpinner />}>
               <Projects />

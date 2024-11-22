@@ -36,7 +36,18 @@ describe("calculateDuration", () => {
   });
 
   it("handles duration when end dates starts before start date", () => {
+    expect(calculateDuration("Jan", "2024", "Jan", "2023")).toEqual({
+      // Year
+      years: 0,
+      months: 0,
+    });
+    expect(calculateDuration("Jun", "2023", "Jan", "2023")).toEqual({
+      // Month
+      years: 0,
+      months: 0,
+    });
     expect(calculateDuration("Jun", "2024", "Jan", "2023")).toEqual({
+      // Month and year
       years: 0,
       months: 0,
     });
