@@ -4,7 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import ToolListItem from "./ToolListItem";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import { EDUCATION, INTERESTS, LANGUAGES, MD_QUERY } from "../utils/constants";
+import {
+  EDUCATION,
+  SKILLS,
+  INTERESTS,
+  LANGUAGES,
+  MD_QUERY,
+} from "../utils/constants";
 
 const BackgroundSection = () => {
   const [mounted, setMounted] = useState(false);
@@ -88,23 +94,21 @@ const BackgroundSection = () => {
             <div>
               <h4 className="title lg:text-xl text-sm">Proficient</h4>
               <ul className="pt-2">
-                {EDUCATION.programming_languages.proficient.map(
-                  (tool, index) => (
-                    <li key={index} className="py-1">
-                      <ToolListItem
-                        name={tool.name}
-                        path={tool.path}
-                        isMd={isMd}
-                      />
-                    </li>
-                  ),
-                )}
+                {SKILLS.programming_languages.proficient.map((tool, index) => (
+                  <li key={index} className="py-1">
+                    <ToolListItem
+                      name={tool.name}
+                      path={tool.path}
+                      isMd={isMd}
+                    />
+                  </li>
+                ))}
               </ul>
             </div>
             <div>
               <h4 className="title lg:text-xl text-sm">Familiar</h4>
               <ul className="pt-2">
-                {EDUCATION.programming_languages.familiar.map((tool, index) => (
+                {SKILLS.programming_languages.familiar.map((tool, index) => (
                   <li key={index} className="py-1">
                     <ToolListItem
                       name={tool.name}
@@ -116,11 +120,22 @@ const BackgroundSection = () => {
               </ul>
             </div>
           </div>
-          {/* Skills: Technical Skills */}
+          {/* Skills: Frameworks and Libraries */}
           <div className="section-box mt-10">
-            <h3 className="title box-heading">Technical Skills</h3>
+            <h3 className="title box-heading">Frameworks and Libraries</h3>
+            <ul className="pt-4 grid grid-rows-3 grid-flow-col">
+              {SKILLS.frameworksAndLibraries.map((tool, index) => (
+                <li key={index} className="py-2">
+                  <ToolListItem name={tool.name} path={tool.path} isMd={isMd} />
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* Skills: Tools and Technical Skills */}
+          <div className="section-box mt-10">
+            <h3 className="title box-heading">Tools and Technical Skills</h3>
             <ul className="pt-4 grid grid-rows-4 grid-flow-col">
-              {EDUCATION.technical_skills.map((tool, index) => (
+              {SKILLS.technical_skills.map((tool, index) => (
                 <li key={index} className="py-2">
                   <ToolListItem name={tool.name} path={tool.path} isMd={isMd} />
                 </li>

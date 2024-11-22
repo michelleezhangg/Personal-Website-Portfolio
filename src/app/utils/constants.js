@@ -86,10 +86,12 @@ export const EDUCATION = {
   ],
   organizations: [
     "Alpha Kappa Psi (Professional Business Fraternity)",
-    "SPIRE Mentorship Program",
     "Gamma Beta Phi Honors Society",
     "National Society of Collegiate Scholars (NSCS)",
   ],
+};
+
+export const SKILLS = {
   programming_languages: {
     proficient: [
       {
@@ -115,10 +117,6 @@ export const EDUCATION = {
         path: "/icons/javascript-icon.svg",
       },
       {
-        name: "React.js",
-        path: "/icons/react-icon.svg",
-      },
-      {
         name: "SQL",
         path: "/icons/sql-icon.png",
       },
@@ -132,34 +130,28 @@ export const EDUCATION = {
       },
     ],
   },
-  frameworks: {
-    frontend: [
-      {
-        name: "React.js",
-        path: "/icons/react-icon.svg",
-      },
-      {
-        name: "Tailwind CSS",
-        path: "/icons/tailwind-icon.svg",
-      },
-    ],
-    backend: [
-      {
-        name: "Node.js",
-        path: "/icons/node-icon.svg",
-      },
-      {
-        name: "Spring Boot",
-        path: "/icons/spring-boot-icon.svg",
-      },
-    ],
-    fullStack: [
-      {
-        name: "Next.js",
-        path: "/icons/next-icon.svg",
-      },
-    ],
-  },
+  frameworksAndLibraries: [
+    {
+      name: "React.js",
+      path: "/icons/react-icon.svg",
+    },
+    {
+      name: "Next.js",
+      path: "/icons/next-icon.svg",
+    },
+    {
+      name: "Tailwind CSS",
+      path: "/icons/tailwind-icon.svg",
+    },
+    {
+      name: "Spring, Spring Boot",
+      path: "/icons/spring-icon.svg",
+    },
+    {
+      name: "Prisma.io",
+      path: "/icons/prisma-icon.svg",
+    },
+  ],
   technical_skills: [
     {
       name: "Git",
