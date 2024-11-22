@@ -19,7 +19,19 @@ jest.mock("@/app/utils/displayDate", () => ({
   displayDate: jest.fn(),
 }));
 
+jest.mock("@/app/components/LearnMore", () => {
+  const MockLearnMore = ({ description }) => <div>{description}</div>;
+
+  MockLearnMore.propTypes = {
+    description: require("prop-types").string.isRequired,
+  };
+
+  MockLearnMore.displayName = "MockLearnMore";
+  return MockLearnMore;
+});
+
 const mockExperienceItem = {
+  experienceType: "professional",
   company: "Test Company",
   position: "Test Position",
   location: "City, CA",
@@ -37,7 +49,48 @@ const mockExperienceItem = {
   bullet3: "Bullet Point 3",
 };
 
+const mockMentorExperienceItem = {
+  experienceType: "mentorship",
+  position: "Test Position",
+  company: "Test Company",
+  location: "City, CA",
+  type: "In Person",
+  date: {
+    startMonth: "Jan",
+    startYear: "2023",
+    endMonth: "Jun",
+    endYear: "2024",
+  },
+  logo: "/test-logo.png",
+  bio: {
+    short: "Test Short Bio",
+    long: "Test Long Bio",
+  },
+  bullet1: "Bullet Point 1",
+  bullet2: "Bullet Point 2",
+  bullet3: "Bullet Point 3",
+};
+
+const mockMentorExperienceItemWithoutBio = {
+  experienceType: "mentorship",
+  position: "Test Position",
+  company: "Test Company",
+  location: "City, CA",
+  type: "In Person",
+  date: {
+    startMonth: "Jan",
+    startYear: "2023",
+    endMonth: "Jun",
+    endYear: "2024",
+  },
+  logo: "/test-logo.png",
+  bullet1: "Bullet Point 1",
+  bullet2: "Bullet Point 2",
+  bullet3: "Bullet Point 3",
+};
+
 const mockExperienceItemPresent = {
+  experienceType: "professional",
   company: "Test Company",
   position: "Test Position",
   location: "City, CA",
@@ -54,6 +107,7 @@ const mockExperienceItemPresent = {
 };
 
 const mockExperienceItemWithoutTeam = {
+  experienceType: "professional",
   company: "Test Company",
   position: "Test Position",
   location: "City, CA",
@@ -74,6 +128,7 @@ describe("ExperienceItem Component", () => {
   });
 
   afterEach(() => {
+    displayDate.mockClear();
     displayDuration.mockClear();
     jest.clearAllMocks();
   });
@@ -105,6 +160,8 @@ describe("ExperienceItem Component", () => {
     ).toBeInTheDocument();
   });
 
+  // TODO: test isPresentPosition and experienceType with styles
+
   it("renders logo image with correct src, alt text, and size when isMd is true", () => {
     render(<ExperienceItem {...mockExperienceItem} isMd={true} />);
 
@@ -125,16 +182,30 @@ describe("ExperienceItem Component", () => {
     expect(logoImage).toHaveAttribute("height", "70");
   });
 
-  it("renders team when team was provided", () => {
+  it("renders team when team is provided", () => {
     render(<ExperienceItem {...mockExperienceItem} isMd={false} />);
     expect(
       screen.getByText(`${mockExperienceItem.team} Team`),
     ).toBeInTheDocument();
   });
 
-  it("does not render team when team was not provided", () => {
+  it("does not render team when team is not provided", () => {
     render(<ExperienceItem {...mockExperienceItemWithoutTeam} isMd={false} />);
-    expect(screen.queryByText("Team Name Team")).not.toBeInTheDocument();
+    expect(screen.queryByText(`${mockExperienceItem.team} Team`)).not.toBeInTheDocument();
+  });
+
+  it("renders bio when bio is provided", () => {
+    render(<ExperienceItem {...mockMentorExperienceItem} isMd={false} />);
+    expect(
+      screen.getByText(mockMentorExperienceItem.bio.short),
+    ).toBeInTheDocument();
+  });
+
+  it("does not render bio when bio is not provided", () => {
+    render(<ExperienceItem {...mockMentorExperienceItemWithoutBio} isMd={false} />);
+    expect(
+      screen.queryByText(mockMentorExperienceItem.bio.short),
+    ).not.toBeInTheDocument();
   });
 
   it("renders bullet points as a list", () => {

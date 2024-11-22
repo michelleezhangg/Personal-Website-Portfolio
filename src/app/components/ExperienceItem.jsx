@@ -18,6 +18,7 @@ const ExperienceItem = ({
   isMd,
   ...bullet_points
 }) => {
+  const isPresentPosition = !endMonth || !endYear;
   const bullet_point_values = Object.values(bullet_points);
   const { startMonth, startYear, endMonth, endYear } = date;
   const duration = displayDuration(startMonth, startYear, endMonth, endYear);
@@ -26,7 +27,7 @@ const ExperienceItem = ({
   return (
     <div
       className={`section-box grid lg:mb-10 mb-5 ${
-        !endMonth || !endYear ? "grid-cols-1" : "grid-cols-2"
+        isPresentPosition ? "grid-cols-2" : "grid-cols-1"
       }`}
     >
       <div className="flex flex-col justify-between mr-6">
@@ -51,16 +52,12 @@ const ExperienceItem = ({
         )}
         <p className="pt-2 lg:text-sm text-xs">{`${location} (${type})`}</p>
         <p className="lg:text-sm text-xs">{`${dateDisplay} (${duration})`}</p>
-        {bio && (
-          <>
-            <p className="title text-xs mt-4">{bio.short}</p>
-            <LearnMore description={bio.long} />
-          </>
-        )}
+        {bio && <p className="title text-xs mt-4">{bio.short}</p>}
+        {bio && bio.long && <LearnMore description={bio.long} />}
         <Image
           src={logo}
           alt={`${company} Logo`}
-          className="lg:text-sm text-xs font-light self-start mt-auto pt-2"
+          className="lg:text-sm text-xs font-light mt-auto pt-2"
           width={isMd ? 100 : 70}
           height={isMd ? 100 : 70}
         />
@@ -79,7 +76,7 @@ const ExperienceItem = ({
 };
 
 ExperienceItem.propTypes = {
-  experienceType: PropTypes.string.isRequired, // "professional" || "volunteering" || "mentorship"
+  experienceType: PropTypes.string.isRequired, // "professional" || "mentorship"
   company: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
@@ -93,10 +90,9 @@ ExperienceItem.propTypes = {
   team: PropTypes.string, // Not required
   logo: PropTypes.string.isRequired,
   bio: PropTypes.shape({
-    // Not required
     short: PropTypes.string,
     long: PropTypes.string,
-  }),
+  }), // Not required
   isMd: PropTypes.bool.isRequired,
   bullet_points: PropTypes.object, // Not required
 };

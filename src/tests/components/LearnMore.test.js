@@ -3,7 +3,8 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import LearnMore from "@/app/components/LearnMore";
 
 describe("LearnMore Component", () => {
-  const descriptionText = "This is a mock of a detailed description text of the experience.";
+  const descriptionText =
+    "This is a mock of a detailed description text of the experience.";
 
   beforeEach(() => {
     render(<LearnMore description={descriptionText} />);

@@ -14,7 +14,7 @@ const LearnMore = ({ description }) => {
         {isExpanded && <p>{description}</p>}
       </span>
       <button
-        className="text-sm text-darkblue cursor-pointer hover:underline"
+        className="font-medium text-sm text-darkblue cursor-pointer hover:underline"
         onClick={handleToggle}
       >
         {isExpanded ? "Show Less" : "Learn More"}
