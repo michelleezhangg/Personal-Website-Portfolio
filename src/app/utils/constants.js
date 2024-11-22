@@ -48,7 +48,7 @@ export const NAV_LINKS = [
         path: "skills",
       },
       {
-        title: "about-me",
+        title: "about me",
         path: "about-me",
       },
     ],

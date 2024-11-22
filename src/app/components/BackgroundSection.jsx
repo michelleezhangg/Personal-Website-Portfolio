@@ -42,7 +42,7 @@ const BackgroundSection = () => {
       </div>
       <section>
         {/* Education Section */}
-        <div className="section">
+        <div id="education" className="section">
           <h2 className="title section-heading">Education</h2>
           {/* Education: Chapman University */}
           <div className="section-box grid grid-cols-2">
@@ -84,7 +84,7 @@ const BackgroundSection = () => {
           </div>
         </div>
         {/* Skills Section */}
-        <div className="section">
+        <div id="skills" className="section">
           <h2 className="title section-heading">Skills</h2>
           {/* Skills: Programming Languages */}
           <div className="section-box grid grid-cols-2 gap-4">
@@ -144,7 +144,7 @@ const BackgroundSection = () => {
           </div>
         </div>
         {/* About Me */}
-        <div className="section">
+        <div id="about-me" className="section">
           <h2 className="title section-heading">About Me</h2>
           {/* About Me: Languages */}
           <div className="section-box">

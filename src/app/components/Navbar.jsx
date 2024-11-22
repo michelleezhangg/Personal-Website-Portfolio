@@ -63,62 +63,61 @@ const Navbar = () => {
         <div className="hidden navbar-md:block" id="navbar">
           <ul className="flex p-4 gap-6">
             {NAV_LINKS.map((link, index) => (
-              <li key={index} className="relative">
-                {link.dropdown ? (
-                  <>
-                    <button
-                      onClick={() => toggleDropdown(index)}
-                      className={`text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer ${
-                        activeLink === link.path ? "text-darkblue" : ""
-                      }`}
-                    >
-                      {link.title}
-                      {dropdownOpen === index ? (
-                        <ChevronUpIcon className="h-4 w-4 inline ml-2" />
-                      ) : (
-                        <ChevronDownIcon className="h-4 w-4 inline ml-2" />
-                      )}
-                    </button>
-                    {dropdownOpen === index && (
-                      <ul className="absolute bg-white shadow-md rounded-md mt-2 p-2 z-40">
-                        {link.dropdown.map((dropdownLink, index) => (
-                          <li key={index}>
-                            <ScrollLink
-                              to={dropdownLink.path}
-                              spy={true}
-                              smooth={true}
-                              offset={-100}
-                              duration={500}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase"
-                              onClick={() => {
-                                setActiveLink(dropdownLink.path);
-                                setDropdownOpen(null);
-                              }}
-                            >
-                              {dropdownLink.title}
-                            </ScrollLink>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                  </>
-                ) : (
-                  <ScrollLink
-                    to={link.path}
-                    spy={true}
-                    smooth={true}
-                    offset={link.path === "home" ? -150 : -100}
-                    duration={500}
-                    className={`text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer ${
-                      activeLink === link.path ? "text-darkblue" : ""
-                    }`}
-                    activeClass="text-darkblue"
-                    onSetActive={(to) => {
-                      setActiveLink(to);
-                    }}
+              <li key={index} className="relative flex items-center">
+                {/* Main Link */}
+                <ScrollLink
+                  to={link.path}
+                  spy={true}
+                  smooth={true}
+                  offset={link.path === "home" ? -150 : -100}
+                  duration={500}
+                  className={`flex items-center text-lg py-2 pr-1 hover:text-darkblue uppercase cursor-pointer ${
+                    activeLink === link.path ? "text-darkblue" : ""
+                  }`}
+                  activeClass="text-darkblue"
+                  onSetActive={() => {
+                    setActiveLink(link.path);
+                    setDropdownOpen(null);
+                  }}
+                >
+                  {link.title}
+                </ScrollLink>
+                {/* Dropdown Icon */}
+                {link.dropdown && (
+                  <button
+                    onClick={() => toggleDropdown(index)}
+                    className="flex items-center"
+                    aria-label={`${dropdownOpen === index ? "Close" : "Open"} dropdown menu`}
                   >
-                    {link.title}
-                  </ScrollLink>
+                    {dropdownOpen === index ? (
+                      <ChevronUpIcon className="h-5 w-5 " />
+                    ) : (
+                      <ChevronDownIcon className="h-5 w-5" />
+                    )}
+                  </button>
+                )}
+                {/* Dropdown Menu */}
+                {dropdownOpen === index && link.dropdown && (
+                  <ul className="absolute left-0 top-full bg-lightblue shadow-md mt-4 p-2 z-40">
+                    {link.dropdown.map((dropdownLink, index) => (
+                      <li key={index}>
+                        <ScrollLink
+                          to={dropdownLink.path}
+                          spy={true}
+                          smooth={true}
+                          offset={-100}
+                          duration={500}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase"
+                          onClick={() => {
+                            setActiveLink(dropdownLink.path);
+                            setDropdownOpen(null);
+                          }}
+                        >
+                          {dropdownLink.title}
+                        </ScrollLink>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </li>
             ))}

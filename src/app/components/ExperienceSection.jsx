@@ -35,7 +35,7 @@ const ExperienceSection = () => {
         </Link>
       </div>
       {/* Professional Experience */}
-      <div className="section">
+      <div id="professional-experience" className="section">
         <h2 className="title section-heading">Professional Experience</h2>
         {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
           <ExperienceItem
@@ -54,7 +54,7 @@ const ExperienceSection = () => {
         ))}
       </div>
       {/* Volunteering and Mentorship */}
-      <div className="section">
+      <div id="volunteering-and-mentorship" className="section">
         <h2 className="title section-heading">Volunteering and Mentorship</h2>
         {VOLUNTEER_AND_MENTORSHIP_EXPERIENCE.map((experience, index) => (
           <ExperienceItem
