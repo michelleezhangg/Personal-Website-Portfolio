@@ -3,16 +3,26 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import MenuOverlay from "./MenuOverlay";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+} from "@heroicons/react/24/solid";
 import { PERSONAL, NAV_LINKS } from "../utils/constants";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(null);
 
   useEffect(() => {
     setActiveLink("home");
   }, []);
+
+  const toggleDropdown = (index) => {
+    setDropdownOpen((prev) => (prev === index ? null : index));
+  };
 
   return (
     <nav className="navbar bg-lightblue sticky top-0 z-50">
@@ -53,23 +63,63 @@ const Navbar = () => {
         <div className="hidden navbar-md:block" id="navbar">
           <ul className="flex p-4 gap-6">
             {NAV_LINKS.map((link, index) => (
-              <li key={index}>
-                <ScrollLink
-                  to={link.path}
-                  spy={true}
-                  smooth={true}
-                  offset={link.path === "home" ? -150 : -100}
-                  duration={500}
-                  className={`text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer ${
-                    activeLink === link.path ? "text-darkblue" : ""
-                  }`}
-                  activeClass="text-darkblue"
-                  onSetActive={(to) => {
-                    setActiveLink(to);
-                  }}
-                >
-                  {link.title}
-                </ScrollLink>
+              <li key={index} className="relative">
+                {link.dropdown ? (
+                  <>
+                    <button
+                      onClick={() => toggleDropdown(index)}
+                      className={`text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer ${
+                        activeLink === link.path ? "text-darkblue" : ""
+                      }`}
+                    >
+                      {link.title}
+                      {dropdownOpen === index ? (
+                        <ChevronUpIcon className="h-4 w-4 inline ml-2" />
+                      ) : (
+                        <ChevronDownIcon className="h-4 w-4 inline ml-2" />
+                      )}
+                    </button>
+                    {dropdownOpen === index && (
+                      <ul className="absolute bg-white shadow-md rounded-md mt-2 p-2 z-40">
+                        {link.dropdown.map((dropdownLink, index) => (
+                          <li key={index}>
+                            <ScrollLink
+                              to={dropdownLink.path}
+                              spy={true}
+                              smooth={true}
+                              offset={-100}
+                              duration={500}
+                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase"
+                              onClick={() => {
+                                setActiveLink(dropdownLink.path);
+                                setDropdownOpen(null);
+                              }}
+                            >
+                              {dropdownLink.title}
+                            </ScrollLink>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </>
+                ) : (
+                  <ScrollLink
+                    to={link.path}
+                    spy={true}
+                    smooth={true}
+                    offset={link.path === "home" ? -150 : -100}
+                    duration={500}
+                    className={`text-lg block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer ${
+                      activeLink === link.path ? "text-darkblue" : ""
+                    }`}
+                    activeClass="text-darkblue"
+                    onSetActive={(to) => {
+                      setActiveLink(to);
+                    }}
+                  >
+                    {link.title}
+                  </ScrollLink>
+                )}
               </li>
             ))}
           </ul>
