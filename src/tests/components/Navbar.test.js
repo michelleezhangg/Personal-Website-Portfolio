@@ -146,4 +146,27 @@ describe("Navbar Component", () => {
     // Check if second link has active highlighting
     expect(secondLink).toHaveClass("text-darkblue");
   });
+
+  it("toggles dropdown when dropdown icon is clicked", () => {
+    const dropDownLinks = NAV_LINKS.filter((link) => link.dropdown);
+    if (dropDownLinks.length > 0) {
+      const dropdownButton = screen.getAllByLabelText(/dropdown menu/)[0];
+
+      expect(
+        screen.queryByText(dropDownLinks[0].dropdown[0].title),
+      ).not.toBeInTheDocument();
+
+      fireEvent.click(dropdownButton);
+
+      expect(
+        screen.getByText(dropDownLinks[0].dropdown[0].title),
+      ).toBeInTheDocument();
+
+      fireEvent.click(dropdownButton);
+
+      expect(
+        screen.queryByText(dropDownLinks[0].dropdown[0].title),
+      ).not.toBeInTheDocument();
+    }
+  });
 });

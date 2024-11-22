@@ -210,6 +210,10 @@ export const SKILLS = {
       name: "Jira",
       path: "/icons/jira-icon.svg",
     },
+    {
+      name: "MAMP",
+      path: "/icons/mamp-icon.svg",
+    },
   ],
 };
 

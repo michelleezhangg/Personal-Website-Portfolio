@@ -134,7 +134,11 @@ const BackgroundSection = () => {
           {/* Skills: Tools and Technical Skills */}
           <div className="section-box mt-10">
             <h3 className="title box-heading">Tools and Technical Skills</h3>
-            <ul className="pt-4 grid grid-rows-4 grid-flow-col">
+            <ul
+              className={`pt-4 grid grid-flow-col ${
+                isMd ? "grid-rows-3" : "grid-rows-5"
+              }`}
+            >
               {SKILLS.technical_skills.map((tool, index) => (
                 <li key={index} className="py-2">
                   <ToolListItem name={tool.name} path={tool.path} isMd={isMd} />

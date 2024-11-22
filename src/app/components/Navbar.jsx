@@ -67,8 +67,8 @@ const Navbar = () => {
                 {/* Main Link */}
                 <ScrollLink
                   to={link.path}
-                  spy={true}
-                  smooth={true}
+                  spy="true"
+                  smooth="true"
                   offset={link.path === "home" ? -150 : -100}
                   duration={500}
                   className={`flex items-center text-lg py-2 pr-1 hover:text-darkblue uppercase cursor-pointer ${
@@ -98,13 +98,13 @@ const Navbar = () => {
                 )}
                 {/* Dropdown Menu */}
                 {dropdownOpen === index && link.dropdown && (
-                  <ul className="absolute left-0 top-full bg-lightblue shadow-md mt-4 p-2 z-40">
+                  <ul className="absolute left-0 top-full bg-lightblue shadow-md p-1 z-40">
                     {link.dropdown.map((dropdownLink, index) => (
                       <li key={index}>
                         <ScrollLink
                           to={dropdownLink.path}
-                          spy={true}
-                          smooth={true}
+                          spy="true"
+                          smooth="true"
                           offset={-100}
                           duration={500}
                           className="block px-5 py-2 text-md text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase whitespace-nowrap"

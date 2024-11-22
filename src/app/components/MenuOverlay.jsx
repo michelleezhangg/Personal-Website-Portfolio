@@ -17,8 +17,8 @@ const MenuOverlay = ({ links, setNavbarOpen }) => {
           {/* Main Link */}
           <ScrollLink
             to={link.path}
-            spy={true}
-            smooth={true}
+            spy="true"
+            smooth="true"
             offset={-350} // Extend spy region up 350px for mobile view
             duration={500}
             className="flex items-center text-lg py-2 pr-1 hover:text-darkblue uppercase cursor-pointer"
@@ -48,8 +48,8 @@ const MenuOverlay = ({ links, setNavbarOpen }) => {
                 <li key={index}>
                   <ScrollLink
                     to={dropdownLink.path}
-                    spy={true}
-                    smooth={true}
+                    spy="true"
+                    smooth="true"
                     offset={-350} // Extend spy region up 350px for mobile view
                     duration={500}
                     className="block px-5 py-2 text-md text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase whitespace-nowrap"
