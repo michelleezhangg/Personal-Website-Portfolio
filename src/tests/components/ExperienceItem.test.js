@@ -159,7 +159,7 @@ describe("ExperienceItem Component", () => {
       screen.getByText("Jan 2023 - Present (1 year, 11 months)"),
     ).toBeInTheDocument();
   });
-  
+
   it("renders logo image with correct src, alt text, and size when isMd is true", () => {
     render(<ExperienceItem {...mockExperienceItem} isMd={true} />);
 
