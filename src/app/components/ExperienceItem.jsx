@@ -18,11 +18,11 @@ const ExperienceItem = ({
   isMd,
   ...bullet_points
 }) => {
-  const isPresentPosition = !endMonth || !endYear;
   const bullet_point_values = Object.values(bullet_points);
   const { startMonth, startYear, endMonth, endYear } = date;
   const duration = displayDuration(startMonth, startYear, endMonth, endYear);
   const dateDisplay = displayDate(startMonth, startYear, endMonth, endYear);
+  const isPresentPosition = !endMonth || !endYear;
 
   return (
     <div

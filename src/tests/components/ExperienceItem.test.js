@@ -159,9 +159,7 @@ describe("ExperienceItem Component", () => {
       screen.getByText("Jan 2023 - Present (1 year, 11 months)"),
     ).toBeInTheDocument();
   });
-
-  // TODO: test isPresentPosition and experienceType with styles
-
+  
   it("renders logo image with correct src, alt text, and size when isMd is true", () => {
     render(<ExperienceItem {...mockExperienceItem} isMd={true} />);
 
@@ -191,7 +189,9 @@ describe("ExperienceItem Component", () => {
 
   it("does not render team when team is not provided", () => {
     render(<ExperienceItem {...mockExperienceItemWithoutTeam} isMd={false} />);
-    expect(screen.queryByText(`${mockExperienceItem.team} Team`)).not.toBeInTheDocument();
+    expect(
+      screen.queryByText(`${mockExperienceItem.team} Team`),
+    ).not.toBeInTheDocument();
   });
 
   it("renders bio when bio is provided", () => {
@@ -202,7 +202,9 @@ describe("ExperienceItem Component", () => {
   });
 
   it("does not render bio when bio is not provided", () => {
-    render(<ExperienceItem {...mockMentorExperienceItemWithoutBio} isMd={false} />);
+    render(
+      <ExperienceItem {...mockMentorExperienceItemWithoutBio} isMd={false} />,
+    );
     expect(
       screen.queryByText(mockMentorExperienceItem.bio.short),
     ).not.toBeInTheDocument();
