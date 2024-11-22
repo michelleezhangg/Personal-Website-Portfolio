@@ -62,8 +62,8 @@ describe("BackgroundSection Component", () => {
         "src",
         expect.stringContaining("chapman-logo.png"),
       );
-      expect(chapmanLogo).toHaveAttribute("width", "250");
-      expect(chapmanLogo).toHaveAttribute("height", "47");
+      expect(chapmanLogo).toHaveAttribute("width", "150");
+      expect(chapmanLogo).toHaveAttribute("height", "150");
     });
 
     it("renders Chapman logo with the correct size when isMd is true", () => {
@@ -71,8 +71,8 @@ describe("BackgroundSection Component", () => {
       render(<BackgroundSection />);
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
-      expect(chapmanLogo).toHaveAttribute("width", "250");
-      expect(chapmanLogo).toHaveAttribute("height", "47");
+      expect(chapmanLogo).toHaveAttribute("width", "75");
+      expect(chapmanLogo).toHaveAttribute("height", "75");
     });
 
     it("renders Chapman logo with the correct size when isMd is false", () => {

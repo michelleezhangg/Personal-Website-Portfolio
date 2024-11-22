@@ -23,19 +23,25 @@ const ExperienceItem = ({
   const dateDisplay = displayDate(startMonth, startYear, endMonth, endYear);
 
   return (
-    <div className={`section-box grid lg:mb-10 mb-5 ${
-      !endMonth || !endYear ? "grid-cols-1" : "grid-cols-2"
-    }`}>
+    <div
+      className={`section-box grid lg:mb-10 mb-5 ${
+        !endMonth || !endYear ? "grid-cols-1" : "grid-cols-2"
+      }`}
+    >
       <div className="flex flex-col justify-between mr-6">
         {/* Company and position titles based on experience type */}
         {experienceType === "professional" ? (
           <>
-            <h3 className="title box-heading col-span-2 text-lg whitespace-nowrap">{company}</h3>
+            <h3 className="title box-heading col-span-2 text-lg whitespace-nowrap">
+              {company}
+            </h3>
             <p className="title lg:text-lg text-sm">{position}</p>
           </>
         ) : (
           <>
-            <h3 className="title box-heading col-span-2 text-lg whitespace-nowrap">{position}</h3>
+            <h3 className="title box-heading col-span-2 text-lg whitespace-nowrap">
+              {position}
+            </h3>
             <p className="title lg:text-lg text-sm">{company}</p>
           </>
         )}
@@ -53,7 +59,7 @@ const ExperienceItem = ({
           height={isMd ? 100 : 70}
         />
       </div>
-      {bullet_point_values &&
+      {bullet_point_values && (
         <ul className="lg:text-sm text-xs list-disc mt-7">
           {bullet_point_values.map((point, index) => (
             <li key={index} className="mb-2">
@@ -61,7 +67,7 @@ const ExperienceItem = ({
             </li>
           ))}
         </ul>
-      }
+      )}
     </div>
   );
 };

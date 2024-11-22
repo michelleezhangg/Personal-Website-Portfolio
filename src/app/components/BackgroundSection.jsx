@@ -57,8 +57,8 @@ const BackgroundSection = () => {
                 src={EDUCATION.logo}
                 alt="Chapman Logo"
                 className="text-sm font-semibold self-start mt-auto"
-                width={isMd ? 250 : 150}
-                height={isMd ? 47 : 29}
+                width={isMd ? 150 : 150}
+                height={isMd ? 75 : 75}
               />
             </div>
             <div>
