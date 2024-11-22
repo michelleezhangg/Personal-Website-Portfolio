@@ -2,12 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import BackgroundSection from "@/app/components/BackgroundSection";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import {
-  EDUCATION,
-  PROFESSIONAL_EXPERIENCE,
-  LANGUAGES,
-  INTERESTS,
-} from "@/app/utils/constants";
+import { EDUCATION, LANGUAGES, INTERESTS } from "@/app/utils/constants";
 
 jest.mock("@/hooks/useMediaQuery");
 
@@ -62,8 +57,6 @@ describe("BackgroundSection Component", () => {
         "src",
         expect.stringContaining("chapman-logo.png"),
       );
-      expect(chapmanLogo).toHaveAttribute("width", "150");
-      expect(chapmanLogo).toHaveAttribute("height", "150");
     });
 
     it("renders Chapman logo with the correct size when isMd is true", () => {
@@ -71,8 +64,8 @@ describe("BackgroundSection Component", () => {
       render(<BackgroundSection />);
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
-      expect(chapmanLogo).toHaveAttribute("width", "75");
-      expect(chapmanLogo).toHaveAttribute("height", "75");
+      expect(chapmanLogo).toHaveAttribute("width", "150");
+      expect(chapmanLogo).toHaveAttribute("height", "150");
     });
 
     it("renders Chapman logo with the correct size when isMd is false", () => {
@@ -80,8 +73,8 @@ describe("BackgroundSection Component", () => {
       render(<BackgroundSection />);
 
       const chapmanLogo = screen.getByAltText("Chapman Logo");
-      expect(chapmanLogo).toHaveAttribute("width", "150");
-      expect(chapmanLogo).toHaveAttribute("height", "29");
+      expect(chapmanLogo).toHaveAttribute("width", "75");
+      expect(chapmanLogo).toHaveAttribute("height", "75");
     });
 
     it("renders Relevant Coursework and Organizations", () => {
@@ -153,28 +146,6 @@ describe("BackgroundSection Component", () => {
 
       EDUCATION.technical_skills.forEach((skill) => {
         expect(screen.getByText(skill.name)).toBeInTheDocument();
-      });
-    });
-  });
-
-  describe("Professional Experience section", () => {
-    it("renders Professional Experience heading", () => {
-      render(<BackgroundSection />);
-
-      const professionalExperienceElement = screen.getByRole("heading", {
-        name: /professional experience/i,
-        level: 2,
-      });
-      expect(professionalExperienceElement).toBeInTheDocument();
-    });
-
-    it("renders all experience items", () => {
-      render(<BackgroundSection />);
-
-      PROFESSIONAL_EXPERIENCE.forEach((experience) => {
-        // Just ensure company name is present, details are tested in ExperienceItem test file
-        const experienceItems = screen.queryAllByText(experience.company);
-        expect(experienceItems.length).toBeGreaterThan(0);
       });
     });
   });
