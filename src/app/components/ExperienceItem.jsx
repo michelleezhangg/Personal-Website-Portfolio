@@ -27,7 +27,7 @@ const ExperienceItem = ({
   return (
     <div
       className={`section-box grid lg:mb-10 mb-5 ${
-        isPresentPosition ? "grid-cols-2" : "grid-cols-1"
+        isPresentPosition ? "grid-cols-1" : "grid-cols-2"
       }`}
     >
       <div className="flex flex-col justify-between mr-6">
