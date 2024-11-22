@@ -100,72 +100,84 @@ describe("BackgroundSection Component", () => {
     });
   });
 
-  describe("Programming Language section", () => {
-    it("renders Programming Languages heading", () => {
+  describe("Skills section", () => {
+    it("renders Skills heading", () => {
       render(<BackgroundSection />);
 
-      const programmingLanguagesElement = screen.getByRole("heading", {
-        name: /programming languages/i,
-        level: 3,
+      const skillsElement = screen.getByRole("heading", {
+        name: /skills/i,
+        level: 2,
       });
-      expect(programmingLanguagesElement).toBeInTheDocument();
+      expect(skillsElement).toBeInTheDocument();
     });
 
-    it("renders all proficient languages", () => {
-      render(<BackgroundSection />);
+    describe("Programming Language section", () => {
+      it("renders Programming Languages heading", () => {
+        render(<BackgroundSection />);
 
-      expect(screen.getByText("Proficient")).toBeInTheDocument();
-      SKILLS.programming_languages.proficient.forEach((language) => {
-        expect(screen.getByText(language.name)).toBeInTheDocument();
+        const programmingLanguagesElement = screen.getByRole("heading", {
+          name: /programming languages/i,
+          level: 3,
+        });
+        expect(programmingLanguagesElement).toBeInTheDocument();
+      });
+
+      it("renders all proficient languages", () => {
+        render(<BackgroundSection />);
+
+        expect(screen.getByText("Proficient")).toBeInTheDocument();
+        SKILLS.programming_languages.proficient.forEach((language) => {
+          expect(screen.getByText(language.name)).toBeInTheDocument();
+        });
+      });
+
+      it("renders all familiar languages", () => {
+        render(<BackgroundSection />);
+
+        expect(screen.getByText("Familiar")).toBeInTheDocument();
+        SKILLS.programming_languages.familiar.forEach((language) => {
+          expect(screen.getByText(language.name)).toBeInTheDocument();
+        });
       });
     });
 
-    it("renders all familiar languages", () => {
-      render(<BackgroundSection />);
+    describe("Frameworks and Libraries section", () => {
+      it("renders Frameworks and Libraries heading", () => {
+        render(<BackgroundSection />);
 
-      expect(screen.getByText("Familiar")).toBeInTheDocument();
-      SKILLS.programming_languages.familiar.forEach((language) => {
-        expect(screen.getByText(language.name)).toBeInTheDocument();
+        const frameworksElement = screen.getByRole("heading", {
+          name: /frameworks and libraries/i,
+          level: 3,
+        });
+        expect(frameworksElement).toBeInTheDocument();
+      });
+
+      it("renders all frameworks and libraries", () => {
+        render(<BackgroundSection />);
+
+        SKILLS.frameworksAndLibraries.forEach((framework) => {
+          expect(screen.getByText(framework.name)).toBeInTheDocument();
+        });
       });
     });
-  });
 
-  describe("Frameworks and Libraries section", () => {
-    it("renders Frameworks and Libraries heading", () => {
-      render(<BackgroundSection />);
+    describe("Tools and Technical Skills section", () => {
+      it("renders Tools and Technical Skills heading", () => {
+        render(<BackgroundSection />);
 
-      const frameworksElement = screen.getByRole("heading", {
-        name: /frameworks and libraries/i,
-        level: 3,
+        const technicalSkillsElement = screen.getByRole("heading", {
+          name: /tools and technical skills/i,
+          level: 3,
+        });
+        expect(technicalSkillsElement).toBeInTheDocument();
       });
-      expect(frameworksElement).toBeInTheDocument();
-    });
 
-    it("renders all frameworks and libraries", () => {
-      render(<BackgroundSection />);
+      it("renders all tools and technical skills", () => {
+        render(<BackgroundSection />);
 
-      SKILLS.frameworksAndLibraries.forEach((framework) => {
-        expect(screen.getByText(framework.name)).toBeInTheDocument();
-      });
-    });
-  });
-
-  describe("Tools and Technical Skills section", () => {
-    it("renders Tools and Technical Skills heading", () => {
-      render(<BackgroundSection />);
-
-      const technicalSkillsElement = screen.getByRole("heading", {
-        name: /tools and technical skills/i,
-        level: 3,
-      });
-      expect(technicalSkillsElement).toBeInTheDocument();
-    });
-
-    it("renders all tools and technical skills", () => {
-      render(<BackgroundSection />);
-
-      SKILLS.technical_skills.forEach((skill) => {
-        expect(screen.getByText(skill.name)).toBeInTheDocument();
+        SKILLS.technical_skills.forEach((skill) => {
+          expect(screen.getByText(skill.name)).toBeInTheDocument();
+        });
       });
     });
   });
