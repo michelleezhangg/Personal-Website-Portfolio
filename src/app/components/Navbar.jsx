@@ -90,9 +90,9 @@ const Navbar = () => {
                     aria-label={`${dropdownOpen === index ? "Close" : "Open"} dropdown menu`}
                   >
                     {dropdownOpen === index ? (
-                      <ChevronUpIcon className="h-5 w-5 " />
+                      <ChevronUpIcon className="h-5 w-5 text-darkblue" />
                     ) : (
-                      <ChevronDownIcon className="h-5 w-5" />
+                      <ChevronDownIcon className="h-5 w-5 hover:text-darkblue" />
                     )}
                   </button>
                 )}
@@ -107,7 +107,7 @@ const Navbar = () => {
                           smooth={true}
                           offset={-100}
                           duration={500}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase"
+                          className="block px-5 py-2 text-md text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase whitespace-nowrap"
                           onClick={() => {
                             setActiveLink(dropdownLink.path);
                             setDropdownOpen(null);
