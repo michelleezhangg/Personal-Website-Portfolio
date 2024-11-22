@@ -5,6 +5,7 @@ import ExperienceItem from "./ExperienceItem";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import {
   PROFESSIONAL_EXPERIENCE,
+  VOLUNTEER_AND_MENTORSHIP_EXPERIENCE,
   MD_QUERY,
   SOCIAL_LINKS,
 } from "../utils/constants";
@@ -39,6 +40,7 @@ const ExperienceSection = () => {
         {PROFESSIONAL_EXPERIENCE.map((experience, index) => (
           <ExperienceItem
             key={index}
+            experienceType="professional"
             company={experience.company}
             position={experience.position}
             location={experience.location}
@@ -46,6 +48,26 @@ const ExperienceSection = () => {
             date={experience.date}
             team={experience.team}
             logo={experience.logo}
+            isMd={isMd}
+            {...experience.bullet_points}
+          />
+        ))}
+      </div>
+      {/* Volunteering and Mentorship */}
+      <div className="section">
+        <h2 className="title section-heading">Volunteering and Mentorship</h2>
+        {VOLUNTEER_AND_MENTORSHIP_EXPERIENCE.map((experience, index) => (
+          <ExperienceItem
+            key={index}
+            experienceType="mentorship"
+            company={experience.company}
+            position={experience.position}
+            location={experience.location}
+            type={experience.type}
+            date={experience.date}
+            team={experience.team}
+            logo={experience.logo}
+            bio={experience.bio}
             isMd={isMd}
             {...experience.bullet_points}
           />

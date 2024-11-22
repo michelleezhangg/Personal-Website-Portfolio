@@ -12,9 +12,10 @@ export const calculateDuration = (startMonth, stateYear, endMonth, endYear) => {
   const monthsDiff = endDate.getMonth() - startDate.getMonth();
 
   // Edge case: end date starts before start date
-  if (yearsDiff < 0 || monthsDiff < 0) return { years: 0, months: 0 };
+  if (yearsDiff < 0 || (monthsDiff < 0 && yearsDiff < 0))
+    return { years: 0, months: 0 };
 
-  // Months are invlusive
+  // Months are inclusive
   const totalMonths = yearsDiff * 12 + (monthsDiff + 1);
   if (totalMonths < 12) return { years: 0, months: totalMonths };
 

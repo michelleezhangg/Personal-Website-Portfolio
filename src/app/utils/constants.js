@@ -29,6 +29,7 @@ export const SOCIAL_ICONS = {
   emailLight: "/icons/email-icon-light.png",
 };
 
+/* Navbar Constants */
 export const NAV_LINKS = [
   {
     title: "home",
@@ -52,7 +53,7 @@ export const NAV_LINKS = [
   },
 ];
 
-/* About Me Constants */
+/* Background Constants */
 export const EDUCATION = {
   university: "Chapman University",
   major: "B.S. in Computer Science",
@@ -215,6 +216,7 @@ export const INTERESTS = [
   "Traveling",
 ];
 
+/* Experience Constants */
 export const PROFESSIONAL_EXPERIENCE = [
   {
     company: "Warner Bros. Discovery",
@@ -282,6 +284,32 @@ export const PROFESSIONAL_EXPERIENCE = [
       "Responsible for coaching students ages 4 to 19 in 1:1 and 2:1 formatted sessions and coached over 30 students",
       "Guided students through personalized coding projects, coding competition preparation, and offer programming advice",
       "Responsible for creating curriculums to help teach kids a variety of languages such as Scratch, Python, and Java",
+    ],
+  },
+];
+
+export const VOLUNTEER_AND_MENTORSHIP_EXPERIENCE = [
+  {
+    position: "SPIRE Mentorship Program",
+    company: "Chapman University",
+    location: "Orange, CA",
+    type: "In Person",
+    date: {
+      startMonth: "Aug",
+      startYear: "2023",
+      endMonth: "May",
+      endYear: "2024",
+    },
+    logo: "/logos/chapman-logo.png",
+    bio: {
+      short:
+        "Sustaining and Promoting Internships and Research Experience (SPIRE)",
+      long: "A program granted by the Air Force Office of Scientific Research through Chapman University that helps first- and second-year students in underrepresented groups land STEM internships or research experiences in science and engineering.",
+    },
+    bullet_points: [
+      "Guided 6 underclassmen through professional development workshops - resume, CV, cover letter, LinkedIn, networking, elevator pitch, networking, etc.",
+      "Assisted mentees in securing competitive research and internship opportunities by offering personalized feedback and providing insights throughout the application process.",
+      "Participated in a mentorship panel and shared my career journey highlighting key strategies and offering actionable advice.",
     ],
   },
 ];

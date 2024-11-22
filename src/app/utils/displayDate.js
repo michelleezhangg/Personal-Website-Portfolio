@@ -3,7 +3,10 @@ import { monthToNumber } from "./constants";
 
 export const displayDate = (startMonth, startYear, endMonth, endYear) => {
   // Empty string if end date is before start date
-  if (endYear < startYear || monthToNumber[endMonth] < monthToNumber[endYear])
+  if (
+    endYear < startYear ||
+    (monthToNumber[endMonth] < monthToNumber[endYear] && endYear <= startYear)
+  )
     return "";
 
   // No end date, present
