@@ -7,21 +7,24 @@ import {
   Bars3Icon,
   XMarkIcon,
   ChevronDownIcon,
-  ChevronUpIcon,
 } from "@heroicons/react/24/solid";
 import { PERSONAL, NAV_LINKS } from "../utils/constants";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(null);
-  const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [hoveredDropdown, setHoveredDropdown] = useState(null);
 
   useEffect(() => {
     setActiveLink("home");
   }, []);
 
-  const toggleDropdown = (index) => {
-    setDropdownOpen((prev) => (prev === index ? null : index));
+  const handleMouseEnter = (index) => {
+    setTimeout(() => setHoveredDropdown(index), 300); // Delay before showing drop
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredDropdown(null); // Hide dropdown when mouse leaves
   };
 
   return (
@@ -63,7 +66,12 @@ const Navbar = () => {
         <div className="hidden navbar-md:block" id="navbar">
           <ul className="flex p-4 gap-6">
             {NAV_LINKS.map((link, index) => (
-              <li key={index} className="relative flex items-center">
+              <li
+                key={index}
+                className="relative flex items-center"
+                onMouseEnter={() => handleMouseEnter(index)}
+                onMouseLeave={handleMouseLeave}
+              >
                 {/* Main Link */}
                 <ScrollLink
                   to={link.path}
@@ -77,27 +85,26 @@ const Navbar = () => {
                   activeClass="text-darkblue"
                   onSetActive={() => {
                     setActiveLink(link.path);
-                    setDropdownOpen(null);
+                    setHoveredDropdown(null);
                   }}
                 >
                   {link.title}
                 </ScrollLink>
-                {/* Dropdown Icon */}
+                {/* Dropdown Icons */}
                 {link.dropdown && (
-                  <button
-                    onClick={() => toggleDropdown(index)}
-                    className="flex items-center"
-                    aria-label={`${dropdownOpen === index ? "Close" : "Open"} dropdown menu`}
-                  >
-                    {dropdownOpen === index ? (
-                      <ChevronUpIcon className="h-5 w-5 text-darkblue" />
-                    ) : (
-                      <ChevronDownIcon className="h-5 w-5 hover:text-darkblue" />
-                    )}
-                  </button>
+                  <div className="lex items-center">
+                    <ChevronDownIcon
+                      strokeWidth={2.5}
+                      className={`h-5 w-5 hover:text-darkblue cursor-pointer transition-transform duration-200 ${
+                        hoveredDropdown === index
+                          ? "rotate-180 text-darkblue"
+                          : ""
+                      }`}
+                    />
+                  </div>
                 )}
                 {/* Dropdown Menu */}
-                {dropdownOpen === index && link.dropdown && (
+                {hoveredDropdown === index && link.dropdown && (
                   <ul className="absolute left-0 top-full bg-lightblue shadow-md p-1 z-40">
                     {link.dropdown.map((dropdownLink, index) => (
                       <li key={index}>
@@ -110,7 +117,7 @@ const Navbar = () => {
                           className="block px-5 py-2 text-md text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase whitespace-nowrap"
                           onClick={() => {
                             setActiveLink(dropdownLink.path);
-                            setDropdownOpen(null);
+                            setHoveredDropdown(null);
                           }}
                         >
                           {dropdownLink.title}
