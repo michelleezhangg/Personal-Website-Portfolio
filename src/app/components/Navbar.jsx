@@ -50,7 +50,7 @@ const Navbar = () => {
               className="flex items-center px-3 py-2"
               aria-label="Open mobile menu"
             >
-              <Bars3Icon className="h-8 w-8" />
+              <Bars3Icon strokeWidth={2} className="h-8 w-8" />
             </button>
           ) : (
             <button
@@ -58,7 +58,7 @@ const Navbar = () => {
               className="flex items-center px-3 py-2"
               aria-label="Close mobile menu"
             >
-              <XMarkIcon className="h-8 w-8" />
+              <XMarkIcon strokeWidth={2} className="h-8 w-8" />
             </button>
           )}
         </div>
@@ -68,6 +68,7 @@ const Navbar = () => {
             {NAV_LINKS.map((link, index) => (
               <li
                 key={index}
+                data-testid={`navlink-${index}`}
                 className="relative flex items-center"
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
@@ -105,9 +106,12 @@ const Navbar = () => {
                 )}
                 {/* Dropdown Menu */}
                 {hoveredDropdown === index && link.dropdown && (
-                  <ul className="absolute left-0 top-full bg-lightblue shadow-md p-1 z-40">
+                  <ul
+                    data-testid={`dropdown-menu-${index}`}
+                    className="absolute left-0 top-full bg-lightblue shadow-md p-1 z-40 transition-transform duration-300 ease-in-out"
+                  >
                     {link.dropdown.map((dropdownLink, index) => (
-                      <li key={index}>
+                      <li key={index} data-testid={`dropdown-link-${index}`}>
                         <ScrollLink
                           to={dropdownLink.path}
                           spy="true"

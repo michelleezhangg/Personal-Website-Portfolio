@@ -147,26 +147,29 @@ describe("Navbar Component", () => {
     expect(secondLink).toHaveClass("text-darkblue");
   });
 
-  it("toggles dropdown when dropdown icon is clicked", () => {
+  it("renders the dropdown menu when hoeveredDropdown matches the index", () => {
     const dropDownLinks = NAV_LINKS.filter((link) => link.dropdown);
+
     if (dropDownLinks.length > 0) {
-      const dropdownButton = screen.getAllByLabelText(/dropdown menu/)[0];
+      const dropDownParent = screen.getByText(dropDownLinks[0].title);
+      fireEvent.mouseEnter(dropDownParent); // Simulate hovering over the link
 
-      expect(
-        screen.queryByText(dropDownLinks[0].dropdown[0].title),
-      ).not.toBeInTheDocument();
+      const dropDownMenu = screen.getByRole("list");
+      expect(dropDownMenu).toBeInTheDocument();
+    }
+  });
 
-      fireEvent.click(dropdownButton);
+  it("sets hoveredDropdown when a nav link with a dropdown is hovered", () => {
+    const dropDownLinks = NAV_LINKS.filter((link) => link.dropdown);
 
-      expect(
-        screen.getByText(dropDownLinks[0].dropdown[0].title),
-      ).toBeInTheDocument();
+    if (dropDownLinks.length > 0) {
+      const dropDownParent = screen.getByText(dropDownLinks[0].title);
+      fireEvent.mouseEnter(dropDownParent); // Simulate hovering over the link
 
-      fireEvent.click(dropdownButton);
-
-      expect(
-        screen.queryByText(dropDownLinks[0].dropdown[0].title),
-      ).not.toBeInTheDocument();
+      const hoveredItem = screen.getByTestId(
+        `navlink-${NAV_LINKS.indexOf(dropDownLinks[0])}`,
+      );
+      expect(hoveredItem).toHaveClass("relative flex items-center");
     }
   });
 });
