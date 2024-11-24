@@ -119,7 +119,7 @@ const Navbar = () => {
                       className="absolute left-0 top-full bg-lightblue shadow-md p-1 z-40 origin-top"
                     >
                       {link.dropdown.map((dropdownLink, index) => (
-                        <li key={index} data-testid={`dropdown-link-${index}`}>
+                        <li data-testid={`dropdown-link-${index}`} key={index}>
                           <ScrollLink
                             to={dropdownLink.path}
                             spy="true"
@@ -127,7 +127,7 @@ const Navbar = () => {
                             offset={-100}
                             duration={500}
                             className="block px-5 py-2 text-md text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase whitespace-nowrap"
-                            onClick={() => {
+                            onSetActive={() => {
                               setActiveLink(dropdownLink.path);
                               setHoveredDropdown(null);
                             }}

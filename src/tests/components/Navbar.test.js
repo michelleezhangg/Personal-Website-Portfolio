@@ -1,5 +1,12 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import {
+  render,
+  screen,
+  fireEvent,
+  waitFor,
+  act,
+} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Navbar from "@/app/components/Navbar";
 import { NAV_LINKS, PERSONAL } from "@/app/utils/constants";
 
@@ -13,7 +20,7 @@ jest.mock("react-scroll", () => {
       to={to}
       onClick={() => {
         if (onSetActive) {
-          onSetActive(to); // simulate onSetActive callback
+          onSetActive(to); // Simulate onSetActive callback
         }
       }}
     >
@@ -60,8 +67,64 @@ jest.mock("@/app/components/MenuOverlay", () => {
   return MockMenuOverlay;
 });
 
+// Mock NAV_LINKS constant
+jest.mock("@/app/utils/constants", () => ({
+  NAV_LINKS: [
+    {
+      title: "Link One",
+      path: "/link-one",
+    },
+    {
+      title: "Link Two",
+      path: "/link-two",
+      dropdown: [
+        {
+          title: "Dropdown One",
+          path: "/dropdown-one",
+        },
+        {
+          title: "Dropdown Two",
+          path: "/dropdown-two",
+        },
+        {
+          title: "Dropdown Three",
+          path: "/dropdown-three",
+        },
+      ],
+    },
+    {
+      title: "Link Three",
+      path: "/link-three",
+      dropdown: [
+        {
+          title: "Dropdown One",
+          path: "/dropdown-one",
+        },
+        {
+          title: "Dropdown Two",
+          path: "/dropdown-two",
+        },
+      ],
+    },
+    {
+      title: "Link Four",
+      path: "/link-four",
+    },
+    {
+      title: "Link Five",
+      path: "/link-five",
+    },
+  ],
+
+  PERSONAL: {
+    name: "First Last",
+    role: "Software Engineer",
+  },
+}));
+
 describe("Navbar Component", () => {
   beforeEach(() => {
+    jest.useFakeTimers();
     render(<Navbar />);
   });
 
@@ -72,7 +135,6 @@ describe("Navbar Component", () => {
   it("renders Navbar component with the title and role", () => {
     const nameElement = screen.getByText(PERSONAL.name);
     const roleElement = screen.getByText(PERSONAL.role);
-
     expect(nameElement).toBeInTheDocument();
     expect(roleElement).toBeInTheDocument();
   });
@@ -164,5 +226,33 @@ describe("Navbar Component", () => {
       const dropDownMenu = screen.getByRole("list");
       expect(dropDownMenu).toBeInTheDocument();
     }
+  });
+
+  it("closes dropdown menu when mouse leaves navlink", async () => {
+    const dropDownLinkIndex = 1;
+    const dropDownLink = screen.getByTestId(`navlink-${dropDownLinkIndex}`);
+    userEvent.hover(dropDownLink); // Simulate hovering over the link
+
+    const dropDownMenu = await screen.findByTestId(
+      `dropdown-menu-${dropDownLinkIndex}`,
+    );
+    expect(dropDownMenu).toBeInTheDocument();
+
+    userEvent.unhover(dropDownLink);
+    await waitFor(() => {
+      expect(
+        screen.queryByTestId(`dropdown-menu-${dropDownLinkIndex}`),
+      ).toBeInTheDocument();
+    });
+  });
+
+  it("displays correct dropdown contents when navlink with dropdown is hovered", async () => {
+    const dropDownNavLink = screen.getByText("Link Two");
+    fireEvent.mouseEnter(dropDownNavLink);
+    act(() => {
+      jest.advanceTimersByTime(300);
+    });
+    expect(screen.getByText("Dropdown One")).toBeInTheDocument();
+    expect(screen.getByText("Dropdown Two")).toBeInTheDocument();
   });
 });
