@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { motion, AnimatePresence } from "framer-motion";
 import MenuOverlay from "./MenuOverlay";
 import {
   Bars3Icon,
@@ -93,43 +94,51 @@ const Navbar = () => {
                 </ScrollLink>
                 {/* Dropdown Icons */}
                 {link.dropdown && (
-                  <div className="lex items-center">
+                  <motion.div
+                    className="flex items-center"
+                    animate={{ rotate: hoveredDropdown === index ? 180 : 0 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                  >
                     <ChevronDownIcon
                       strokeWidth={2.5}
-                      className={`h-5 w-5 hover:text-darkblue cursor-pointer transition-transform duration-200 ${
-                        hoveredDropdown === index
-                          ? "rotate-180 text-darkblue"
-                          : ""
+                      className={`h-5 w-5 hover:text-darkblue cursor-pointer ${
+                        hoveredDropdown === index ? "text-darkblue" : ""
                       }`}
                     />
-                  </div>
+                  </motion.div>
                 )}
                 {/* Dropdown Menu */}
-                {hoveredDropdown === index && link.dropdown && (
-                  <ul
-                    data-testid={`dropdown-menu-${index}`}
-                    className="absolute left-0 top-full bg-lightblue shadow-md p-1 z-40 transition-transform duration-300 ease-in-out"
-                  >
-                    {link.dropdown.map((dropdownLink, index) => (
-                      <li key={index} data-testid={`dropdown-link-${index}`}>
-                        <ScrollLink
-                          to={dropdownLink.path}
-                          spy="true"
-                          smooth="true"
-                          offset={-100}
-                          duration={500}
-                          className="block px-5 py-2 text-md text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase whitespace-nowrap"
-                          onClick={() => {
-                            setActiveLink(dropdownLink.path);
-                            setHoveredDropdown(null);
-                          }}
-                        >
-                          {dropdownLink.title}
-                        </ScrollLink>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <AnimatePresence>
+                  {hoveredDropdown === index && link.dropdown && (
+                    <motion.ul
+                      data-testid={`dropdown-menu-${index}`}
+                      initial={{ scaleY: 0, opacity: 0 }}
+                      animate={{ scaleY: 1, opacity: 1 }}
+                      exit={{ scaleY: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="absolute left-0 top-full bg-lightblue shadow-md p-1 z-40 origin-top"
+                    >
+                      {link.dropdown.map((dropdownLink, index) => (
+                        <li key={index} data-testid={`dropdown-link-${index}`}>
+                          <ScrollLink
+                            to={dropdownLink.path}
+                            spy="true"
+                            smooth="true"
+                            offset={-100}
+                            duration={500}
+                            className="block px-5 py-2 text-md text-gray-700 hover:bg-lightblue hover:text-darkblue cursor-pointer uppercase whitespace-nowrap"
+                            onClick={() => {
+                              setActiveLink(dropdownLink.path);
+                              setHoveredDropdown(null);
+                            }}
+                          >
+                            {dropdownLink.title}
+                          </ScrollLink>
+                        </li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
               </li>
             ))}
           </ul>

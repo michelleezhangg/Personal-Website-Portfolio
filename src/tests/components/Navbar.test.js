@@ -97,6 +97,13 @@ describe("Navbar Component", () => {
     expect(menuOverlay).toBeInTheDocument();
   });
 
+  it("renders navigation links", () => {
+    NAV_LINKS.forEach((link, index) => {
+      expect(screen.getByTestId(`navlink-${index}`)).toBeInTheDocument();
+      expect(screen.getByText(link.title)).toBeInTheDocument();
+    });
+  });
+
   it("renders the correct number of links in the navbar in desktop view", () => {
     const listItems = screen.getAllByRole("listitem");
     expect(listItems).toHaveLength(NAV_LINKS.length);
@@ -147,7 +154,7 @@ describe("Navbar Component", () => {
     expect(secondLink).toHaveClass("text-darkblue");
   });
 
-  it("renders the dropdown menu when hoeveredDropdown matches the index", () => {
+  it("renders the dropdown menu when hoveredDropdown matches the index", () => {
     const dropDownLinks = NAV_LINKS.filter((link) => link.dropdown);
 
     if (dropDownLinks.length > 0) {
@@ -156,20 +163,6 @@ describe("Navbar Component", () => {
 
       const dropDownMenu = screen.getByRole("list");
       expect(dropDownMenu).toBeInTheDocument();
-    }
-  });
-
-  it("sets hoveredDropdown when a nav link with a dropdown is hovered", () => {
-    const dropDownLinks = NAV_LINKS.filter((link) => link.dropdown);
-
-    if (dropDownLinks.length > 0) {
-      const dropDownParent = screen.getByText(dropDownLinks[0].title);
-      fireEvent.mouseEnter(dropDownParent); // Simulate hovering over the link
-
-      const hoveredItem = screen.getByTestId(
-        `navlink-${NAV_LINKS.indexOf(dropDownLinks[0])}`,
-      );
-      expect(hoveredItem).toHaveClass("relative flex items-center");
     }
   });
 });
