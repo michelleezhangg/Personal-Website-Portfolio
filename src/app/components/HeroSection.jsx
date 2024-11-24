@@ -7,7 +7,6 @@ import { Link as ScrollLink } from "react-scroll";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import {
   PERSONAL,
-  SOCIAL_LINKS,
   SOCIAL_ICONS,
   MD_QUERY,
 } from "../utils/constants";
@@ -78,9 +77,9 @@ const ProfileCard = ({ isMd }) => {
       {!isMd && <HeroSectionBio isMd={isMd} />}
       {/* Social Media Icons */}
       <div className="flex flex-row gap-6 bg-white self-stretch -mx-10 mt-8 py-2 items-center justify-center">
-        <Link href={SOCIAL_LINKS.linkedin}>
+        <Link href={SOCIAL_ICONS.linkedin.link}>
           <Image
-            src={SOCIAL_ICONS.linkedin}
+            src={SOCIAL_ICONS.linkedin.icon.dark}
             alt="LinkedIn Icon"
             width={30}
             height={30}
@@ -88,9 +87,9 @@ const ProfileCard = ({ isMd }) => {
             loading="eager"
           />
         </Link>
-        <Link href={SOCIAL_LINKS.github}>
+        <Link href={SOCIAL_ICONS.github.link}>
           <Image
-            src={SOCIAL_ICONS.github}
+            src={SOCIAL_ICONS.github.icon.dark}
             alt="GitHub Icon"
             width={30}
             height={30}
@@ -98,9 +97,9 @@ const ProfileCard = ({ isMd }) => {
             loading="eager"
           />
         </Link>
-        <Link href={SOCIAL_LINKS.instagram}>
+        <Link href={SOCIAL_ICONS.instagram.link}>
           <Image
-            src={SOCIAL_ICONS.instagramLight}
+            src={SOCIAL_ICONS.instagram.icon.light}
             alt="Instagram Icon"
             width={30}
             height={30}

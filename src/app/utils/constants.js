@@ -10,23 +10,40 @@ export const PERSONAL = {
     "I have a background in Full-Stack Development, Web Development, and Data Analytics.",
 };
 
-export const SOCIAL_LINKS = {
-  linkedin: "https://www.linkedin.com/in/michelleezhangg",
-  instagram: "https://www.instagram.com/michellee.zhangg/",
-  github: "https://github.com/michelleezhangg",
-};
-
 export const SOCIAL_ICONS = {
-  linkedin: "/icons/linkedin-icon.svg",
-  linkedinLight: "/icons/linkedin-icon-dark.svg",
-  github: "/icons/github-icon.svg",
-  githubLight: "/icons/github-icon-light.svg",
-  instagram: "/icons/instagram-icon.svg",
-  instagramLight: "/icons/instagram-icon-light.svg",
-  phone: "/icons/phone-icon.svg",
-  phoneLight: "/icons/phone-icon-light.svg",
-  email: "/icons/email-icon.png",
-  emailLight: "/icons/email-icon-light.png",
+  linkedin: {
+    link: "https://www.linkedin.com/in/michelleezhangg",
+    icon: {
+      light: "/icons/linkedin-icon-light.svg",
+      dark : "/icons/linkedin-icon-dark.svg",
+    },
+  },
+  instagram: {
+    link: "https://www.instagram.com/michellee.zhangg/",
+    icon: {
+      light: "/icons/instagram-icon-light.svg",
+      dark: "/icons/instagram-icon-dark.svg",
+    },
+  },
+  github: {
+    link: "https://github.com/michelleezhangg",
+    icon: {
+      light: "/icons/github-icon-light.svg",
+      dark: "/icons/github-icon-dark.svg",
+    },
+  },
+  phone: {
+    icon: {
+      light: "/icons/phone-icon-light.svg",
+      dark: "/icons/phone-icon.svg",
+    },
+  },
+  email: {
+    icon: {
+      light: "/icons/email-icon-light.png",
+      dark: "/icons/email-icon.png",
+    },
+  },
 };
 
 /* Navbar Constants */
@@ -174,6 +191,10 @@ export const SKILLS = {
     {
       name: "Prisma.io",
       path: "/icons/prisma-icon.svg",
+    },
+    {
+      name: "MongoDB",
+      path: "/icons/mongodb-icon.svg",
     },
   ],
   technical_skills: [

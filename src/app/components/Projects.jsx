@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import ProjectItem from "./ProjectItem";
-import { SOCIAL_LINKS, PROJECTS } from "../utils/constants";
+import { SOCIAL_ICONS, PROJECTS } from "../utils/constants";
 
 const Projects = () => {
   return (
@@ -12,12 +12,12 @@ const Projects = () => {
           Projects
         </h1>
         <div className="flex pb-10">
-          <Link href={SOCIAL_LINKS.github}>
+          <Link href={SOCIAL_ICONS.github.link}>
             <button className="button blue-button lg:text-md text-sm px-8 mx-4">
               GitHub
             </button>
           </Link>
-          <Link href={SOCIAL_LINKS.linkedin}>
+          <Link href={SOCIAL_ICONS.linkedin.link}>
             <button className="button transparent-button lg:text-md text-sm px-6">
               LinkedIn
             </button>

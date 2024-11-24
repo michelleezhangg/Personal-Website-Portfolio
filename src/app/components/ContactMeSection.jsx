@@ -6,7 +6,6 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 import {
   CONTACT,
   PERSONAL,
-  SOCIAL_LINKS,
   SOCIAL_ICONS,
   MD_QUERY,
 } from "../utils/constants";
@@ -88,27 +87,27 @@ const ContactMeSection = () => {
           </h5>
           <p className="mb-4 lg:text-lg text-sm max-w-sm">{CONTACT.bio}</p>
           <div className="flex flex-row gap-5">
-            <Link href={SOCIAL_LINKS.linkedin}>
+            <Link href={SOCIAL_ICONS.linkedin.link}>
               <Image
-                src={SOCIAL_ICONS.linkedin}
+                src={SOCIAL_ICONS.linkedin.icon.dark}
                 alt="LinkedIn Icon"
                 width={isMd ? 30 : 25}
                 height={isMd ? 30 : 25}
                 data-testid="linkedin-icon"
               />
             </Link>
-            <Link href={SOCIAL_LINKS.github}>
+            <Link href={SOCIAL_ICONS.github.link}>
               <Image
-                src={SOCIAL_ICONS.github}
+                src={SOCIAL_ICONS.github.icon.dark}
                 alt="GitHub Icon"
                 width={isMd ? 30 : 25}
                 height={isMd ? 30 : 25}
                 data-testid="github-icon"
               />
             </Link>
-            <Link href={SOCIAL_LINKS.instagram}>
+            <Link href={SOCIAL_ICONS.instagram.link}>
               <Image
-                src={SOCIAL_ICONS.instagramLight}
+                src={SOCIAL_ICONS.instagram.icon.light}
                 alt="Instagram Icon"
                 width={isMd ? 30 : 25}
                 height={isMd ? 30 : 25}
@@ -118,7 +117,7 @@ const ContactMeSection = () => {
           </div>
           <div className="grid lg:grid-cols-[60px_1fr] grid-cols-[45px_1fr] lg:mt-12 mt-5">
             <Image
-              src={SOCIAL_ICONS.phoneLight}
+              src={SOCIAL_ICONS.phone.icon.light}
               alt="Phone Icon"
               width={isMd ? 30 : 25}
               height={isMd ? 30 : 25}
@@ -128,7 +127,7 @@ const ContactMeSection = () => {
               {PERSONAL.phone_number}
             </p>
             <Image
-              src={SOCIAL_ICONS.emailLight}
+              src={SOCIAL_ICONS.email.icon.light}
               alt="Email Icon"
               width={isMd ? 25 : 20}
               height={isMd ? 25 : 20}

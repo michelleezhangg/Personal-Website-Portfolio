@@ -7,7 +7,7 @@ import {
   PROFESSIONAL_EXPERIENCE,
   VOLUNTEER_AND_MENTORSHIP_EXPERIENCE,
   MD_QUERY,
-  SOCIAL_LINKS,
+  SOCIAL_ICONS,
 } from "../utils/constants";
 
 const ExperienceSection = () => {
@@ -28,7 +28,7 @@ const ExperienceSection = () => {
         <h1 className="title section-major-heading lg:p-10 p-4 pt-20">
           Experience
         </h1>
-        <Link href={SOCIAL_LINKS.linkedin}>
+        <Link href={SOCIAL_ICONS.linkedin.link}>
           <button className="button transparent-button lg:text-md text-sm px-6">
             LinkedIn
           </button>
