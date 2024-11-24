@@ -29,6 +29,7 @@ const Projects = () => {
             <ProjectItem
               key={index}
               title={project.title}
+              id={project.id}
               date={project.date}
               location={project.location}
               links={project.links}

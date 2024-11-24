@@ -38,10 +38,34 @@ export const NAV_LINKS = [
   {
     title: "background",
     path: "background",
+    dropdown: [
+      {
+        title: "education",
+        path: "education",
+      },
+      {
+        title: "skills",
+        path: "skills",
+      },
+      {
+        title: "about me",
+        path: "about-me",
+      },
+    ],
   },
   {
     title: "experience",
     path: "experience",
+    dropdown: [
+      {
+        title: "professional experience",
+        path: "professional-experience",
+      },
+      {
+        title: "volunteering & mentorship",
+        path: "volunteering-and-mentorship",
+      },
+    ],
   },
   {
     title: "projects",
@@ -186,6 +210,10 @@ export const SKILLS = {
       name: "Jira",
       path: "/icons/jira-icon.svg",
     },
+    {
+      name: "MAMP",
+      path: "/icons/mamp-icon.svg",
+    },
   ],
 };
 
@@ -310,6 +338,7 @@ export const VOLUNTEER_AND_MENTORSHIP_EXPERIENCE = [
 export const PROJECTS = [
   {
     title: "Personal Website Portfolio",
+    id: "personal-website-portfolio",
     date: {
       startMonth: "Sep",
       startYear: "2024",
@@ -333,6 +362,7 @@ export const PROJECTS = [
   },
   {
     title: "Brain Tumor MRI Scan Classification",
+    id: "brain-tumor-mri-scan-classification",
     date: {
       startMonth: "Nov",
       startYear: "2023",
@@ -363,6 +393,7 @@ export const PROJECTS = [
   },
   {
     title: "Rosetta Stone Subscriber Optimizer",
+    id: "rosetta-stone-subscriber-optimizer",
     date: {
       startMonth: "Nov",
       startYear: "2023",
@@ -389,6 +420,7 @@ export const PROJECTS = [
   },
   {
     title: "College Admissions Data Analysis",
+    id: "college-admissions-data-analysis",
     date: {
       startMonth: "May",
       startYear: "2023",
@@ -414,6 +446,7 @@ export const PROJECTS = [
   },
   {
     title: "Film Data Analysis",
+    id: "film-data-analysis",
     date: {
       startMonth: "May",
       startYear: "2023",
@@ -447,6 +480,7 @@ export const PROJECTS = [
   },
   {
     title: "3D Printing Research Project",
+    id: "3d-printing-research-project",
     date: {
       startMonth: "Feb",
       startYear: "2020",
@@ -473,6 +507,7 @@ export const PROJECTS = [
   },
   {
     title: "University Student-Faculty Database",
+    id: "university-student-faculty-database",
     date: {
       startMonth: "Apr",
       startYear: "2022",
@@ -497,6 +532,7 @@ export const PROJECTS = [
   },
   {
     title: "Scientific Computing Project",
+    id: "scientific-computing-project",
     date: {
       startMonth: "Sep",
       startYear: "2020",

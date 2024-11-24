@@ -5,14 +5,21 @@ import Link from "next/link";
 import { displayDuration } from "../utils/duration";
 import { displayDate } from "../utils/displayDate";
 
-const ProjectItem = ({ title, date, location, links, ...bullet_points }) => {
+const ProjectItem = ({
+  title,
+  id,
+  date,
+  location,
+  links,
+  ...bullet_points
+}) => {
   const bullet_point_values = Object.values(bullet_points);
   const { startMonth, startYear, endMonth, endYear } = date;
   const duration = displayDuration(startMonth, startYear, endMonth, endYear);
   const dateDisplay = displayDate(startMonth, startYear, endMonth, endYear);
 
   return (
-    <div className="section-box lg:mb-20 mb-10">
+    <div className={`section-box lg:mb-20 mb-10 ${id}`}>
       <h3 className="title box-heading">{title}</h3>
       <div>
         <p className="lg:text-md text-sm">{`${dateDisplay} (${duration})`}</p>
@@ -40,6 +47,7 @@ const ProjectItem = ({ title, date, location, links, ...bullet_points }) => {
 
 ProjectItem.propTypes = {
   title: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   date: PropTypes.shape({
     startMonth: PropTypes.string.isRequired,
     startYear: PropTypes.string.isRequired,

@@ -6,14 +6,15 @@ const MenuOverlay = ({ links, setNavbarOpen }) => {
   return (
     <ul className="flex flex-col py-4 items-center">
       {links.map((link, index) => (
-        <li key={index}>
+        <li key={index} className="relative flex items-center">
+          {/* Main Link */}
           <ScrollLink
             to={link.path}
-            spy={true}
-            smooth={true}
+            spy="true"
+            smooth="true"
             offset={-350} // Extend spy region up 350px for mobile view
             duration={500}
-            className="block py-2 pr-4 hover:text-darkblue uppercase cursor-pointer"
+            className="flex items-center text-lg py-2 pr-1 hover:text-darkblue uppercase cursor-pointer"
             activeClass="text-darkblue"
             onClick={() => setNavbarOpen(false)} // Close the menu when a link is clicked
           >
@@ -30,6 +31,13 @@ MenuOverlay.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       path: PropTypes.string.isRequired,
+      dropdown: PropTypes.arrayOf(
+        // Optional
+        PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          path: PropTypes.string.isRequired,
+        }),
+      ),
     }),
   ).isRequired,
   setNavbarOpen: PropTypes.func.isRequired,

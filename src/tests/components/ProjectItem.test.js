@@ -14,6 +14,7 @@ jest.mock("@/app/utils/displayDate", () => ({
 
 const mockProjectItem = {
   title: "Project Title",
+  id: "project-id",
   date: {
     startMonth: "Jan",
     startYear: "2024",
@@ -85,7 +86,13 @@ describe("ProjectItem Component", () => {
   it("renders no bullet points if none are provided", () => {
     const mockNoBulletPoints = {
       title: "Project Title",
-      date: "Jan 2024 - Jun 2024",
+      id: "project-id",
+      date: {
+        startMonth: "Jan",
+        startYear: "2024",
+        endMonth: "Jun",
+        endYear: "2024",
+      },
       location: "Remote",
       links: [],
     };

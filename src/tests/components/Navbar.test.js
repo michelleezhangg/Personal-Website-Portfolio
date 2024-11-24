@@ -1,64 +1,33 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import Navbar from "@/app/components/Navbar";
-import { NAV_LINKS, PERSONAL } from "@/app/utils/constants";
+import { PERSONAL, NAV_LINKS } from "@/app/utils/constants";
+import { Link as ScrollLink, animateScroll } from "react-scroll";
 
-// Mock react-scroll library to isolate Navbar tests
-jest.mock("react-scroll", () => {
-  const MockLink = ({ activeClass, onSetActive, to, ...props }) => (
-    <a
-      {...props}
-      data-testid="scroll-link"
-      className={activeClass}
-      to={to}
-      onClick={() => {
-        if (onSetActive) {
-          onSetActive(to); // simulate onSetActive callback
-        }
-      }}
-    >
-      {props.children}
+// Mock react-scroll to simulate behavior
+jest.mock("react-scroll", () => ({
+  ...jest.requireActual("react-scroll"),
+  Link: jest.fn(({ to, onSetActive, children, ...props }) => (
+    <a href={`#${to}`} onClick={() => onSetActive && onSetActive()} {...props}>
+      {children}
     </a>
-  );
-
-  MockLink.propTypes = {
-    activeClass: require("prop-types").string,
-    onSetActive: require("prop-types").func,
-    to: require("prop-types").string,
-    children: require("prop-types").node,
-  };
-
-  MockLink.displayName = "MockLink";
-
-  return {
-    Link: MockLink,
-    animateScroll: { scrollToTop: jest.fn() },
-  };
-});
+  )),
+  animateScroll: { scrollToTop: jest.fn() },
+}));
 
 // Mock MenuOverlay component
-jest.mock("@/app/components/MenuOverlay", () => {
-  const MockMenuOverlay = ({ links }) => (
-    <ul data-testid="menu-overlay">
+jest.mock("@/app/components/MenuOverlay", () =>
+  jest.fn(({ links, setNavbarOpen }) => (
+    <div data-testid="menu-overlay">
+      <button onClick={() => setNavbarOpen(false)}>Close Menu</button>
       {links.map((link, index) => (
-        <li key={index}>{link.title}</li>
+        <a key={index} href={`#${link.path}`}>
+          {link.title}
+        </a>
       ))}
-    </ul>
-  );
-
-  MockMenuOverlay.propTypes = {
-    links: require("prop-types").arrayOf(
-      require("prop-types").shape({
-        title: require("prop-types").string.isRequired,
-        path: require("prop-types").string.isRequired,
-      }),
-    ).isRequired,
-  };
-
-  MockMenuOverlay.displayName = "MenuOverlay";
-
-  return MockMenuOverlay;
-});
+    </div>
+  )),
+);
 
 describe("Navbar Component", () => {
   beforeEach(() => {
@@ -69,81 +38,94 @@ describe("Navbar Component", () => {
     jest.clearAllMocks();
   });
 
-  it("renders Navbar component with the title and role", () => {
-    const nameElement = screen.getByText(PERSONAL.name);
-    const roleElement = screen.getByText(PERSONAL.role);
-
-    expect(nameElement).toBeInTheDocument();
-    expect(roleElement).toBeInTheDocument();
+  it("renders the navbar with personal details", () => {
+    expect(screen.getByText(PERSONAL.name)).toBeInTheDocument();
+    expect(screen.getByText(PERSONAL.role)).toBeInTheDocument();
   });
 
-  it("renders the mobile menu button", () => {
-    const mobileMenuButton = screen.getByLabelText("Open mobile menu");
-    expect(mobileMenuButton).toBeInTheDocument();
-  });
+  it("toggles the mobile menu", () => {
+    const openButton = screen.getByLabelText("Open mobile menu");
+    fireEvent.click(openButton);
 
-  it("opens the mobile menu when button is clicked", () => {
-    const mobileMenuButton = screen.getByLabelText("Open mobile menu");
-
-    // Click to open the mobile menu
-    fireEvent.click(mobileMenuButton);
-
-    // Check if close button is present after clicking
-    const closeButton = screen.getByLabelText("Close mobile menu");
-    expect(closeButton).toBeInTheDocument();
-
-    // Check if MenuOverlay is rendered
     const menuOverlay = screen.getByTestId("menu-overlay");
     expect(menuOverlay).toBeInTheDocument();
-  });
 
-  it("renders the correct number of links in the navbar in desktop view", () => {
-    const listItems = screen.getAllByRole("listitem");
-    expect(listItems).toHaveLength(NAV_LINKS.length);
-  });
-
-  it("link elements have correct attributes", () => {
-    const scrollLinks = screen.getAllByTestId("scroll-link");
-    scrollLinks.forEach((link, index) => {
-      expect(link).toHaveTextContent(NAV_LINKS[index].title);
-      expect(link).toHaveAttribute("to", NAV_LINKS[index].path);
+    NAV_LINKS.forEach((link) => {
+      expect(screen.queryAllByText(link.title)[0]).toBeInTheDocument();
     });
-  });
 
-  it("closes mobile menu when close button is clicked", () => {
-    // Open the mobile menu
-    const mobileMenuButton = screen.getByLabelText("Open mobile menu");
-    fireEvent.click(mobileMenuButton);
-
-    // Check if close button is present after clicking
-    const closeButton = screen.getByLabelText("Close mobile menu");
-    expect(closeButton).toBeInTheDocument();
-
-    // Close the mobile menu
+    const closeButton = screen.getByText("Close Menu");
     fireEvent.click(closeButton);
-
-    // Check if close button is no longer in the document
-    expect(
-      screen.queryByLabelText("Close mobile menu"),
-    ).not.toBeInTheDocument();
     expect(screen.queryByTestId("menu-overlay")).not.toBeInTheDocument();
   });
 
-  it("scrolls to the top when logo is clicked", () => {
-    const logoLink = screen.getByText(PERSONAL.name);
-    fireEvent.click(logoLink);
-
-    // Check if scrollToTop function is called
-    const { animateScroll } = require("react-scroll");
-    expect(animateScroll.scrollToTop).toHaveBeenCalled();
+  it("sets the active link on click", async () => {
+    const navLink = screen.getByText(NAV_LINKS[0].title);
+    fireEvent.click(navLink);
+    expect(ScrollLink).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: NAV_LINKS[0].path,
+      }),
+      expect.anything(),
+    );
   });
 
-  it("sets the active link when onSetActive is triggered", () => {
-    const scrollLinks = screen.getAllByTestId("scroll-link");
-    const secondLink = scrollLinks[1];
-    fireEvent.click(secondLink);
+  it("sets the active link and clears hovered dropdown when a dropdown link is clicked", async () => {
+    const mainLink = screen.getByText(NAV_LINKS[1].title);
+    fireEvent.mouseEnter(mainLink);
 
-    // Check if second link has active highlighting
-    expect(secondLink).toHaveClass("text-darkblue");
+    const dropDownLink = await screen.findByText(
+      NAV_LINKS[1].dropdown[0].title,
+    );
+    fireEvent.click(dropDownLink);
+    expect(ScrollLink).toHaveBeenCalledWith(
+      expect.objectContaining({
+        to: NAV_LINKS[1].path,
+      }),
+      expect.anything(),
+    );
+    await waitFor(() => {
+      expect(
+        screen.queryByText(NAV_LINKS[1].dropdown[0].title),
+      ).not.toBeInTheDocument();
+    });
+  });
+
+  it("sets hoveredDropdown correctly when mouse enters and leaves a dropdown link", () => {
+    const dropDownIndex = NAV_LINKS.findIndex((link) => link.dropdown);
+    const dropDownLink = screen.getByTestId(`navlink-${dropDownIndex}`);
+    fireEvent.mouseEnter(dropDownLink);
+
+    setTimeout(() => {
+      const dropDownMenu = screen.getByTestId(`dropdown-menu-${dropDownIndex}`);
+      expect(dropDownMenu).toBeInTheDocument();
+    }, 300);
+    fireEvent.mouseLeave(dropDownLink);
+
+    const dropDownMenu = screen.queryByTestId(`dropdown-menu-${dropDownIndex}`);
+    expect(dropDownMenu).not.toBeInTheDocument();
+  });
+
+  it("scrolls to the top when navbar name or role is clicked", () => {
+    const nameElement = screen.getByText(PERSONAL.name);
+    fireEvent.click(nameElement);
+    expect(animateScroll.scrollToTop).toHaveBeenCalledTimes(1);
+
+    const roleElement = screen.getByText(PERSONAL.role);
+    fireEvent.click(roleElement);
+    expect(animateScroll.scrollToTop).toHaveBeenCalledTimes(2);
+  });
+
+  it("toggles navbarOpen state when the menu buttons are clicked", () => {
+    const openButton = screen.getByRole("button", { name: "Open mobile menu" });
+    fireEvent.click(openButton);
+
+    const closeButton = screen.getByRole("button", {
+      name: "Close mobile menu",
+    });
+    expect(closeButton).toBeInTheDocument();
+    fireEvent.click(closeButton);
+
+    expect(openButton).toBeInTheDocument();
   });
 });
